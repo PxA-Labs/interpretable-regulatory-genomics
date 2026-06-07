@@ -2,7 +2,7 @@
 
 This repository contains the comprehensive project-definition pack for the project: **Interpretable Machine Learning on ENCODE regulatory data to discover hidden switches in non-coding DNA**.
 
-The project is structured as a realistic undergraduate-to-research-lab grade initiative, optimized to run on accessible Kaggle-level compute infrastructure rather than large dedicated GPU clusters.
+The project is structured as a realistic undergraduate-to-research-lab-grade initiative, optimized to run on accessible Kaggle-level compute infrastructure rather than large dedicated GPU clusters.
 
 ## Documentation (PDF format)
 

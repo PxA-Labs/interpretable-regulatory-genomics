@@ -21,8 +21,3 @@ All specifications are compiled into professional PDF documents located inside t
 - [10-Roadmap & Milestones](docs/10-roadmap-milestones.pdf) — 12-month delivery roadmap, key milestones, and check-off criteria.
 - [11-Glossary & Project Memory](docs/11-glossary-project-memory.pdf) — Definitions, locked decisions, and scope limitations.
 - [12-Contributor Onboarding Brief](docs/12-contributor-onboarding.pdf) — Onboarding details, setup checklist, and coding guidelines.
-
----
-
-### 🛠️ PDF Generation
-The PDF files are compiled using `xhtml2pdf` through the [convert_to_pdf.py](convert_to_pdf.py) script. 

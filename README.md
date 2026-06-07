@@ -4,7 +4,7 @@ This repository contains the comprehensive project-definition pack for the proje
 
 The project is structured as a realistic undergraduate-to-research-lab grade initiative, optimized to run on accessible Kaggle-level compute infrastructure rather than large dedicated GPU clusters.
 
-## 📄 Documentation (PDF format)
+## Documentation (PDF format)
 
 All specifications are compiled into professional PDF documents located inside the [docs/](docs/) directory:
 

@@ -6,7 +6,7 @@ Following these guidelines helps ensure the codebase remains robust, reproducibl
 
 ---
 
-## 🚀 How to Get Started
+## How to Get Started
 
 1. **Review the Specifications**: Before writing any code, review the project documentation in the [docs/](docs/) directory (particularly [12-contributor-onboarding.pdf](docs/12-contributor-onboarding.pdf) and [11-glossary-project-memory.pdf](docs/11-glossary-project-memory.pdf)).
 2. **Search Issues**: Check the GitHub Issues tab to see if your bug or feature request has already been discussed.
@@ -14,7 +14,7 @@ Following these guidelines helps ensure the codebase remains robust, reproducibl
 
 ---
 
-## 🛠️ Development & Coding Standards
+## Development & Coding Standards
 
 To ensure reproducibility (crucial for genomic research), we follow strict rules:
 
@@ -33,7 +33,7 @@ To ensure reproducibility (crucial for genomic research), we follow strict rules
 
 ---
 
-## 📬 Git Workflow & Pull Requests
+## Git Workflow & Pull Requests
 
 1. **Branch Naming**: Use a prefix indicating the change type:
    * `feat/` for new features or modeling approaches.

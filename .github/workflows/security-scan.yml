@@ -1,0 +1,40 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run weekly to catch new vulnerabilities in pinned dependencies
+    - cron: '0 0 * * 0'
+
+jobs:
+  security-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+
+    - name: Install Security Tools
+      run: |
+        python -m pip install --upgrade pip
+        pip install bandit pip-audit
+
+    - name: Run Bandit (Python Static Security Scan)
+      # bandit checks for common security issues (e.g. unsafe imports, shell injections, weak cryptography)
+      # -r: recursive, -ll: report medium and high severity findings
+      run: |
+        bandit -r src/ -ll
+
+    - name: Run pip-audit (Dependency Vulnerability Scan)
+      # pip-audit queries the PyPI vulnerability database to check for known issues in requirements.txt
+      run: |
+        pip-audit -r requirements.txt

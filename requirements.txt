@@ -1,0 +1,16 @@
+# Core Scientific Stack
+numpy>=1.22.0
+pandas>=1.4.0
+scikit-learn>=1.0.0
+xgboost>=1.6.0
+
+# Deep Learning & Foundation Models
+torch>=2.0.0
+transformers>=4.28.0
+tqdm>=4.65.0
+
+# Interpretability & Visualization
+shap>=0.41.0
+captum>=0.6.0
+matplotlib>=3.5.0
+logomaker>=0.8.0

@@ -8,7 +8,7 @@ class PretrainedEmbedder:
     Utility class to load a pre-trained genomic language model from HuggingFace
     and extract sequence embeddings.
     """
-    def __init__(self, model_name: str = "InstaDeepAI/nucleotide-transformer-50m-1000g", device: str = None):
+    def __init__(self, model_name: str = "InstaDeepAI/nucleotide-transformer-500m-1000g", device: str = None):
         self.model_name = model_name
         self.device = device if device else ("cuda" if torch.cuda.is_available() else "cpu")
         

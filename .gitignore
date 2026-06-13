@@ -7,3 +7,6 @@ __pycache__/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Exclude local markdown documentation drafts (only compiled PDFs belong in the remote repo)
+docs/*.md

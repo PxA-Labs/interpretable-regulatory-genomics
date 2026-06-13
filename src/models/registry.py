@@ -1,5 +1,6 @@
 from .base_model import BaseModel
 from .logistic import LogisticRegulatoryModel
+from .tree_ensemble import RandomForestRegulatoryModel, XGBoostRegulatoryModel
 
 class ModelRegistry:
     """
@@ -15,6 +16,8 @@ class ModelRegistry:
             
         registry = {
             "logistic_regression": LogisticRegulatoryModel,
+            "random_forest": RandomForestRegulatoryModel,
+            "xgboost": XGBoostRegulatoryModel,
         }
         
         if name not in registry:

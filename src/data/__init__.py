@@ -2,3 +2,4 @@ from .download import download_encode_ccres, download_hg38_chromosome, download_
 from .parse_encode import parse_and_resize_ccres
 from .sequence_extractor import extract_sequences
 from .negative_sampling import build_negative_dataset
+from .dataset import GenomicDataset, sequence_to_onehot

@@ -1,6 +1,8 @@
 from .base_model import BaseModel
 from .logistic import LogisticRegulatoryModel
 from .tree_ensemble import RandomForestRegulatoryModel, XGBoostRegulatoryModel
+from .cnn import ShallowCNN, DeepCNN, AttentionCNN
+from .train_nn import PyTorchModelWrapper
 
 class ModelRegistry:
     """
@@ -14,10 +16,25 @@ class ModelRegistry:
         if params is None:
             params = {}
             
+        def create_pytorch_model(model_class, **kwargs):
+            # Separate wrapper parameters from model architecture parameters
+            wrapper_keys = {'epochs', 'batch_size', 'lr', 'weight_decay', 'val_split', 'patience', 'device', 'random_state'}
+            wrapper_params = {}
+            model_params = {}
+            for k, v in kwargs.items():
+                if k in wrapper_keys:
+                    wrapper_params[k] = v
+                else:
+                    model_params[k] = v
+            return PyTorchModelWrapper(model_class=model_class, model_params=model_params, **wrapper_params)
+
         registry = {
             "logistic_regression": LogisticRegulatoryModel,
             "random_forest": RandomForestRegulatoryModel,
             "xgboost": XGBoostRegulatoryModel,
+            "shallow_cnn": lambda **kwargs: create_pytorch_model(ShallowCNN, **kwargs),
+            "deep_cnn": lambda **kwargs: create_pytorch_model(DeepCNN, **kwargs),
+            "attention_cnn": lambda **kwargs: create_pytorch_model(AttentionCNN, **kwargs),
         }
         
         if name not in registry:

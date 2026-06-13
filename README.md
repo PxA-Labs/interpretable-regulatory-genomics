@@ -9,7 +9,7 @@ The project is structured as a realistic undergraduate-to-research-lab-grade ini
 >
 > * **Phase 1**: Captured in [notebook/phase1_classical_baseline.ipynb](notebook/phase1_classical_baseline.ipynb). Results and biological interpretations of CpG island 4-mers are discussed in [Discussion #1](../../discussions/1).
 > * **Phase 2**: Captured in [notebook/phase2_deep_learning.ipynb](notebook/phase2_deep_learning.ipynb). Results, performance matrices, filter motifs, and saliency maps are discussed in [Discussion #4](../../discussions/4).
-> * **Phase 3**: Captured in [notebook/phase3_pretrained_embeddings.ipynb](notebook/phase3_pretrained_embeddings.ipynb) leveraging the 500M-parameter Nucleotide Transformer. Results, UMAP projections, embedding feature correlations, and the new Log Loss baseline are available in the project Discussions.
+> * **Phase 3**: Captured in [notebook/phase3_pretrained_embeddings.ipynb](notebook/phase3_pretrained_embeddings.ipynb) leveraging the 500M-parameter Nucleotide Transformer. Results, UMAP projections, embedding feature correlations, and the new Log Loss baseline are discussed in [Discussion #5](../../discussions/5).
 
 
 ## Documentation (PDF format)

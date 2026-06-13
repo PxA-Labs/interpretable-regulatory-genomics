@@ -21,10 +21,10 @@ def download_file(url: str, dest_path: str):
 def download_encode_ccres(output_dir: str = "data/raw"):
     """
     Download the ENCODE registry of human candidate cis-Regulatory Elements (cCREs) on hg38.
-    Default file is the ENCODE SCREEN V3 registry: ENCFF824ZKD.bed.gz
+    Default file is the ENCODE SCREEN V4 registry: ENCFF726XBE.bed.gz
     """
-    url = "https://www.encodeproject.org/files/ENCFF824ZKD/@@download/ENCFF824ZKD.bed.gz"
-    dest_path = os.path.join(output_dir, "ENCFF824ZKD.bed.gz")
+    url = "https://www.encodeproject.org/files/ENCFF726XBE/@@download/ENCFF726XBE.bed.gz"
+    dest_path = os.path.join(output_dir, "ENCFF726XBE.bed.gz")
     download_file(url, dest_path)
     return dest_path
 

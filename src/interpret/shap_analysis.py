@@ -15,7 +15,8 @@ def explain_model_shap(
     X_explain: np.ndarray,
     feature_names: list,
     output_plot_path: str = None,
-    max_display: int = 20
+    max_display: int = 20,
+    show_plot: bool = False
 ) -> np.ndarray:
     """
     Compute SHAP values for a trained model and generate a global summary plot.
@@ -32,6 +33,8 @@ def explain_model_shap(
         Path where the SHAP summary plot will be saved.
     max_display : int, default 20
         Number of top features to show in the summary plot.
+    show_plot : bool, default False
+        If True, displays the plot in the active environment (e.g. Jupyter notebook).
         
     Returns:
     --------
@@ -82,7 +85,10 @@ def explain_model_shap(
         # Save figure
         plt.tight_layout()
         plt.savefig(output_plot_path, dpi=300, bbox_inches='tight')
-        plt.close()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()
         print(f"SHAP summary plot saved to {output_plot_path}.")
         
     return shap_values

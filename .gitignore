@@ -13,3 +13,9 @@ docs/*.md
 
 # Exclude raw and processed datasets
 data/
+
+# Exclude massive media and archive files
+*.zip
+*.mp4
+*.mkv
+*.avi

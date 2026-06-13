@@ -4,17 +4,12 @@ This repository contains the comprehensive project-definition pack for the proje
 
 The project is structured as a realistic undergraduate-to-research-lab-grade initiative, optimized to run on accessible Kaggle-level compute infrastructure rather than large dedicated GPU clusters.
 
-## Current Progress
-
-**Phase 1 (Classical Interpretable Baseline) — Completed.**
-
-The complete execution of the Phase 1 pipeline is documented in the notebook below. It covers data curation from ENCODE, GC-matched negative sampling, k-mer feature extraction, multi-model training (Logistic Regression, Random Forest, XGBoost), feature importance analysis, and SHAP explainability.
-
-- [notebook/phase1_classical_baseline.ipynb](notebook/phase1_classical_baseline.ipynb) — Verified Kaggle-executed notebook with all outputs.
-
-For a detailed write-up of the results, model performance metrics, biological interpretation of top features, and the SHAP summary plot, see the project Discussions:
-
-- [Phase 1 Results — Discussions](../../discussions/1)
+> [!NOTE]
+> **Phase 1 (Classical Interpretable Baseline) is complete.** The full pipeline — including ENCODE data curation, GC-matched negative sampling, k-mer feature extraction, multi-model training (Logistic Regression, Random Forest, XGBoost), feature importance analysis, and SHAP explainability — has been executed and verified on Kaggle.
+>
+> Current progress is captured in [notebook/phase1_classical_baseline.ipynb](notebook/phase1_classical_baseline.ipynb), which contains all cell outputs from the run.
+>
+> For a detailed write-up of the results, model performance metrics, biological interpretation of top k-mer features, and the SHAP beeswarm plot, see the [project Discussions](../../discussions/1).
 
 
 ## Documentation (PDF format)

@@ -5,10 +5,11 @@ This repository contains the comprehensive project-definition pack for the proje
 The project is structured as a realistic undergraduate-to-research-lab-grade initiative, optimized to run on accessible Kaggle-level compute infrastructure rather than large dedicated GPU clusters.
 
 > [!NOTE]
-> **Phase 1 (Classical Interpretable Baseline) and Phase 2 (Lightweight Deep Learning Baseline) are complete.**
+> **Phase 1 (Classical), Phase 2 (CNNs), and Phase 3 (Foundation Models) are complete.**
 >
-> * **Phase 1**: Captured in [notebook/phase1_classical_baseline.ipynb](notebook/phase1_classical_baseline.ipynb) with all run outputs. Results and biological interpretations of CpG island 4-mers are discussed in [Discussion #1](../../discussions/1).
-> * **Phase 2**: Captured in [notebook/phase2_deep_learning.ipynb](notebook/phase2_deep_learning.ipynb) with convolutional filter and attribution outputs. Results, performance matrices, filter motifs, and saliency/integrated gradients are discussed in [Discussion #4](../../discussions/4).
+> * **Phase 1**: Captured in [notebook/phase1_classical_baseline.ipynb](notebook/phase1_classical_baseline.ipynb). Results and biological interpretations of CpG island 4-mers are discussed in [Discussion #1](../../discussions/1).
+> * **Phase 2**: Captured in [notebook/phase2_deep_learning.ipynb](notebook/phase2_deep_learning.ipynb). Results, performance matrices, filter motifs, and saliency maps are discussed in [Discussion #4](../../discussions/4).
+> * **Phase 3**: Captured in [notebook/phase3_pretrained_embeddings.ipynb](notebook/phase3_pretrained_embeddings.ipynb) leveraging the 500M-parameter Nucleotide Transformer. Results, UMAP projections, embedding feature correlations, and the new Log Loss baseline are available in the project Discussions.
 
 
 ## Documentation (PDF format)

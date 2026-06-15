@@ -3,18 +3,27 @@ import numpy as np
 from tqdm import tqdm
 from transformers import AutoTokenizer, AutoModel
 
+# Pinned revision SHA for InstaDeepAI/nucleotide-transformer-500m-1000g.
+# This prevents supply-chain attacks (CWE-494 / Bandit B615) by ensuring the
+# model weights are immutable and verified rather than fetched from a floating
+# 'main' branch pointer.
+_NUCLEOTIDE_TRANSFORMER_REVISION = "29bea3afa72fbd72ca75f80acbcb6b5be6d1a3ef"
+
 class PretrainedEmbedder:
     """
     Utility class to load a pre-trained genomic language model from HuggingFace
     and extract sequence embeddings.
     """
-    def __init__(self, model_name: str = "InstaDeepAI/nucleotide-transformer-500m-1000g", device: str = None):
+    def __init__(self, model_name: str = "InstaDeepAI/nucleotide-transformer-500m-1000g",
+                 revision: str = _NUCLEOTIDE_TRANSFORMER_REVISION,
+                 device: str = None):
         self.model_name = model_name
+        self.revision = revision
         self.device = device if device else ("cuda" if torch.cuda.is_available() else "cpu")
         
-        print(f"Loading tokenizer and model: {model_name} on {self.device}...")
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        self.model = AutoModel.from_pretrained(model_name).to(self.device)
+        print(f"Loading tokenizer and model: {model_name}@{revision} on {self.device}...")
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name, revision=revision)  # nosec B615
+        self.model = AutoModel.from_pretrained(model_name, revision=revision).to(self.device)  # nosec B615
         self.model.eval()
 
     def get_embeddings(self, sequences: list, batch_size: int = 16) -> np.ndarray:

@@ -1,0 +1,63 @@
+name: PR Quality Checks
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'src/**'
+      - 'notebook/**'
+      - 'requirements.txt'
+      - '.github/workflows/pr-checks.yml'
+
+jobs:
+  lint-and-format:
+    name: Lint & Format Check
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install Ruff
+      run: pip install ruff
+
+    - name: Check Linting Rules (Ruff)
+      # Ruff checks for unused imports, undefined variables, styling anomalies, etc.
+      run: ruff check .
+
+    - name: Check Code Formatting (Ruff Format)
+      # Verifies if all code adheres to standard formatting
+      run: ruff format --check .
+
+  import-integrity:
+    name: Import Integrity Check
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Verify Code Imports (Integrity Scan)
+      # Attempts to import each module folder to make sure there are no broken imports or syntax errors
+      run: |
+        python -c "import src; print('Main src package import successful.')"
+        python -c "import src.data; print('data module import successful.')"
+        python -c "import src.features; print('features module import successful.')"
+        python -c "import src.models; print('models module import successful.')"
+        python -c "import src.interpret; print('interpret module import successful.')"

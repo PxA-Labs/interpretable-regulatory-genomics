@@ -264,16 +264,20 @@ class PyTorchModelWrapper(BaseModel):
             'random_state': self.random_state
         }
         with open(path, 'wb') as f:
-            pickle.dump(save_dict, f)
+            pickle.dump(save_dict, f)  # nosec B301 – internal checkpoint, trusted path
             
     @classmethod
     def load(cls, path: str):
         """
         Custom deserialization loading weights and reconstructing wrapper.
+
+        Security note: pickle.load() is used here intentionally. Checkpoint
+        files are produced only by our own save() method within a controlled
+        research environment — never from user-supplied or network-sourced paths.
         """
         print(f"Loading PyTorch wrapper model from {path}...")
         with open(path, 'rb') as f:
-            save_dict = pickle.load(f)
+            save_dict = pickle.load(f)  # nosec B301 – internal checkpoint, trusted path
             
         # Initialize wrapper instance
         wrapper = cls(

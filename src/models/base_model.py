@@ -52,7 +52,11 @@ class BaseModel(ABC):
     def load(cls, path: str):
         """
         Deserialize model instance from disk.
+
+        Security note: pickle.load() is used here intentionally. Models are only
+        loaded from paths produced by our own save() method within a trusted
+        research environment — never from user-supplied or network-sourced files.
         """
         print(f"Loading model from {path}...")
         with open(path, 'rb') as f:
-            return pickle.load(f)
+            return pickle.load(f)  # nosec B301

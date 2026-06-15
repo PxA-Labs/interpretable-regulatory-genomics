@@ -1,0 +1,296 @@
+import os
+import sys
+import subprocess
+import importlib
+import time
+import pandas as pd
+import numpy as np
+import torch
+from sklearn.metrics import roc_auc_score, average_precision_score, f1_score, log_loss
+
+print(f"PyTorch version: {torch.__version__}")
+print(f"CUDA available: {torch.cuda.is_available()}")
+if torch.cuda.is_available():
+    print(f"GPU: {torch.cuda.get_device_name(0)}")
+
+# 1. Git pull or clone codebase
+repo_dir = "/kaggle/working/interpretable-regulatory-genomics"
+if not os.path.exists(repo_dir):
+    print("Cloning repository...")
+    subprocess.run(["git", "clone", "https://github.com/PxA-Labs/interpretable-regulatory-genomics.git", repo_dir], check=True)
+else:
+    print("Repository exists. Pulling latest updates...")
+    subprocess.run(["git", "-C", repo_dir, "pull"], check=True)
+
+# 2. Add to path
+if repo_dir not in sys.path:
+    sys.path.insert(0, repo_dir)
+
+# 3. Auto-install missing libraries
+def install_and_import(package_name, import_name=None):
+    if import_name is None:
+        import_name = package_name
+    try:
+        importlib.import_module(import_name)
+    except ImportError:
+        print(f"Library '{package_name}' not found. Installing...")
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", package_name], check=True)
+
+install_and_import("xgboost")
+install_and_import("shap")
+install_and_import("logomaker")
+install_and_import("captum")
+print("All dependencies verified.")
+---OUT---
+PyTorch version: 2.10.0+cu128
+CUDA available: True
+GPU: Tesla T4
+Cloning repository...
+Cloning into '/kaggle/working/interpretable-regulatory-genomics'...
+Library 'logomaker' not found. Installing...
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.2/13.2 MB 100.0 MB/s eta 0:00:00
+Library 'captum' not found. Installing...
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 455.2/455.2 kB 9.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.2/12.2 MB 107.7 MB/s eta 0:00:00
+All dependencies verified.
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+dask-cuda 26.2.0 requires cuda-core==0.3.*, but you have cuda-core 1.0.1 which is incompatible.
+dask-cuda 26.2.0 requires numba-cuda<0.23.0,>=0.22.1, but you have numba-cuda 0.30.2 which is incompatible.
+distributed-ucxx-cu12 0.48.0 requires numba-cuda[cu12]<0.23.0,>=0.22.1, but you have numba-cuda 0.30.2 which is incompatible.
+cuml-cu12 26.2.0 requires numba<0.62.0,>=0.60.0, but you have numba 0.65.1 which is incompatible.
+cuml-cu12 26.2.0 requires numba-cuda[cu12]<0.23.0,>=0.22.1, but you have numba-cuda 0.30.2 which is incompatible.
+ucxx-cu12 0.48.0 requires numba-cuda[cu12]<0.23.0,>=0.22.1, but you have numba-cuda 0.30.2 which is incompatible.
+cudf-cu12 26.2.1 requires numba<0.62.0,>=0.60.0, but you have numba 0.65.1 which is incompatible.
+cudf-cu12 26.2.1 requires numba-cuda[cu12]<0.23.0,>=0.22.2, but you have numba-cuda 0.30.2 which is incompatible.
+
+y_train = df_train['label'].values
+y_test = df_test['label'].values
+
+cnn_models_to_train = {
+    "shallow_cnn": {
+        "epochs": 30,
+        "batch_size": 64,
+        "lr": 0.001,
+        "weight_decay": 1e-5,
+        "val_split": 0.15,
+        "patience": 6,
+        "n_filters_1": 64,
+        "n_filters_2": 128,
+        "kernel_size_1": 15,
+        "kernel_size_2": 9,
+        "pool_size": 4,
+        "dropout_rate": 0.3
+    },
+    "deep_cnn": {
+        "epochs": 30,
+        "batch_size": 64,
+        "lr": 0.001,
+        "weight_decay": 1e-5,
+        "val_split": 0.15,
+        "patience": 6,
+        "dropout_rate": 0.4
+    }
+}
+
+trained_cnn_models = {}
+cnn_metrics_results = []
+
+for name, params in cnn_models_to_train.items():
+    print(f"\n{'='*60}")
+    print(f"Training: {name.upper()}")
+    print('='*60)
+    start_time = time.time()
+    
+    # Get model wrapper from registry
+    model = src.models.registry.ModelRegistry.get_model(name, params)
+    
+    # Fit using sequence strings; GenomicDataset handles one-hot encoding internally
+    model.fit(df_train['sequence'].values, y_train)
+    elapsed = time.time() - start_time
+    
+    # Evaluate on test set
+    y_prob = model.predict_proba(df_test['sequence'].values)
+    y_pred = model.predict(df_test['sequence'].values)
+    
+    auroc = roc_auc_score(y_test, y_prob)
+    auprc = average_precision_score(y_test, y_prob)
+    f1 = f1_score(y_test, y_pred)
+    loss = log_loss(y_test, y_prob)
+    
+    cnn_metrics_results.append({
+        "Model": name.upper().replace("_", " "),
+        "AUROC": auroc,
+        "AUPRC": auprc,
+        "F1-Score": f1,
+        "Log Loss": loss,
+        "Train Time (s)": elapsed
+    })
+    
+    trained_cnn_models[name] = model
+    print(f"\nTest AUROC: {auroc:.4f} | AUPRC: {auprc:.4f} | F1: {f1:.4f}")
+
+df_cnn_metrics = pd.DataFrame(cnn_metrics_results)
+print("\n======== CNN MODEL PERFORMANCE ========")
+print(df_cnn_metrics.to_string(index=False))
+---OUT---
+
+============================================================
+Training: SHALLOW_CNN
+============================================================
+Training on device: cuda
+Epoch 01/30 | Train Loss: 0.6972 | Val Loss: 0.6685 | Val Acc: 0.5466
+Epoch 02/30 | Train Loss: 0.6483 | Val Loss: 0.6360 | Val Acc: 0.5983
+Epoch 03/30 | Train Loss: 0.5959 | Val Loss: 0.5676 | Val Acc: 0.7433
+Epoch 04/30 | Train Loss: 0.5381 | Val Loss: 0.5153 | Val Acc: 0.7764
+Epoch 05/30 | Train Loss: 0.4757 | Val Loss: 0.4892 | Val Acc: 0.7888
+Epoch 06/30 | Train Loss: 0.4477 | Val Loss: 0.4795 | Val Acc: 0.7867
+Epoch 07/30 | Train Loss: 0.4059 | Val Loss: 0.4631 | Val Acc: 0.7930
+Epoch 08/30 | Train Loss: 0.3754 | Val Loss: 0.4759 | Val Acc: 0.7930
+Epoch 09/30 | Train Loss: 0.3518 | Val Loss: 0.4845 | Val Acc: 0.8033
+Epoch 10/30 | Train Loss: 0.3253 | Val Loss: 0.4467 | Val Acc: 0.8033
+Epoch 11/30 | Train Loss: 0.2855 | Val Loss: 0.4510 | Val Acc: 0.7950
+Epoch 12/30 | Train Loss: 0.2577 | Val Loss: 0.4756 | Val Acc: 0.8075
+Epoch 13/30 | Train Loss: 0.2609 | Val Loss: 0.4611 | Val Acc: 0.8178
+Epoch 14/30 | Train Loss: 0.2117 | Val Loss: 0.4518 | Val Acc: 0.8137
+Epoch 15/30 | Train Loss: 0.2005 | Val Loss: 0.4501 | Val Acc: 0.8261
+Epoch 16/30 | Train Loss: 0.1911 | Val Loss: 0.4561 | Val Acc: 0.8282
+Early stopping triggered at epoch 16.
+Loaded best validation model (Loss: 0.4467).
+
+Test AUROC: 0.8604 | AUPRC: 0.8718 | F1: 0.7802
+
+============================================================
+Training: DEEP_CNN
+============================================================
+Training on device: cuda
+Epoch 01/30 | Train Loss: 0.6920 | Val Loss: 0.6516 | Val Acc: 0.5921
+Epoch 02/30 | Train Loss: 0.6185 | Val Loss: 0.5594 | Val Acc: 0.7350
+Epoch 03/30 | Train Loss: 0.5326 | Val Loss: 0.5000 | Val Acc: 0.7764
+Epoch 04/30 | Train Loss: 0.4822 | Val Loss: 1.0725 | Val Acc: 0.4948
+Epoch 05/30 | Train Loss: 0.3930 | Val Loss: 1.9403 | Val Acc: 0.5217
+Epoch 06/30 | Train Loss: 0.3264 | Val Loss: 0.8510 | Val Acc: 0.6294
+Epoch 07/30 | Train Loss: 0.2294 | Val Loss: 1.0043 | Val Acc: 0.5901
+Epoch 08/30 | Train Loss: 0.1414 | Val Loss: 0.4812 | Val Acc: 0.7930
+Epoch 09/30 | Train Loss: 0.1016 | Val Loss: 0.5130 | Val Acc: 0.7826
+Epoch 10/30 | Train Loss: 0.0740 | Val Loss: 1.0686 | Val Acc: 0.6356
+Epoch 11/30 | Train Loss: 0.0674 | Val Loss: 0.9949 | Val Acc: 0.7122
+Epoch 12/30 | Train Loss: 0.0384 | Val Loss: 0.6518 | Val Acc: 0.7888
+Epoch 13/30 | Train Loss: 0.0301 | Val Loss: 0.5476 | Val Acc: 0.7909
+Epoch 14/30 | Train Loss: 0.0229 | Val Loss: 0.5354 | Val Acc: 0.8075
+Early stopping triggered at epoch 14.
+Loaded best validation model (Loss: 0.4812).
+
+Test AUROC: 0.8537 | AUPRC: 0.8603 | F1: 0.7909
+
+======== CNN MODEL PERFORMANCE ========
+      Model    AUROC    AUPRC  F1-Score  Log Loss  Train Time (s)
+SHALLOW CNN 0.860403 0.871833  0.780234  0.460445       22.896053
+   DEEP CNN 0.853702 0.860348  0.790920  0.534522       16.945230
+
+from src.features.kmer import extract_kmer_features
+
+# Recompute k-mer features for Phase 1 models comparison
+X_train_kmer, kmer_names = extract_kmer_features(df_train, k=4)
+X_test_kmer, _ = extract_kmer_features(df_test, k=4)
+
+phase1_models_to_train = {
+    "logistic_regression": {"max_iter": 1000},
+    "random_forest": {"n_estimators": 500, "n_jobs": -1},
+    "xgboost": {"n_estimators": 500, "n_jobs": -1, "eval_metric": "logloss"}
+}
+
+phase1_metrics_results = []
+for name, params in phase1_models_to_train.items():
+    start_time = time.time()
+    model = src.models.registry.ModelRegistry.get_model(name, params)
+    model.fit(X_train_kmer, y_train)
+    elapsed = time.time() - start_time
+    
+    y_prob = model.predict_proba(X_test_kmer)
+    y_pred = model.predict(X_test_kmer)
+    
+    phase1_metrics_results.append({
+        "Model": name.upper().replace("_", " "),
+        "AUROC": roc_auc_score(y_test, y_prob),
+        "AUPRC": average_precision_score(y_test, y_prob),
+        "F1-Score": f1_score(y_test, y_pred),
+        "Log Loss": log_loss(y_test, y_prob),
+        "Train Time (s)": elapsed
+    })
+
+df_all_metrics = pd.concat([pd.DataFrame(phase1_metrics_results), df_cnn_metrics], ignore_index=True)
+print("\n============= FULL MODEL COMPARISON: PHASE 1 + PHASE 2 =============")
+print(df_all_metrics.to_string(index=False))
+print("====================================================================")
+---OUT---
+Extracting 4-mer features (total features: 256)...
+  Processed 1000 / 3225 sequences.
+  Processed 2000 / 3225 sequences.
+  Processed 3000 / 3225 sequences.
+  Processed 3225 / 3225 sequences.
+k-mer feature extraction complete.
+Extracting 4-mer features (total features: 256)...
+  Processed 807 / 807 sequences.
+k-mer feature extraction complete.
+
+============= FULL MODEL COMPARISON: PHASE 1 + PHASE 2 =============
+              Model    AUROC    AUPRC  F1-Score  Log Loss  Train Time (s)
+LOGISTIC REGRESSION 0.779525 0.742313  0.729167  0.659637        0.043996
+      RANDOM FOREST 0.868035 0.885519  0.788586  0.482689        3.459822
+            XGBOOST 0.882975 0.887891  0.806162  0.601067        1.106340
+        SHALLOW CNN 0.860403 0.871833  0.780234  0.460445       22.896053
+           DEEP CNN 0.853702 0.860348  0.790920  0.534522       16.945230
+====================================================================
+
+print("\n" + "="*70)
+print("PHASE 2 SUMMARY")
+print("="*70)
+print("\nFull Model Comparison (Phase 1 Classical Baselines + Phase 2 CNNs):")
+print(df_all_metrics.to_string(index=False))
+
+best_model_name = df_all_metrics.loc[df_all_metrics['AUROC'].idxmax(), 'Model']
+best_auroc = df_all_metrics['AUROC'].max()
+print(f"\nBest performing model: {best_model_name} (AUROC: {best_auroc:.4f})")
+
+print(f"\nCNN Filter Analysis:")
+print(f"  Extracted {len(pwms)} first-layer filters from ShallowCNN")
+print(f"  Kernel width: {pwms[0].shape[1]} bp")
+print(f"  MEME file saved to: {filter_meme_path}")
+print(f"  (Upload to https://meme-suite.org/meme/tools/tomtom to find JASPAR motif matches)")
+
+print(f"\nAttribution Analysis:")
+print(f"  Saliency maps and Integrated Gradients computed for {n_explain} high-confidence true positives")
+print(f"  Plots saved to: {plot_dir}")
+
+print("\n" + "="*70)
+print("Phase 2 complete. Ready for Decision Gate 2→3 evaluation.")
+print("="*70)
+---OUT---
+
+======================================================================
+PHASE 2 SUMMARY
+======================================================================
+
+Full Model Comparison (Phase 1 Classical Baselines + Phase 2 CNNs):
+              Model    AUROC    AUPRC  F1-Score  Log Loss  Train Time (s)
+LOGISTIC REGRESSION 0.779525 0.742313  0.729167  0.659637        0.043996
+      RANDOM FOREST 0.868035 0.885519  0.788586  0.482689        3.459822
+            XGBOOST 0.882975 0.887891  0.806162  0.601067        1.106340
+        SHALLOW CNN 0.860403 0.871833  0.780234  0.460445       22.896053
+           DEEP CNN 0.853702 0.860348  0.790920  0.534522       16.945230
+
+Best performing model: XGBOOST (AUROC: 0.8830)
+
+CNN Filter Analysis:
+  Extracted 64 first-layer filters from ShallowCNN
+  Kernel width: 15 bp
+  MEME file saved to: /kaggle/working/plots/shallow_cnn_filters.meme
+  (Upload to https://meme-suite.org/meme/tools/tomtom to find JASPAR motif matches)
+
+Attribution Analysis:
+  Saliency maps and Integrated Gradients computed for 5 high-confidence true positives
+  Plots saved to: /kaggle/working/plots
+
+======================================================================
+Phase 2 complete. Ready for Decision Gate 2→3 evaluation.
+======================================================================

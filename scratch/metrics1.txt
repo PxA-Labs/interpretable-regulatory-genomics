@@ -1,0 +1,98 @@
+import os
+import sys
+import subprocess
+import importlib
+import time
+import pandas as pd
+import numpy as np
+from sklearn.metrics import roc_auc_score, average_precision_score, f1_score, log_loss
+
+# 1. Git pull or clone codebase
+repo_dir = "/kaggle/working/interpretable-regulatory-genomics"
+if not os.path.exists(repo_dir):
+    print("Cloning repository...")
+    subprocess.run(["git", "clone", "https://github.com/PxA-Labs/interpretable-regulatory-genomics.git", repo_dir], check=True)
+else:
+    print("Repository exists. Pulling latest updates...")
+    subprocess.run(["git", "-C", repo_dir, "pull"], check=True)
+
+# 2. Add repository directory to python search path
+if repo_dir not in sys.path:
+    sys.path.insert(0, repo_dir)
+
+# 3. Auto-install missing libraries
+def install_and_import(package_name, import_name=None):
+    if import_name is None:
+        import_name = package_name
+    try:
+        importlib.import_module(import_name)
+    except ImportError:
+        print(f"Library '{package_name}' not found. Installing...")
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", package_name], check=True)
+
+install_and_import("xgboost")
+install_and_import("shap")
+install_and_import("matplotlib", "matplotlib.pyplot")
+---OUT---
+Repository exists. Pulling latest updates...
+Already up to date.
+
+## 8. Multi-Model Training & Evaluation Comparison
+Fit Logistic Regression, Random Forest, and XGBoost classifiers via the registered `ModelRegistry` and compare metrics on the test set.
+---OUT---
+
+models_to_train = {
+    "logistic_regression": {"max_iter": 1000},
+    "random_forest": {"n_estimators": 500, "n_jobs": -1},
+    "xgboost": {"n_estimators": 500, "n_jobs": -1, "eval_metric": "logloss"}
+}
+
+trained_models = {}
+metrics_results = []
+
+for name, params in models_to_train.items():
+    print(f"\n--- Training {name.upper()} ---")
+    start_time = time.time()
+    
+    model = src.models.registry.ModelRegistry.get_model(name, params)
+    model.fit(X_train, y_train)
+    elapsed_time = time.time() - start_time
+    
+    y_prob = model.predict_proba(X_test)
+    y_pred = model.predict(X_test)
+    
+    auroc = roc_auc_score(y_test, y_prob)
+    auprc = average_precision_score(y_test, y_prob)
+    f1 = f1_score(y_test, y_pred)
+    loss = log_loss(y_test, y_prob)
+    
+    metrics_results.append({
+        "Model": name.upper(),
+        "AUROC": auroc,
+        "AUPRC": auprc,
+        "F1-Score": f1,
+        "Log Loss": loss,
+        "Train Time (s)": elapsed_time
+    })
+    
+    trained_models[name] = model
+
+df_metrics = pd.DataFrame(metrics_results)
+print("\n=================== PERFORMANCE METRICS COMPARISON ===================")
+print(df_metrics.to_string(index=False))
+print("======================================================================\n")
+---OUT---
+
+--- Training LOGISTIC_REGRESSION ---
+
+--- Training RANDOM_FOREST ---
+
+--- Training XGBOOST ---
+
+=================== PERFORMANCE METRICS COMPARISON ===================
+              Model    AUROC    AUPRC  F1-Score  Log Loss  Train Time (s)
+LOGISTIC_REGRESSION 0.767892 0.715633  0.724936  0.660168        0.014673
+      RANDOM_FOREST 0.867516 0.887250  0.783163  0.479692        3.361717
+            XGBOOST 0.882097 0.894698  0.800505  0.604551        1.174485
+======================================================================
+

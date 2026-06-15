@@ -4,5 +4,5 @@ from .cnn_interpretability import (
     plot_filters_grid,
     save_pwms_to_meme,
     compute_attribution,
-    plot_sequence_attribution
+    plot_sequence_attribution,
 )

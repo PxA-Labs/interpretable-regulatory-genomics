@@ -1,0 +1,5 @@
+[lint]
+# E402: Module level import not at top of file (common in Jupyter notebooks)
+# F401: Unused imports (common in __init__.py files for re-exporting)
+# F841: Local variable is assigned to but never used (common when unpacking returns)
+ignore = ["E402", "F401", "F841"]

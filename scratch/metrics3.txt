@@ -1,0 +1,287 @@
+import os
+import sys
+import subprocess
+import importlib
+import time
+import pandas as pd
+import numpy as np
+from sklearn.metrics import roc_auc_score, average_precision_score, f1_score, log_loss
+
+# 1. Git pull or clone codebase
+repo_dir = "/kaggle/working/interpretable-regulatory-genomics"
+if not os.path.exists(repo_dir):
+    print("Cloning repository...")
+    subprocess.run(["git", "clone", "https://github.com/PxA-Labs/interpretable-regulatory-genomics.git", repo_dir], check=True)
+else:
+    print("Repository exists. Pulling latest updates...")
+    subprocess.run(["git", "-C", repo_dir, "pull"], check=True)
+
+# 2. Add repository directory to python search path
+if repo_dir not in sys.path:
+    sys.path.insert(0, repo_dir)
+if os.path.join(repo_dir, "src") not in sys.path:
+    sys.path.insert(0, os.path.join(repo_dir, "src"))
+
+# 3. Auto-install missing libraries
+def install_and_import(package_name, import_name=None):
+    if import_name is None:
+        import_name = package_name
+    try:
+        importlib.import_module(import_name)
+    except ImportError:
+        print(f"Library '{package_name}' not found. Installing...")
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", package_name], check=True)
+
+install_and_import("xgboost")
+install_and_import("transformers")
+install_and_import("torch")
+install_and_import("umap-learn", "umap")
+install_and_import("matplotlib", "matplotlib.pyplot")
+install_and_import("seaborn")
+---OUT---
+Cloning repository...
+Cloning into '/kaggle/working/interpretable-regulatory-genomics'...
+2026-06-13 15:24:40.494262: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1781364280.710620      58 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1781364280.779195      58 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1781364281.301491      58 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1781364281.301550      58 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1781364281.301553      58 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1781364281.301556      58 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+
+print("\n--- Plotting Evaluation Curves ---")
+from sklearn.metrics import roc_curve, precision_recall_curve, auc
+
+fpr, tpr, _ = roc_curve(y_test, probs_lr)
+roc_auc = auc(fpr, tpr)
+
+precision, recall, _ = precision_recall_curve(y_test, probs_lr)
+pr_auc = average_precision_score(y_test, probs_lr)
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))
+
+# ROC Curve
+ax1.plot(fpr, tpr, color="darkorange", lw=2, label=f"ROC curve (AUC = {roc_auc:.4f})")
+ax1.plot([0, 1], [0, 1], color="navy", lw=2, linestyle="--")
+ax1.set_xlim([-0.02, 1.0])
+ax1.set_ylim([0.0, 1.05])
+ax1.set_xlabel("False Positive Rate", fontsize=12)
+ax1.set_ylabel("True Positive Rate", fontsize=12)
+ax1.set_title("Receiver Operating Characteristic (ROC)", fontsize=14)
+ax1.legend(loc="lower right")
+
+# PR Curve
+ax2.plot(recall, precision, color="green", lw=2, label=f"PR curve (AUPRC = {pr_auc:.4f})")
+ax2.set_xlim([0.0, 1.0])
+ax2.set_ylim([0.0, 1.05])
+ax2.set_xlabel("Recall", fontsize=12)
+ax2.set_ylabel("Precision", fontsize=12)
+ax2.set_title("Precision-Recall Curve", fontsize=14)
+ax2.legend(loc="lower left")
+
+curves_path = "/kaggle/working/plots/evaluation_curves.png"
+plt.savefig(curves_path, dpi=300, bbox_inches='tight')
+print(f"Evaluation curves saved to: {curves_path}")
+plt.show()
+---OUT---
+
+--- Plotting Evaluation Curves ---
+Evaluation curves saved to: /kaggle/working/plots/evaluation_curves.png
+
+print("\n--- Generating Professional Genomic & ML Visualizations Dashboard ---")
+import os
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.manifold import TSNE
+from sklearn.metrics import confusion_matrix
+import matplotlib.colors as mcolors
+
+# Set global seaborn style for publication-ready plots
+sns.set_theme(style="white", context="talk")
+
+# Models and data used:
+log_reg_model = models["Phase 3 - Logistic Regression (Embeddings)"]
+xgb_model = models["Phase 3 - XGBoost (Embeddings)"]
+probs_lr = log_reg_model.predict_proba(X_test_emb)
+preds_lr = log_reg_model.predict(X_test_emb)
+
+# ---------------------------------------------------------
+# 1. Hierarchical Clustermap (Embedding Heatmap)
+# ---------------------------------------------------------
+print("Generating Hierarchical Clustermap...")
+np.random.seed(42)
+pos_idx = np.where(y_test == 1)[0]
+neg_idx = np.where(y_test == 0)[0]
+subset_idx = np.concatenate([
+    np.random.choice(pos_idx, min(50, len(pos_idx)), replace=False),
+    np.random.choice(neg_idx, min(50, len(neg_idx)), replace=False)
+])
+X_cluster = X_test_emb[subset_idx]
+y_cluster = y_test[subset_idx]
+
+row_colors = pd.Series(y_cluster).map({0: "#3498db", 1: "#e74c3c"})
+
+g = sns.clustermap(
+    X_cluster, 
+    row_colors=row_colors.values,
+    cmap="viridis",
+    figsize=(12, 10),
+    xticklabels=False,
+    yticklabels=False,
+    cbar_pos=(0.02, 0.8, 0.05, 0.18)
+)
+g.fig.suptitle("Hierarchical Clustering of Nucleotide Transformer Embeddings", y=1.05, fontsize=16, fontweight='bold')
+clustermap_path = "/kaggle/working/plots/1_hierarchical_clustermap.png"
+g.savefig(clustermap_path, dpi=300, bbox_inches='tight')
+plt.show()
+
+# ---------------------------------------------------------
+# 2. Feature Importance Bar Chart (XGBoost)
+# ---------------------------------------------------------
+print("Generating XGBoost Feature Importance...")
+importances = xgb_model.model.feature_importances_
+top_n = 20
+top_indices = np.argsort(importances)[::-1][:top_n]
+top_importances = importances[top_indices]
+top_features = [f"Latent Dim {i}" for i in top_indices]
+
+plt.figure(figsize=(10, 8))
+sns.barplot(x=top_importances, y=top_features, palette="magma")
+plt.title(f"Top {top_n} Most Important Embedding Dimensions (XGBoost)", fontsize=16, fontweight='bold')
+plt.xlabel("Feature Importance (Gain)", fontsize=12)
+plt.ylabel("Foundation Model Latent Dimension", fontsize=12)
+sns.despine()
+
+importance_path = "/kaggle/working/plots/2_feature_importance.png"
+plt.savefig(importance_path, dpi=300, bbox_inches='tight')
+plt.show()
+
+# ---------------------------------------------------------
+# 3. Biological GC Content vs. Model Confidence
+# ---------------------------------------------------------
+print("Generating GC Content vs Model Confidence Jointplot...")
+def calculate_gc(seq):
+    seq = seq.upper()
+    g_c_count = seq.count('G') + seq.count('C')
+    return (g_c_count / len(seq)) * 100 if len(seq) > 0 else 0
+
+test_gcs = [calculate_gc(seq) for seq in test_seqs]
+
+gc_df = pd.DataFrame({
+    'GC Content (%)': test_gcs,
+    'Predicted Probability (Active)': probs_lr,
+    'True Label': ['Regulatory (Active)' if y == 1 else 'Non-Coding (Inactive)' for y in y_test]
+})
+
+g = sns.jointplot(
+    data=gc_df, 
+    x='GC Content (%)', 
+    y='Predicted Probability (Active)', 
+    hue='True Label',
+    palette={"Non-Coding (Inactive)": "#3498db", "Regulatory (Active)": "#e74c3c"},
+    kind="scatter",
+    alpha=0.6,
+    height=8
+)
+g.fig.suptitle("Biological GC Content vs. Machine Learning Confidence", y=1.02, fontsize=16, fontweight='bold')
+g.ax_joint.axhline(0.5, color='black', linestyle='--', alpha=0.5)
+
+gc_plot_path = "/kaggle/working/plots/3_gc_vs_confidence.png"
+g.savefig(gc_plot_path, dpi=300, bbox_inches='tight')
+plt.show()
+
+# ---------------------------------------------------------
+# 4. Advanced t-SNE Density Contour Plot
+# ---------------------------------------------------------
+print("Generating t-SNE Topographical Density Map...")
+subset_size_tsne = min(2000, len(X_test_emb))
+np.random.seed(123)
+idx_tsne = np.random.choice(len(X_test_emb), subset_size_tsne, replace=False)
+
+X_tsne_vis = X_test_emb[idx_tsne]
+y_tsne_vis = y_test[idx_tsne]
+
+tsne = TSNE(n_components=2, random_state=42, init='pca', learning_rate='auto')
+tsne_results = tsne.fit_transform(X_tsne_vis)
+
+tsne_df = pd.DataFrame({
+    't-SNE Dimension 1': tsne_results[:, 0],
+    't-SNE Dimension 2': tsne_results[:, 1],
+    'Class': ['Regulatory (Active)' if y == 1 else 'Non-Coding (Inactive)' for y in y_tsne_vis]
+})
+
+plt.figure(figsize=(10, 8))
+sns.kdeplot(
+    data=tsne_df, 
+    x="t-SNE Dimension 1", 
+    y="t-SNE Dimension 2", 
+    hue="Class",
+    fill=True, 
+    alpha=0.5,
+    palette={"Non-Coding (Inactive)": "#3498db", "Regulatory (Active)": "#e74c3c"},
+    levels=8
+)
+sns.scatterplot(
+    data=tsne_df, 
+    x="t-SNE Dimension 1", 
+    y="t-SNE Dimension 2", 
+    hue="Class", 
+    s=10, 
+    alpha=0.3,
+    legend=False,
+    palette={"Non-Coding (Inactive)": "#3498db", "Regulatory (Active)": "#e74c3c"}
+)
+
+plt.title("Topographical t-SNE Map of Deep Genomic Embeddings", fontsize=16, fontweight='bold')
+sns.despine()
+
+tsne_path = "/kaggle/working/plots/4_tsne_density.png"
+plt.savefig(tsne_path, dpi=300, bbox_inches='tight')
+plt.show()
+
+# ---------------------------------------------------------
+# 5. Publication-Ready Confusion Matrix
+# ---------------------------------------------------------
+print("Generating Publication-Ready Confusion Matrix...")
+cm = confusion_matrix(y_test, preds_lr)
+
+plt.figure(figsize=(8, 6))
+sns.heatmap(
+    cm, 
+    annot=True, 
+    fmt="d", 
+    cmap="Blues", 
+    cbar=False,
+    annot_kws={"size": 16, "weight": "bold"},
+    xticklabels=["Predicted Inactive", "Predicted Active"],
+    yticklabels=["Actual Inactive", "Actual Active"]
+)
+plt.title("Logistic Regression Confusion Matrix", fontsize=16, fontweight='bold', pad=20)
+plt.yticks(rotation=0)
+
+cm_path = "/kaggle/working/plots/5_confusion_matrix.png"
+plt.savefig(cm_path, dpi=300, bbox_inches='tight')
+print("\nAll professional visualisations generated and saved to /kaggle/working/plots/ !")
+plt.show()
+---OUT---
+
+--- Generating Professional Genomic & ML Visualizations Dashboard ---
+Generating Hierarchical Clustermap...
+/usr/local/lib/python3.12/dist-packages/seaborn/matrix.py:560: UserWarning: Clustering large matrix with scipy. Installing `fastcluster` may give better performance.
+  warnings.warn(msg)
+/usr/local/lib/python3.12/dist-packages/seaborn/matrix.py:560: UserWarning: Clustering large matrix with scipy. Installing `fastcluster` may give better performance.
+  warnings.warn(msg)
+Generating XGBoost Feature Importance...
+/tmp/ipykernel_58/272389935.py:61: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(x=top_importances, y=top_features, palette="magma")
+Generating GC Content vs Model Confidence Jointplot...
+Generating t-SNE Topographical Density Map...
+Generating Publication-Ready Confusion Matrix...
+
+All professional visualisations generated and saved to /kaggle/working/plots/ !

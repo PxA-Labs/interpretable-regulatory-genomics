@@ -10,9 +10,8 @@ from src.data.negative_sampling import (
 )
 from src.features.dinucleotide import (
     extract_dinucleotide_frequencies,
-    generate_dinucleotides,
 )
-from src.features.motifs import parse_jaspar_pfm, pfm_to_pwm, extract_motif_scores
+from src.features.motifs import parse_jaspar_pfm, extract_motif_scores
 
 
 def test_calculate_gc_content():

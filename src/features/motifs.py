@@ -52,9 +52,9 @@ def pfm_to_pwm(
     if bg is None:
         bg = {"A": 0.25, "C": 0.25, "G": 0.25, "T": 0.25}
 
-    bg_arr = np.array(
-        [bg["A"], bg["C"], bg["G"], bg["T"]], dtype=np.float32
-    ).reshape(4, 1)
+    bg_arr = np.array([bg["A"], bg["C"], bg["G"], bg["T"]], dtype=np.float32).reshape(
+        4, 1
+    )
 
     # Column sums (total counts at each position)
     col_sums = pfm.sum(axis=0, keepdims=True)

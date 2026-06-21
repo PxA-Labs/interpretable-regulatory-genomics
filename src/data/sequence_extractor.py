@@ -2,46 +2,47 @@ import os
 import gzip
 import pandas as pd
 
+
 def load_fasta_chromosome(fasta_path: str) -> str:
     """
     Load a single chromosome sequence from a FASTA file (handles both plain text and gzipped files).
     """
     print(f"Loading chromosome sequence from {fasta_path}...")
-    open_fn = gzip.open if fasta_path.endswith('.gz') else open
+    open_fn = gzip.open if fasta_path.endswith(".gz") else open
     seq_parts = []
-    with open_fn(fasta_path, 'rt') as f:
+    with open_fn(fasta_path, "rt") as f:
         # Skip header line
         header = f.readline()
-        if not header.startswith('>'):
-            raise ValueError(f"Invalid FASTA file format in {fasta_path}. Missing '>' header.")
-        
+        if not header.startswith(">"):
+            raise ValueError(
+                f"Invalid FASTA file format in {fasta_path}. Missing '>' header."
+            )
+
         # Read sequence lines
         for line in f:
-            if line.startswith('>'):
+            if line.startswith(">"):
                 break  # Stop if another chromosome starts (should be single-chrom files)
             seq_parts.append(line.strip())
-            
+
     # Combine lines and convert to uppercase
     chrom_seq = "".join(seq_parts).upper()
     print(f"Loaded sequence of length {len(chrom_seq):,} bp.")
     return chrom_seq
 
+
 def extract_sequences(
-    bed_path: str,
-    fasta_source: str,
-    output_path: str,
-    max_n_fraction: float = 0.10
+    bed_path: str, fasta_source: str, output_path: str, max_n_fraction: float = 0.10
 ):
     """
     Extract DNA sequences for coordinates in a BED file from a reference genome fasta source.
     Filters out regions containing too many 'N' (unknown) bases.
-    
+
     Parameters:
     -----------
     bed_path : str
         Path to the parsed BED file containing coordinates (chrom, start, end, accession, classification).
     fasta_source : str
-        Path to a single FASTA file (e.g. hg38.fa) OR path to a directory containing 
+        Path to a single FASTA file (e.g. hg38.fa) OR path to a directory containing
         per-chromosome FASTA files (e.g., chr1.fa.gz, chr2.fa.gz).
     output_path : str
         Path to save the output tab-separated file containing coordinates and extracted sequences.
@@ -51,10 +52,10 @@ def extract_sequences(
     print(f"Reading BED coordinates from {bed_path}...")
     # Read processed BED file
     bed_df = pd.read_csv(
-        bed_path, 
-        sep='\t', 
-        header=None, 
-        names=['chrom', 'start', 'end', 'accession', 'classification']
+        bed_path,
+        sep="\t",
+        header=None,
+        names=["chrom", "start", "end", "accession", "classification"],
     )
     print(f"Total input regions: {len(bed_df):,}")
 
@@ -63,12 +64,12 @@ def extract_sequences(
     skipped_boundary_count = 0
 
     # Group by chromosome to load each chromosome sequence into memory only once
-    for chrom, group in bed_df.groupby('chrom'):
+    for chrom, group in bed_df.groupby("chrom"):
         # 1. Locate the FASTA file for this chromosome
         fasta_path = None
         if os.path.isdir(fasta_source):
             # Look for common extensions: .fa, .fa.gz, .fasta, .fasta.gz
-            for ext in ['.fa', '.fa.gz', '.fasta', '.fasta.gz']:
+            for ext in [".fa", ".fa.gz", ".fasta", ".fasta.gz"]:
                 candidate = os.path.join(fasta_source, f"{chrom}{ext}")
                 if os.path.exists(candidate):
                     fasta_path = candidate
@@ -78,7 +79,9 @@ def extract_sequences(
             fasta_path = fasta_source
 
         if not fasta_path or not os.path.exists(fasta_path):
-            print(f"Warning: Reference sequence for {chrom} not found at source '{fasta_source}'. Skipping {len(group)} regions.")
+            print(
+                f"Warning: Reference sequence for {chrom} not found at source '{fasta_source}'. Skipping {len(group)} regions."
+            )
             continue
 
         # 2. Load chromosome sequence
@@ -90,40 +93,42 @@ def extract_sequences(
 
         # 3. Extract sequences for all coordinates in this chromosome
         for _, row in group.iterrows():
-            start, end = int(row['start']), int(row['end'])
-            
+            start, end = int(row["start"]), int(row["end"])
+
             # Boundary check
             if start < 0 or end > len(chrom_seq):
                 skipped_boundary_count += 1
                 continue
-                
+
             # Slice sequence
             seq = chrom_seq[start:end]
-            
+
             # Quality control: check fraction of N-bases
-            n_count = seq.count('N')
+            n_count = seq.count("N")
             if len(seq) > 0 and (n_count / len(seq)) > max_n_fraction:
                 skipped_n_count += 1
                 continue
-                
-            extracted_records.append({
-                'chrom': row['chrom'],
-                'start': start,
-                'end': end,
-                'accession': row['accession'],
-                'classification': row['classification'],
-                'sequence': seq
-            })
+
+            extracted_records.append(
+                {
+                    "chrom": row["chrom"],
+                    "start": start,
+                    "end": end,
+                    "accession": row["accession"],
+                    "classification": row["classification"],
+                    "sequence": seq,
+                }
+            )
 
     # Convert to DataFrame
     out_df = pd.DataFrame(extracted_records)
-    print(f"Sequence extraction complete.")
+    print("Sequence extraction complete.")
     print(f"  Extracted regions: {len(out_df):,}")
     print(f"  Skipped (out of bounds): {skipped_boundary_count:,}")
     print(f"  Skipped (high N-base fraction): {skipped_n_count:,}")
 
     # Save output
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    out_df.to_csv(output_path, sep='\t', index=False)
+    out_df.to_csv(output_path, sep="\t", index=False)
     print(f"Saved extracted sequences to {output_path}.")
     return output_path

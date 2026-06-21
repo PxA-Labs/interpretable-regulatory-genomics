@@ -12,7 +12,7 @@ Thumbs.db
 docs/*.md
 
 # Exclude raw and processed datasets
-data/
+/data/
 
 # Exclude massive media and archive files
 *.zip

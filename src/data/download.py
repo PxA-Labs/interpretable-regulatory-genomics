@@ -15,10 +15,8 @@ def download_file(url: str, dest_path: str):
         url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
     )
     with (
-        urllib.request.urlopen(req) as response,
-        open(  # nosec B310
-            dest_path, "wb"
-        ) as out_file,
+        urllib.request.urlopen(req) as response,  # nosec B310
+        open(dest_path, "wb") as out_file,
     ):
         shutil.copyfileobj(response, out_file)
     print("Download complete.")

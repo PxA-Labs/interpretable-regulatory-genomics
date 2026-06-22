@@ -18,8 +18,10 @@ class ShallowCNN(nn.Module):
         kernel_size_2: int = 9,
         pool_size: int = 4,
         dropout_rate: float = 0.3,
+        num_classes: int = 1,
     ):
         super(ShallowCNN, self).__init__()
+        self.num_classes = num_classes
 
         # Conv Layer 1: capture TF motifs
         self.conv1 = nn.Conv1d(
@@ -48,7 +50,7 @@ class ShallowCNN(nn.Module):
         # Global Max Pooling is applied after conv2, reducing length dimension to 1
         self.fc1 = nn.Linear(n_filters_2, 128)
         self.bn_fc = nn.BatchNorm1d(128)
-        self.fc2 = nn.Linear(128, 1)
+        self.fc2 = nn.Linear(128, num_classes)
 
     def forward(self, x):
         # x shape: (batch_size, 4, seq_len)
@@ -64,7 +66,10 @@ class ShallowCNN(nn.Module):
         x = self.dropout(x)
         logits = self.fc2(x)
 
-        return logits.squeeze(-1)  # Output shape: (batch_size,)
+        if self.num_classes == 1:
+            return logits.squeeze(-1)  # Output shape: (batch_size,)
+        return logits
+
 
 
 class DeepCNN(nn.Module):
@@ -72,8 +77,14 @@ class DeepCNN(nn.Module):
     Deeper CNN architecture with 4 conv layers.
     """
 
-    def __init__(self, sequence_length: int = 1000, dropout_rate: float = 0.4):
+    def __init__(
+        self,
+        sequence_length: int = 1000,
+        dropout_rate: float = 0.4,
+        num_classes: int = 1,
+    ):
         super(DeepCNN, self).__init__()
+        self.num_classes = num_classes
 
         self.conv1 = nn.Conv1d(4, 64, kernel_size=15, padding=7)
         self.bn1 = nn.BatchNorm1d(64)
@@ -94,7 +105,7 @@ class DeepCNN(nn.Module):
 
         self.fc1 = nn.Linear(256, 128)
         self.bn_fc = nn.BatchNorm1d(128)
-        self.fc2 = nn.Linear(128, 1)
+        self.fc2 = nn.Linear(128, num_classes)
 
     def forward(self, x):
         x = self.pool1(F.relu(self.bn1(self.conv1(x))))
@@ -110,7 +121,9 @@ class DeepCNN(nn.Module):
         x = self.dropout(x)
         logits = self.fc2(x)
 
-        return logits.squeeze(-1)
+        if self.num_classes == 1:
+            return logits.squeeze(-1)
+        return logits
 
 
 class AttentionCNN(nn.Module):
@@ -119,9 +132,14 @@ class AttentionCNN(nn.Module):
     """
 
     def __init__(
-        self, sequence_length: int = 1000, n_heads: int = 4, dropout_rate: float = 0.3
+        self,
+        sequence_length: int = 1000,
+        n_heads: int = 4,
+        dropout_rate: float = 0.3,
+        num_classes: int = 1,
     ):
         super(AttentionCNN, self).__init__()
+        self.num_classes = num_classes
 
         self.conv1 = nn.Conv1d(4, 64, kernel_size=15, padding=7)
         self.bn1 = nn.BatchNorm1d(64)
@@ -138,7 +156,7 @@ class AttentionCNN(nn.Module):
 
         self.fc1 = nn.Linear(64, 32)
         self.bn_fc = nn.BatchNorm1d(32)
-        self.fc2 = nn.Linear(32, 1)
+        self.fc2 = nn.Linear(32, num_classes)
 
     def forward(self, x):
         x = self.pool1(F.relu(self.bn1(self.conv1(x))))  # Shape: (batch, 64, L)
@@ -159,4 +177,6 @@ class AttentionCNN(nn.Module):
         x = self.dropout(x)
         logits = self.fc2(x)
 
-        return logits.squeeze(-1)
+        if self.num_classes == 1:
+            return logits.squeeze(-1)
+        return logits

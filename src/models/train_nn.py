@@ -28,6 +28,7 @@ class PyTorchModelWrapper(BaseModel):
         patience=5,
         device=None,
         random_state=42,
+        num_classes=1,
     ):
         """
         Parameters:
@@ -52,9 +53,15 @@ class PyTorchModelWrapper(BaseModel):
             'cuda' or 'cpu'. If None, auto-detected.
         random_state : int, default 42
             Seed for reproducibility.
+        num_classes : int, default 1
+            Number of target classes (1 for binary, >1 for multiclass).
         """
         self.model_class = model_class
+        self.num_classes = num_classes
         self.model_params = model_params if model_params is not None else {}
+        if "num_classes" not in self.model_params:
+            self.model_params["num_classes"] = self.num_classes
+
         self.epochs = epochs
         self.batch_size = batch_size
         self.lr = lr
@@ -115,7 +122,10 @@ class PyTorchModelWrapper(BaseModel):
         )
 
         # 2. Setup Optimization
-        criterion = nn.BCEWithLogitsLoss()
+        if self.num_classes > 1:
+            criterion = nn.CrossEntropyLoss()
+        else:
+            criterion = nn.BCEWithLogitsLoss()
         optimizer = optim.Adam(
             self.model.parameters(), lr=self.lr, weight_decay=self.weight_decay
         )
@@ -127,6 +137,7 @@ class PyTorchModelWrapper(BaseModel):
         best_val_loss = float("inf")
         patience_counter = 0
         best_state = None
+        self.history = {"train_loss": [], "val_loss": [], "val_acc": []}
 
         print(f"Training on device: {self.device}")
 
@@ -136,7 +147,10 @@ class PyTorchModelWrapper(BaseModel):
 
             for batch_x, batch_y in train_loader:
                 batch_x = batch_x.to(self.device)
-                batch_y = batch_y.to(self.device)
+                if self.num_classes > 1:
+                    batch_y = batch_y.to(self.device).long()
+                else:
+                    batch_y = batch_y.to(self.device)
 
                 optimizer.zero_grad()
                 outputs = self.model(batch_x)
@@ -147,6 +161,7 @@ class PyTorchModelWrapper(BaseModel):
                 train_loss += loss.item() * batch_x.size(0)
 
             train_loss /= len(train_loader.dataset)
+            self.history["train_loss"].append(train_loss)
 
             # Validation Step
             if val_loader:
@@ -158,17 +173,25 @@ class PyTorchModelWrapper(BaseModel):
                 with torch.no_grad():
                     for batch_x, batch_y in val_loader:
                         batch_x = batch_x.to(self.device)
-                        batch_y = batch_y.to(self.device)
+                        if self.num_classes > 1:
+                            batch_y = batch_y.to(self.device).long()
+                        else:
+                            batch_y = batch_y.to(self.device)
                         outputs = self.model(batch_x)
                         loss = criterion(outputs, batch_y)
                         val_loss += loss.item() * batch_x.size(0)
 
-                        preds = (torch.sigmoid(outputs) >= 0.5).float()
+                        if self.num_classes > 1:
+                            preds = torch.argmax(outputs, dim=1)
+                        else:
+                            preds = (torch.sigmoid(outputs) >= 0.5).float()
                         correct += (preds == batch_y).sum().item()
                         total += batch_y.size(0)
 
                 val_loss /= len(val_loader.dataset)
                 val_acc = correct / total
+                self.history["val_loss"].append(val_loss)
+                self.history["val_acc"].append(val_acc)
 
                 scheduler.step(val_loss)
 
@@ -216,19 +239,27 @@ class PyTorchModelWrapper(BaseModel):
         probs = []
         with torch.no_grad():
             for batch_x in loader:
+                if isinstance(batch_x, (list, tuple)):
+                    batch_x = batch_x[0]
                 batch_x = batch_x.to(self.device)
                 outputs = self.model(batch_x)
-                probs_batch = torch.sigmoid(outputs).cpu().numpy()
+                if self.num_classes > 1:
+                    probs_batch = torch.softmax(outputs, dim=1).cpu().numpy()
+                else:
+                    probs_batch = torch.sigmoid(outputs).cpu().numpy()
                 probs.extend(probs_batch)
 
         return np.array(probs, dtype=np.float32)
 
     def predict(self, X):
         """
-        Predict binary labels (0 or 1) for input sequences.
+        Predict binary/multiclass labels for input sequences.
         """
         probs = self.predict_proba(X)
-        return (probs >= 0.5).astype(np.int32)
+        if self.num_classes > 1:
+            return np.argmax(probs, axis=1)
+        else:
+            return (probs >= 0.5).astype(np.int32)
 
     def get_feature_importance(self, feature_names: list = None) -> pd.DataFrame:
         """
@@ -255,12 +286,21 @@ class PyTorchModelWrapper(BaseModel):
                 return GenomicDataset(df, sequence_col=seq_col, label_col="label")
             else:
                 return GenomicDataset(df, sequence_col=seq_col, label_col=None)
-        elif isinstance(X, (list, np.ndarray)) and (
-            isinstance(X[0], str) or isinstance(X[0], np.str_)
-        ):
-            df = pd.DataFrame({"sequence": X})
+        # Check if X contains string sequences (e.g. lists, numpy/pandas arrays of strings)
+        first_elem = None
+        try:
+            if hasattr(X, "__getitem__") and len(X) > 0:
+                first_elem = X[0]
+            elif hasattr(X, "__iter__"):
+                first_elem = next(iter(X))
+        except Exception:
+            pass
+
+        if first_elem is not None and isinstance(first_elem, (str, np.str_)):
+            X_list = X.tolist() if hasattr(X, "tolist") else list(X)
+            df = pd.DataFrame({"sequence": X_list})
             if y is not None:
-                df["label"] = y
+                df["label"] = y.tolist() if hasattr(y, "tolist") else list(y) if hasattr(y, "__iter__") and not isinstance(y, (str, np.str_)) else y
                 return GenomicDataset(df, sequence_col="sequence", label_col="label")
             else:
                 return GenomicDataset(df, sequence_col="sequence", label_col=None)
@@ -296,6 +336,7 @@ class PyTorchModelWrapper(BaseModel):
             "val_split": self.val_split,
             "patience": self.patience,
             "random_state": self.random_state,
+            "num_classes": self.num_classes,
         }
         with open(path, "wb") as f:
             pickle.dump(save_dict, f)  # nosec B301 – internal checkpoint, trusted path
@@ -324,6 +365,7 @@ class PyTorchModelWrapper(BaseModel):
             val_split=save_dict["val_split"],
             patience=save_dict["patience"],
             random_state=save_dict["random_state"],
+            num_classes=save_dict.get("num_classes", 1),
         )
         # Load weights
         wrapper.model.load_state_dict(save_dict["model_state_dict"])

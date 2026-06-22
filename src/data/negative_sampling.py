@@ -258,6 +258,7 @@ def build_negative_dataset(
     output_path: str,
     target_length: int = 1000,
     strategy: str = "gc_matched",
+    multiclass: bool = False,
 ):
     """
     Load positive regions, sample matching/random/flanking negative regions,
@@ -312,11 +313,28 @@ def build_negative_dataset(
     neg_df = pd.DataFrame(all_negatives)
 
     # Combine positives and negatives
-    # Add a label column (1 for positive, 0 for negative)
-    pos_df["label"] = 1
-    neg_df["label"] = 0
-
-    combined_df = pd.concat([pos_df, neg_df], ignore_index=True)
+    if multiclass:
+        combined_df = pd.concat([pos_df, neg_df], ignore_index=True)
+        # map labels:
+        # PLS -> 1
+        # dELS, pELS -> 2
+        # non-regulatory / background -> 0
+        def map_classification(c):
+            if not isinstance(c, str):
+                return 0
+            c_upper = c.upper()
+            if "PLS" in c_upper:
+                return 1
+            elif "DELS" in c_upper or "PELS" in c_upper:
+                return 2
+            else:
+                return 0
+        combined_df["label"] = combined_df["classification"].apply(map_classification)
+    else:
+        # Add a label column (1 for positive, 0 for negative)
+        pos_df["label"] = 1
+        neg_df["label"] = 0
+        combined_df = pd.concat([pos_df, neg_df], ignore_index=True)
 
     # Save combined dataset
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -325,3 +343,4 @@ def build_negative_dataset(
         f"Saved combined positive & negative dataset to {output_path} (Total regions: {len(combined_df):,})."
     )
     return output_path
+

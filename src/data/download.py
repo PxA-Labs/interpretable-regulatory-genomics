@@ -44,3 +44,26 @@ def download_hg38_chromosome(chrom: str, output_dir: str = "data/reference"):
     dest_path = os.path.join(output_dir, f"{chrom}.fa.gz")
     download_file(url, dest_path)
     return dest_path
+
+
+def download_biosample_ccres(biosample: str, output_dir: str = "data/raw") -> str:
+    """
+    Download cell-type specific representative cCRE annotations from ENCODE.
+    Supports K562 (ENCFF464BRU) and GM12878 (ENCFF590IMH).
+    """
+    biosample_lower = biosample.lower()
+    if biosample_lower == "k562":
+        accession = "ENCFF464BRU"
+    elif biosample_lower == "gm12878":
+        accession = "ENCFF590IMH"
+    else:
+        raise ValueError(
+            f"Unsupported biosample: {biosample}. Only K562 and GM12878 are supported."
+        )
+
+    url = (
+        f"https://www.encodeproject.org/files/{accession}/@@download/{accession}.bed.gz"
+    )
+    dest_path = os.path.join(output_dir, f"{accession}.bed.gz")
+    download_file(url, dest_path)
+    return dest_path

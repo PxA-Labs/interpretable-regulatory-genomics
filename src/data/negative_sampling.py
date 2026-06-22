@@ -315,6 +315,7 @@ def build_negative_dataset(
     # Combine positives and negatives
     if multiclass:
         combined_df = pd.concat([pos_df, neg_df], ignore_index=True)
+
         # map labels:
         # PLS -> 1
         # dELS, pELS -> 2
@@ -329,6 +330,7 @@ def build_negative_dataset(
                 return 2
             else:
                 return 0
+
         combined_df["label"] = combined_df["classification"].apply(map_classification)
     else:
         # Add a label column (1 for positive, 0 for negative)
@@ -343,4 +345,3 @@ def build_negative_dataset(
         f"Saved combined positive & negative dataset to {output_path} (Total regions: {len(combined_df):,})."
     )
     return output_path
-

@@ -300,7 +300,13 @@ class PyTorchModelWrapper(BaseModel):
             X_list = X.tolist() if hasattr(X, "tolist") else list(X)
             df = pd.DataFrame({"sequence": X_list})
             if y is not None:
-                df["label"] = y.tolist() if hasattr(y, "tolist") else list(y) if hasattr(y, "__iter__") and not isinstance(y, (str, np.str_)) else y
+                df["label"] = (
+                    y.tolist()
+                    if hasattr(y, "tolist")
+                    else list(y)
+                    if hasattr(y, "__iter__") and not isinstance(y, (str, np.str_))
+                    else y
+                )
                 return GenomicDataset(df, sequence_col="sequence", label_col="label")
             else:
                 return GenomicDataset(df, sequence_col="sequence", label_col=None)

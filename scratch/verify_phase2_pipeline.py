@@ -13,7 +13,7 @@ from src.models.train_nn import PyTorchModelWrapper
 
 def main():
     print("=== Phase 2 Solidification End-to-End Verification ===")
-    
+
     # 1. Setup Directories
     raw_dir = "data/raw"
     ref_dir = "data/reference"
@@ -21,7 +21,7 @@ def main():
     os.makedirs(raw_dir, exist_ok=True)
     os.makedirs(ref_dir, exist_ok=True)
     os.makedirs(proc_dir, exist_ok=True)
-    
+
     # 2. Download chr22 fasta and cell-type annotations
     print("\n--- Step 1: Downloading Annotations and Reference Genome ---")
     chr22_fasta = os.path.join(ref_dir, "chr22.fa.gz")
@@ -52,7 +52,7 @@ def main():
         output_path=k562_parsed,
         element_types=["PLS", "dELS", "pELS"],
         chromosomes=["chr22"],
-        target_length=1000
+        target_length=1000,
     )
 
     parse_and_resize_ccres(
@@ -60,17 +60,20 @@ def main():
         output_path=gm12878_parsed,
         element_types=["PLS", "dELS", "pELS"],
         chromosomes=["chr22"],
-        target_length=1000
+        target_length=1000,
     )
 
     # Load and keep a small subset to make training extremely fast
-    for parsed_path, label_prefix in [(k562_parsed, "k562"), (gm12878_parsed, "gm12878")]:
+    for parsed_path, label_prefix in [
+        (k562_parsed, "k562"),
+        (gm12878_parsed, "gm12878"),
+    ]:
         df = pd.read_csv(parsed_path, sep="\t", header=None)
         # Squeeze to 100 positive elements (50 PLS and 50 ELS)
         df_pls = df[df[4] == "PLS"].head(50)
         df_els = df[df[4].isin(["dELS", "pELS"])].head(50)
         df_subset = pd.concat([df_pls, df_els], ignore_index=True)
-        
+
         subset_path = os.path.join(proc_dir, f"{label_prefix}_chr22_subset.bed")
         df_subset.to_csv(subset_path, sep="\t", header=False, index=False)
         print(f"Saved {len(df_subset)} sliced positive regions to {subset_path}")
@@ -83,12 +86,12 @@ def main():
     extract_sequences(
         bed_path=os.path.join(proc_dir, "k562_chr22_subset.bed"),
         fasta_source=chr22_fasta,
-        output_path=k562_pos_tsv
+        output_path=k562_pos_tsv,
     )
     extract_sequences(
         bed_path=os.path.join(proc_dir, "gm12878_chr22_subset.bed"),
         fasta_source=chr22_fasta,
-        output_path=gm12878_pos_tsv
+        output_path=gm12878_pos_tsv,
     )
 
     # 5. Build Multiclass Negatives matched by GC
@@ -102,7 +105,7 @@ def main():
         output_path=k562_final_tsv,
         target_length=1000,
         strategy="gc_matched",
-        multiclass=True
+        multiclass=True,
     )
     build_negative_dataset(
         pos_tsv_path=gm12878_pos_tsv,
@@ -110,7 +113,7 @@ def main():
         output_path=gm12878_final_tsv,
         target_length=1000,
         strategy="gc_matched",
-        multiclass=True
+        multiclass=True,
     )
 
     # 6. Load Datasets
@@ -136,13 +139,15 @@ def main():
         batch_size=16,
         num_classes=3,
         val_split=0.2,
-        random_state=42
+        random_state=42,
     )
 
     wrapper.fit(X_train, y_train)
 
     # 8. Cross-Cell-Type Evaluation
-    print("\n--- Step 7: Evaluating Cross-Cell-Type Generalization (K562 -> GM12878) ---")
+    print(
+        "\n--- Step 7: Evaluating Cross-Cell-Type Generalization (K562 -> GM12878) ---"
+    )
     probs = wrapper.predict_proba(X_test)
     preds = wrapper.predict(X_test)
 
@@ -155,6 +160,7 @@ def main():
 
     # Generate Confusion Matrix
     from sklearn.metrics import confusion_matrix
+
     cm = confusion_matrix(y_test, preds)
     print(f"Confusion Matrix:\n{cm}")
 
@@ -166,9 +172,11 @@ def main():
 
     loaded_wrapper = PyTorchModelWrapper.load(temp_model_path)
     loaded_preds = loaded_wrapper.predict(X_test)
-    assert np.array_equal(preds, loaded_preds), "Loaded model predictions do not match original model predictions!"
+    assert np.array_equal(preds, loaded_preds), (
+        "Loaded model predictions do not match original model predictions!"
+    )
     print("Success! Loaded model predictions match original model predictions.")
-    
+
     # Cleanup loaded model file to save space
     if os.path.exists(temp_model_path):
         os.remove(temp_model_path)

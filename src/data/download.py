@@ -61,8 +61,9 @@ def download_biosample_ccres(biosample: str, output_dir: str = "data/raw") -> st
             f"Unsupported biosample: {biosample}. Only K562 and GM12878 are supported."
         )
 
-    url = f"https://www.encodeproject.org/files/{accession}/@@download/{accession}.bed.gz"
+    url = (
+        f"https://www.encodeproject.org/files/{accession}/@@download/{accession}.bed.gz"
+    )
     dest_path = os.path.join(output_dir, f"{accession}.bed.gz")
     download_file(url, dest_path)
     return dest_path
-

@@ -71,7 +71,6 @@ class ShallowCNN(nn.Module):
         return logits
 
 
-
 class DeepCNN(nn.Module):
     """
     Deeper CNN architecture with 4 conv layers.

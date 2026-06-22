@@ -22,14 +22,14 @@ def test_download_biosample_ccres_validation():
         dest_k562 = download_biosample_ccres("K562", output_dir="temp_raw")
         mock_download.assert_called_once_with(
             "https://www.encodeproject.org/files/ENCFF464BRU/@@download/ENCFF464BRU.bed.gz",
-            os.path.join("temp_raw", "ENCFF464BRU.bed.gz")
+            os.path.join("temp_raw", "ENCFF464BRU.bed.gz"),
         )
 
     with patch("src.data.download.download_file") as mock_download:
         dest_gm12878 = download_biosample_ccres("gm12878", output_dir="temp_raw")
         mock_download.assert_called_once_with(
             "https://www.encodeproject.org/files/ENCFF590IMH/@@download/ENCFF590IMH.bed.gz",
-            os.path.join("temp_raw", "ENCFF590IMH.bed.gz")
+            os.path.join("temp_raw", "ENCFF590IMH.bed.gz"),
         )
 
 
@@ -46,14 +46,16 @@ def test_multiclass_negative_sampling_label_mapping():
             f.write("ATCG" * 500 + "\n")  # 2000 bp
 
         # Create positive regions DataFrame with PLS, dELS, and pELS
-        pos_df = pd.DataFrame({
-            "chrom": ["chr22", "chr22", "chr22"],
-            "start": [100, 500, 900],
-            "end": [200, 600, 1000],
-            "accession": ["POS1", "POS2", "POS3"],
-            "classification": ["PLS", "dELS", "pELS"],
-            "sequence": ["A" * 100, "C" * 100, "G" * 100]
-        })
+        pos_df = pd.DataFrame(
+            {
+                "chrom": ["chr22", "chr22", "chr22"],
+                "start": [100, 500, 900],
+                "end": [200, 600, 1000],
+                "accession": ["POS1", "POS2", "POS3"],
+                "classification": ["PLS", "dELS", "pELS"],
+                "sequence": ["A" * 100, "C" * 100, "G" * 100],
+            }
+        )
         pos_df.to_csv(pos_tsv_path, sep="\t", index=False)
 
         # 1. Test in multiclass mode (multiclass=True)
@@ -63,7 +65,7 @@ def test_multiclass_negative_sampling_label_mapping():
             output_path=output_tsv_path,
             target_length=100,
             strategy="random_unmatched",
-            multiclass=True
+            multiclass=True,
         )
 
         df_multi = pd.read_csv(output_tsv_path, sep="\t")
@@ -91,14 +93,16 @@ def test_multiclass_negative_sampling_label_mapping():
             output_path=output_tsv_path,
             target_length=100,
             strategy="random_unmatched",
-            multiclass=False
+            multiclass=False,
         )
 
         df_binary = pd.read_csv(output_tsv_path, sep="\t")
         assert len(df_binary) == 6
 
         # In binary mode: positives -> 1, negatives -> 0
-        binary_pos = df_binary[df_binary["classification"].isin(["PLS", "dELS", "pELS"])]
+        binary_pos = df_binary[
+            df_binary["classification"].isin(["PLS", "dELS", "pELS"])
+        ]
         binary_neg = df_binary[df_binary["classification"] == "non-regulatory"]
         assert all(binary_pos["label"] == 1)
         assert all(binary_neg["label"] == 0)
@@ -130,7 +134,7 @@ def test_cnn_output_shapes():
 def test_pytorch_model_wrapper_multiclass_training():
     # Create synthetic dataset (20 samples, 4 channels, length 1000)
     X = np.random.randn(20, 4, 1000).astype(np.float32)
-    
+
     # 3-class target labels (0, 1, or 2)
     y = np.random.choice([0, 1, 2], size=20)
 
@@ -141,7 +145,7 @@ def test_pytorch_model_wrapper_multiclass_training():
         batch_size=4,
         num_classes=3,
         val_split=0.2,
-        random_state=42
+        random_state=42,
     )
 
     # Fit the wrapper
@@ -169,7 +173,7 @@ def test_pytorch_model_wrapper_save_load_multiclass():
         batch_size=4,
         num_classes=3,
         val_split=0.0,
-        random_state=42
+        random_state=42,
     )
     wrapper.fit(X, y)
     preds_before = wrapper.predict(X)
@@ -196,19 +200,15 @@ def test_backwards_compatibility():
 
     # Initialize without specifying num_classes explicitly
     wrapper = PyTorchModelWrapper(
-        model_class=ShallowCNN,
-        epochs=1,
-        batch_size=4,
-        val_split=0.0,
-        random_state=42
+        model_class=ShallowCNN, epochs=1, batch_size=4, val_split=0.0, random_state=42
     )
     assert wrapper.num_classes == 1
-    
+
     wrapper.fit(X, y)
-    
+
     # Probabilities should be single probability (sigmoid)
     probs = wrapper.predict_proba(X)
     assert probs.ndim == 1 or (probs.ndim == 2 and probs.shape[1] == 1)
-    
+
     preds = wrapper.predict(X)
     assert np.all(np.isin(preds, [0, 1]))

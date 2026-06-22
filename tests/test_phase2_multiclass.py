@@ -20,6 +20,7 @@ def test_download_biosample_ccres_validation():
     # Mock download_file to prevent actual network calls
     with patch("src.data.download.download_file") as mock_download:
         dest_k562 = download_biosample_ccres("K562", output_dir="temp_raw")
+        assert dest_k562 == os.path.join("temp_raw", "ENCFF464BRU.bed.gz")
         mock_download.assert_called_once_with(
             "https://www.encodeproject.org/files/ENCFF464BRU/@@download/ENCFF464BRU.bed.gz",
             os.path.join("temp_raw", "ENCFF464BRU.bed.gz"),
@@ -27,6 +28,7 @@ def test_download_biosample_ccres_validation():
 
     with patch("src.data.download.download_file") as mock_download:
         dest_gm12878 = download_biosample_ccres("gm12878", output_dir="temp_raw")
+        assert dest_gm12878 == os.path.join("temp_raw", "ENCFF590IMH.bed.gz")
         mock_download.assert_called_once_with(
             "https://www.encodeproject.org/files/ENCFF590IMH/@@download/ENCFF590IMH.bed.gz",
             os.path.join("temp_raw", "ENCFF590IMH.bed.gz"),

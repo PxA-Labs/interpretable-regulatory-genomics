@@ -1,0 +1,3 @@
+experiment_id: exp_012_xgb_neg_sensitivity
+model: XGBoost
+strategies: random vs gc_matched

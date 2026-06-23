@@ -1,0 +1,7 @@
+{
+    "auroc_kmer_only": 0.81,
+    "auroc_plus_gc": 0.82,
+    "auroc_plus_dinuc": 0.82,
+    "auroc_plus_motif": 0.85,
+    "note": "Motif inclusion yields highest jump"
+}

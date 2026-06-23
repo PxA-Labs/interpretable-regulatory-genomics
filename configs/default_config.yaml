@@ -1,0 +1,22 @@
+project:
+  name: "regulatory-switch-discovery"
+  version: "0.1.0"
+
+data:
+  genome_assembly: "hg38"
+  encode_experiment_types:
+    - "DNase-seq"      # Open chromatin
+    - "H3K27ac"        # Active enhancer mark
+    - "H3K4me3"        # Active promoter mark
+  cell_types:
+    - "K562"           # Primary cell type (well-annotated)
+    - "GM12878"        # Secondary cell type
+  region_length: 1000  # bp; fixed-length regions
+  negative_strategy: "gc_matched_exclude_known"
+  positive_negative_ratio: 1.0
+
+features:
+  kmer_k_values: [3, 4, 5, 6]
+  include_gc_content: true
+  include_dinucleotide_freq: true
+  include_motif_scores: false  # Enable in Stage 2

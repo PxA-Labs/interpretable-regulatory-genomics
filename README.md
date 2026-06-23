@@ -6,55 +6,8 @@ This project applies interpretable machine learning to ENCODE-annotated candidat
 
 Optimized to run on accessible Kaggle-level compute infrastructure (T4 GPU).
 
----
-
-## Project Phases
-
-| Phase | Description | Best Model | Test AUROC | Status |
-|-------|-------------|------------|------------|--------|
-| **Phase 1** | Classical Interpretable Baselines | XGBoost (k=4 k-mers) | 0.8830 | Complete |
-| **Phase 2** | Deep Learning (CNNs) | AttentionCNN (one-hot) | 0.8604 | Complete |
-| **Phase 2+** | Multi-class & Cross-Cell-Type | AttentionCNN (3-class) | 81.25% acc | Complete |
-| **Phase 3** | Pre-trained Foundation Models | Nucleotide Transformer (500M) | 0.9176 | Complete |
-
----
-
-## Notebooks
-
-| Notebook | Phase | Description |
-|----------|-------|-------------|
-| [phase1_classical_baseline.ipynb](notebook/phase1_classical_baseline.ipynb) | Phase 1 | Logistic Regression, Random Forest, and XGBoost on k-mer features with SHAP explainability |
-| [phase1_classical_baseline_ablation.ipynb](notebook/phase1_classical_baseline_ablation.ipynb) | Phase 1 | Feature ablation (E2), k-mer resolution sweep (E3), and negative set sensitivity (E7) |
-| [phase2_deep_learning.ipynb](notebook/phase2_deep_learning.ipynb) | Phase 2 | CNN training, convolutional filter analysis, saliency maps, and integrated gradients |
-| [phase2_deep_learning_multiclass_generalization.ipynb](notebook/phase2_deep_learning_multiclass_generalization.ipynb) | Phase 2 | 3-class element-type classification and K562 to GM12878 zero-shot evaluation |
-| [phase3_pretrained_embeddings.ipynb](notebook/phase3_pretrained_embeddings.ipynb) | Phase 3 | Nucleotide Transformer (500M) embeddings, UMAP projections, and embedding-based classification |
-
-All notebooks are designed to run on [Kaggle](https://www.kaggle.com/) with T4 GPU acceleration. They can also be run locally with the appropriate data files (see `src/data/download.py`).
-
----
-
-## Discussions
-
-| Discussion | Topic | Phase |
-|------------|-------|-------|
-| [#1](../../discussions/1) | Classical Interpretable Baselines & SHAP Explainability | Phase 1 |
-| [#16](../../discussions/16) | Phase 1 Solidification & Baseline Verification | Phase 1 |
-| [#4](../../discussions/4) | Deep Learning Baselines, Convolutional Filters & Attribution Maps | Phase 2 |
-| [#18](../../discussions/18) | Multi-class Deep Learning & Cross-Cell-Type Generalization | Phase 2 |
-| [#5](../../discussions/5) | Pre-trained Foundation Models & Embeddings | Phase 3 |
-| [#11](../../discussions/11) | Interpretable CNN Discovers Major Regulatory Switches in Non-Coding DNA | Cross-Phase |
-| [#12](../../discussions/12) | Extensibility into Multi-Omics or Cell-Type-Specific Prediction | Phase 4 |
-
----
-
-## Quickstart
-
-```bash
-git clone https://github.com/PxA-Labs/interpretable-regulatory-genomics.git
-cd interpretable-regulatory-genomics
-pip install -r requirements.txt
-pytest tests/ -v
-```
+> [!NOTE]
+> Phases 1–3 are complete. Solidification work for cross-cell-type generalization and documentation deliverables is ongoing.
 
 ---
 
@@ -74,6 +27,56 @@ All specifications are compiled into professional PDF documents inside [docs/](d
 - [10-Roadmap & Milestones](docs/10-roadmap-milestones.pdf) — 12-month delivery roadmap and check-off criteria.
 - [11-Glossary & Project Memory](docs/11-glossary-project-memory.pdf) — Definitions, locked decisions, and scope limitations.
 - [12-Contributor Onboarding Brief](docs/12-contributor-onboarding.pdf) — Setup checklist and coding guidelines.
+
+---
+
+## Discussions
+
+| Discussion | Topic | Phase |
+|------------|-------|-------|
+| [#1](../../discussions/1) | Classical Interpretable Baselines & SHAP Explainability | Phase 1 |
+| [#16](../../discussions/16) | Phase 1 Solidification & Baseline Verification | Phase 1 |
+| [#4](../../discussions/4) | Deep Learning Baselines, Convolutional Filters & Attribution Maps | Phase 2 |
+| [#18](../../discussions/18) | Multi-class Deep Learning & Cross-Cell-Type Generalization | Phase 2 |
+| [#5](../../discussions/5) | Pre-trained Foundation Models & Embeddings | Phase 3 |
+| [#11](../../discussions/11) | Interpretable CNN Discovers Major Regulatory Switches in Non-Coding DNA | Cross-Phase |
+| [#12](../../discussions/12) | Extensibility into Multi-Omics or Cell-Type-Specific Prediction | Phase 4 |
+
+---
+
+## Notebooks
+
+| Notebook | Phase | Description |
+|----------|-------|-------------|
+| [phase1_classical_baseline.ipynb](notebook/phase1_classical_baseline.ipynb) | Phase 1 | Logistic Regression, Random Forest, and XGBoost on k-mer features with SHAP explainability |
+| [phase1_classical_baseline_ablation.ipynb](notebook/phase1_classical_baseline_ablation.ipynb) | Phase 1 | Feature ablation (E2), k-mer resolution sweep (E3), and negative set sensitivity (E7) |
+| [phase2_deep_learning.ipynb](notebook/phase2_deep_learning.ipynb) | Phase 2 | CNN training, convolutional filter analysis, saliency maps, and integrated gradients |
+| [phase2_deep_learning_multiclass_generalization.ipynb](notebook/phase2_deep_learning_multiclass_generalization.ipynb) | Phase 2 | 3-class element-type classification and K562 to GM12878 zero-shot evaluation |
+| [phase3_pretrained_embeddings.ipynb](notebook/phase3_pretrained_embeddings.ipynb) | Phase 3 | Nucleotide Transformer (500M) embeddings, UMAP projections, and embedding-based classification |
+
+All notebooks are designed to run on [Kaggle](https://www.kaggle.com/) with T4 GPU acceleration. They can also be run locally with the appropriate data files (see `src/data/download.py`).
+
+---
+
+## Project Phases
+
+| Phase | Description | Best Model | Test AUROC | Status |
+|-------|-------------|------------|------------|--------|
+| **Phase 1** | Classical Interpretable Baselines | XGBoost (k=4 k-mers) | 0.8830 | Complete |
+| **Phase 2** | Deep Learning (CNNs) | AttentionCNN (one-hot) | 0.8604 | Complete |
+| **Phase 2+** | Multi-class & Cross-Cell-Type | AttentionCNN (3-class) | 81.25% acc | Complete |
+| **Phase 3** | Pre-trained Foundation Models | Nucleotide Transformer (500M) | 0.9176 | Complete |
+
+---
+
+## Quickstart
+
+```bash
+git clone https://github.com/PxA-Labs/interpretable-regulatory-genomics.git
+cd interpretable-regulatory-genomics
+pip install -r requirements.txt
+pytest tests/ -v
+```
 
 ---
 

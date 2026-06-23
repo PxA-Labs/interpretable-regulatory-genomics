@@ -22,7 +22,6 @@ import numpy as np
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import matplotlib.pyplot as plt
 import src.features.kmer
 import src.models.tree_ensemble
 from src.interpret.shap_analysis import explain_single_sample

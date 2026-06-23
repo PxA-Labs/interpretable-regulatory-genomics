@@ -96,7 +96,6 @@ def main():
     # Compare rankings
     print("Analyzing Results...")
     gain_ranks = np.argsort(gain_importance)[::-1]
-    perm_ranks = np.argsort(perm_importances)[::-1]
     
     # Create comparison table for top 20 features by Gain
     results_list = []

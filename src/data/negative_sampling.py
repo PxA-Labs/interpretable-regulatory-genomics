@@ -49,6 +49,7 @@ def sample_negatives_for_chromosome(
     max_attempts_per_sample: int = 10000,
     gc_bins: np.ndarray = None,
     strategy: str = "gc_matched",
+    random_seed: int = None,
 ) -> list:
     """
     Sample negative regions for a single chromosome using the specified strategy.
@@ -56,7 +57,16 @@ def sample_negatives_for_chromosome(
       - "gc_matched": Match the GC distribution of the positives.
       - "random_unmatched": Sample randomly without GC matching.
       - "flanking": Shift positive coordinates to create flanking negatives.
+
+    Parameters:
+    -----------
+    random_seed : int, optional
+        If provided, seeds the random number generator for reproducible sampling.
+        Default is None (non-deterministic, preserving legacy behavior).
     """
+    if random_seed is not None:
+        random.seed(random_seed)
+
     print(f"Sampling negatives for chromosome {chrom} using strategy '{strategy}'...")
 
     # Sort positive intervals for fast overlap checking
@@ -259,10 +269,17 @@ def build_negative_dataset(
     target_length: int = 1000,
     strategy: str = "gc_matched",
     multiclass: bool = False,
+    random_seed: int = None,
 ):
     """
     Load positive regions, sample matching/random/flanking negative regions,
     and save the combined dataset.
+
+    Parameters:
+    -----------
+    random_seed : int, optional
+        If provided, seeds the random number generator for reproducible sampling.
+        Default is None (non-deterministic, preserving legacy behavior).
     """
     print(f"Loading positive regions with sequences from {pos_tsv_path}...")
     pos_df = pd.read_csv(pos_tsv_path, sep="\t")
@@ -307,6 +324,7 @@ def build_negative_dataset(
             pos_regions_chrom=group,
             target_length=target_length,
             strategy=strategy,
+            random_seed=random_seed,
         )
         all_negatives.extend(chrom_negs)
 

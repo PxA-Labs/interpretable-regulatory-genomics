@@ -61,3 +61,4 @@ jobs:
         python -c "import src.features; print('features module import successful.')"
         python -c "import src.models; print('models module import successful.')"
         python -c "import src.interpret; print('interpret module import successful.')"
+        python -c "import src.tracking; print('tracking module import successful.')"

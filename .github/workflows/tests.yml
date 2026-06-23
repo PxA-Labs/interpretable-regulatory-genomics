@@ -36,4 +36,4 @@ jobs:
         pip install pytest
 
     - name: Run Tests
-      run: pytest tests/ -v --tb=short
+      run: python -m pytest tests/ -v --tb=short

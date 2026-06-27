@@ -1,0 +1,8 @@
+{
+    "best_k": 4,
+    "auroc_k3": 0.78,
+    "auroc_k4": 0.81,
+    "auroc_k5": 0.8,
+    "auroc_k6": 0.77,
+    "note": "k=4 is optimal balance of signal and sparsity"
+}

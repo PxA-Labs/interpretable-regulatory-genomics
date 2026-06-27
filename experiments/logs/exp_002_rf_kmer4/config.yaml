@@ -1,0 +1,3 @@
+experiment_id: exp_002_rf_kmer4
+feature_set: kmer_k4
+model_type: 002

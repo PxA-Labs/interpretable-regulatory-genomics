@@ -1,0 +1,3 @@
+experiment_id: exp_003_rf_kmer_sweep
+model: RandomForest
+sweep: k=3,4,5,6

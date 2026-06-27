@@ -1,0 +1,3 @@
+experiment_id: exp_011_xgb_ablation
+model: XGBoost
+features: kmer + GC + dinuc + motif

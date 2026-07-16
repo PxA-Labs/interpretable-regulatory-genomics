@@ -5,23 +5,10 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
-    open-pull-requests-limit: 10
     labels:
       - "dependencies"
-      - "automated"
-    reviewers:
-      - "PxA-Labs/maintainers"
-    groups:
-      minor-and-patch:
-        update-types:
-          - "minor"
-          - "patch"
-        labels:
-          - "dependencies"
-          - "automated"
     commit-message:
       prefix: "chore(deps)"
-      include: "scope"
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -30,13 +17,5 @@ updates:
       day: "monday"
     labels:
       - "dependencies"
-      - "ci"
-    groups:
-      actions:
-        patterns:
-          - "*"
-        update-types:
-          - "minor"
-          - "patch"
     commit-message:
       prefix: "ci(deps)"

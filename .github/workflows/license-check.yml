@@ -37,7 +37,7 @@ jobs:
 
           # Generate license report
           pip-licenses --format=json --output-file=licenses.json || true
-          pip-licenses --format=table --order=license
+          pip-licenses --format=plain --order=license
 
           # Block specific copyleft licenses (GPL, AGPL)
           BLOCKED=$(pip-licenses --format=json | python -c "

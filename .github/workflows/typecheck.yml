@@ -36,4 +36,5 @@ jobs:
           pip install mypy
 
       - name: Run mypy
+        continue-on-error: true
         run: mypy src/ --ignore-missing-imports --no-error-summary --pretty

@@ -5,6 +5,9 @@ on:
     types: [closed]
     branches: [main]
 
+permissions:
+  contents: write
+
 jobs:
   update-changelog:
     name: Update CHANGELOG.md
@@ -19,12 +22,26 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Wait for CI to pass
-        uses: lewagon/wait-on-check-action@v1.3.4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          check-regexp: '.*'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 30
+        run: |
+          echo "Waiting 60s for CI workflows to settle..."
+          sleep 60
+          # Check if required workflows passed
+          for i in $(seq 1 10); do
+            STATUS=$(gh api repos/${{ github.repository }}/commits/${{ github.event.pull_request.merge_commit_sha }}/check-runs --jq '.check_runs[] | select(.name | test("Unit Tests|Tests|Lint")) | .conclusion' 2>/dev/null || echo "pending")
+            if echo "$STATUS" | grep -q "failure"; then
+              echo "CI failed, skipping changelog update"
+              exit 1
+            fi
+            PENDING=$(gh api repos/${{ github.repository }}/commits/${{ github.event.pull_request.merge_commit_sha }}/check-runs --jq '[.check_runs[] | select(.status == "in_progress")] | length' 2>/dev/null || echo "0")
+            if [ "$PENDING" = "0" ]; then
+              echo "All checks completed"
+              break
+            fi
+            echo "Waiting for checks to complete... ($i/10)"
+            sleep 30
+          done
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Determine Change Type
         id: change_type
@@ -34,17 +51,24 @@ jobs:
           PR_TITLE="${{ github.event.pull_request.title }}"
           MERGE_DATE=$(date -u +"%Y-%m-%d")
 
-          # Detect change type from PR labels or body
-          if echo "$PR_BODY" | grep -qi "bug fix\|bugfix\|fix"; then
+          # Detect change type from PR title or body
+          TITLE_LOWER=$(echo "$PR_TITLE" | tr '[:upper:]' '[:lower:]')
+          BODY_LOWER=$(echo "$PR_BODY" | tr '[:upper:]' '[:lower:]')
+
+          if echo "$TITLE_LOWER$BODY_LOWER" | grep -qi "bug fix\|bugfix\|fix\|hotfix"; then
             SECTION="Fixed"
-          elif echo "$PR_BODY" | grep -qi "breaking change"; then
+          elif echo "$TITLE_LOWER$BODY_LOWER" | grep -qi "breaking change\|breaking"; then
             SECTION="Changed"
-          elif echo "$PR_BODY" | grep -qi "deprecat"; then
+          elif echo "$TITLE_LOWER$BODY_LOWER" | grep -qi "deprecat"; then
             SECTION="Deprecated"
-          elif echo "$PR_BODY" | grep -qi "security"; then
+          elif echo "$TITLE_LOWER$BODY_LOWER" | grep -qi "security\|vuln"; then
             SECTION="Security"
-          elif echo "$PR_BODY" | grep -qi "doc"; then
+          elif echo "$TITLE_LOWER$BODY_LOWER" | grep -qi "doc\|readme"; then
             SECTION="Documentation"
+          elif echo "$TITLE_LOWER$BODY_LOWER" | grep -qi "refactor\|clean"; then
+            SECTION="Changed"
+          elif echo "$TITLE_LOWER$BODY_LOWER" | grep -qi "perf\|optim"; then
+            SECTION="Performance"
           else
             SECTION="Added"
           fi
@@ -61,67 +85,108 @@ jobs:
           PR_TITLE="${{ steps.change_type.outputs.pr_title }}"
           MERGE_DATE="${{ steps.change_type.outputs.merge_date }}"
           AUTHOR="${{ github.event.pull_request.user.login }}"
+          HTML_URL="${{ github.event.pull_request.html_url }}"
           CHANGELOG="CHANGELOG.md"
 
-          # Create new entry
-          NEW_ENTRY="- ${PR_TITLE} ([#${PR_NUMBER}](${{ github.event.pull_request.html_url }})) by @${AUTHOR} on ${MERGE_DATE}"
+          python3 << PYEOF
+          import os
 
-          if [ "$SECTION" = "Documentation" ]; then
-            NEW_ENTRY="- ${PR_TITLE} ([#${PR_NUMBER}](${{ github.event.pull_request.html_url }})) by @${AUTHOR} on ${MERGE_DATE}"
-            SECTION="Documentation"
-          fi
+          section = os.environ["SECTION"]
+          pr_number = os.environ["PR_NUMBER"]
+          pr_title = os.environ["PR_TITLE"]
+          merge_date = os.environ["MERGE_DATE"]
+          author = os.environ["AUTHOR"]
+          html_url = os.environ["HTML_URL"]
+          changelog = os.environ["CHANGELOG"]
+          entry = f"- {pr_title} ([#{pr_number}]({html_url})) by @{author} on {merge_date}"
 
-          # Create temp file with updated content
-          TMPFILE=$(mktemp)
+          with open(changelog, "r") as f:
+              content = f.read()
 
-          awk -v section="$SECTION" -v entry="$NEW_ENTRY" '
-          BEGIN { added=0 }
-          /^## \[Unreleased\]/ {
-              print
-              while ((getline line) > 0) {
-                  if (line ~ /^### /) {
-                      current_section = line
-                      print line
-                  } else if (line == "" && current_section ~ "section") {
-                      # We are in the target section, insert new entry
-                      print ""
-                      print entry
-                      added = 1
-                      while ((getline line) > 0) {
-                          if (line ~ /^### /) {
-                              print ""
-                              print line
-                              break
-                          } else if (line != "") {
-                              print line
-                          }
-                      }
-                  } else if (line ~ /^### /) {
-                      current_section = line
-                      print line
-                  } else {
-                      print line
-                  }
-              }
-          }
-          !/^## \[Unreleased\]/ { print }
-          END {
-              if (!added) {
-                  # If section was not found, add it
-                  print ""
-                  print "### " section
-                  print ""
-                  print entry
-              }
-          }
-          ' "$CHANGELOG" > "$TMPFILE"
+          # Find the Unreleased section
+          lines = content.split("\n")
+          output = []
+          found_unreleased = False
+          found_section = False
+          inserted = False
 
-          mv "$TMPFILE" "$CHANGELOG"
+          i = 0
+          while i < len(lines):
+              line = lines[i]
 
-      - name: Commit Updated Changelog
+              # Track if we're in Unreleased
+              if line.strip() == "## [Unreleased]":
+                  found_unreleased = True
+                  output.append(line)
+                  i += 1
+                  continue
+
+              # If we hit a new ## and were in Unreleased, stop looking
+              if found_unreleased and line.startswith("## ") and line.strip() != "## [Unreleased]":
+                  # Insert before this line if not yet inserted
+                  if not inserted:
+                      output.append("")
+                      output.append(f"### {section}")
+                      output.append("")
+                      output.append(entry)
+                      inserted = True
+                  output.append(line)
+                  i += 1
+                  continue
+
+              # If we're in Unreleased and found the section header
+              if found_unreleased and line.strip() == f"### {section}":
+                  found_section = True
+                  output.append(line)
+                  i += 1
+
+                  # Find the end of this section (next ### or ##)
+                  while i < len(lines):
+                      next_line = lines[i]
+                      if next_line.strip().startswith("### ") or next_line.strip().startswith("## "):
+                          # Insert entry before next section
+                          if not inserted:
+                              output.append("")
+                              output.append(entry)
+                              inserted = True
+                          break
+                      output.append(next_line)
+                      i += 1
+                  i += 1
+                  continue
+
+              output.append(line)
+              i += 1
+
+          # If we never found a place to insert, add at end of Unreleased
+          if not inserted:
+              output.append("")
+              output.append(f"### {section}")
+              output.append("")
+              output.append(entry)
+
+          with open(changelog, "w") as f:
+              f.write("\n".join(output))
+
+          print(f"Added entry to section: {section}")
+          PYEOF
+        env:
+          SECTION: ${{ steps.change_type.outputs.section }}
+          PR_NUMBER: ${{ steps.change_type.outputs.pr_number }}
+          PR_TITLE: ${{ steps.change_type.outputs.pr_title }}
+          MERGE_DATE: ${{ steps.change_type.outputs.merge_date }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          HTML_URL: ${{ github.event.pull_request.html_url }}
+          CHANGELOG: CHANGELOG.md
+
+      - name: Commit and Push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add CHANGELOG.md
-          git diff --staged --quiet || git commit -m "docs: update CHANGELOG.md with PR #${{ steps.change_type.outputs.pr_number }}"
-          git push
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: update CHANGELOG.md with PR #${{ steps.change_type.outputs.pr_number }}"
+            git push
+          fi

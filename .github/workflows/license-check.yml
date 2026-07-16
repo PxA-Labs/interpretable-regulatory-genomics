@@ -1,0 +1,70 @@
+name: License Compliance
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'requirements.txt'
+      - 'pyproject.toml'
+      - 'setup.py'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'requirements.txt'
+      - 'pyproject.toml'
+      - 'setup.py'
+
+jobs:
+  license-check:
+    name: License Compliance
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Tools
+        run: pip install pip-licenses
+
+      - name: Check Dependency Licenses
+        run: |
+          pip install -r requirements.txt
+
+          # Generate license report
+          pip-licenses --format=json --output-file=licenses.json || true
+          pip-licenses --format=table --order=license
+
+          # Block specific copyleft licenses (GPL, AGPL)
+          BLOCKED=$(pip-licenses --format=json | python -c "
+          import json, sys
+          licenses = json.load(sys.stdin)
+          blocked = ['GPL', 'AGPL', 'SSPL']
+          violations = [p for p in licenses if any(b in (p.get('License','') or '') for b in blocked)]
+          for v in violations:
+              print(f\"  - {v['Name']} ({v['License']})\")
+          print(len(violations))
+          ")
+
+          COUNT=$(echo "$BLOCKED" | tail -1)
+          LIST=$(echo "$BLOCKED" | head -n -1)
+
+          if [ "$COUNT" != "0" ]; then
+            echo "::error::Blocked licenses found:"
+            echo "$LIST"
+            exit 1
+          fi
+
+          echo "No blocked licenses found."
+
+      - name: Upload License Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: license-report
+          path: licenses.json
+          retention-days: 30

@@ -44,7 +44,7 @@ jobs:
             -v --tb=short
 
       - name: Upload HTML Coverage Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: html-coverage-report

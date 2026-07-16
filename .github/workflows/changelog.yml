@@ -1,0 +1,127 @@
+name: Update Changelog
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  update-changelog:
+    name: Update CHANGELOG.md
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Wait for CI to pass
+        uses: lewagon/wait-on-check-action@v1.3.4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          check-regexp: '.*'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 30
+
+      - name: Determine Change Type
+        id: change_type
+        run: |
+          PR_BODY="${{ github.event.pull_request.body }}"
+          PR_NUMBER="${{ github.event.pull_request.number }}"
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          MERGE_DATE=$(date -u +"%Y-%m-%d")
+
+          # Detect change type from PR labels or body
+          if echo "$PR_BODY" | grep -qi "bug fix\|bugfix\|fix"; then
+            SECTION="Fixed"
+          elif echo "$PR_BODY" | grep -qi "breaking change"; then
+            SECTION="Changed"
+          elif echo "$PR_BODY" | grep -qi "deprecat"; then
+            SECTION="Deprecated"
+          elif echo "$PR_BODY" | grep -qi "security"; then
+            SECTION="Security"
+          elif echo "$PR_BODY" | grep -qi "doc"; then
+            SECTION="Documentation"
+          else
+            SECTION="Added"
+          fi
+
+          echo "section=$SECTION" >> "$GITHUB_OUTPUT"
+          echo "pr_number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
+          echo "pr_title=$PR_TITLE" >> "$GITHUB_OUTPUT"
+          echo "merge_date=$MERGE_DATE" >> "$GITHUB_OUTPUT"
+
+      - name: Update CHANGELOG.md
+        run: |
+          SECTION="${{ steps.change_type.outputs.section }}"
+          PR_NUMBER="${{ steps.change_type.outputs.pr_number }}"
+          PR_TITLE="${{ steps.change_type.outputs.pr_title }}"
+          MERGE_DATE="${{ steps.change_type.outputs.merge_date }}"
+          AUTHOR="${{ github.event.pull_request.user.login }}"
+          CHANGELOG="CHANGELOG.md"
+
+          # Create new entry
+          NEW_ENTRY="- ${PR_TITLE} ([#${PR_NUMBER}](${{ github.event.pull_request.html_url }})) by @${AUTHOR} on ${MERGE_DATE}"
+
+          if [ "$SECTION" = "Documentation" ]; then
+            NEW_ENTRY="- ${PR_TITLE} ([#${PR_NUMBER}](${{ github.event.pull_request.html_url }})) by @${AUTHOR} on ${MERGE_DATE}"
+            SECTION="Documentation"
+          fi
+
+          # Create temp file with updated content
+          TMPFILE=$(mktemp)
+
+          awk -v section="$SECTION" -v entry="$NEW_ENTRY" '
+          BEGIN { added=0 }
+          /^## \[Unreleased\]/ {
+              print
+              while ((getline line) > 0) {
+                  if (line ~ /^### /) {
+                      current_section = line
+                      print line
+                  } else if (line == "" && current_section ~ "section") {
+                      # We are in the target section, insert new entry
+                      print ""
+                      print entry
+                      added = 1
+                      while ((getline line) > 0) {
+                          if (line ~ /^### /) {
+                              print ""
+                              print line
+                              break
+                          } else if (line != "") {
+                              print line
+                          }
+                      }
+                  } else if (line ~ /^### /) {
+                      current_section = line
+                      print line
+                  } else {
+                      print line
+                  }
+              }
+          }
+          !/^## \[Unreleased\]/ { print }
+          END {
+              if (!added) {
+                  # If section was not found, add it
+                  print ""
+                  print "### " section
+                  print ""
+                  print entry
+              }
+          }
+          ' "$CHANGELOG" > "$TMPFILE"
+
+          mv "$TMPFILE" "$CHANGELOG"
+
+      - name: Commit Updated Changelog
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add CHANGELOG.md
+          git diff --staged --quiet || git commit -m "docs: update CHANGELOG.md with PR #${{ steps.change_type.outputs.pr_number }}"
+          git push

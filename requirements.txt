@@ -15,7 +15,7 @@ accelerate>=0.20.0
 # Interpretability & Explainable AI
 shap>=0.41.0
 captum>=0.6.0
-logomaker>=0.8
+logomaker>=0.8.7
 
 # Data Visualization & Environment
 matplotlib>=3.6.0

@@ -9,6 +9,9 @@ Optimized to run on accessible Kaggle-level compute infrastructure (T4 GPU).
 > [!NOTE]
 > Phases 1–3 are complete. Solidification work for cross-cell-type generalization and documentation deliverables is ongoing.
 
+> [!TIP]
+> Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
 ---
 
 ## Documentation

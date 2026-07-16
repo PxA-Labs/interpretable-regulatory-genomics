@@ -43,17 +43,6 @@ jobs:
             --cov-fail-under=60 \
             -v --tb=short
 
-      - name: Upload Coverage Report
-        uses: codecov/codecov-action@v4
-        if: always()
-        with:
-          files: coverage.xml
-          flags: unittests
-          name: codecov-${{ github.run_id }}
-          fail_ci_if_error: false
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
       - name: Upload HTML Coverage Report
         uses: actions/upload-artifact@v4
         if: always()

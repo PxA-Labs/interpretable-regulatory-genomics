@@ -84,6 +84,7 @@ jobs:
           found_unreleased = False
           found_section = False
           inserted = False
+          unreleased_end = -1
 
           i = 0
           while i < len(lines):
@@ -95,6 +96,7 @@ jobs:
                   i += 1
                   continue
 
+              # If we hit a new ## and were in Unreleased, insert here if not yet
               if found_unreleased and line.startswith("## ") and line.strip() != "## [Unreleased]":
                   if not inserted:
                       output.append("")
@@ -102,15 +104,18 @@ jobs:
                       output.append("")
                       output.append(entry)
                       inserted = True
+                  unreleased_end = len(output)
                   output.append(line)
                   i += 1
                   continue
 
-              if found_unreleased and line.strip() == f"### {section}":
+              # If we're in Unreleased and found the section header
+              if found_unreleased and not inserted and line.strip() == f"### {section}":
                   found_section = True
                   output.append(line)
                   i += 1
 
+                  # Find the end of this section (next ### or ##)
                   while i < len(lines):
                       next_line = lines[i]
                       if next_line.strip().startswith("### ") or next_line.strip().startswith("## "):
@@ -127,7 +132,14 @@ jobs:
               output.append(line)
               i += 1
 
-          if not inserted:
+          # If section wasn't found, insert before the next ## after [Unreleased]
+          if not inserted and unreleased_end > 0:
+              output.insert(unreleased_end, "")
+              output.insert(unreleased_end + 1, f"### {section}")
+              output.insert(unreleased_end + 2, "")
+              output.insert(unreleased_end + 3, entry)
+              inserted = True
+          elif not inserted:
               output.append("")
               output.append(f"### {section}")
               output.append("")
@@ -159,12 +171,5 @@ jobs:
           fi
           git commit -m "docs: update CHANGELOG.md with PR #${{ steps.change_type.outputs.pr_number }}"
           git push origin "$BRANCH"
-          gh pr create \
-            --base main \
-            --head "$BRANCH" \
-            --title "docs: update CHANGELOG.md (PR #${{ steps.change_type.outputs.pr_number }})" \
-            --body "Automated changelog update for PR #${{ steps.change_type.outputs.pr_number }}." \
-            --label "documentation" || echo "PR already exists"
-          gh pr merge "$BRANCH" --squash --admin || echo "Merge failed, will retry"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

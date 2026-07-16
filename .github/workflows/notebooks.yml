@@ -1,0 +1,43 @@
+name: Notebook Validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'notebook/**'
+      - 'src/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'notebook/**'
+      - 'src/**'
+
+jobs:
+  validate-notebooks:
+    name: Validate Notebooks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install nbval jupyter
+
+      - name: Validate Notebooks (nbval)
+        run: |
+          python -m pytest --nbval-lax \
+            notebook/*.ipynb \
+            --tb=short \
+            -v \
+            --timeout=600 \
+            -x

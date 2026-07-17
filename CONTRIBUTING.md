@@ -2,7 +2,7 @@
 
 First off, thank you for considering contributing to this project! It is a research-grade computational genomics initiative aimed at discovering regulatory switches in non-coding DNA.
 
-Following these guidelines helps ensure the codebase remains robust, reproducible, and easy to onboarding new contributors.
+Following these guidelines helps ensure the codebase remains robust, reproducible, and easy to onboard new contributors.
 
 ---
 

@@ -5,7 +5,7 @@ scipy>=1.9.0
 
 # Classical Machine Learning
 scikit-learn>=1.2.0
-xgboost>=1.7.0
+xgboost>=3.3.0
 
 # Deep Learning & Foundation Models
 torch>=2.0.0

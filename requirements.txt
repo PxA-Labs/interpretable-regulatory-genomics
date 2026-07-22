@@ -10,7 +10,7 @@ xgboost>=1.7.0
 # Deep Learning & Foundation Models
 torch>=2.0.0
 transformers>=4.30.0
-accelerate>=0.20.0
+accelerate>=1.14.0
 
 # Interpretability & Explainable AI
 shap>=0.41.0

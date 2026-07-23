@@ -10,7 +10,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Fixed
 
 - fix: drop Python 3.9 from test matrix ([#53](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/53)) by @purvanshjoshi on 2026-07-23
-## [1.0.0] - 2026-07-16
+
+- fix: add missing gh pr create step to changelog workflow ([#55](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/55)) by @purvanshjoshi on 2026-07-23
 
 ### Added
 - Phase 2 visualizations and CNN filter motifs ([#3](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/3))

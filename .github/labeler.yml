@@ -1,0 +1,48 @@
+# Area labels (applied based on changed files)
+area/CI:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '.github/**'
+      - 'Dockerfile'
+      - '.pre-commit-config.yaml'
+
+area/documentation:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/*.md'
+      - 'docs/**'
+      - 'LICENSE'
+      - 'CONTRIBUTING.md'
+
+area/code:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'src/**'
+
+area/scripts:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'scripts/**'
+
+area/experiments:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'experiments/**'
+
+area/configs:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'configs/**'
+
+area/notebooks:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/*.ipynb'
+
+area/dependencies:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'requirements.txt'
+      - 'setup.py'
+      - 'setup.cfg'
+      - 'pyproject.toml'

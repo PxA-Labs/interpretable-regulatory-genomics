@@ -14,6 +14,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Added
 
 - chore: add CODEOWNERS file ([#57](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/57)) by @purvanshjoshi on 2026-07-23
+
+### Documentation
+
+- docs: update CHANGELOG.md (PR #57) ([#58](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/58)) by @github-actions[bot] on 2026-07-23
 ## [1.0.0] - 2026-07-16
 
 ### Added

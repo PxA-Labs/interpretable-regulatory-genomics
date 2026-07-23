@@ -18,7 +18,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Documentation
 
 - docs: update CHANGELOG.md (PR #57) ([#58](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/58)) by @github-actions[bot] on 2026-07-23
-## [1.0.0] - 2026-07-16
+
+- docs: update CHANGELOG.md (PR #58) ([#59](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/59)) by @github-actions[bot] on 2026-07-23
 
 ### Added
 - Phase 2 visualizations and CNN filter motifs ([#3](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/3))

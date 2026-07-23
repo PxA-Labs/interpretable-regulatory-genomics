@@ -12,7 +12,9 @@ permissions:
 jobs:
   update-changelog:
     name: Update CHANGELOG.md
-    if: github.event.pull_request.merged == true
+    if: >
+      github.event.pull_request.merged == true &&
+      !startsWith(github.event.pull_request.head.ref, 'changelog/update-pr-')
     runs-on: ubuntu-latest
 
     steps:

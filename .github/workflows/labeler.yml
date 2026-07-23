@@ -1,0 +1,67 @@
+name: Auto Label PRs
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  label-size:
+    name: Label PR Size
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label by size
+        uses: codelytv/pr-size-labeler@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          xs_max_size: 10
+          s_max_size: 50
+          m_max_size: 200
+          l_max_size: 500
+          fail_if_xl: false
+
+  label-type:
+    name: Label PR Type
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label by type (title prefix)
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = context.payload.pull_request.title.toLowerCase();
+            const labels = [];
+
+            if (title.startsWith('feat'))        labels.push('type/feature');
+            else if (title.startsWith('fix'))     labels.push('type/bugfix');
+            else if (title.startsWith('docs'))    labels.push('type/documentation');
+            else if (title.startsWith('chore'))   labels.push('type/chore');
+            else if (title.startsWith('refactor')) labels.push('type/refactor');
+            else if (title.startsWith('test'))    labels.push('type/test');
+            else if (title.startsWith('perf'))    labels.push('type/performance');
+            else if (title.startsWith('ci'))      labels.push('type/ci');
+            else if (title.startsWith('style'))   labels.push('type/style');
+
+            if (title.includes('wip') || title.includes('draft')) labels.push('status/WIP');
+            if (title.includes('breaking') || title.includes('breaking change')) labels.push('breaking');
+
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: labels
+              });
+            }
+
+  label-area:
+    name: Label PR Area
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label by file path
+        uses: actions/labeler@v5
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          sync-labels: true

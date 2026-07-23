@@ -171,5 +171,8 @@ jobs:
           fi
           git commit -m "docs: update CHANGELOG.md with PR #${{ steps.change_type.outputs.pr_number }}"
           git push origin "$BRANCH"
+          gh pr create --base main --head "$BRANCH" \
+            --title "docs: update CHANGELOG.md (PR #${{ steps.change_type.outputs.pr_number }})" \
+            --body "Automated changelog update for PR #${{ steps.change_type.outputs.pr_number }}."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

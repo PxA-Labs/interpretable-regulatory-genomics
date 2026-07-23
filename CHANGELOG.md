@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Fixed
 
 - fix: drop Python 3.9 from test matrix ([#53](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/53)) by @purvanshjoshi on 2026-07-23
+
+### Added
+
+- chore: add CODEOWNERS file ([#57](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/57)) by @purvanshjoshi on 2026-07-23
 ## [1.0.0] - 2026-07-16
 
 ### Added

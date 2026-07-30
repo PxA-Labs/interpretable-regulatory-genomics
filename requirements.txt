@@ -18,6 +18,6 @@ captum>=0.9.0
 logomaker>=0.8.7
 
 # Data Visualization & Environment
-matplotlib>=3.6.0
+matplotlib>=3.11.1
 seaborn>=0.12.0
 jupyter>=1.1.1

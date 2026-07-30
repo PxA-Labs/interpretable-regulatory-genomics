@@ -1,6 +1,6 @@
 # Core Scientific Computing
 numpy>=1.23.0
-pandas>=1.5.0
+pandas>=3.0.5
 scipy>=1.9.0
 
 # Classical Machine Learning

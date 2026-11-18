@@ -1,0 +1,7 @@
+{
+  "title": "ENCODE Regulatory Switches Data",
+  "id": "purvanshj009/encode-regulatory-switches-data",
+  "licenses": [{"name": "other"}],
+  "subtitle": "ENCODE K562/GM12878 cCRE tables for interpretable regulatory genomics",
+  "description": "ENCODE cCRE input tables (v1, not yet leakage-audited) (K562, GM12878) with GC-matched, random and flanking negative sets. See README.md."
+}

@@ -19,3 +19,9 @@ docs/*.md
 *.mp4
 *.mkv
 *.avi
+
+# Local tooling output (never commit)
+graphify-out/
+drafts/
+*.lnk
+kaggle/**/staging/

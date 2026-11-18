@@ -29,7 +29,7 @@ To ensure reproducibility (crucial for genomic research), we follow strict rules
 * **Notebook Hygiene**: Jupyter notebooks must be cleaned of temporary testing cells and run top-to-bottom without error before commit.
 
 ### 3. Chromosome Holdout Split
-* **Never** use random train/test splits. Always hold out specific chromosomes (e.g., Chr 8, 9) for test sets to prevent genomic data leakage.
+* **Never** use random train/test splits. Always hold out whole chromosomes: the canonical split is train = chr1-14 + chrX, validation = chr15-18, test = chr19-22. Report any deviation explicitly.
 
 ---
 

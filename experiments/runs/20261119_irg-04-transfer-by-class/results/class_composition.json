@@ -1,0 +1,74 @@
+{
+ "tcell->k562": {
+  "shared_class_mix": {
+   "PLS": 0.499,
+   "pELS": 0.384,
+   "dELS": 0.117
+  },
+  "specific_class_mix": {
+   "pELS": 0.484,
+   "dELS": 0.284,
+   "PLS": 0.232
+  }
+ },
+ "tcell->gm12878": {
+  "shared_class_mix": {
+   "PLS": 0.458,
+   "pELS": 0.38,
+   "dELS": 0.162
+  },
+  "specific_class_mix": {
+   "pELS": 0.453,
+   "dELS": 0.344,
+   "PLS": 0.203
+  }
+ },
+ "k562->tcell": {
+  "shared_class_mix": {
+   "PLS": 0.51,
+   "pELS": 0.382,
+   "dELS": 0.108
+  },
+  "specific_class_mix": {
+   "pELS": 0.398,
+   "PLS": 0.35,
+   "dELS": 0.252
+  }
+ },
+ "k562->gm12878": {
+  "shared_class_mix": {
+   "pELS": 0.525,
+   "PLS": 0.366,
+   "dELS": 0.109
+  },
+  "specific_class_mix": {
+   "dELS": 0.549,
+   "pELS": 0.372,
+   "PLS": 0.079
+  }
+ },
+ "gm12878->tcell": {
+  "shared_class_mix": {
+   "PLS": 0.461,
+   "pELS": 0.389,
+   "dELS": 0.15
+  },
+  "specific_class_mix": {
+   "pELS": 0.397,
+   "PLS": 0.354,
+   "dELS": 0.249
+  }
+ },
+ "gm12878->k562": {
+  "shared_class_mix": {
+   "pELS": 0.531,
+   "PLS": 0.36,
+   "dELS": 0.109
+  },
+  "specific_class_mix": {
+   "dELS": 0.448,
+   "pELS": 0.419,
+   "PLS": 0.132
+  }
+ }
+}

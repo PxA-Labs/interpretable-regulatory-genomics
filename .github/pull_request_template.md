@@ -19,6 +19,6 @@ Describe how you verified these changes. Include:
 ## Checklist
 - [ ] My code follows the PEP 8 style guide for Python.
 - [ ] I have documented my code, particularly complex biological modeling details or assumptions.
-- [ ] I have verified that no random split is used, and the chromosome-holdout partition (e.g. Chr 8, 9) is strictly preserved to prevent leakage.
+- [ ] I have verified that no random split is used, and the canonical chromosome-holdout partition (train chr1-14+X, val chr15-18, test chr19-22) is strictly preserved to prevent leakage.
 - [ ] Jupyter Notebooks have been run sequentially and cleared of temporary execution cells.
 - [ ] I have updated the documentation or run-scripts if necessary.

@@ -1,0 +1,16 @@
+run_id: 20261118_irg-01-data-curation
+kernel: purvanshj009/irg-01-data-curation
+kernel_version: 4          # versions 1-3 failed before executing curation code (kernelspec, then raw-file path)
+notebook: kaggle/kernels/01-data-curation/01_data_curation.ipynb
+source_git_sha: ac3e4156be59a868885099c707400ee107b0ce53   # snapshot in Kaggle dataset purvanshj009/irg-source-code
+seed: 42
+runtime_s: 6465.5
+accelerator: none (CPU)
+inputs:
+  - purvanshj009/encode-regulatory-switches-data   # v1 raw inputs (private)
+  - purvanshj009/irg-source-code
+  - aliabedimadiseh/grch38-human-genome-dna
+outputs: Kaggle kernel output (curated/*.parquet, slm_ready/*.jsonl.gz); small files committed here
+notes: >
+  Confirmed legacy k562_* tables are naive CD8+ T-cell cCREs (overlap 26362/2489/2730 for tcell/k562/gm12878).
+  3 K562 GC-matched negatives (chr19:1, chr20:2) filled with random coordinates after sampler timeout.

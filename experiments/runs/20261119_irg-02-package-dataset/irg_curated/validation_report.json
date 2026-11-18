@@ -1,0 +1,200 @@
+{
+ "source_run": "irg-01-data-curation",
+ "tables": {
+  "tcell/gc_matched": {
+   "rows_in": 85190,
+   "rows_out": 85180,
+   "dropped": 10,
+   "positives": 42595,
+   "negatives": 42585,
+   "all_len_1000": true,
+   "duplicate_ids": 0,
+   "duplicate_sequences": 0,
+   "splits_disjoint_by_chrom": true,
+   "rows_per_split": {
+    "train": 59568,
+    "val": 13190,
+    "test": 12422
+   },
+   "homology_flagged": 557,
+   "gc_mean_pos": 0.5936558046719098,
+   "gc_mean_neg": 0.5896049078313961
+  },
+  "tcell/random_unmatched": {
+   "rows_in": 85190,
+   "rows_out": 85189,
+   "dropped": 1,
+   "positives": 42595,
+   "negatives": 42594,
+   "all_len_1000": true,
+   "duplicate_ids": 0,
+   "duplicate_sequences": 0,
+   "splits_disjoint_by_chrom": true,
+   "rows_per_split": {
+    "train": 59576,
+    "val": 13191,
+    "test": 12422
+   },
+   "homology_flagged": 527,
+   "gc_mean_pos": 0.5936558046719098,
+   "gc_mean_neg": 0.4158465276799549
+  },
+  "tcell/flanking": {
+   "rows_in": 85190,
+   "rows_out": 85189,
+   "dropped": 1,
+   "positives": 42595,
+   "negatives": 42594,
+   "all_len_1000": true,
+   "duplicate_ids": 0,
+   "duplicate_sequences": 0,
+   "splits_disjoint_by_chrom": true,
+   "rows_per_split": {
+    "train": 59576,
+    "val": 13192,
+    "test": 12421
+   },
+   "homology_flagged": 102,
+   "gc_mean_pos": 0.5936558046719098,
+   "gc_mean_neg": 0.45802601305348173
+  },
+  "k562/gc_matched": {
+   "rows_in": 114492,
+   "rows_out": 114480,
+   "dropped": 12,
+   "positives": 57246,
+   "negatives": 57234,
+   "all_len_1000": true,
+   "duplicate_ids": 0,
+   "duplicate_sequences": 0,
+   "splits_disjoint_by_chrom": true,
+   "rows_per_split": {
+    "train": 81079,
+    "val": 17538,
+    "test": 15863
+   },
+   "homology_flagged": 664,
+   "gc_mean_pos": 0.5662981343674667,
+   "gc_mean_neg": 0.5625351714016145
+  },
+  "k562/random_unmatched": {
+   "rows_in": 114492,
+   "rows_out": 114489,
+   "dropped": 3,
+   "positives": 57246,
+   "negatives": 57243,
+   "all_len_1000": true,
+   "duplicate_ids": 0,
+   "duplicate_sequences": 0,
+   "splits_disjoint_by_chrom": true,
+   "rows_per_split": {
+    "train": 81086,
+    "val": 17540,
+    "test": 15863
+   },
+   "homology_flagged": 708,
+   "gc_mean_pos": 0.5662981343674667,
+   "gc_mean_neg": 0.4157506245305102
+  },
+  "k562/flanking": {
+   "rows_in": 114492,
+   "rows_out": 114490,
+   "dropped": 2,
+   "positives": 57246,
+   "negatives": 57244,
+   "all_len_1000": true,
+   "duplicate_ids": 0,
+   "duplicate_sequences": 0,
+   "splits_disjoint_by_chrom": true,
+   "rows_per_split": {
+    "train": 81085,
+    "val": 17542,
+    "test": 15863
+   },
+   "homology_flagged": 125,
+   "gc_mean_pos": 0.5662981343674667,
+   "gc_mean_neg": 0.457818234225421
+  },
+  "gm12878/gc_matched": {
+   "rows_in": 128852,
+   "rows_out": 128845,
+   "dropped": 7,
+   "positives": 64426,
+   "negatives": 64419,
+   "all_len_1000": true,
+   "duplicate_ids": 0,
+   "duplicate_sequences": 0,
+   "splits_disjoint_by_chrom": true,
+   "rows_per_split": {
+    "train": 91717,
+    "val": 20528,
+    "test": 16600
+   },
+   "homology_flagged": 567,
+   "gc_mean_pos": 0.5323301462142612,
+   "gc_mean_neg": 0.5292406588118412
+  },
+  "gm12878/random_unmatched": {
+   "rows_in": 128852,
+   "rows_out": 128849,
+   "dropped": 3,
+   "positives": 64426,
+   "negatives": 64423,
+   "all_len_1000": true,
+   "duplicate_ids": 0,
+   "duplicate_sequences": 0,
+   "splits_disjoint_by_chrom": true,
+   "rows_per_split": {
+    "train": 91722,
+    "val": 20528,
+    "test": 16599
+   },
+   "homology_flagged": 755,
+   "gc_mean_pos": 0.5323301462142612,
+   "gc_mean_neg": 0.414746720891607
+  },
+  "gm12878/flanking": {
+   "rows_in": 128852,
+   "rows_out": 128848,
+   "dropped": 4,
+   "positives": 64426,
+   "negatives": 64422,
+   "all_len_1000": true,
+   "duplicate_ids": 0,
+   "duplicate_sequences": 0,
+   "splits_disjoint_by_chrom": true,
+   "rows_per_split": {
+    "train": 91719,
+    "val": 20529,
+    "test": 16600
+   },
+   "homology_flagged": 123,
+   "gc_mean_pos": 0.5323301462142612,
+   "gc_mean_neg": 0.45308937940455124
+  }
+ },
+ "upstream": {
+  "git_sha": "ac3e4156be59a868885099c707400ee107b0ce53",
+  "seed": 42,
+  "homology_threshold_8mer_jaccard": 0.3,
+  "legacy_k562_table_overlap": {
+   "tcell": 26362,
+   "k562": 2489,
+   "gm12878": 2730
+  },
+  "biosamples": {
+   "tcell": {
+    "encode_file": "ENCFF726XBE",
+    "biosample": "naive CD8+ alpha-beta T cell (CL:0000900)"
+   },
+   "k562": {
+    "encode_file": "ENCFF464BRU",
+    "biosample": "K562 (EFO:0002067)"
+   },
+   "gm12878": {
+    "encode_file": "ENCFF590IMH",
+    "biosample": "GM12878 (EFO:0002784)"
+   }
+  }
+ }
+}

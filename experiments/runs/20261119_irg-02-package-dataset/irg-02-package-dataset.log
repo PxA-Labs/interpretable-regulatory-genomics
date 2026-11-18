@@ -1,0 +1,29 @@
+[{"stream_name":"stderr","time":9.747914685,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.74797091,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.747977779,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.747982389,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.542118977,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.542167855,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.54217406,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.542178928,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":13.752041679,"data":"input: /kaggle/input/notebooks/purvanshj009/irg-01-data-curation/curated\n"}
+,{"stream_name":"stdout","time":18.460675448,"data":"verified 14/14 files\n"}
+,{"stream_name":"stdout","time":20.381955872,"data":"tcell/gc_matched: 85,190 -\u003e 85,180 (dropped 10)\n"}
+,{"stream_name":"stdout","time":21.824706695,"data":"tcell/random_unmatched: 85,190 -\u003e 85,189 (dropped 1)\n"}
+,{"stream_name":"stdout","time":23.222873309,"data":"tcell/flanking: 85,190 -\u003e 85,189 (dropped 1)\n"}
+,{"stream_name":"stdout","time":24.953796503,"data":"k562/gc_matched: 114,492 -\u003e 114,480 (dropped 12)\n"}
+,{"stream_name":"stdout","time":26.762141893,"data":"k562/random_unmatched: 114,492 -\u003e 114,489 (dropped 3)\n"}
+,{"stream_name":"stdout","time":28.420439659,"data":"k562/flanking: 114,492 -\u003e 114,490 (dropped 2)\n"}
+,{"stream_name":"stdout","time":30.429624405,"data":"gm12878/gc_matched: 128,852 -\u003e 128,845 (dropped 7)\n"}
+,{"stream_name":"stdout","time":32.401108276,"data":"gm12878/random_unmatched: 128,852 -\u003e 128,849 (dropped 3)\n"}
+,{"stream_name":"stdout","time":34.124015566,"data":"gm12878/flanking: 128,852 -\u003e 128,848 (dropped 4)\n"}
+,{"stream_name":"stdout","time":264.984603864,"data":"packaged 16 files, 495 MB in 252s\n"}
+,{"stream_name":"stderr","time":268.750087892,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":268.7501298,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":268.952682835,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":268.952715397,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":269.880407863,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":269.978223725,"data":"[NbConvertApp] Writing 15665 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":273.312478237,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":273.969341238,"data":"[NbConvertApp] Writing 310457 bytes to __results__.html\n"}
+]

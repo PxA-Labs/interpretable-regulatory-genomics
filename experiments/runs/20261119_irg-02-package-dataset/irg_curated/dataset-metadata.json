@@ -1,0 +1,11 @@
+{
+ "title": "ENCODE Regulatory Elements v2.1 (T cell, K562, GM12878)",
+ "id": "purvanshj009/encode-regulatory-elements-v2",
+ "licenses": [
+  {
+   "name": "other"
+  }
+ ],
+ "subtitle": "Confound-aware 1 kb cCRE tables with chromosome splits and homology flags",
+ "description": "See README.md (data card)."
+}

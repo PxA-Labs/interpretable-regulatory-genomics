@@ -1,0 +1,17 @@
+{
+  "id": "purvanshj009/irg-03-classical-baselines",
+  "title": "IRG 03 Classical Baselines",
+  "code_file": "03_classical_baselines.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "purvanshj009/irg-02-package-dataset"
+  ],
+  "model_sources": []
+}

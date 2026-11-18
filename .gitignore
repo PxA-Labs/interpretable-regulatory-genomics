@@ -24,3 +24,6 @@ graphify-out/
 drafts/
 *.lnk
 kaggle/**/staging/
+
+# Large Kaggle run outputs are published as datasets, not committed
+experiments/runs/*/output/

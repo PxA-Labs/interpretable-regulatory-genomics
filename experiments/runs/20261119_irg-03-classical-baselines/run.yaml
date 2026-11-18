@@ -1,0 +1,9 @@
+run_id: 20261119_irg-03-classical-baselines
+kernel: purvanshj009/irg-03-classical-baselines
+kernel_version: 2          # v1 was the QUICK smoke test (53 s, not a result)
+notebook: kaggle/kernels/03-classical-baselines/03_classical_baselines.ipynb
+inputs: [kernel_output:purvanshj009/irg-02-package-dataset]
+seeds: [0, 1, 2, 3, 4]
+accelerator: "GPU for XGBoost (device=cuda); LR/RF on CPU"
+runtime_s: 1501
+results: docs/results/phase1_unified_baselines.md

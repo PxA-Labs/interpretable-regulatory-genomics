@@ -1,0 +1,9 @@
+{
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "device": "cuda",
+ "runtime_s": 705
+}

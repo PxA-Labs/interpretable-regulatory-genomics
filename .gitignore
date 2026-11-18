@@ -8,8 +8,7 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Exclude local markdown documentation drafts (only compiled PDFs belong in the remote repo)
-docs/*.md
+# Markdown under docs/ is the source of truth and is tracked (PDFs are build artifacts)
 
 # Exclude raw and processed datasets
 /data/

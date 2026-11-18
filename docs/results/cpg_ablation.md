@@ -20,7 +20,7 @@ Dropping explicit CG k-mers costs only 0.007-0.008 AUROC at k=4 and 0.015-0.021 
 | k562        |    0.733 |     0.728 |    0.759 |     0.738 |
 | tcell       |    0.699 |     0.694 |    0.726 |     0.706 |
 
-Matching works (CpG o/e mean for positives vs negatives: 0.479/0.477, 0.438/0.433, 0.392/0.387; logistic regression on GC + CpG o/e alone: 0.51-0.52 AUROC). On this subset AUROC falls by 0.09-0.17 relative to the full test set (k=4: 0.105 / 0.117 / 0.170; k=6: 0.091 / 0.104 / 0.155). k=6 still beats k=4 by about 0.025-0.027, so higher-order k-mers carry information beyond GC and CpG.
+Matching works (CpG o/e mean for positives vs negatives: 0.479/0.477, 0.438/0.433, 0.392/0.387; logistic regression on GC + CpG o/e alone: 0.51-0.52 AUROC). On this subset AUROC falls by 0.09-0.17 relative to the full test set (GM12878 / K562 / T cell; k=4: 0.105 / 0.117 / 0.170; k=6: 0.091 / 0.104 / 0.155). k=6 still beats k=4 by about 0.025-0.027, so higher-order k-mers carry information beyond GC and CpG.
 
 ## 3. Tiny models (sanity rows only)
 | biosample   |   cpg_oe_only (matched) |   gc+cpg_oe (matched) |   cpg_oe_only (test) |   gc+cpg_oe (test) |
@@ -39,6 +39,6 @@ CpG o/e alone is predictive on the full test set (0.67-0.76) but is at chance (0
 ## Limits (read before citing)
 - **The 16 vs 15 dinucleotide logistic-regression comparison is uninformative and is not reported.** Dinucleotide frequencies sum to 1, so dropping CG loses no information for a linear model; identical AUROCs were expected and mean nothing.
 - Removing CG k-mers removes *explicit* CpG features only. CpG content can partly be inferred from the remaining features, so the drop in section 1 is a lower bound on how much the model uses CpG.
-- The matched subset is a sub-population (51-68 % of test rows: the overlap of the GC and CpG distributions). Its lower AUROC partly reflects removing easy cases at the extremes, so it is not the AUROC of the full task.
+- The matched subset is a sub-population (52-68 % of test rows: the overlap of the GC and CpG distributions). Its lower AUROC partly reflects removing easy cases at the extremes, so it is not the AUROC of the full task.
 - Only GC and CpG o/e are matched. Repeat content (Alu/L1) and other dinucleotide skews are not controlled.
 - Fixed untuned hyper-parameters; 3 biosamples; no language models.

@@ -1,0 +1,57 @@
+[{"stream_name":"stderr","time":8.394033101,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.3940751,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.394079277,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.39408177,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.997526862,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.997556905,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.997561864,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.997565927,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":20.070317107,"data":"device cuda {'tcell': 85180, 'k562': 114480, 'gm12878': 128845}\n"}
+,{"stream_name":"stdout","time":40.270524334,"data":"[27s] features tcell\n"}
+,{"stream_name":"stdout","time":67.312965083,"data":"[54s] features k562\n"}
+,{"stream_name":"stdout","time":97.089634952,"data":"[84s] features gm12878\n"}
+,{"stream_name":"stdout","time":97.089680587,"data":"fraction of k-mers removed (contain CG): k2 0.0625 k4 0.184 k6 0.289\n"}
+,{"stream_name":"stdout","time":97.2959947,"data":"[84s] tcell: matched test subset 6514 of 12422 rows; pos rate 0.50; CpG o/e mean pos 0.479 neg 0.477\n"}
+,{"stream_name":"stdout","time":112.357348389,"data":"[99s] tcell k4 done\n"}
+,{"stream_name":"stdout","time":257.696128714,"data":"[244s] tcell k6 done\n"}
+,{"stream_name":"stdout","time":257.696164829,"data":"[244s] k562: matched test subset 9940 of 15863 rows; pos rate 0.50; CpG o/e mean pos 0.438 neg 0.433\n"}
+,{"stream_name":"stdout","time":275.744219904,"data":"[262s] k562 k4 done\n"}
+,{"stream_name":"stdout","time":471.889983112,"data":"[459s] k562 k6 done\n"}
+,{"stream_name":"stdout","time":471.890020175,"data":"[459s] gm12878: matched test subset 11274 of 16600 rows; pos rate 0.50; CpG o/e mean pos 0.392 neg 0.387\n"}
+,{"stream_name":"stdout","time":492.622697476,"data":"[479s] gm12878 k4 done\n"}
+,{"stream_name":"stdout","time":717.791752147,"data":"[705s] gm12878 k6 done\n"}
+,{"stream_name":"stdout","time":717.870928933,"data":"biosample        exp     features  n_features  auroc_test    sd  auroc_matched  matched_ci_lo  matched_ci_hi\n"}
+,{"stream_name":"stdout","time":717.870954517,"data":"  gm12878     AB_xgb       k4_all       256.0       0.823 0.001          0.718          0.706          0.722\n"}
+,{"stream_name":"stdout","time":717.870959753,"data":"  gm12878     AB_xgb      k4_noCG       209.0       0.816 0.000          0.714          0.706          0.723\n"}
+,{"stream_name":"stdout","time":717.870964253,"data":"  gm12878     AB_xgb       k6_all      4096.0       0.834 0.001          0.743          0.736          0.751\n"}
+,{"stream_name":"stdout","time":717.87096853,"data":"  gm12878     AB_xgb      k6_noCG      2911.0       0.819 0.002          0.730          0.719          0.735\n"}
+,{"stream_name":"stdout","time":717.870972873,"data":"  gm12878 D_lr_small  cpg_oe_only         NaN       0.666   NaN          0.505            NaN            NaN\n"}
+,{"stream_name":"stdout","time":717.870977176,"data":"  gm12878 D_lr_small dinuc15_noCG         NaN       0.737   NaN          0.579            NaN            NaN\n"}
+,{"stream_name":"stdout","time":717.87098332,"data":"  gm12878 D_lr_small      dinuc16         NaN       0.737   NaN          0.580            NaN            NaN\n"}
+,{"stream_name":"stdout","time":717.870998518,"data":"  gm12878 D_lr_small    gc+cpg_oe         NaN       0.714   NaN          0.514            NaN            NaN\n"}
+,{"stream_name":"stdout","time":717.871001083,"data":"     k562     AB_xgb       k4_all       256.0       0.850 0.000          0.733          0.722          0.742\n"}
+,{"stream_name":"stdout","time":717.871003399,"data":"     k562     AB_xgb      k4_noCG       209.0       0.841 0.001          0.728          0.717          0.735\n"}
+,{"stream_name":"stdout","time":717.871006237,"data":"     k562     AB_xgb       k6_all      4096.0       0.863 0.001          0.759          0.748          0.767\n"}
+,{"stream_name":"stdout","time":717.871009773,"data":"     k562     AB_xgb      k6_noCG      2911.0       0.842 0.000          0.738          0.730          0.749\n"}
+,{"stream_name":"stdout","time":717.871013034,"data":"     k562 D_lr_small  cpg_oe_only         NaN       0.703   NaN          0.505            NaN            NaN\n"}
+,{"stream_name":"stdout","time":717.871015338,"data":"     k562 D_lr_small dinuc15_noCG         NaN       0.769   NaN          0.594            NaN            NaN\n"}
+,{"stream_name":"stdout","time":717.871017693,"data":"     k562 D_lr_small      dinuc16         NaN       0.769   NaN          0.594            NaN            NaN\n"}
+,{"stream_name":"stdout","time":717.871020004,"data":"     k562 D_lr_small    gc+cpg_oe         NaN       0.746   NaN          0.516            NaN            NaN\n"}
+,{"stream_name":"stdout","time":717.871022359,"data":"    tcell     AB_xgb       k4_all       256.0       0.870 0.001          0.699          0.690          0.715\n"}
+,{"stream_name":"stdout","time":717.871025461,"data":"    tcell     AB_xgb      k4_noCG       209.0       0.862 0.001          0.694          0.681          0.707\n"}
+,{"stream_name":"stdout","time":717.871027832,"data":"    tcell     AB_xgb       k6_all      4096.0       0.881 0.002          0.726          0.716          0.739\n"}
+,{"stream_name":"stdout","time":717.871030452,"data":"    tcell     AB_xgb      k6_noCG      2911.0       0.862 0.001          0.706          0.694          0.720\n"}
+,{"stream_name":"stdout","time":717.871032925,"data":"    tcell D_lr_small  cpg_oe_only         NaN       0.760   NaN          0.505            NaN            NaN\n"}
+,{"stream_name":"stdout","time":717.871035221,"data":"    tcell D_lr_small dinuc15_noCG         NaN       0.803   NaN          0.561            NaN            NaN\n"}
+,{"stream_name":"stdout","time":717.871037557,"data":"    tcell D_lr_small      dinuc16         NaN       0.803   NaN          0.561            NaN            NaN\n"}
+,{"stream_name":"stdout","time":717.871039881,"data":"    tcell D_lr_small    gc+cpg_oe         NaN       0.805   NaN          0.518            NaN            NaN\n"}
+,{"stream_name":"stdout","time":717.871042221,"data":"done in 705s\n"}
+,{"stream_name":"stderr","time":721.475435614,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":721.475463713,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":721.649386182,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":721.64940887,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":722.457753909,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":722.531805697,"data":"[NbConvertApp] Writing 17732 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":725.002637305,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":725.545424932,"data":"[NbConvertApp] Writing 329249 bytes to __results__.html\n"}
+]

@@ -1,0 +1,10 @@
+run_id: 20261119_irg-05-cpg-ablation
+kernel: purvanshj009/irg-05-cpg-ablation
+kernel_version: 1
+notebook: kaggle/kernels/05-cpg-ablation/05_cpg_ablation.ipynb
+inputs: [kernel_output:purvanshj009/irg-02-package-dataset]
+seeds: [0, 1, 2]
+accelerator: GPU (XGBoost device=cuda)
+runtime_s: 705
+results: docs/results/cpg_ablation.md
+note: the dinucleotide-with/without-CG logistic regression rows are uninformative (collinear); not interpreted.

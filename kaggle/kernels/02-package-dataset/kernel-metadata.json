@@ -1,0 +1,15 @@
+{
+  "id": "purvanshj009/irg-02-package-dataset",
+  "title": "IRG 02 Package Dataset",
+  "code_file": "02_package_dataset.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": ["purvanshj009/irg-01-data-curation"],
+  "model_sources": []
+}

@@ -1,0 +1,288 @@
+{
+ "git_sha": "ac3e4156be59a868885099c707400ee107b0ce53",
+ "seed": 42,
+ "homology_threshold_8mer_jaccard": 0.3,
+ "tables": {
+  "tcell/gc_matched": {
+   "rows": 85190,
+   "positives": 42595,
+   "negatives": 42595,
+   "all_len_1000": true,
+   "alphabet_ok": true,
+   "max_n_fraction": 0.024,
+   "duplicate_sequences": 10,
+   "duplicate_ids": 10,
+   "pos_class_counts": {
+    "PLS": 16858,
+    "pELS": 16233,
+    "dELS": 9504
+   },
+   "rows_per_split": {
+    "train": 59576,
+    "val": 13192,
+    "test": 12422
+   },
+   "pos_rate_per_split": {
+    "test": 0.5,
+    "train": 0.5,
+    "val": 0.5
+   },
+   "gc_mean_pos": 0.5936558046719098,
+   "gc_mean_neg": 0.5896179363775091,
+   "homology_flagged": 557,
+   "splits_disjoint_by_chrom": true
+  },
+  "tcell/random_unmatched": {
+   "rows": 85190,
+   "positives": 42595,
+   "negatives": 42595,
+   "all_len_1000": true,
+   "alphabet_ok": true,
+   "max_n_fraction": 0.024,
+   "duplicate_sequences": 1,
+   "duplicate_ids": 1,
+   "pos_class_counts": {
+    "PLS": 16858,
+    "pELS": 16233,
+    "dELS": 9504
+   },
+   "rows_per_split": {
+    "train": 59576,
+    "val": 13192,
+    "test": 12422
+   },
+   "pos_rate_per_split": {
+    "test": 0.5,
+    "train": 0.5,
+    "val": 0.5
+   },
+   "gc_mean_pos": 0.5936558046719098,
+   "gc_mean_neg": 0.4158457095903274,
+   "homology_flagged": 527,
+   "splits_disjoint_by_chrom": true
+  },
+  "tcell/flanking": {
+   "rows": 85190,
+   "positives": 42595,
+   "negatives": 42595,
+   "all_len_1000": true,
+   "alphabet_ok": true,
+   "max_n_fraction": 0.024,
+   "duplicate_sequences": 1,
+   "duplicate_ids": 1,
+   "pos_class_counts": {
+    "PLS": 16858,
+    "pELS": 16233,
+    "dELS": 9504
+   },
+   "rows_per_split": {
+    "train": 59576,
+    "val": 13192,
+    "test": 12422
+   },
+   "pos_rate_per_split": {
+    "test": 0.5,
+    "train": 0.5,
+    "val": 0.5
+   },
+   "gc_mean_pos": 0.5936558046719098,
+   "gc_mean_neg": 0.4580298626599366,
+   "homology_flagged": 102,
+   "splits_disjoint_by_chrom": true
+  },
+  "k562/gc_matched": {
+   "rows": 114492,
+   "positives": 57246,
+   "negatives": 57246,
+   "all_len_1000": true,
+   "alphabet_ok": true,
+   "max_n_fraction": 0.1,
+   "duplicate_sequences": 12,
+   "duplicate_ids": 12,
+   "pos_class_counts": {
+    "pELS": 26005,
+    "dELS": 16829,
+    "PLS": 14412
+   },
+   "rows_per_split": {
+    "train": 81086,
+    "val": 17542,
+    "test": 15864
+   },
+   "pos_rate_per_split": {
+    "test": 0.5,
+    "train": 0.5,
+    "val": 0.5
+   },
+   "gc_mean_pos": 0.5662981343674667,
+   "gc_mean_neg": 0.5625583097508996,
+   "homology_flagged": 666,
+   "splits_disjoint_by_chrom": true
+  },
+  "k562/random_unmatched": {
+   "rows": 114492,
+   "positives": 57246,
+   "negatives": 57246,
+   "all_len_1000": true,
+   "alphabet_ok": true,
+   "max_n_fraction": 0.1,
+   "duplicate_sequences": 3,
+   "duplicate_ids": 3,
+   "pos_class_counts": {
+    "pELS": 26005,
+    "dELS": 16829,
+    "PLS": 14412
+   },
+   "rows_per_split": {
+    "train": 81086,
+    "val": 17542,
+    "test": 15864
+   },
+   "pos_rate_per_split": {
+    "test": 0.5,
+    "train": 0.5,
+    "val": 0.5
+   },
+   "gc_mean_pos": 0.5662981343674667,
+   "gc_mean_neg": 0.41575145861719603,
+   "homology_flagged": 708,
+   "splits_disjoint_by_chrom": true
+  },
+  "k562/flanking": {
+   "rows": 114492,
+   "positives": 57246,
+   "negatives": 57246,
+   "all_len_1000": true,
+   "alphabet_ok": true,
+   "max_n_fraction": 0.1,
+   "duplicate_sequences": 2,
+   "duplicate_ids": 2,
+   "pos_class_counts": {
+    "pELS": 26005,
+    "dELS": 16829,
+    "PLS": 14412
+   },
+   "rows_per_split": {
+    "train": 81086,
+    "val": 17542,
+    "test": 15864
+   },
+   "pos_rate_per_split": {
+    "test": 0.5,
+    "train": 0.5,
+    "val": 0.5
+   },
+   "gc_mean_pos": 0.5662981343674667,
+   "gc_mean_neg": 0.4578192712154561,
+   "homology_flagged": 125,
+   "splits_disjoint_by_chrom": true
+  },
+  "gm12878/gc_matched": {
+   "rows": 128852,
+   "positives": 64426,
+   "negatives": 64426,
+   "all_len_1000": true,
+   "alphabet_ok": true,
+   "max_n_fraction": 0.093,
+   "duplicate_sequences": 7,
+   "duplicate_ids": 7,
+   "pos_class_counts": {
+    "dELS": 25729,
+    "pELS": 25341,
+    "PLS": 13356
+   },
+   "rows_per_split": {
+    "train": 91722,
+    "val": 20530,
+    "test": 16600
+   },
+   "pos_rate_per_split": {
+    "test": 0.5,
+    "train": 0.5,
+    "val": 0.5
+   },
+   "gc_mean_pos": 0.5323301462142612,
+   "gc_mean_neg": 0.5292533294011735,
+   "homology_flagged": 568,
+   "splits_disjoint_by_chrom": true
+  },
+  "gm12878/random_unmatched": {
+   "rows": 128852,
+   "positives": 64426,
+   "negatives": 64426,
+   "all_len_1000": true,
+   "alphabet_ok": true,
+   "max_n_fraction": 0.093,
+   "duplicate_sequences": 3,
+   "duplicate_ids": 3,
+   "pos_class_counts": {
+    "dELS": 25729,
+    "pELS": 25341,
+    "PLS": 13356
+   },
+   "rows_per_split": {
+    "train": 91722,
+    "val": 20530,
+    "test": 16600
+   },
+   "pos_rate_per_split": {
+    "test": 0.5,
+    "train": 0.5,
+    "val": 0.5
+   },
+   "gc_mean_pos": 0.5323301462142612,
+   "gc_mean_neg": 0.41474750876975136,
+   "homology_flagged": 755,
+   "splits_disjoint_by_chrom": true
+  },
+  "gm12878/flanking": {
+   "rows": 128852,
+   "positives": 64426,
+   "negatives": 64426,
+   "all_len_1000": true,
+   "alphabet_ok": true,
+   "max_n_fraction": 0.093,
+   "duplicate_sequences": 4,
+   "duplicate_ids": 4,
+   "pos_class_counts": {
+    "dELS": 25729,
+    "pELS": 25341,
+    "PLS": 13356
+   },
+   "rows_per_split": {
+    "train": 91722,
+    "val": 20530,
+    "test": 16600
+   },
+   "pos_rate_per_split": {
+    "test": 0.5,
+    "train": 0.5,
+    "val": 0.5
+   },
+   "gc_mean_pos": 0.5323301462142612,
+   "gc_mean_neg": 0.4530920125415205,
+   "homology_flagged": 123,
+   "splits_disjoint_by_chrom": true
+  }
+ },
+ "legacy_k562_table_overlap": {
+  "tcell": 26362,
+  "k562": 2489,
+  "gm12878": 2730
+ },
+ "biosamples": {
+  "tcell": {
+   "encode_file": "ENCFF726XBE",
+   "biosample": "naive CD8+ alpha-beta T cell (CL:0000900)"
+  },
+  "k562": {
+   "encode_file": "ENCFF464BRU",
+   "biosample": "K562 (EFO:0002067)"
+  },
+  "gm12878": {
+   "encode_file": "ENCFF590IMH",
+   "biosample": "GM12878 (EFO:0002784)"
+  }
+ },
+ "runtime_s": 6465.5
+}

@@ -1,0 +1,16 @@
+{
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "quick": false,
+ "split": "train chr1-14,X,Y / val 15-18 / test 19-22",
+ "xgb": "600 trees, lr .1, depth 6, early stop on val",
+ "rf": "200 trees",
+ "lr": "C=1, standardised",
+ "xgb_device": "cuda",
+ "runtime_s": 1501
+}

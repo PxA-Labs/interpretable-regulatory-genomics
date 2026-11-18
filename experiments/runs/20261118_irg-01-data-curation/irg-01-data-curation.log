@@ -1,0 +1,1156 @@
+[{"stream_name":"stderr","time":7.864793148,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.864842234,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.8648473899999995,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.86485042,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.575079621,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.575115364,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.575121154,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.57512618,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":37.257737414,"data":"source snapshot: /kaggle/input/datasets/purvanshj009/irg-source-code sha ac3e4156be59a868885099c707400ee107b0ce53\n"}
+,{"stream_name":"stdout","time":37.257779763,"data":"python 3.13.18 pandas 2.3.3 numpy 2.1.3\n"}
+,{"stream_name":"stdout","time":37.791352954,"data":"genome: /kaggle/input/datasets/aliabedimadiseh/grch38-human-genome-dna -\u003e 24 chromosomes linked\n"}
+,{"stream_name":"stdout","time":39.003436998,"data":"tcell raw file: /kaggle/input/datasets/purvanshj009/encode-regulatory-switches-data/raw/ENCFF726XBE.bed/ENCFF864EOB_ENCFF730FHG_ENCFF721OCD.bed\n"}
+,{"stream_name":"stdout","time":39.003471445,"data":"Parsing cCRE annotations from /kaggle/input/datasets/purvanshj009/encode-regulatory-switches-data/raw/ENCFF726XBE.bed/ENCFF864EOB_ENCFF730FHG_ENCFF721OCD.bed...\n"}
+,{"stream_name":"stdout","time":44.012022943,"data":"Loaded 2348854 initial regions.\n"}
+,{"stream_name":"stdout","time":44.213401974,"data":"Filtered by element types ['PLS', 'pELS', 'dELS']. Remaining: 42597\n"}
+,{"stream_name":"stdout","time":44.213442181,"data":"Resizing regions to fixed length of 1000 bp...\n"}
+,{"stream_name":"stdout","time":44.21345689,"data":"Filtered out regions with invalid coordinates. Remaining: 42597\n"}
+,{"stream_name":"stdout","time":44.213461043,"data":"Processed BED file saved to /kaggle/working/data/processed/tcell.bed (Total regions: 42597).\n"}
+,{"stream_name":"stdout","time":44.21346468,"data":"Reading BED coordinates from /kaggle/working/data/processed/tcell.bed...\n"}
+,{"stream_name":"stdout","time":44.21346813,"data":"Total input regions: 42,597\n"}
+,{"stream_name":"stdout","time":44.213471541,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr1.fa...\n"}
+,{"stream_name":"stdout","time":47.452140857,"data":"Loaded sequence of length 248,956,422 bp.\n"}
+,{"stream_name":"stdout","time":47.66239904,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr10.fa...\n"}
+,{"stream_name":"stdout","time":49.441220922,"data":"Loaded sequence of length 133,797,422 bp.\n"}
+,{"stream_name":"stdout","time":49.441265166,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr11.fa...\n"}
+,{"stream_name":"stdout","time":51.276891595,"data":"Loaded sequence of length 135,086,622 bp.\n"}
+,{"stream_name":"stdout","time":51.276945522,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr12.fa...\n"}
+,{"stream_name":"stdout","time":53.051486421,"data":"Loaded sequence of length 133,275,309 bp.\n"}
+,{"stream_name":"stdout","time":53.051524448,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr13.fa...\n"}
+,{"stream_name":"stdout","time":54.692383805,"data":"Loaded sequence of length 114,364,328 bp.\n"}
+,{"stream_name":"stdout","time":54.692429783,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr14.fa...\n"}
+,{"stream_name":"stdout","time":56.053402341,"data":"Loaded sequence of length 107,043,718 bp.\n"}
+,{"stream_name":"stdout","time":56.053441835,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr15.fa...\n"}
+,{"stream_name":"stdout","time":57.404479688,"data":"Loaded sequence of length 101,991,189 bp.\n"}
+,{"stream_name":"stdout","time":57.404514978,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr16.fa...\n"}
+,{"stream_name":"stdout","time":58.760041833,"data":"Loaded sequence of length 90,338,345 bp.\n"}
+,{"stream_name":"stdout","time":58.760092567,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr17.fa...\n"}
+,{"stream_name":"stdout","time":60.020910792,"data":"Loaded sequence of length 83,257,441 bp.\n"}
+,{"stream_name":"stdout","time":60.34452665,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr18.fa...\n"}
+,{"stream_name":"stdout","time":61.542265701,"data":"Loaded sequence of length 80,373,285 bp.\n"}
+,{"stream_name":"stdout","time":61.542310109,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr19.fa...\n"}
+,{"stream_name":"stdout","time":62.417250773,"data":"Loaded sequence of length 58,617,616 bp.\n"}
+,{"stream_name":"stdout","time":62.417290003,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr2.fa...\n"}
+,{"stream_name":"stdout","time":65.438507155,"data":"Loaded sequence of length 242,193,529 bp.\n"}
+,{"stream_name":"stdout","time":65.438548465,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr20.fa...\n"}
+,{"stream_name":"stdout","time":66.481522229,"data":"Loaded sequence of length 64,444,167 bp.\n"}
+,{"stream_name":"stdout","time":66.481590031,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr21.fa...\n"}
+,{"stream_name":"stdout","time":67.310665908,"data":"Loaded sequence of length 46,709,983 bp.\n"}
+,{"stream_name":"stdout","time":67.310704757,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr22.fa...\n"}
+,{"stream_name":"stdout","time":68.137618781,"data":"Loaded sequence of length 50,818,468 bp.\n"}
+,{"stream_name":"stdout","time":68.137644339,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr3.fa...\n"}
+,{"stream_name":"stdout","time":70.54757459,"data":"Loaded sequence of length 198,295,559 bp.\n"}
+,{"stream_name":"stdout","time":70.54761635,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr4.fa...\n"}
+,{"stream_name":"stdout","time":73.033209068,"data":"Loaded sequence of length 190,214,555 bp.\n"}
+,{"stream_name":"stdout","time":73.033248864,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr5.fa...\n"}
+,{"stream_name":"stdout","time":75.273382466,"data":"Loaded sequence of length 181,538,259 bp.\n"}
+,{"stream_name":"stdout","time":75.273425314,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr6.fa...\n"}
+,{"stream_name":"stdout","time":77.502332041,"data":"Loaded sequence of length 170,805,979 bp.\n"}
+,{"stream_name":"stdout","time":77.502375215,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr7.fa...\n"}
+,{"stream_name":"stdout","time":79.722627636,"data":"Loaded sequence of length 159,345,973 bp.\n"}
+,{"stream_name":"stdout","time":79.722663948,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr8.fa...\n"}
+,{"stream_name":"stdout","time":81.797758094,"data":"Loaded sequence of length 145,138,636 bp.\n"}
+,{"stream_name":"stdout","time":81.797798569,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr9.fa...\n"}
+,{"stream_name":"stdout","time":83.643692859,"data":"Loaded sequence of length 138,394,717 bp.\n"}
+,{"stream_name":"stdout","time":83.643733272,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrX.fa...\n"}
+,{"stream_name":"stdout","time":85.666273064,"data":"Loaded sequence of length 156,040,895 bp.\n"}
+,{"stream_name":"stdout","time":85.666312402,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrY.fa...\n"}
+,{"stream_name":"stdout","time":86.742142184,"data":"Loaded sequence of length 57,227,415 bp.\n"}
+,{"stream_name":"stdout","time":86.742197736,"data":"Sequence extraction complete.\n"}
+,{"stream_name":"stdout","time":86.742205939,"data":"  Extracted regions: 42,595\n"}
+,{"stream_name":"stdout","time":86.742210087,"data":"  Skipped (out of bounds): 0\n"}
+,{"stream_name":"stdout","time":86.742214061,"data":"  Skipped (high N-base fraction): 2\n"}
+,{"stream_name":"stdout","time":88.022452344,"data":"Saved extracted sequences to /kaggle/working/data/processed/tcell_pos.tsv.\n"}
+,{"stream_name":"stdout","time":88.022490683,"data":"Loading positive regions with sequences from /kaggle/working/data/processed/tcell_pos.tsv...\n"}
+,{"stream_name":"stdout","time":88.951558118,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr1.fa...\n"}
+,{"stream_name":"stdout","time":90.891267075,"data":"Loaded sequence of length 248,956,422 bp.\n"}
+,{"stream_name":"stdout","time":90.89130181,"data":"Sampling negatives for chromosome chr1 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":90.891307943,"data":"Target negative bin counts for chr1: {11: 934, 12: 842, 10: 697, 13: 665, 9: 407, 14: 312, 8: 143, 15: 97, 7: 69, 6: 8, 16: 4}\n"}
+,{"stream_name":"stdout","time":96.061778157,"data":"Sampled 4178 / 4178 negatives for chr1 (attempts: 347059).\n"}
+,{"stream_name":"stdout","time":96.061825733,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr10.fa...\n"}
+,{"stream_name":"stdout","time":97.146797375,"data":"Loaded sequence of length 133,797,422 bp.\n"}
+,{"stream_name":"stdout","time":97.14683902,"data":"Sampling negatives for chromosome chr10 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":97.14687286,"data":"Target negative bin counts for chr10: {12: 375, 11: 338, 13: 291, 10: 251, 9: 156, 14: 140, 8: 98, 15: 41, 7: 37, 6: 7, 16: 2}\n"}
+,{"stream_name":"stdout","time":99.588777226,"data":"Sampled 1736 / 1736 negatives for chr10 (attempts: 157685).\n"}
+,{"stream_name":"stdout","time":99.588805644,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr11.fa...\n"}
+,{"stream_name":"stdout","time":100.667574757,"data":"Loaded sequence of length 135,086,622 bp.\n"}
+,{"stream_name":"stdout","time":100.667612189,"data":"Sampling negatives for chromosome chr11 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":100.667618407,"data":"Target negative bin counts for chr11: {12: 547, 11: 514, 13: 435, 10: 317, 14: 215, 9: 188, 8: 87, 15: 46, 7: 32, 6: 5, 16: 1, 5: 1}\n"}
+,{"stream_name":"stdout","time":104.356536257,"data":"Sampled 2388 / 2388 negatives for chr11 (attempts: 239062).\n"}
+,{"stream_name":"stdout","time":104.356574906,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr12.fa...\n"}
+,{"stream_name":"stdout","time":105.411664562,"data":"Loaded sequence of length 133,275,309 bp.\n"}
+,{"stream_name":"stdout","time":105.411730666,"data":"Sampling negatives for chromosome chr12 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":105.411737973,"data":"Target negative bin counts for chr12: {11: 527, 12: 449, 10: 357, 13: 324, 9: 217, 14: 152, 8: 127, 15: 56, 7: 45, 6: 12, 16: 3}\n"}
+,{"stream_name":"stdout","time":109.745378411,"data":"Sampled 2269 / 2269 negatives for chr12 (attempts: 284472).\n"}
+,{"stream_name":"stdout","time":109.745435673,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr13.fa...\n"}
+,{"stream_name":"stdout","time":110.669395648,"data":"Loaded sequence of length 114,364,328 bp.\n"}
+,{"stream_name":"stdout","time":110.669439156,"data":"Sampling negatives for chromosome chr13 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":110.669446104,"data":"Target negative bin counts for chr13: {12: 153, 11: 143, 13: 128, 10: 124, 9: 89, 14: 72, 8: 57, 15: 20, 7: 17, 6: 5, 16: 3}\n"}
+,{"stream_name":"stdout","time":122.577850454,"data":"Sampled 811 / 811 negatives for chr13 (attempts: 901485).\n"}
+,{"stream_name":"stdout","time":122.577891747,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr14.fa...\n"}
+,{"stream_name":"stdout","time":123.387136564,"data":"Loaded sequence of length 107,043,718 bp.\n"}
+,{"stream_name":"stdout","time":123.387196263,"data":"Sampling negatives for chromosome chr14 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":123.38720639,"data":"Target negative bin counts for chr14: {11: 317, 10: 302, 12: 278, 13: 216, 9: 162, 14: 128, 8: 89, 15: 41, 7: 25, 6: 2, 16: 2}\n"}
+,{"stream_name":"stdout","time":125.469248138,"data":"Sampled 1562 / 1562 negatives for chr14 (attempts: 153914).\n"}
+,{"stream_name":"stdout","time":125.469288363,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr15.fa...\n"}
+,{"stream_name":"stdout","time":126.269910702,"data":"Loaded sequence of length 101,991,189 bp.\n"}
+,{"stream_name":"stdout","time":126.269945084,"data":"Sampling negatives for chromosome chr15 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":126.269952044,"data":"Target negative bin counts for chr15: {12: 280, 11: 255, 13: 215, 10: 187, 9: 112, 14: 99, 8: 57, 15: 29, 7: 26, 16: 2, 6: 2}\n"}
+,{"stream_name":"stdout","time":128.379349093,"data":"Sampled 1264 / 1264 negatives for chr15 (attempts: 163005).\n"}
+,{"stream_name":"stdout","time":128.379396039,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr16.fa...\n"}
+,{"stream_name":"stdout","time":129.091835111,"data":"Loaded sequence of length 90,338,345 bp.\n"}
+,{"stream_name":"stdout","time":129.091895293,"data":"Sampling negatives for chromosome chr16 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":129.091904677,"data":"Target negative bin counts for chr16: {12: 426, 13: 423, 11: 387, 10: 202, 14: 197, 9: 115, 15: 64, 8: 33, 7: 4, 16: 3}\n"}
+,{"stream_name":"stdout","time":131.626076388,"data":"Sampled 1854 / 1854 negatives for chr16 (attempts: 174007).\n"}
+,{"stream_name":"stdout","time":131.626110454,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr17.fa...\n"}
+,{"stream_name":"stdout","time":132.264980971,"data":"Loaded sequence of length 83,257,441 bp.\n"}
+,{"stream_name":"stdout","time":132.265018153,"data":"Sampling negatives for chromosome chr17 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":132.265025641,"data":"Target negative bin counts for chr17: {12: 665, 11: 625, 13: 528, 10: 421, 14: 271, 9: 196, 8: 81, 15: 72, 7: 24, 6: 4, 16: 3}\n"}
+,{"stream_name":"stdout","time":135.299642041,"data":"Sampled 2890 / 2890 negatives for chr17 (attempts: 192330).\n"}
+,{"stream_name":"stdout","time":135.299693021,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr18.fa...\n"}
+,{"stream_name":"stdout","time":135.91237116,"data":"Loaded sequence of length 80,373,285 bp.\n"}
+,{"stream_name":"stdout","time":135.912409607,"data":"Sampling negatives for chromosome chr18 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":135.912416367,"data":"Target negative bin counts for chr18: {11: 117, 12: 109, 10: 87, 13: 85, 9: 62, 14: 58, 8: 30, 15: 24, 7: 11, 16: 3, 6: 2}\n"}
+,{"stream_name":"stdout","time":137.679324526,"data":"Sampled 588 / 588 negatives for chr18 (attempts: 118555).\n"}
+,{"stream_name":"stdout","time":137.679363087,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr19.fa...\n"}
+,{"stream_name":"stdout","time":138.117146203,"data":"Loaded sequence of length 58,617,616 bp.\n"}
+,{"stream_name":"stdout","time":138.117200263,"data":"Sampling negatives for chromosome chr19 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":138.117209307,"data":"Target negative bin counts for chr19: {12: 976, 11: 896, 13: 642, 10: 443, 14: 229, 9: 145, 15: 59, 8: 37, 16: 6, 7: 2}\n"}
+,{"stream_name":"stdout","time":139.467609838,"data":"Sampled 3435 / 3435 negatives for chr19 (attempts: 84819).\n"}
+,{"stream_name":"stdout","time":139.467646544,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr2.fa...\n"}
+,{"stream_name":"stdout","time":141.441012537,"data":"Loaded sequence of length 242,193,529 bp.\n"}
+,{"stream_name":"stdout","time":141.441056983,"data":"Sampling negatives for chromosome chr2 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":141.441068493,"data":"Target negative bin counts for chr2: {11: 596, 12: 550, 13: 490, 10: 447, 9: 330, 14: 234, 8: 154, 15: 58, 7: 55, 6: 9, 16: 4, 5: 1}\n"}
+,{"stream_name":"stdout","time":148.962781652,"data":"Sampled 2928 / 2928 negatives for chr2 (attempts: 494677).\n"}
+,{"stream_name":"stdout","time":148.962824088,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr20.fa...\n"}
+,{"stream_name":"stdout","time":149.540601167,"data":"Loaded sequence of length 64,444,167 bp.\n"}
+,{"stream_name":"stdout","time":149.540643542,"data":"Sampling negatives for chromosome chr20 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":149.540650715,"data":"Target negative bin counts for chr20: {12: 273, 13: 215, 11: 211, 10: 179, 14: 121, 9: 86, 8: 41, 15: 35, 7: 12, 6: 1, 16: 1}\n"}
+,{"stream_name":"stdout","time":150.976935476,"data":"Sampled 1175 / 1175 negatives for chr20 (attempts: 98192).\n"}
+,{"stream_name":"stdout","time":150.976970532,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr21.fa...\n"}
+,{"stream_name":"stdout","time":151.416921797,"data":"Loaded sequence of length 46,709,983 bp.\n"}
+,{"stream_name":"stdout","time":151.416957505,"data":"Sampling negatives for chromosome chr21 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":151.416971791,"data":"Target negative bin counts for chr21: {12: 96, 11: 89, 10: 79, 9: 65, 13: 56, 14: 51, 8: 25, 15: 18, 7: 3, 6: 1}\n"}
+,{"stream_name":"stdout","time":152.242336789,"data":"Sampled 483 / 483 negatives for chr21 (attempts: 65887).\n"}
+,{"stream_name":"stdout","time":152.242378061,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr22.fa...\n"}
+,{"stream_name":"stdout","time":152.631053464,"data":"Loaded sequence of length 50,818,468 bp.\n"}
+,{"stream_name":"stdout","time":152.631094329,"data":"Sampling negatives for chromosome chr22 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":152.631102049,"data":"Target negative bin counts for chr22: {12: 264, 11: 247, 13: 200, 10: 154, 14: 120, 9: 73, 8: 37, 15: 18, 7: 4, 16: 1}\n"}
+,{"stream_name":"stdout","time":153.58326942,"data":"Sampled 1118 / 1118 negatives for chr22 (attempts: 75602).\n"}
+,{"stream_name":"stdout","time":153.583304644,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr3.fa...\n"}
+,{"stream_name":"stdout","time":155.114464396,"data":"Loaded sequence of length 198,295,559 bp.\n"}
+,{"stream_name":"stdout","time":155.11450097,"data":"Sampling negatives for chromosome chr3 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":155.114510393,"data":"Target negative bin counts for chr3: {11: 507, 12: 455, 13: 362, 10: 305, 9: 170, 14: 162, 8: 114, 7: 41, 15: 37, 6: 3, 16: 2, 5: 1}\n"}
+,{"stream_name":"stdout","time":160.657019822,"data":"Sampled 2159 / 2159 negatives for chr3 (attempts: 364260).\n"}
+,{"stream_name":"stdout","time":160.657067453,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr4.fa...\n"}
+,{"stream_name":"stdout","time":162.186380203,"data":"Loaded sequence of length 190,214,555 bp.\n"}
+,{"stream_name":"stdout","time":162.186412708,"data":"Sampling negatives for chromosome chr4 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":162.186418524,"data":"Target negative bin counts for chr4: {12: 280, 11: 276, 13: 212, 10: 179, 14: 138, 9: 122, 8: 81, 15: 49, 7: 38, 6: 7, 16: 4}\n"}
+,{"stream_name":"stdout","time":165.983521239,"data":"Sampled 1386 / 1386 negatives for chr4 (attempts: 255928).\n"}
+,{"stream_name":"stdout","time":165.983559145,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr5.fa...\n"}
+,{"stream_name":"stdout","time":167.491967471,"data":"Loaded sequence of length 181,538,259 bp.\n"}
+,{"stream_name":"stdout","time":167.492050274,"data":"Sampling negatives for chromosome chr5 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":167.492057721,"data":"Target negative bin counts for chr5: {11: 393, 12: 364, 10: 307, 13: 277, 9: 171, 14: 151, 8: 90, 7: 47, 15: 31, 6: 4, 16: 2}\n"}
+,{"stream_name":"stdout","time":172.160748326,"data":"Sampled 1837 / 1837 negatives for chr5 (attempts: 309786).\n"}
+,{"stream_name":"stdout","time":172.160789949,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr6.fa...\n"}
+,{"stream_name":"stdout","time":173.50617254,"data":"Loaded sequence of length 170,805,979 bp.\n"}
+,{"stream_name":"stdout","time":173.506237381,"data":"Sampling negatives for chromosome chr6 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":173.506244401,"data":"Target negative bin counts for chr6: {11: 515, 12: 420, 10: 412, 13: 337, 9: 332, 8: 210, 14: 158, 7: 65, 15: 45, 6: 10, 16: 3}\n"}
+,{"stream_name":"stdout","time":178.661259248,"data":"Sampled 2507 / 2507 negatives for chr6 (attempts: 328670).\n"}
+,{"stream_name":"stdout","time":178.661303238,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr7.fa...\n"}
+,{"stream_name":"stdout","time":179.904082181,"data":"Loaded sequence of length 159,345,973 bp.\n"}
+,{"stream_name":"stdout","time":179.904123861,"data":"Sampling negatives for chromosome chr7 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":179.904130695,"data":"Target negative bin counts for chr7: {12: 431, 13: 342, 11: 333, 10: 243, 14: 183, 9: 174, 8: 80, 15: 47, 7: 36, 6: 7, 16: 2}\n"}
+,{"stream_name":"stdout","time":183.650354651,"data":"Sampled 1878 / 1878 negatives for chr7 (attempts: 235456).\n"}
+,{"stream_name":"stdout","time":183.650393638,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr8.fa...\n"}
+,{"stream_name":"stdout","time":184.76449644,"data":"Loaded sequence of length 145,138,636 bp.\n"}
+,{"stream_name":"stdout","time":184.764536958,"data":"Sampling negatives for chromosome chr8 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":184.764564866,"data":"Target negative bin counts for chr8: {13: 271, 12: 265, 11: 255, 10: 169, 14: 167, 9: 135, 8: 87, 15: 47, 7: 17, 16: 2, 6: 1}\n"}
+,{"stream_name":"stdout","time":188.749304659,"data":"Sampled 1416 / 1416 negatives for chr8 (attempts: 262354).\n"}
+,{"stream_name":"stdout","time":188.749346184,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr9.fa...\n"}
+,{"stream_name":"stdout","time":189.865965278,"data":"Loaded sequence of length 138,394,717 bp.\n"}
+,{"stream_name":"stdout","time":189.866002139,"data":"Sampling negatives for chromosome chr9 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":189.86600823,"data":"Target negative bin counts for chr9: {12: 398, 11: 342, 13: 280, 10: 199, 14: 170, 9: 110, 15: 53, 8: 51, 7: 17, 16: 3, 6: 3}\n"}
+,{"stream_name":"stdout","time":192.616626875,"data":"Sampled 1626 / 1626 negatives for chr9 (attempts: 195459).\n"}
+,{"stream_name":"stdout","time":192.616659197,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrX.fa...\n"}
+,{"stream_name":"stdout","time":193.848669917,"data":"Loaded sequence of length 156,040,895 bp.\n"}
+,{"stream_name":"stdout","time":193.848711437,"data":"Sampling negatives for chromosome chrX using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":193.84871742,"data":"Target negative bin counts for chrX: {11: 259, 10: 205, 12: 202, 13: 153, 9: 102, 14: 64, 8: 60, 15: 14, 7: 11, 6: 3}\n"}
+,{"stream_name":"stdout","time":195.643948973,"data":"Sampled 1073 / 1073 negatives for chrX (attempts: 120662).\n"}
+,{"stream_name":"stdout","time":195.643986509,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrY.fa...\n"}
+,{"stream_name":"stdout","time":196.083711398,"data":"Loaded sequence of length 57,227,415 bp.\n"}
+,{"stream_name":"stdout","time":196.083736347,"data":"Sampling negatives for chromosome chrY using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":196.083741436,"data":"Target negative bin counts for chrY: {10: 15, 9: 7, 13: 4, 12: 3, 7: 2, 8: 2, 11: 1}\n"}
+,{"stream_name":"stdout","time":196.083745742,"data":"Sampled 34 / 34 negatives for chrY (attempts: 5031).\n"}
+,{"stream_name":"stdout","time":199.074438204,"data":"Saved combined positive \u0026 negative dataset to /kaggle/working/data/processed/tcell_gc_matched.tsv (Total regions: 85,190).\n"}
+,{"stream_name":"stdout","time":200.236502353,"data":"[tcell/gc_matched] rows=85,190 pos=42,595 neg=42,595\n"}
+,{"stream_name":"stdout","time":200.23653569,"data":"Loading positive regions with sequences from /kaggle/working/data/processed/tcell_pos.tsv...\n"}
+,{"stream_name":"stdout","time":201.209449633,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr1.fa...\n"}
+,{"stream_name":"stdout","time":203.124509985,"data":"Loaded sequence of length 248,956,422 bp.\n"}
+,{"stream_name":"stdout","time":203.12455744,"data":"Sampling negatives for chromosome chr1 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":203.12456213,"data":"Sampled 4178 / 4178 random unmatched negatives for chr1 (attempts: 4597).\n"}
+,{"stream_name":"stdout","time":203.124566329,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr10.fa...\n"}
+,{"stream_name":"stdout","time":204.204460094,"data":"Loaded sequence of length 133,797,422 bp.\n"}
+,{"stream_name":"stdout","time":204.20450275,"data":"Sampling negatives for chromosome chr10 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":204.204508098,"data":"Sampled 1736 / 1736 random unmatched negatives for chr10 (attempts: 1767).\n"}
+,{"stream_name":"stdout","time":204.204536447,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr11.fa...\n"}
+,{"stream_name":"stdout","time":205.25211624,"data":"Loaded sequence of length 135,086,622 bp.\n"}
+,{"stream_name":"stdout","time":205.252157544,"data":"Sampling negatives for chromosome chr11 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":205.25216251,"data":"Sampled 2388 / 2388 random unmatched negatives for chr11 (attempts: 2459).\n"}
+,{"stream_name":"stdout","time":205.252204899,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr12.fa...\n"}
+,{"stream_name":"stdout","time":206.305224287,"data":"Loaded sequence of length 133,275,309 bp.\n"}
+,{"stream_name":"stdout","time":206.305262556,"data":"Sampling negatives for chromosome chr12 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":206.305269852,"data":"Sampled 2269 / 2269 random unmatched negatives for chr12 (attempts: 2296).\n"}
+,{"stream_name":"stdout","time":206.305275467,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr13.fa...\n"}
+,{"stream_name":"stdout","time":207.189316122,"data":"Loaded sequence of length 114,364,328 bp.\n"}
+,{"stream_name":"stdout","time":207.189366877,"data":"Sampling negatives for chromosome chr13 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":207.189376542,"data":"Sampled 811 / 811 random unmatched negatives for chr13 (attempts: 955).\n"}
+,{"stream_name":"stdout","time":207.189382077,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr14.fa...\n"}
+,{"stream_name":"stdout","time":208.030405518,"data":"Loaded sequence of length 107,043,718 bp.\n"}
+,{"stream_name":"stdout","time":208.030442216,"data":"Sampling negatives for chromosome chr14 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":208.030449229,"data":"Sampled 1562 / 1562 random unmatched negatives for chr14 (attempts: 1862).\n"}
+,{"stream_name":"stdout","time":208.030455861,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr15.fa...\n"}
+,{"stream_name":"stdout","time":208.805326376,"data":"Loaded sequence of length 101,991,189 bp.\n"}
+,{"stream_name":"stdout","time":208.805366623,"data":"Sampling negatives for chromosome chr15 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":208.805373216,"data":"Sampled 1264 / 1264 random unmatched negatives for chr15 (attempts: 1545).\n"}
+,{"stream_name":"stdout","time":208.805378587,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr16.fa...\n"}
+,{"stream_name":"stdout","time":209.4840784,"data":"Loaded sequence of length 90,338,345 bp.\n"}
+,{"stream_name":"stdout","time":209.484117807,"data":"Sampling negatives for chromosome chr16 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":209.484125755,"data":"Sampled 1854 / 1854 random unmatched negatives for chr16 (attempts: 2101).\n"}
+,{"stream_name":"stdout","time":209.48413129,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr17.fa...\n"}
+,{"stream_name":"stdout","time":210.132387066,"data":"Loaded sequence of length 83,257,441 bp.\n"}
+,{"stream_name":"stdout","time":210.13242401,"data":"Sampling negatives for chromosome chr17 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":210.132430593,"data":"Sampled 2890 / 2890 random unmatched negatives for chr17 (attempts: 3015).\n"}
+,{"stream_name":"stdout","time":210.132435948,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr18.fa...\n"}
+,{"stream_name":"stdout","time":210.766043116,"data":"Loaded sequence of length 80,373,285 bp.\n"}
+,{"stream_name":"stdout","time":210.766093731,"data":"Sampling negatives for chromosome chr18 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":210.766100015,"data":"Sampled 588 / 588 random unmatched negatives for chr18 (attempts: 594).\n"}
+,{"stream_name":"stdout","time":210.76610417,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr19.fa...\n"}
+,{"stream_name":"stdout","time":211.25906397,"data":"Loaded sequence of length 58,617,616 bp.\n"}
+,{"stream_name":"stdout","time":211.259106324,"data":"Sampling negatives for chromosome chr19 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":211.259127127,"data":"Sampled 3435 / 3435 random unmatched negatives for chr19 (attempts: 3692).\n"}
+,{"stream_name":"stdout","time":211.259132844,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr2.fa...\n"}
+,{"stream_name":"stdout","time":213.121862057,"data":"Loaded sequence of length 242,193,529 bp.\n"}
+,{"stream_name":"stdout","time":213.121898932,"data":"Sampling negatives for chromosome chr2 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":213.121904781,"data":"Sampled 2928 / 2928 random unmatched negatives for chr2 (attempts: 2992).\n"}
+,{"stream_name":"stdout","time":213.121909147,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr20.fa...\n"}
+,{"stream_name":"stdout","time":213.635425496,"data":"Loaded sequence of length 64,444,167 bp.\n"}
+,{"stream_name":"stdout","time":213.63546549,"data":"Sampling negatives for chromosome chr20 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":213.635470105,"data":"Sampled 1175 / 1175 random unmatched negatives for chr20 (attempts: 1212).\n"}
+,{"stream_name":"stdout","time":213.635473008,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr21.fa...\n"}
+,{"stream_name":"stdout","time":213.990867439,"data":"Loaded sequence of length 46,709,983 bp.\n"}
+,{"stream_name":"stdout","time":213.990915542,"data":"Sampling negatives for chromosome chr21 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":213.990920277,"data":"Sampled 483 / 483 random unmatched negatives for chr21 (attempts: 571).\n"}
+,{"stream_name":"stdout","time":213.990923408,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr22.fa...\n"}
+,{"stream_name":"stdout","time":214.377213138,"data":"Loaded sequence of length 50,818,468 bp.\n"}
+,{"stream_name":"stdout","time":214.377250012,"data":"Sampling negatives for chromosome chr22 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":214.377255506,"data":"Sampled 1118 / 1118 random unmatched negatives for chr22 (attempts: 1497).\n"}
+,{"stream_name":"stdout","time":214.37726029,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr3.fa...\n"}
+,{"stream_name":"stdout","time":215.899740579,"data":"Loaded sequence of length 198,295,559 bp.\n"}
+,{"stream_name":"stdout","time":215.899778365,"data":"Sampling negatives for chromosome chr3 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":215.899782473,"data":"Sampled 2159 / 2159 random unmatched negatives for chr3 (attempts: 2185).\n"}
+,{"stream_name":"stdout","time":215.899785512,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr4.fa...\n"}
+,{"stream_name":"stdout","time":217.357388908,"data":"Loaded sequence of length 190,214,555 bp.\n"}
+,{"stream_name":"stdout","time":217.357437276,"data":"Sampling negatives for chromosome chr4 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":217.357442091,"data":"Sampled 1386 / 1386 random unmatched negatives for chr4 (attempts: 1395).\n"}
+,{"stream_name":"stdout","time":217.357478736,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr5.fa...\n"}
+,{"stream_name":"stdout","time":218.732991995,"data":"Loaded sequence of length 181,538,259 bp.\n"}
+,{"stream_name":"stdout","time":218.733030931,"data":"Sampling negatives for chromosome chr5 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":218.733036947,"data":"Sampled 1837 / 1837 random unmatched negatives for chr5 (attempts: 1851).\n"}
+,{"stream_name":"stdout","time":218.733041428,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr6.fa...\n"}
+,{"stream_name":"stdout","time":220.039503098,"data":"Loaded sequence of length 170,805,979 bp.\n"}
+,{"stream_name":"stdout","time":220.039669396,"data":"Sampling negatives for chromosome chr6 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":220.039676687,"data":"Sampled 2507 / 2507 random unmatched negatives for chr6 (attempts: 2557).\n"}
+,{"stream_name":"stdout","time":220.039681449,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr7.fa...\n"}
+,{"stream_name":"stdout","time":221.343224079,"data":"Loaded sequence of length 159,345,973 bp.\n"}
+,{"stream_name":"stdout","time":221.343262932,"data":"Sampling negatives for chromosome chr7 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":221.343268986,"data":"Sampled 1878 / 1878 random unmatched negatives for chr7 (attempts: 1906).\n"}
+,{"stream_name":"stdout","time":221.343273968,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr8.fa...\n"}
+,{"stream_name":"stdout","time":222.483740764,"data":"Loaded sequence of length 145,138,636 bp.\n"}
+,{"stream_name":"stdout","time":222.483774716,"data":"Sampling negatives for chromosome chr8 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":222.483782369,"data":"Sampled 1416 / 1416 random unmatched negatives for chr8 (attempts: 1430).\n"}
+,{"stream_name":"stdout","time":222.48379463,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr9.fa...\n"}
+,{"stream_name":"stdout","time":223.549902545,"data":"Loaded sequence of length 138,394,717 bp.\n"}
+,{"stream_name":"stdout","time":223.549931841,"data":"Sampling negatives for chromosome chr9 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":223.549937014,"data":"Sampled 1626 / 1626 random unmatched negatives for chr9 (attempts: 1832).\n"}
+,{"stream_name":"stdout","time":223.549940925,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrX.fa...\n"}
+,{"stream_name":"stdout","time":224.736773427,"data":"Loaded sequence of length 156,040,895 bp.\n"}
+,{"stream_name":"stdout","time":224.736810188,"data":"Sampling negatives for chromosome chrX using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":224.736815809,"data":"Sampled 1073 / 1073 random unmatched negatives for chrX (attempts: 1089).\n"}
+,{"stream_name":"stdout","time":224.736820485,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrY.fa...\n"}
+,{"stream_name":"stdout","time":225.18807779,"data":"Loaded sequence of length 57,227,415 bp.\n"}
+,{"stream_name":"stdout","time":225.18810259,"data":"Sampling negatives for chromosome chrY using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":225.188107648,"data":"Sampled 34 / 34 random unmatched negatives for chrY (attempts: 76).\n"}
+,{"stream_name":"stdout","time":228.167703001,"data":"Saved combined positive \u0026 negative dataset to /kaggle/working/data/processed/tcell_random_unmatched.tsv (Total regions: 85,190).\n"}
+,{"stream_name":"stdout","time":229.333940049,"data":"[tcell/random_unmatched] rows=85,190 pos=42,595 neg=42,595\n"}
+,{"stream_name":"stdout","time":229.334003787,"data":"Loading positive regions with sequences from /kaggle/working/data/processed/tcell_pos.tsv...\n"}
+,{"stream_name":"stdout","time":230.30671243,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr1.fa...\n"}
+,{"stream_name":"stdout","time":232.322284394,"data":"Loaded sequence of length 248,956,422 bp.\n"}
+,{"stream_name":"stdout","time":232.32232437,"data":"Sampling negatives for chromosome chr1 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":232.545011195,"data":"Generated 4178 / 4178 flanking negatives for chr1.\n"}
+,{"stream_name":"stdout","time":232.545049987,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr10.fa...\n"}
+,{"stream_name":"stdout","time":233.574899432,"data":"Loaded sequence of length 133,797,422 bp.\n"}
+,{"stream_name":"stdout","time":233.574939846,"data":"Sampling negatives for chromosome chr10 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":233.574946129,"data":"Generated 1736 / 1736 flanking negatives for chr10.\n"}
+,{"stream_name":"stdout","time":233.57495038,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr11.fa...\n"}
+,{"stream_name":"stdout","time":234.703980281,"data":"Loaded sequence of length 135,086,622 bp.\n"}
+,{"stream_name":"stdout","time":234.70401459,"data":"Sampling negatives for chromosome chr11 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":234.704019916,"data":"Generated 2388 / 2388 flanking negatives for chr11.\n"}
+,{"stream_name":"stdout","time":234.704024232,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr12.fa...\n"}
+,{"stream_name":"stdout","time":235.844931029,"data":"Loaded sequence of length 133,275,309 bp.\n"}
+,{"stream_name":"stdout","time":235.844975616,"data":"Sampling negatives for chromosome chr12 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":235.844981539,"data":"Generated 2269 / 2269 flanking negatives for chr12.\n"}
+,{"stream_name":"stdout","time":235.844986317,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr13.fa...\n"}
+,{"stream_name":"stdout","time":236.865674019,"data":"Loaded sequence of length 114,364,328 bp.\n"}
+,{"stream_name":"stdout","time":236.865714511,"data":"Sampling negatives for chromosome chr13 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":236.865721389,"data":"Generated 811 / 811 flanking negatives for chr13.\n"}
+,{"stream_name":"stdout","time":236.865726682,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr14.fa...\n"}
+,{"stream_name":"stdout","time":237.704315846,"data":"Loaded sequence of length 107,043,718 bp.\n"}
+,{"stream_name":"stdout","time":237.704357368,"data":"Sampling negatives for chromosome chr14 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":237.704364192,"data":"Generated 1562 / 1562 flanking negatives for chr14.\n"}
+,{"stream_name":"stdout","time":237.704369843,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr15.fa...\n"}
+,{"stream_name":"stdout","time":238.558741411,"data":"Loaded sequence of length 101,991,189 bp.\n"}
+,{"stream_name":"stdout","time":238.558778317,"data":"Sampling negatives for chromosome chr15 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":238.558791551,"data":"Generated 1264 / 1264 flanking negatives for chr15.\n"}
+,{"stream_name":"stdout","time":238.558795482,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr16.fa...\n"}
+,{"stream_name":"stdout","time":239.320283879,"data":"Loaded sequence of length 90,338,345 bp.\n"}
+,{"stream_name":"stdout","time":239.320370786,"data":"Sampling negatives for chromosome chr16 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":239.320377843,"data":"Generated 1854 / 1854 flanking negatives for chr16.\n"}
+,{"stream_name":"stdout","time":239.320382083,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr17.fa...\n"}
+,{"stream_name":"stdout","time":240.046054376,"data":"Loaded sequence of length 83,257,441 bp.\n"}
+,{"stream_name":"stdout","time":240.046110421,"data":"Sampling negatives for chromosome chr17 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":240.046132501,"data":"Generated 2890 / 2890 flanking negatives for chr17.\n"}
+,{"stream_name":"stdout","time":240.046137575,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr18.fa...\n"}
+,{"stream_name":"stdout","time":240.825867005,"data":"Loaded sequence of length 80,373,285 bp.\n"}
+,{"stream_name":"stdout","time":240.825903539,"data":"Sampling negatives for chromosome chr18 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":240.825909092,"data":"Generated 588 / 588 flanking negatives for chr18.\n"}
+,{"stream_name":"stdout","time":240.825914345,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr19.fa...\n"}
+,{"stream_name":"stdout","time":241.39834936,"data":"Loaded sequence of length 58,617,616 bp.\n"}
+,{"stream_name":"stdout","time":241.398397213,"data":"Sampling negatives for chromosome chr19 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":241.603456554,"data":"Generated 3435 / 3435 flanking negatives for chr19.\n"}
+,{"stream_name":"stdout","time":241.603491082,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr2.fa...\n"}
+,{"stream_name":"stdout","time":243.503839025,"data":"Loaded sequence of length 242,193,529 bp.\n"}
+,{"stream_name":"stdout","time":243.503876435,"data":"Sampling negatives for chromosome chr2 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":243.503881634,"data":"Generated 2928 / 2928 flanking negatives for chr2.\n"}
+,{"stream_name":"stdout","time":243.503886019,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr20.fa...\n"}
+,{"stream_name":"stdout","time":244.201391465,"data":"Loaded sequence of length 64,444,167 bp.\n"}
+,{"stream_name":"stdout","time":244.201426293,"data":"Sampling negatives for chromosome chr20 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":244.2014317,"data":"Generated 1175 / 1175 flanking negatives for chr20.\n"}
+,{"stream_name":"stdout","time":244.201435986,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr21.fa...\n"}
+,{"stream_name":"stdout","time":244.629355071,"data":"Loaded sequence of length 46,709,983 bp.\n"}
+,{"stream_name":"stdout","time":244.62939289,"data":"Sampling negatives for chromosome chr21 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":244.629398452,"data":"Generated 483 / 483 flanking negatives for chr21.\n"}
+,{"stream_name":"stdout","time":244.629402885,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr22.fa...\n"}
+,{"stream_name":"stdout","time":245.043186247,"data":"Loaded sequence of length 50,818,468 bp.\n"}
+,{"stream_name":"stdout","time":245.043223855,"data":"Sampling negatives for chromosome chr22 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":245.043229369,"data":"Generated 1118 / 1118 flanking negatives for chr22.\n"}
+,{"stream_name":"stdout","time":245.043233724,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr3.fa...\n"}
+,{"stream_name":"stdout","time":246.650034737,"data":"Loaded sequence of length 198,295,559 bp.\n"}
+,{"stream_name":"stdout","time":246.650073235,"data":"Sampling negatives for chromosome chr3 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":246.650078587,"data":"Generated 2159 / 2159 flanking negatives for chr3.\n"}
+,{"stream_name":"stdout","time":246.650083389,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr4.fa...\n"}
+,{"stream_name":"stdout","time":248.193709009,"data":"Loaded sequence of length 190,214,555 bp.\n"}
+,{"stream_name":"stdout","time":248.193749633,"data":"Sampling negatives for chromosome chr4 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":248.193755121,"data":"Generated 1386 / 1386 flanking negatives for chr4.\n"}
+,{"stream_name":"stdout","time":248.193760363,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr5.fa...\n"}
+,{"stream_name":"stdout","time":249.697665828,"data":"Loaded sequence of length 181,538,259 bp.\n"}
+,{"stream_name":"stdout","time":249.69770268,"data":"Sampling negatives for chromosome chr5 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":249.69770806,"data":"Generated 1837 / 1837 flanking negatives for chr5.\n"}
+,{"stream_name":"stdout","time":249.697712983,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr6.fa...\n"}
+,{"stream_name":"stdout","time":251.110358493,"data":"Loaded sequence of length 170,805,979 bp.\n"}
+,{"stream_name":"stdout","time":251.110407583,"data":"Sampling negatives for chromosome chr6 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":251.110413988,"data":"Generated 2507 / 2507 flanking negatives for chr6.\n"}
+,{"stream_name":"stdout","time":251.110418333,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr7.fa...\n"}
+,{"stream_name":"stdout","time":252.498803774,"data":"Loaded sequence of length 159,345,973 bp.\n"}
+,{"stream_name":"stdout","time":252.498844006,"data":"Sampling negatives for chromosome chr7 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":252.498849377,"data":"Generated 1878 / 1878 flanking negatives for chr7.\n"}
+,{"stream_name":"stdout","time":252.498853615,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr8.fa...\n"}
+,{"stream_name":"stdout","time":253.728428844,"data":"Loaded sequence of length 145,138,636 bp.\n"}
+,{"stream_name":"stdout","time":253.72846250999999,"data":"Sampling negatives for chromosome chr8 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":253.728467795,"data":"Generated 1416 / 1416 flanking negatives for chr8.\n"}
+,{"stream_name":"stdout","time":253.728472769,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr9.fa...\n"}
+,{"stream_name":"stdout","time":254.856343228,"data":"Loaded sequence of length 138,394,717 bp.\n"}
+,{"stream_name":"stdout","time":254.856378599,"data":"Sampling negatives for chromosome chr9 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":254.856384798,"data":"Generated 1626 / 1626 flanking negatives for chr9.\n"}
+,{"stream_name":"stdout","time":254.856389112,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrX.fa...\n"}
+,{"stream_name":"stdout","time":256.135407169,"data":"Loaded sequence of length 156,040,895 bp.\n"}
+,{"stream_name":"stdout","time":256.135444364,"data":"Sampling negatives for chromosome chrX using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":256.135450628,"data":"Generated 1073 / 1073 flanking negatives for chrX.\n"}
+,{"stream_name":"stdout","time":256.135460497,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrY.fa...\n"}
+,{"stream_name":"stdout","time":256.639379835,"data":"Loaded sequence of length 57,227,415 bp.\n"}
+,{"stream_name":"stdout","time":256.639408552,"data":"Sampling negatives for chromosome chrY using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":256.639419364,"data":"Generated 34 / 34 flanking negatives for chrY.\n"}
+,{"stream_name":"stdout","time":259.61840986,"data":"Saved combined positive \u0026 negative dataset to /kaggle/working/data/processed/tcell_flanking.tsv (Total regions: 85,190).\n"}
+,{"stream_name":"stdout","time":260.832401791,"data":"[tcell/flanking] rows=85,190 pos=42,595 neg=42,595\n"}
+,{"stream_name":"stdout","time":262.027596849,"data":"k562 raw file: /kaggle/input/datasets/purvanshj009/encode-regulatory-switches-data/raw/ENCFF464BRU.bed/ENCFF971AHO_ENCFF847JMY_ENCFF779QTH_ENCFF405AYC.7group.bed\n"}
+,{"stream_name":"stdout","time":262.027663119,"data":"Parsing cCRE annotations from /kaggle/input/datasets/purvanshj009/encode-regulatory-switches-data/raw/ENCFF464BRU.bed/ENCFF971AHO_ENCFF847JMY_ENCFF779QTH_ENCFF405AYC.7group.bed...\n"}
+,{"stream_name":"stdout","time":264.12496725,"data":"Loaded 926535 initial regions.\n"}
+,{"stream_name":"stdout","time":264.12501525,"data":"Filtered by element types ['PLS', 'pELS', 'dELS']. Remaining: 57246\n"}
+,{"stream_name":"stdout","time":264.125020581,"data":"Resizing regions to fixed length of 1000 bp...\n"}
+,{"stream_name":"stdout","time":264.125024027,"data":"Filtered out regions with invalid coordinates. Remaining: 57246\n"}
+,{"stream_name":"stdout","time":264.125028624,"data":"Processed BED file saved to /kaggle/working/data/processed/k562.bed (Total regions: 57246).\n"}
+,{"stream_name":"stdout","time":264.125068301,"data":"Reading BED coordinates from /kaggle/working/data/processed/k562.bed...\n"}
+,{"stream_name":"stdout","time":264.370632322,"data":"Total input regions: 57,246\n"}
+,{"stream_name":"stdout","time":264.370667788,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr1.fa...\n"}
+,{"stream_name":"stdout","time":266.313491125,"data":"Loaded sequence of length 248,956,422 bp.\n"}
+,{"stream_name":"stdout","time":266.616810283,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr10.fa...\n"}
+,{"stream_name":"stdout","time":267.62919918,"data":"Loaded sequence of length 133,797,422 bp.\n"}
+,{"stream_name":"stdout","time":267.629245911,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr11.fa...\n"}
+,{"stream_name":"stdout","time":268.774669684,"data":"Loaded sequence of length 135,086,622 bp.\n"}
+,{"stream_name":"stdout","time":268.774713308,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr12.fa...\n"}
+,{"stream_name":"stdout","time":269.933222617,"data":"Loaded sequence of length 133,275,309 bp.\n"}
+,{"stream_name":"stdout","time":269.933259482,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr13.fa...\n"}
+,{"stream_name":"stdout","time":270.943653031,"data":"Loaded sequence of length 114,364,328 bp.\n"}
+,{"stream_name":"stdout","time":270.943688385,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr14.fa...\n"}
+,{"stream_name":"stdout","time":271.839026543,"data":"Loaded sequence of length 107,043,718 bp.\n"}
+,{"stream_name":"stdout","time":271.839068309,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr15.fa...\n"}
+,{"stream_name":"stdout","time":272.673866951,"data":"Loaded sequence of length 101,991,189 bp.\n"}
+,{"stream_name":"stdout","time":272.673910398,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr16.fa...\n"}
+,{"stream_name":"stdout","time":273.454363818,"data":"Loaded sequence of length 90,338,345 bp.\n"}
+,{"stream_name":"stdout","time":273.454440987,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr17.fa...\n"}
+,{"stream_name":"stdout","time":274.208480333,"data":"Loaded sequence of length 83,257,441 bp.\n"}
+,{"stream_name":"stdout","time":274.208520416,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr18.fa...\n"}
+,{"stream_name":"stdout","time":274.978359138,"data":"Loaded sequence of length 80,373,285 bp.\n"}
+,{"stream_name":"stdout","time":274.97839876,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr19.fa...\n"}
+,{"stream_name":"stdout","time":275.474640466,"data":"Loaded sequence of length 58,617,616 bp.\n"}
+,{"stream_name":"stdout","time":275.686526004,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr2.fa...\n"}
+,{"stream_name":"stdout","time":277.513654036,"data":"Loaded sequence of length 242,193,529 bp.\n"}
+,{"stream_name":"stdout","time":277.513692197,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr20.fa...\n"}
+,{"stream_name":"stdout","time":278.192962177,"data":"Loaded sequence of length 64,444,167 bp.\n"}
+,{"stream_name":"stdout","time":278.193010117,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr21.fa...\n"}
+,{"stream_name":"stdout","time":278.626108102,"data":"Loaded sequence of length 46,709,983 bp.\n"}
+,{"stream_name":"stdout","time":278.626147388,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr22.fa...\n"}
+,{"stream_name":"stdout","time":279.06034058,"data":"Loaded sequence of length 50,818,468 bp.\n"}
+,{"stream_name":"stdout","time":279.060379452,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr3.fa...\n"}
+,{"stream_name":"stdout","time":280.661704373,"data":"Loaded sequence of length 198,295,559 bp.\n"}
+,{"stream_name":"stdout","time":280.661753425,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr4.fa...\n"}
+,{"stream_name":"stdout","time":282.289670154,"data":"Loaded sequence of length 190,214,555 bp.\n"}
+,{"stream_name":"stdout","time":282.289708497,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr5.fa...\n"}
+,{"stream_name":"stdout","time":283.817223676,"data":"Loaded sequence of length 181,538,259 bp.\n"}
+,{"stream_name":"stdout","time":283.817250642,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr6.fa...\n"}
+,{"stream_name":"stdout","time":285.198702223,"data":"Loaded sequence of length 170,805,979 bp.\n"}
+,{"stream_name":"stdout","time":285.198739243,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr7.fa...\n"}
+,{"stream_name":"stdout","time":286.616751323,"data":"Loaded sequence of length 159,345,973 bp.\n"}
+,{"stream_name":"stdout","time":286.616789593,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr8.fa...\n"}
+,{"stream_name":"stdout","time":287.870787178,"data":"Loaded sequence of length 145,138,636 bp.\n"}
+,{"stream_name":"stdout","time":287.870822527,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr9.fa...\n"}
+,{"stream_name":"stdout","time":289.022041609,"data":"Loaded sequence of length 138,394,717 bp.\n"}
+,{"stream_name":"stdout","time":289.022084348,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrX.fa...\n"}
+,{"stream_name":"stdout","time":290.329712217,"data":"Loaded sequence of length 156,040,895 bp.\n"}
+,{"stream_name":"stdout","time":290.329753598,"data":"Sequence extraction complete.\n"}
+,{"stream_name":"stdout","time":290.329757987,"data":"  Extracted regions: 57,246\n"}
+,{"stream_name":"stdout","time":290.329773938,"data":"  Skipped (out of bounds): 0\n"}
+,{"stream_name":"stdout","time":290.329777902,"data":"  Skipped (high N-base fraction): 0\n"}
+,{"stream_name":"stdout","time":292.386537097,"data":"Saved extracted sequences to /kaggle/working/data/processed/k562_pos.tsv.\n"}
+,{"stream_name":"stdout","time":292.386577636,"data":"Loading positive regions with sequences from /kaggle/working/data/processed/k562_pos.tsv...\n"}
+,{"stream_name":"stdout","time":293.660952738,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr1.fa...\n"}
+,{"stream_name":"stdout","time":295.565750672,"data":"Loaded sequence of length 248,956,422 bp.\n"}
+,{"stream_name":"stdout","time":295.565790327,"data":"Sampling negatives for chromosome chr1 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":295.565796283,"data":"Target negative bin counts for chr1: {10: 1311, 11: 1195, 9: 1112, 12: 841, 8: 637, 13: 636, 14: 318, 7: 177, 15: 137, 6: 17, 16: 11}\n"}
+,{"stream_name":"stdout","time":303.233321171,"data":"Sampled 6392 / 6392 negatives for chr1 (attempts: 506469).\n"}
+,{"stream_name":"stdout","time":303.233366013,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr10.fa...\n"}
+,{"stream_name":"stdout","time":304.231319595,"data":"Loaded sequence of length 133,797,422 bp.\n"}
+,{"stream_name":"stdout","time":304.231358262,"data":"Sampling negatives for chromosome chr10 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":304.231365294,"data":"Target negative bin counts for chr10: {10: 445, 11: 418, 9: 376, 12: 352, 8: 260, 13: 254, 14: 144, 7: 80, 15: 56, 6: 10, 16: 2}\n"}
+,{"stream_name":"stdout","time":307.31686972,"data":"Sampled 2397 / 2397 negatives for chr10 (attempts: 195794).\n"}
+,{"stream_name":"stdout","time":307.316909177,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr11.fa...\n"}
+,{"stream_name":"stdout","time":308.364999074,"data":"Loaded sequence of length 135,086,622 bp.\n"}
+,{"stream_name":"stdout","time":308.365034904,"data":"Sampling negatives for chromosome chr11 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":308.365042454,"data":"Target negative bin counts for chr11: {11: 665, 10: 607, 12: 522, 9: 498, 13: 407, 8: 257, 14: 205, 7: 65, 15: 58, 6: 7, 16: 2}\n"}
+,{"stream_name":"stdout","time":312.389823252,"data":"Sampled 3293 / 3293 negatives for chr11 (attempts: 258548).\n"}
+,{"stream_name":"stdout","time":312.389869527,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr12.fa...\n"}
+,{"stream_name":"stdout","time":313.406047436,"data":"Loaded sequence of length 133,275,309 bp.\n"}
+,{"stream_name":"stdout","time":313.40608887,"data":"Sampling negatives for chromosome chr12 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":313.406096235,"data":"Target negative bin counts for chr12: {11: 597, 10: 588, 12: 455, 9: 451, 13: 258, 8: 245, 14: 147, 7: 84, 15: 45, 16: 6, 6: 5}\n"}
+,{"stream_name":"stdout","time":319.725867865,"data":"Sampled 2881 / 2881 negatives for chr12 (attempts: 405022).\n"}
+,{"stream_name":"stdout","time":319.725901132,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr13.fa...\n"}
+,{"stream_name":"stdout","time":320.570158475,"data":"Loaded sequence of length 114,364,328 bp.\n"}
+,{"stream_name":"stdout","time":320.570217827,"data":"Sampling negatives for chromosome chr13 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":320.570224995,"data":"Target negative bin counts for chr13: {11: 132, 10: 130, 12: 125, 13: 111, 9: 80, 8: 71, 14: 68, 15: 29, 7: 29, 6: 4, 16: 2}\n"}
+,{"stream_name":"stdout","time":329.583330719,"data":"Sampled 781 / 781 negatives for chr13 (attempts: 686379).\n"}
+,{"stream_name":"stdout","time":329.58339238,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr14.fa...\n"}
+,{"stream_name":"stdout","time":330.484620488,"data":"Loaded sequence of length 107,043,718 bp.\n"}
+,{"stream_name":"stdout","time":330.484659543,"data":"Sampling negatives for chromosome chr14 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":330.484666307,"data":"Target negative bin counts for chr14: {10: 312, 11: 300, 12: 235, 9: 219, 13: 177, 8: 113, 14: 102, 15: 50, 7: 15, 16: 7, 6: 2}\n"}
+,{"stream_name":"stdout","time":338.171889222,"data":"Sampled 1532 / 1532 negatives for chr14 (attempts: 573260).\n"}
+,{"stream_name":"stdout","time":338.171945538,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr15.fa...\n"}
+,{"stream_name":"stdout","time":338.964361913,"data":"Loaded sequence of length 101,991,189 bp.\n"}
+,{"stream_name":"stdout","time":338.964403248,"data":"Sampling negatives for chromosome chr15 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":338.96442408,"data":"Target negative bin counts for chr15: {10: 360, 11: 340, 9: 292, 12: 252, 13: 192, 8: 153, 14: 111, 7: 41, 15: 36, 16: 4, 6: 1}\n"}
+,{"stream_name":"stdout","time":341.371305342,"data":"Sampled 1782 / 1782 negatives for chr15 (attempts: 178620).\n"}
+,{"stream_name":"stdout","time":341.371387531,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr16.fa...\n"}
+,{"stream_name":"stdout","time":342.108346314,"data":"Loaded sequence of length 90,338,345 bp.\n"}
+,{"stream_name":"stdout","time":342.108386614,"data":"Sampling negatives for chromosome chr16 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":342.108393884,"data":"Target negative bin counts for chr16: {11: 594, 12: 511, 13: 427, 10: 399, 9: 250, 14: 237, 8: 124, 15: 94, 7: 13, 16: 7, 6: 2}\n"}
+,{"stream_name":"stdout","time":347.543568486,"data":"Sampled 2658 / 2658 negatives for chr16 (attempts: 378099).\n"}
+,{"stream_name":"stdout","time":347.543614472,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr17.fa...\n"}
+,{"stream_name":"stdout","time":348.182431449,"data":"Loaded sequence of length 83,257,441 bp.\n"}
+,{"stream_name":"stdout","time":348.182470039,"data":"Sampling negatives for chromosome chr17 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":348.1824784,"data":"Target negative bin counts for chr17: {11: 783, 10: 651, 12: 651, 13: 456, 9: 396, 14: 264, 8: 189, 15: 102, 7: 37, 16: 8, 6: 7}\n"}
+,{"stream_name":"stdout","time":354.668804522,"data":"Sampled 3544 / 3544 negatives for chr17 (attempts: 406301).\n"}
+,{"stream_name":"stdout","time":354.668836653,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr18.fa...\n"}
+,{"stream_name":"stdout","time":355.270424158,"data":"Loaded sequence of length 80,373,285 bp.\n"}
+,{"stream_name":"stdout","time":355.270461,"data":"Sampling negatives for chromosome chr18 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":355.270468509,"data":"Target negative bin counts for chr18: {9: 146, 11: 139, 10: 114, 8: 101, 12: 92, 13: 75, 14: 53, 7: 30, 15: 28, 16: 7, 6: 2}\n"}
+,{"stream_name":"stdout","time":369.998696553,"data":"Sampled 787 / 787 negatives for chr18 (attempts: 977921).\n"}
+,{"stream_name":"stdout","time":369.998745417,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr19.fa...\n"}
+,{"stream_name":"stdout","time":370.465274047,"data":"Loaded sequence of length 58,617,616 bp.\n"}
+,{"stream_name":"stdout","time":370.465313895,"data":"Sampling negatives for chromosome chr19 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":370.465320798,"data":"Target negative bin counts for chr19: {11: 1168, 12: 1138, 10: 787, 13: 668, 9: 325, 14: 259, 15: 84, 8: 60, 16: 12, 7: 12, 17: 1, 6: 1}\n"}
+,{"stream_name":"stdout","time":1067.017989968,"data":"Sampled 4514 / 4515 negatives for chr19 (attempts: 45150000).\n"}
+,{"stream_name":"stdout","time":1067.01805455,"data":"Notice: Filled 1 remaining negative slots with random coordinates due to sampling timeout.\n"}
+,{"stream_name":"stdout","time":1067.018061721,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr2.fa...\n"}
+,{"stream_name":"stdout","time":1068.86675665,"data":"Loaded sequence of length 242,193,529 bp.\n"}
+,{"stream_name":"stdout","time":1068.866797346,"data":"Sampling negatives for chromosome chr2 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1068.866804671,"data":"Target negative bin counts for chr2: {10: 661, 11: 652, 9: 521, 12: 482, 13: 415, 8: 388, 14: 191, 7: 127, 15: 78, 6: 16, 16: 10}\n"}
+,{"stream_name":"stdout","time":1075.831687991,"data":"Sampled 3541 / 3541 negatives for chr2 (attempts: 454498).\n"}
+,{"stream_name":"stdout","time":1075.831730484,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr20.fa...\n"}
+,{"stream_name":"stdout","time":1076.350871532,"data":"Loaded sequence of length 64,444,167 bp.\n"}
+,{"stream_name":"stdout","time":1076.350909941,"data":"Sampling negatives for chromosome chr20 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1076.350917778,"data":"Target negative bin counts for chr20: {10: 297, 12: 262, 11: 262, 9: 207, 13: 197, 14: 113, 8: 104, 15: 53, 7: 23, 16: 10, 17: 2}\n"}
+,{"stream_name":"stdout","time":1311.660582107,"data":"Sampled 1528 / 1530 negatives for chr20 (attempts: 15300000).\n"}
+,{"stream_name":"stdout","time":1311.660755813,"data":"Notice: Filled 2 remaining negative slots with random coordinates due to sampling timeout.\n"}
+,{"stream_name":"stdout","time":1311.660765829,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr21.fa...\n"}
+,{"stream_name":"stdout","time":1312.442252,"data":"Loaded sequence of length 46,709,983 bp.\n"}
+,{"stream_name":"stdout","time":1312.442316687,"data":"Sampling negatives for chromosome chr21 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1312.442324989,"data":"Target negative bin counts for chr21: {10: 97, 12: 90, 9: 90, 11: 88, 8: 75, 13: 62, 14: 49, 7: 31, 15: 21, 16: 4, 6: 1}\n"}
+,{"stream_name":"stdout","time":1313.080421372,"data":"Sampled 608 / 608 negatives for chr21 (attempts: 46060).\n"}
+,{"stream_name":"stdout","time":1313.080462845,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr22.fa...\n"}
+,{"stream_name":"stdout","time":1313.780680734,"data":"Loaded sequence of length 50,818,468 bp.\n"}
+,{"stream_name":"stdout","time":1313.780721547,"data":"Sampling negatives for chromosome chr22 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1313.780729057,"data":"Target negative bin counts for chr22: {11: 270, 12: 229, 10: 206, 13: 188, 9: 134, 14: 128, 8: 65, 15: 48, 7: 10, 16: 1}\n"}
+,{"stream_name":"stdout","time":1314.803876604,"data":"Sampled 1279 / 1279 negatives for chr22 (attempts: 83272).\n"}
+,{"stream_name":"stdout","time":1314.803964847,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr3.fa...\n"}
+,{"stream_name":"stdout","time":1317.698680244,"data":"Loaded sequence of length 198,295,559 bp.\n"}
+,{"stream_name":"stdout","time":1317.698745735,"data":"Sampling negatives for chromosome chr3 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1317.698753979,"data":"Target negative bin counts for chr3: {11: 616, 10: 554, 9: 474, 12: 442, 13: 324, 8: 311, 14: 163, 7: 100, 15: 63, 6: 14, 16: 2}\n"}
+,{"stream_name":"stdout","time":1327.136466038,"data":"Sampled 3063 / 3063 negatives for chr3 (attempts: 613948).\n"}
+,{"stream_name":"stdout","time":1327.136512714,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr4.fa...\n"}
+,{"stream_name":"stdout","time":1329.031947248,"data":"Loaded sequence of length 190,214,555 bp.\n"}
+,{"stream_name":"stdout","time":1329.031993889,"data":"Sampling negatives for chromosome chr4 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1329.032000343,"data":"Target negative bin counts for chr4: {10: 288, 11: 285, 9: 265, 12: 246, 8: 224, 13: 184, 14: 126, 7: 91, 15: 53, 6: 14, 16: 11}\n"}
+,{"stream_name":"stdout","time":1339.231903863,"data":"Sampled 1787 / 1787 negatives for chr4 (attempts: 671498).\n"}
+,{"stream_name":"stdout","time":1339.231959402,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr5.fa...\n"}
+,{"stream_name":"stdout","time":1340.957679249,"data":"Loaded sequence of length 181,538,259 bp.\n"}
+,{"stream_name":"stdout","time":1340.957721454,"data":"Sampling negatives for chromosome chr5 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1340.957727157,"data":"Target negative bin counts for chr5: {10: 466, 11: 418, 9: 417, 12: 340, 13: 244, 8: 234, 14: 137, 7: 65, 15: 41, 6: 9, 16: 4}\n"}
+,{"stream_name":"stdout","time":1346.717342658,"data":"Sampled 2375 / 2375 negatives for chr5 (attempts: 371417).\n"}
+,{"stream_name":"stdout","time":1346.717380981,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr6.fa...\n"}
+,{"stream_name":"stdout","time":1348.717387521,"data":"Loaded sequence of length 170,805,979 bp.\n"}
+,{"stream_name":"stdout","time":1348.717430623,"data":"Sampling negatives for chromosome chr6 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1348.717437661,"data":"Target negative bin counts for chr6: {9: 866, 10: 686, 8: 616, 11: 592, 12: 374, 13: 259, 7: 184, 14: 131, 15: 50, 6: 13, 16: 5, 5: 1}\n"}
+,{"stream_name":"stdout","time":1355.897126212,"data":"Sampled 3777 / 3777 negatives for chr6 (attempts: 466351).\n"}
+,{"stream_name":"stdout","time":1355.897203051,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr7.fa...\n"}
+,{"stream_name":"stdout","time":1357.848384639,"data":"Loaded sequence of length 159,345,973 bp.\n"}
+,{"stream_name":"stdout","time":1357.848424932,"data":"Sampling negatives for chromosome chr7 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1357.848432576,"data":"Target negative bin counts for chr7: {11: 537, 9: 454, 12: 451, 10: 449, 13: 322, 8: 296, 14: 178, 7: 107, 15: 72, 6: 19, 16: 7}\n"}
+,{"stream_name":"stdout","time":1363.683664354,"data":"Sampled 2892 / 2892 negatives for chr7 (attempts: 376644).\n"}
+,{"stream_name":"stdout","time":1363.68370764,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr8.fa...\n"}
+,{"stream_name":"stdout","time":1365.004728713,"data":"Loaded sequence of length 145,138,636 bp.\n"}
+,{"stream_name":"stdout","time":1365.004770079,"data":"Sampling negatives for chromosome chr8 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1365.00477648,"data":"Target negative bin counts for chr8: {10: 333, 11: 328, 9: 317, 12: 277, 13: 272, 8: 205, 14: 162, 7: 72, 15: 65, 6: 6, 16: 3}\n"}
+,{"stream_name":"stdout","time":1371.892056769,"data":"Sampled 2040 / 2040 negatives for chr8 (attempts: 448778).\n"}
+,{"stream_name":"stdout","time":1371.892100472,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr9.fa...\n"}
+,{"stream_name":"stdout","time":1373.126392129,"data":"Loaded sequence of length 138,394,717 bp.\n"}
+,{"stream_name":"stdout","time":1373.126430572,"data":"Sampling negatives for chromosome chr9 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1373.126470533,"data":"Target negative bin counts for chr9: {11: 461, 10: 379, 12: 378, 13: 294, 9: 269, 14: 183, 8: 168, 15: 81, 7: 33, 16: 12, 6: 3}\n"}
+,{"stream_name":"stdout","time":1377.954434786,"data":"Sampled 2261 / 2261 negatives for chr9 (attempts: 344542).\n"}
+,{"stream_name":"stdout","time":1377.954474906,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrX.fa...\n"}
+,{"stream_name":"stdout","time":1379.295264126,"data":"Loaded sequence of length 156,040,895 bp.\n"}
+,{"stream_name":"stdout","time":1379.295305255,"data":"Sampling negatives for chromosome chrX using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1379.295312078,"data":"Target negative bin counts for chrX: {10: 332, 11: 300, 12: 257, 13: 193, 9: 185, 8: 118, 14: 89, 15: 28, 7: 28, 6: 1}\n"}
+,{"stream_name":"stdout","time":1382.6048558,"data":"Sampled 1531 / 1531 negatives for chrX (attempts: 214207).\n"}
+,{"stream_name":"stdout","time":1386.769236482,"data":"Saved combined positive \u0026 negative dataset to /kaggle/working/data/processed/k562_gc_matched.tsv (Total regions: 114,492).\n"}
+,{"stream_name":"stdout","time":1388.353946483,"data":"[k562/gc_matched] rows=114,492 pos=57,246 neg=57,246\n"}
+,{"stream_name":"stdout","time":1388.353982975,"data":"Loading positive regions with sequences from /kaggle/working/data/processed/k562_pos.tsv...\n"}
+,{"stream_name":"stdout","time":1389.699758157,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr1.fa...\n"}
+,{"stream_name":"stdout","time":1391.867332836,"data":"Loaded sequence of length 248,956,422 bp.\n"}
+,{"stream_name":"stdout","time":1391.867375784,"data":"Sampling negatives for chromosome chr1 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1391.867383058,"data":"Sampled 6392 / 6392 random unmatched negatives for chr1 (attempts: 7070).\n"}
+,{"stream_name":"stdout","time":1391.867389095,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr10.fa...\n"}
+,{"stream_name":"stdout","time":1393.550162622,"data":"Loaded sequence of length 133,797,422 bp.\n"}
+,{"stream_name":"stdout","time":1393.550222733,"data":"Sampling negatives for chromosome chr10 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1393.550229524,"data":"Sampled 2397 / 2397 random unmatched negatives for chr10 (attempts: 2446).\n"}
+,{"stream_name":"stdout","time":1393.550234755,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr11.fa...\n"}
+,{"stream_name":"stdout","time":1394.723669982,"data":"Loaded sequence of length 135,086,622 bp.\n"}
+,{"stream_name":"stdout","time":1394.723712522,"data":"Sampling negatives for chromosome chr11 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1394.723719451,"data":"Sampled 3293 / 3293 random unmatched negatives for chr11 (attempts: 3397).\n"}
+,{"stream_name":"stdout","time":1394.72372506,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr12.fa...\n"}
+,{"stream_name":"stdout","time":1395.904725807,"data":"Loaded sequence of length 133,275,309 bp.\n"}
+,{"stream_name":"stdout","time":1395.904767217,"data":"Sampling negatives for chromosome chr12 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1395.90477456,"data":"Sampled 2881 / 2881 random unmatched negatives for chr12 (attempts: 2935).\n"}
+,{"stream_name":"stdout","time":1395.904780282,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr13.fa...\n"}
+,{"stream_name":"stdout","time":1396.898716464,"data":"Loaded sequence of length 114,364,328 bp.\n"}
+,{"stream_name":"stdout","time":1396.898768757,"data":"Sampling negatives for chromosome chr13 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1396.898796375,"data":"Sampled 781 / 781 random unmatched negatives for chr13 (attempts: 919).\n"}
+,{"stream_name":"stdout","time":1396.898801861,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr14.fa...\n"}
+,{"stream_name":"stdout","time":1397.817945678,"data":"Loaded sequence of length 107,043,718 bp.\n"}
+,{"stream_name":"stdout","time":1397.817993427,"data":"Sampling negatives for chromosome chr14 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1397.817999398,"data":"Sampled 1532 / 1532 random unmatched negatives for chr14 (attempts: 1829).\n"}
+,{"stream_name":"stdout","time":1397.818004118,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr15.fa...\n"}
+,{"stream_name":"stdout","time":1398.713074283,"data":"Loaded sequence of length 101,991,189 bp.\n"}
+,{"stream_name":"stdout","time":1398.7131199,"data":"Sampling negatives for chromosome chr15 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1398.713126127,"data":"Sampled 1782 / 1782 random unmatched negatives for chr15 (attempts: 2186).\n"}
+,{"stream_name":"stdout","time":1398.713130598,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr16.fa...\n"}
+,{"stream_name":"stdout","time":1399.501142365,"data":"Loaded sequence of length 90,338,345 bp.\n"}
+,{"stream_name":"stdout","time":1399.501203922,"data":"Sampling negatives for chromosome chr16 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1399.501213696,"data":"Sampled 2658 / 2658 random unmatched negatives for chr16 (attempts: 3040).\n"}
+,{"stream_name":"stdout","time":1399.501218375,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr17.fa...\n"}
+,{"stream_name":"stdout","time":1400.244978598,"data":"Loaded sequence of length 83,257,441 bp.\n"}
+,{"stream_name":"stdout","time":1400.24501859,"data":"Sampling negatives for chromosome chr17 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1400.2450248,"data":"Sampled 3544 / 3544 random unmatched negatives for chr17 (attempts: 3698).\n"}
+,{"stream_name":"stdout","time":1400.24502903,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr18.fa...\n"}
+,{"stream_name":"stdout","time":1401.001094819,"data":"Loaded sequence of length 80,373,285 bp.\n"}
+,{"stream_name":"stdout","time":1401.001132157,"data":"Sampling negatives for chromosome chr18 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1401.001137283,"data":"Sampled 787 / 787 random unmatched negatives for chr18 (attempts: 798).\n"}
+,{"stream_name":"stdout","time":1401.00114151,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr19.fa...\n"}
+,{"stream_name":"stdout","time":1401.567570184,"data":"Loaded sequence of length 58,617,616 bp.\n"}
+,{"stream_name":"stdout","time":1401.567607599,"data":"Sampling negatives for chromosome chr19 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1401.567611252,"data":"Sampled 4515 / 4515 random unmatched negatives for chr19 (attempts: 4866).\n"}
+,{"stream_name":"stdout","time":1401.567614315,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr2.fa...\n"}
+,{"stream_name":"stdout","time":1403.724288116,"data":"Loaded sequence of length 242,193,529 bp.\n"}
+,{"stream_name":"stdout","time":1403.72433461,"data":"Sampling negatives for chromosome chr2 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1403.724339413,"data":"Sampled 3541 / 3541 random unmatched negatives for chr2 (attempts: 3622).\n"}
+,{"stream_name":"stdout","time":1403.724342321,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr20.fa...\n"}
+,{"stream_name":"stdout","time":1404.346644083,"data":"Loaded sequence of length 64,444,167 bp.\n"}
+,{"stream_name":"stdout","time":1404.346679058,"data":"Sampling negatives for chromosome chr20 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1404.346683952,"data":"Sampled 1530 / 1530 random unmatched negatives for chr20 (attempts: 1582).\n"}
+,{"stream_name":"stdout","time":1404.346688388,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr21.fa...\n"}
+,{"stream_name":"stdout","time":1404.780971875,"data":"Loaded sequence of length 46,709,983 bp.\n"}
+,{"stream_name":"stdout","time":1404.781054875,"data":"Sampling negatives for chromosome chr21 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1404.781062621,"data":"Sampled 608 / 608 random unmatched negatives for chr21 (attempts: 723).\n"}
+,{"stream_name":"stdout","time":1404.781067981,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr22.fa...\n"}
+,{"stream_name":"stdout","time":1405.17108591,"data":"Loaded sequence of length 50,818,468 bp.\n"}
+,{"stream_name":"stdout","time":1405.17112776,"data":"Sampling negatives for chromosome chr22 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1405.171133941,"data":"Sampled 1279 / 1279 random unmatched negatives for chr22 (attempts: 1737).\n"}
+,{"stream_name":"stdout","time":1405.171138632,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr3.fa...\n"}
+,{"stream_name":"stdout","time":1406.707903103,"data":"Loaded sequence of length 198,295,559 bp.\n"}
+,{"stream_name":"stdout","time":1406.707944991,"data":"Sampling negatives for chromosome chr3 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1406.707950721,"data":"Sampled 3063 / 3063 random unmatched negatives for chr3 (attempts: 3116).\n"}
+,{"stream_name":"stdout","time":1406.707956513,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr4.fa...\n"}
+,{"stream_name":"stdout","time":1408.20897177,"data":"Loaded sequence of length 190,214,555 bp.\n"}
+,{"stream_name":"stdout","time":1408.20900932,"data":"Sampling negatives for chromosome chr4 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1408.209015476,"data":"Sampled 1787 / 1787 random unmatched negatives for chr4 (attempts: 1809).\n"}
+,{"stream_name":"stdout","time":1408.209020001,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr5.fa...\n"}
+,{"stream_name":"stdout","time":1409.634740202,"data":"Loaded sequence of length 181,538,259 bp.\n"}
+,{"stream_name":"stdout","time":1409.634785748,"data":"Sampling negatives for chromosome chr5 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1409.63479337,"data":"Sampled 2375 / 2375 random unmatched negatives for chr5 (attempts: 2396).\n"}
+,{"stream_name":"stdout","time":1409.634800024,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr6.fa...\n"}
+,{"stream_name":"stdout","time":1411.000320046,"data":"Loaded sequence of length 170,805,979 bp.\n"}
+,{"stream_name":"stdout","time":1411.000384132,"data":"Sampling negatives for chromosome chr6 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1411.000392223,"data":"Sampled 3777 / 3777 random unmatched negatives for chr6 (attempts: 3857).\n"}
+,{"stream_name":"stdout","time":1411.000398723,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr7.fa...\n"}
+,{"stream_name":"stdout","time":1412.32641794,"data":"Loaded sequence of length 159,345,973 bp.\n"}
+,{"stream_name":"stdout","time":1412.326467064,"data":"Sampling negatives for chromosome chr7 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1412.326490463,"data":"Sampled 2892 / 2892 random unmatched negatives for chr7 (attempts: 2965).\n"}
+,{"stream_name":"stdout","time":1412.326493655,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr8.fa...\n"}
+,{"stream_name":"stdout","time":1413.475112925,"data":"Loaded sequence of length 145,138,636 bp.\n"}
+,{"stream_name":"stdout","time":1413.475156303,"data":"Sampling negatives for chromosome chr8 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1413.475162449,"data":"Sampled 2040 / 2040 random unmatched negatives for chr8 (attempts: 2072).\n"}
+,{"stream_name":"stdout","time":1413.475195166,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr9.fa...\n"}
+,{"stream_name":"stdout","time":1414.591100165,"data":"Loaded sequence of length 138,394,717 bp.\n"}
+,{"stream_name":"stdout","time":1414.591193739,"data":"Sampling negatives for chromosome chr9 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1414.591205779,"data":"Sampled 2261 / 2261 random unmatched negatives for chr9 (attempts: 2571).\n"}
+,{"stream_name":"stdout","time":1414.591210599,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrX.fa...\n"}
+,{"stream_name":"stdout","time":1415.82370744,"data":"Loaded sequence of length 156,040,895 bp.\n"}
+,{"stream_name":"stdout","time":1415.823735228,"data":"Sampling negatives for chromosome chrX using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1415.823740248,"data":"Sampled 1531 / 1531 random unmatched negatives for chrX (attempts: 1556).\n"}
+,{"stream_name":"stdout","time":1419.861560125,"data":"Saved combined positive \u0026 negative dataset to /kaggle/working/data/processed/k562_random_unmatched.tsv (Total regions: 114,492).\n"}
+,{"stream_name":"stdout","time":1421.503862694,"data":"[k562/random_unmatched] rows=114,492 pos=57,246 neg=57,246\n"}
+,{"stream_name":"stdout","time":1421.503908022,"data":"Loading positive regions with sequences from /kaggle/working/data/processed/k562_pos.tsv...\n"}
+,{"stream_name":"stdout","time":1422.838859631,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr1.fa...\n"}
+,{"stream_name":"stdout","time":1424.81338392,"data":"Loaded sequence of length 248,956,422 bp.\n"}
+,{"stream_name":"stdout","time":1424.813427294,"data":"Sampling negatives for chromosome chr1 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1425.180782478,"data":"Generated 6392 / 6392 flanking negatives for chr1.\n"}
+,{"stream_name":"stdout","time":1425.180830628,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr10.fa...\n"}
+,{"stream_name":"stdout","time":1426.471742156,"data":"Loaded sequence of length 133,797,422 bp.\n"}
+,{"stream_name":"stdout","time":1426.471783586,"data":"Sampling negatives for chromosome chr10 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1426.471790078,"data":"Generated 2397 / 2397 flanking negatives for chr10.\n"}
+,{"stream_name":"stdout","time":1426.471794421,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr11.fa...\n"}
+,{"stream_name":"stdout","time":1427.631918351,"data":"Loaded sequence of length 135,086,622 bp.\n"}
+,{"stream_name":"stdout","time":1427.631958553,"data":"Sampling negatives for chromosome chr11 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1427.631963758,"data":"Generated 3293 / 3293 flanking negatives for chr11.\n"}
+,{"stream_name":"stdout","time":1427.631968089,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr12.fa...\n"}
+,{"stream_name":"stdout","time":1428.82013032,"data":"Loaded sequence of length 133,275,309 bp.\n"}
+,{"stream_name":"stdout","time":1428.820187308,"data":"Sampling negatives for chromosome chr12 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1428.820194148,"data":"Generated 2881 / 2881 flanking negatives for chr12.\n"}
+,{"stream_name":"stdout","time":1428.820201351,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr13.fa...\n"}
+,{"stream_name":"stdout","time":1429.849715328,"data":"Loaded sequence of length 114,364,328 bp.\n"}
+,{"stream_name":"stdout","time":1429.849753027,"data":"Sampling negatives for chromosome chr13 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1429.849758889,"data":"Generated 781 / 781 flanking negatives for chr13.\n"}
+,{"stream_name":"stdout","time":1429.849763237,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr14.fa...\n"}
+,{"stream_name":"stdout","time":1430.707798932,"data":"Loaded sequence of length 107,043,718 bp.\n"}
+,{"stream_name":"stdout","time":1430.707853192,"data":"Sampling negatives for chromosome chr14 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1430.707860089,"data":"Generated 1532 / 1532 flanking negatives for chr14.\n"}
+,{"stream_name":"stdout","time":1430.707865808,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr15.fa...\n"}
+,{"stream_name":"stdout","time":1431.625828017,"data":"Loaded sequence of length 101,991,189 bp.\n"}
+,{"stream_name":"stdout","time":1431.625868596,"data":"Sampling negatives for chromosome chr15 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1431.625875173,"data":"Generated 1782 / 1782 flanking negatives for chr15.\n"}
+,{"stream_name":"stdout","time":1431.625879708,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr16.fa...\n"}
+,{"stream_name":"stdout","time":1432.42584842,"data":"Loaded sequence of length 90,338,345 bp.\n"}
+,{"stream_name":"stdout","time":1432.425887673,"data":"Sampling negatives for chromosome chr16 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1432.42589352,"data":"Generated 2658 / 2658 flanking negatives for chr16.\n"}
+,{"stream_name":"stdout","time":1432.425898056,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr17.fa...\n"}
+,{"stream_name":"stdout","time":1433.23193149,"data":"Loaded sequence of length 83,257,441 bp.\n"}
+,{"stream_name":"stdout","time":1433.231966083,"data":"Sampling negatives for chromosome chr17 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1433.438938839,"data":"Generated 3544 / 3544 flanking negatives for chr17.\n"}
+,{"stream_name":"stdout","time":1433.438975684,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr18.fa...\n"}
+,{"stream_name":"stdout","time":1434.051198183,"data":"Loaded sequence of length 80,373,285 bp.\n"}
+,{"stream_name":"stdout","time":1434.051234587,"data":"Sampling negatives for chromosome chr18 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1434.051240425,"data":"Generated 787 / 787 flanking negatives for chr18.\n"}
+,{"stream_name":"stdout","time":1434.051244795,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr19.fa...\n"}
+,{"stream_name":"stdout","time":1434.580830523,"data":"Loaded sequence of length 58,617,616 bp.\n"}
+,{"stream_name":"stdout","time":1434.580869881,"data":"Sampling negatives for chromosome chr19 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1434.846540709,"data":"Generated 4515 / 4515 flanking negatives for chr19.\n"}
+,{"stream_name":"stdout","time":1434.846580013,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr2.fa...\n"}
+,{"stream_name":"stdout","time":1437.370770549,"data":"Loaded sequence of length 242,193,529 bp.\n"}
+,{"stream_name":"stdout","time":1437.370812214,"data":"Sampling negatives for chromosome chr2 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1437.582196275,"data":"Generated 3541 / 3541 flanking negatives for chr2.\n"}
+,{"stream_name":"stdout","time":1437.582254642,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr20.fa...\n"}
+,{"stream_name":"stdout","time":1438.08286932,"data":"Loaded sequence of length 64,444,167 bp.\n"}
+,{"stream_name":"stdout","time":1438.082908832,"data":"Sampling negatives for chromosome chr20 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1438.082915016,"data":"Generated 1530 / 1530 flanking negatives for chr20.\n"}
+,{"stream_name":"stdout","time":1438.082919348,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr21.fa...\n"}
+,{"stream_name":"stdout","time":1438.542999798,"data":"Loaded sequence of length 46,709,983 bp.\n"}
+,{"stream_name":"stdout","time":1438.543031857,"data":"Sampling negatives for chromosome chr21 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1438.543037836,"data":"Generated 608 / 608 flanking negatives for chr21.\n"}
+,{"stream_name":"stdout","time":1438.543042215,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr22.fa...\n"}
+,{"stream_name":"stdout","time":1438.977197132,"data":"Loaded sequence of length 50,818,468 bp.\n"}
+,{"stream_name":"stdout","time":1438.977234062,"data":"Sampling negatives for chromosome chr22 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1438.977240004,"data":"Generated 1279 / 1279 flanking negatives for chr22.\n"}
+,{"stream_name":"stdout","time":1438.977244365,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr3.fa...\n"}
+,{"stream_name":"stdout","time":1440.553057136,"data":"Loaded sequence of length 198,295,559 bp.\n"}
+,{"stream_name":"stdout","time":1440.553091869,"data":"Sampling negatives for chromosome chr3 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1440.553097258,"data":"Generated 3063 / 3063 flanking negatives for chr3.\n"}
+,{"stream_name":"stdout","time":1440.553105584,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr4.fa...\n"}
+,{"stream_name":"stdout","time":1442.448737558,"data":"Loaded sequence of length 190,214,555 bp.\n"}
+,{"stream_name":"stdout","time":1442.448781048,"data":"Sampling negatives for chromosome chr4 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1442.448787335,"data":"Generated 1787 / 1787 flanking negatives for chr4.\n"}
+,{"stream_name":"stdout","time":1442.448793365,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr5.fa...\n"}
+,{"stream_name":"stdout","time":1443.927890341,"data":"Loaded sequence of length 181,538,259 bp.\n"}
+,{"stream_name":"stdout","time":1443.927946169,"data":"Sampling negatives for chromosome chr5 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1443.927953444,"data":"Generated 2375 / 2375 flanking negatives for chr5.\n"}
+,{"stream_name":"stdout","time":1443.927958896,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr6.fa...\n"}
+,{"stream_name":"stdout","time":1445.409313212,"data":"Loaded sequence of length 170,805,979 bp.\n"}
+,{"stream_name":"stdout","time":1445.409349756,"data":"Sampling negatives for chromosome chr6 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1445.612618696,"data":"Generated 3777 / 3777 flanking negatives for chr6.\n"}
+,{"stream_name":"stdout","time":1445.612665519,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr7.fa...\n"}
+,{"stream_name":"stdout","time":1446.842230562,"data":"Loaded sequence of length 159,345,973 bp.\n"}
+,{"stream_name":"stdout","time":1446.842267469,"data":"Sampling negatives for chromosome chr7 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1446.842273774,"data":"Generated 2892 / 2892 flanking negatives for chr7.\n"}
+,{"stream_name":"stdout","time":1446.842278517,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr8.fa...\n"}
+,{"stream_name":"stdout","time":1448.116541203,"data":"Loaded sequence of length 145,138,636 bp.\n"}
+,{"stream_name":"stdout","time":1448.116578221,"data":"Sampling negatives for chromosome chr8 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1448.116583785,"data":"Generated 2040 / 2040 flanking negatives for chr8.\n"}
+,{"stream_name":"stdout","time":1448.116588037,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr9.fa...\n"}
+,{"stream_name":"stdout","time":1449.316771052,"data":"Loaded sequence of length 138,394,717 bp.\n"}
+,{"stream_name":"stdout","time":1449.31685001,"data":"Sampling negatives for chromosome chr9 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1449.316857438,"data":"Generated 2261 / 2261 flanking negatives for chr9.\n"}
+,{"stream_name":"stdout","time":1449.316861948,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrX.fa...\n"}
+,{"stream_name":"stdout","time":1450.653363488,"data":"Loaded sequence of length 156,040,895 bp.\n"}
+,{"stream_name":"stdout","time":1450.653404202,"data":"Sampling negatives for chromosome chrX using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1450.65341078,"data":"Generated 1531 / 1531 flanking negatives for chrX.\n"}
+,{"stream_name":"stdout","time":1454.784069188,"data":"Saved combined positive \u0026 negative dataset to /kaggle/working/data/processed/k562_flanking.tsv (Total regions: 114,492).\n"}
+,{"stream_name":"stdout","time":1456.33294455,"data":"[k562/flanking] rows=114,492 pos=57,246 neg=57,246\n"}
+,{"stream_name":"stdout","time":1457.454706045,"data":"gm12878 raw file: /kaggle/input/datasets/purvanshj009/encode-regulatory-switches-data/raw/ENCFF590IMH.bed/ENCFF915DFR_ENCFF583MDQ_ENCFF340JIF_ENCFF852CRG.7group.bed\n"}
+,{"stream_name":"stdout","time":1457.454749788,"data":"Parsing cCRE annotations from /kaggle/input/datasets/purvanshj009/encode-regulatory-switches-data/raw/ENCFF590IMH.bed/ENCFF915DFR_ENCFF583MDQ_ENCFF340JIF_ENCFF852CRG.7group.bed...\n"}
+,{"stream_name":"stdout","time":1459.700436296,"data":"Loaded 926535 initial regions.\n"}
+,{"stream_name":"stdout","time":1459.70047187,"data":"Filtered by element types ['PLS', 'pELS', 'dELS']. Remaining: 64429\n"}
+,{"stream_name":"stdout","time":1459.700477579,"data":"Resizing regions to fixed length of 1000 bp...\n"}
+,{"stream_name":"stdout","time":1459.700481786,"data":"Filtered out regions with invalid coordinates. Remaining: 64429\n"}
+,{"stream_name":"stdout","time":1459.700485803,"data":"Processed BED file saved to /kaggle/working/data/processed/gm12878.bed (Total regions: 64429).\n"}
+,{"stream_name":"stdout","time":1459.700490074,"data":"Reading BED coordinates from /kaggle/working/data/processed/gm12878.bed...\n"}
+,{"stream_name":"stdout","time":1459.993811325,"data":"Total input regions: 64,429\n"}
+,{"stream_name":"stdout","time":1459.993858988,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr1.fa...\n"}
+,{"stream_name":"stdout","time":1462.013854846,"data":"Loaded sequence of length 248,956,422 bp.\n"}
+,{"stream_name":"stdout","time":1462.310994019,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr10.fa...\n"}
+,{"stream_name":"stdout","time":1463.340727927,"data":"Loaded sequence of length 133,797,422 bp.\n"}
+,{"stream_name":"stdout","time":1463.340771628,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr11.fa...\n"}
+,{"stream_name":"stdout","time":1464.530230566,"data":"Loaded sequence of length 135,086,622 bp.\n"}
+,{"stream_name":"stdout","time":1464.530271843,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr12.fa...\n"}
+,{"stream_name":"stdout","time":1465.695414999,"data":"Loaded sequence of length 133,275,309 bp.\n"}
+,{"stream_name":"stdout","time":1465.695451098,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr13.fa...\n"}
+,{"stream_name":"stdout","time":1466.735122952,"data":"Loaded sequence of length 114,364,328 bp.\n"}
+,{"stream_name":"stdout","time":1466.735161686,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr14.fa...\n"}
+,{"stream_name":"stdout","time":1467.605606225,"data":"Loaded sequence of length 107,043,718 bp.\n"}
+,{"stream_name":"stdout","time":1467.605646822,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr15.fa...\n"}
+,{"stream_name":"stdout","time":1468.503091488,"data":"Loaded sequence of length 101,991,189 bp.\n"}
+,{"stream_name":"stdout","time":1468.503127358,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr16.fa...\n"}
+,{"stream_name":"stdout","time":1469.329823676,"data":"Loaded sequence of length 90,338,345 bp.\n"}
+,{"stream_name":"stdout","time":1469.329850378,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr17.fa...\n"}
+,{"stream_name":"stdout","time":1470.109800627,"data":"Loaded sequence of length 83,257,441 bp.\n"}
+,{"stream_name":"stdout","time":1470.318139191,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr18.fa...\n"}
+,{"stream_name":"stdout","time":1470.939901216,"data":"Loaded sequence of length 80,373,285 bp.\n"}
+,{"stream_name":"stdout","time":1470.939934125,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr19.fa...\n"}
+,{"stream_name":"stdout","time":1471.486014604,"data":"Loaded sequence of length 58,617,616 bp.\n"}
+,{"stream_name":"stdout","time":1471.690686241,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr2.fa...\n"}
+,{"stream_name":"stdout","time":1473.562197067,"data":"Loaded sequence of length 242,193,529 bp.\n"}
+,{"stream_name":"stdout","time":1473.768398971,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr20.fa...\n"}
+,{"stream_name":"stdout","time":1474.264902215,"data":"Loaded sequence of length 64,444,167 bp.\n"}
+,{"stream_name":"stdout","time":1474.264940067,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr21.fa...\n"}
+,{"stream_name":"stdout","time":1474.747640752,"data":"Loaded sequence of length 46,709,983 bp.\n"}
+,{"stream_name":"stdout","time":1474.747682218,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr22.fa...\n"}
+,{"stream_name":"stdout","time":1475.178219966,"data":"Loaded sequence of length 50,818,468 bp.\n"}
+,{"stream_name":"stdout","time":1475.178277489,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr3.fa...\n"}
+,{"stream_name":"stdout","time":1476.760252108,"data":"Loaded sequence of length 198,295,559 bp.\n"}
+,{"stream_name":"stdout","time":1476.76029286,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr4.fa...\n"}
+,{"stream_name":"stdout","time":1478.426966751,"data":"Loaded sequence of length 190,214,555 bp.\n"}
+,{"stream_name":"stdout","time":1478.427006627,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr5.fa...\n"}
+,{"stream_name":"stdout","time":1479.896803968,"data":"Loaded sequence of length 181,538,259 bp.\n"}
+,{"stream_name":"stdout","time":1479.896846019,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr6.fa...\n"}
+,{"stream_name":"stdout","time":1481.425957467,"data":"Loaded sequence of length 170,805,979 bp.\n"}
+,{"stream_name":"stdout","time":1481.64927294,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr7.fa...\n"}
+,{"stream_name":"stdout","time":1482.863704403,"data":"Loaded sequence of length 159,345,973 bp.\n"}
+,{"stream_name":"stdout","time":1482.863747161,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr8.fa...\n"}
+,{"stream_name":"stdout","time":1484.115154247,"data":"Loaded sequence of length 145,138,636 bp.\n"}
+,{"stream_name":"stdout","time":1484.115211237,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr9.fa...\n"}
+,{"stream_name":"stdout","time":1485.325267045,"data":"Loaded sequence of length 138,394,717 bp.\n"}
+,{"stream_name":"stdout","time":1485.325303382,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrX.fa...\n"}
+,{"stream_name":"stdout","time":1486.654563676,"data":"Loaded sequence of length 156,040,895 bp.\n"}
+,{"stream_name":"stdout","time":1486.654591809,"data":"Sequence extraction complete.\n"}
+,{"stream_name":"stdout","time":1486.654596491,"data":"  Extracted regions: 64,426\n"}
+,{"stream_name":"stdout","time":1486.654600774,"data":"  Skipped (out of bounds): 0\n"}
+,{"stream_name":"stdout","time":1486.654604842,"data":"  Skipped (high N-base fraction): 3\n"}
+,{"stream_name":"stdout","time":1488.976655509,"data":"Saved extracted sequences to /kaggle/working/data/processed/gm12878_pos.tsv.\n"}
+,{"stream_name":"stdout","time":1488.97669859,"data":"Loading positive regions with sequences from /kaggle/working/data/processed/gm12878_pos.tsv...\n"}
+,{"stream_name":"stdout","time":1490.398854264,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr1.fa...\n"}
+,{"stream_name":"stdout","time":1492.396128982,"data":"Loaded sequence of length 248,956,422 bp.\n"}
+,{"stream_name":"stdout","time":1492.396186826,"data":"Sampling negatives for chromosome chr1 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1492.396195741,"data":"Target negative bin counts for chr1: {10: 1254, 9: 1116, 11: 1075, 8: 874, 12: 726, 13: 485, 7: 428, 14: 220, 6: 113, 15: 101, 16: 4, 5: 2}\n"}
+,{"stream_name":"stdout","time":1497.853011896,"data":"Sampled 6398 / 6398 negatives for chr1 (attempts: 366645).\n"}
+,{"stream_name":"stdout","time":1497.853055351,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr10.fa...\n"}
+,{"stream_name":"stdout","time":1498.967165232,"data":"Loaded sequence of length 133,797,422 bp.\n"}
+,{"stream_name":"stdout","time":1498.967224048,"data":"Sampling negatives for chromosome chr10 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1498.967229866,"data":"Target negative bin counts for chr10: {9: 468, 8: 460, 10: 434, 11: 386, 12: 298, 7: 243, 13: 198, 14: 106, 6: 52, 15: 38, 5: 3, 16: 1}\n"}
+,{"stream_name":"stdout","time":1500.972028505,"data":"Sampled 2687 / 2687 negatives for chr10 (attempts: 130476).\n"}
+,{"stream_name":"stdout","time":1500.972058668,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr11.fa...\n"}
+,{"stream_name":"stdout","time":1502.046845053,"data":"Loaded sequence of length 135,086,622 bp.\n"}
+,{"stream_name":"stdout","time":1502.046902839,"data":"Sampling negatives for chromosome chr11 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1502.046908859,"data":"Target negative bin counts for chr11: {11: 637, 10: 544, 9: 505, 12: 496, 8: 383, 13: 337, 7: 201, 14: 133, 6: 48, 15: 33, 5: 2, 16: 1}\n"}
+,{"stream_name":"stdout","time":1504.181943881,"data":"Sampled 3320 / 3320 negatives for chr11 (attempts: 136331).\n"}
+,{"stream_name":"stdout","time":1504.18198603,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr12.fa...\n"}
+,{"stream_name":"stdout","time":1505.225212308,"data":"Loaded sequence of length 133,275,309 bp.\n"}
+,{"stream_name":"stdout","time":1505.225256908,"data":"Sampling negatives for chromosome chr12 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1505.225264062,"data":"Target negative bin counts for chr12: {9: 608, 10: 580, 8: 567, 11: 537, 12: 416, 7: 326, 13: 202, 14: 122, 6: 76, 15: 28, 16: 4, 5: 1}\n"}
+,{"stream_name":"stdout","time":1508.225848559,"data":"Sampled 3467 / 3467 negatives for chr12 (attempts: 197568).\n"}
+,{"stream_name":"stdout","time":1508.22589029,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr13.fa...\n"}
+,{"stream_name":"stdout","time":1509.119837967,"data":"Loaded sequence of length 114,364,328 bp.\n"}
+,{"stream_name":"stdout","time":1509.119880041,"data":"Sampling negatives for chromosome chr13 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1509.119886466,"data":"Target negative bin counts for chr13: {8: 218, 9: 175, 10: 157, 7: 146, 12: 118, 11: 108, 13: 80, 6: 45, 14: 42, 15: 16, 16: 2}\n"}
+,{"stream_name":"stdout","time":1510.986309425,"data":"Sampled 1107 / 1107 negatives for chr13 (attempts: 139985).\n"}
+,{"stream_name":"stdout","time":1510.98635402,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr14.fa...\n"}
+,{"stream_name":"stdout","time":1511.924880607,"data":"Loaded sequence of length 107,043,718 bp.\n"}
+,{"stream_name":"stdout","time":1511.924933774,"data":"Sampling negatives for chromosome chr14 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1511.924943266,"data":"Target negative bin counts for chr14: {10: 433, 9: 419, 8: 387, 11: 324, 12: 220, 7: 203, 13: 150, 14: 75, 15: 35, 6: 34, 16: 4, 5: 1}\n"}
+,{"stream_name":"stdout","time":1514.279212777,"data":"Sampled 2285 / 2285 negatives for chr14 (attempts: 179433).\n"}
+,{"stream_name":"stdout","time":1514.279254242,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr15.fa...\n"}
+,{"stream_name":"stdout","time":1515.115355371,"data":"Loaded sequence of length 101,991,189 bp.\n"}
+,{"stream_name":"stdout","time":1515.11539923,"data":"Sampling negatives for chromosome chr15 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1515.115419386,"data":"Target negative bin counts for chr15: {10: 398, 9: 388, 11: 383, 8: 373, 12: 248, 7: 180, 13: 141, 14: 80, 6: 41, 15: 23, 5: 5, 16: 2}\n"}
+,{"stream_name":"stdout","time":1516.631630816,"data":"Sampled 2262 / 2262 negatives for chr15 (attempts: 117168).\n"}
+,{"stream_name":"stdout","time":1516.631673552,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr16.fa...\n"}
+,{"stream_name":"stdout","time":1517.385729944,"data":"Loaded sequence of length 90,338,345 bp.\n"}
+,{"stream_name":"stdout","time":1517.385773116,"data":"Sampling negatives for chromosome chr16 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1517.385782402,"data":"Target negative bin counts for chr16: {11: 538, 10: 528, 9: 474, 12: 435, 13: 351, 8: 250, 14: 199, 7: 85, 15: 61, 6: 10, 16: 5}\n"}
+,{"stream_name":"stdout","time":1519.929245052,"data":"Sampled 2936 / 2936 negatives for chr16 (attempts: 175056).\n"}
+,{"stream_name":"stdout","time":1519.929286381,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr17.fa...\n"}
+,{"stream_name":"stdout","time":1520.573351906,"data":"Loaded sequence of length 83,257,441 bp.\n"}
+,{"stream_name":"stdout","time":1520.573441776,"data":"Sampling negatives for chromosome chr17 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1520.573449758,"data":"Target negative bin counts for chr17: {11: 785, 10: 681, 12: 632, 9: 612, 8: 382, 13: 382, 14: 203, 7: 146, 15: 79, 6: 23, 16: 4}\n"}
+,{"stream_name":"stdout","time":1523.49559834,"data":"Sampled 3929 / 3929 negatives for chr17 (attempts: 182342).\n"}
+,{"stream_name":"stdout","time":1523.495644407,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr18.fa...\n"}
+,{"stream_name":"stdout","time":1524.178281485,"data":"Loaded sequence of length 80,373,285 bp.\n"}
+,{"stream_name":"stdout","time":1524.178321351,"data":"Sampling negatives for chromosome chr18 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1524.178328175,"data":"Target negative bin counts for chr18: {8: 235, 9: 211, 10: 151, 11: 139, 7: 123, 12: 91, 13: 70, 14: 48, 6: 38, 15: 25, 5: 4, 16: 3}\n"}
+,{"stream_name":"stdout","time":1526.765300808,"data":"Sampled 1138 / 1138 negatives for chr18 (attempts: 174911).\n"}
+,{"stream_name":"stdout","time":1526.765338009,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr19.fa...\n"}
+,{"stream_name":"stdout","time":1527.298156941,"data":"Loaded sequence of length 58,617,616 bp.\n"}
+,{"stream_name":"stdout","time":1527.298224716,"data":"Sampling negatives for chromosome chr19 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1527.298229675,"data":"Target negative bin counts for chr19: {11: 1094, 12: 918, 10: 810, 13: 532, 9: 419, 14: 197, 8: 115, 15: 48, 7: 17, 16: 7}\n"}
+,{"stream_name":"stdout","time":1528.385249698,"data":"Sampled 4157 / 4157 negatives for chr19 (attempts: 71044).\n"}
+,{"stream_name":"stdout","time":1528.385297943,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr2.fa...\n"}
+,{"stream_name":"stdout","time":1530.352197875,"data":"Loaded sequence of length 242,193,529 bp.\n"}
+,{"stream_name":"stdout","time":1530.352241851,"data":"Sampling negatives for chromosome chr2 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1530.352248611,"data":"Target negative bin counts for chr2: {8: 794, 9: 720, 10: 715, 11: 609, 7: 478, 12: 432, 13: 352, 14: 155, 6: 125, 15: 54, 16: 8, 5: 3}\n"}
+,{"stream_name":"stdout","time":1534.922779692,"data":"Sampled 4445 / 4445 negatives for chr2 (attempts: 294337).\n"}
+,{"stream_name":"stdout","time":1534.922811071,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr20.fa...\n"}
+,{"stream_name":"stdout","time":1535.426924867,"data":"Loaded sequence of length 64,444,167 bp.\n"}
+,{"stream_name":"stdout","time":1535.42699785,"data":"Sampling negatives for chromosome chr20 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1535.427005344,"data":"Target negative bin counts for chr20: {9: 306, 10: 301, 11: 255, 8: 244, 12: 231, 13: 176, 7: 103, 14: 91, 15: 41, 6: 15, 16: 5}\n"}
+,{"stream_name":"stdout","time":1536.879079859,"data":"Sampled 1768 / 1768 negatives for chr20 (attempts: 92411).\n"}
+,{"stream_name":"stdout","time":1536.879127855,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr21.fa...\n"}
+,{"stream_name":"stdout","time":1537.248609918,"data":"Loaded sequence of length 46,709,983 bp.\n"}
+,{"stream_name":"stdout","time":1537.248662872,"data":"Sampling negatives for chromosome chr21 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1537.248670632,"data":"Target negative bin counts for chr21: {10: 114, 9: 110, 8: 99, 11: 90, 12: 71, 13: 56, 7: 52, 14: 41, 6: 16, 15: 16, 5: 2, 16: 1}\n"}
+,{"stream_name":"stdout","time":1537.778788394,"data":"Sampled 668 / 668 negatives for chr21 (attempts: 40685).\n"}
+,{"stream_name":"stdout","time":1537.778850036,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr22.fa...\n"}
+,{"stream_name":"stdout","time":1538.21982311,"data":"Loaded sequence of length 50,818,468 bp.\n"}
+,{"stream_name":"stdout","time":1538.219863736,"data":"Sampling negatives for chromosome chr22 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1538.219869976,"data":"Target negative bin counts for chr22: {11: 374, 10: 328, 12: 269, 9: 242, 13: 183, 8: 132, 14: 104, 7: 37, 15: 34, 6: 3, 16: 1}\n"}
+,{"stream_name":"stdout","time":1538.962493696,"data":"Sampled 1707 / 1707 negatives for chr22 (attempts: 60240).\n"}
+,{"stream_name":"stdout","time":1538.962530582,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr3.fa...\n"}
+,{"stream_name":"stdout","time":1540.499225372,"data":"Loaded sequence of length 198,295,559 bp.\n"}
+,{"stream_name":"stdout","time":1540.499265969,"data":"Sampling negatives for chromosome chr3 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1540.499272223,"data":"Target negative bin counts for chr3: {8: 624, 11: 555, 9: 548, 10: 516, 7: 409, 12: 392, 13: 246, 6: 126, 14: 112, 15: 35, 5: 5}\n"}
+,{"stream_name":"stdout","time":1544.613696769,"data":"Sampled 3568 / 3568 negatives for chr3 (attempts: 265001).\n"}
+,{"stream_name":"stdout","time":1544.613744621,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr4.fa...\n"}
+,{"stream_name":"stdout","time":1546.138814403,"data":"Loaded sequence of length 190,214,555 bp.\n"}
+,{"stream_name":"stdout","time":1546.138855309,"data":"Sampling negatives for chromosome chr4 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1546.138861594,"data":"Target negative bin counts for chr4: {8: 392, 9: 338, 7: 297, 11: 263, 10: 234, 12: 217, 13: 150, 14: 93, 6: 77, 15: 35, 16: 5, 5: 3}\n"}
+,{"stream_name":"stdout","time":1548.93972552,"data":"Sampled 2104 / 2104 negatives for chr4 (attempts: 186918).\n"}
+,{"stream_name":"stdout","time":1548.939766289,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr5.fa...\n"}
+,{"stream_name":"stdout","time":1550.382739955,"data":"Loaded sequence of length 181,538,259 bp.\n"}
+,{"stream_name":"stdout","time":1550.382784667,"data":"Sampling negatives for chromosome chr5 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1550.382790779,"data":"Target negative bin counts for chr5: {9: 579, 8: 516, 10: 503, 11: 472, 12: 313, 7: 312, 13: 201, 14: 120, 6: 86, 15: 29, 16: 2, 5: 1}\n"}
+,{"stream_name":"stdout","time":1553.712944467,"data":"Sampled 3134 / 3134 negatives for chr5 (attempts: 216279).\n"}
+,{"stream_name":"stdout","time":1553.712984265,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr6.fa...\n"}
+,{"stream_name":"stdout","time":1555.116714708,"data":"Loaded sequence of length 170,805,979 bp.\n"}
+,{"stream_name":"stdout","time":1555.116751253,"data":"Sampling negatives for chromosome chr6 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1555.116757352,"data":"Target negative bin counts for chr6: {8: 830, 9: 801, 10: 609, 11: 557, 7: 425, 12: 333, 13: 218, 14: 114, 6: 100, 15: 36, 16: 4, 5: 2}\n"}
+,{"stream_name":"stdout","time":1559.114077072,"data":"Sampled 4029 / 4029 negatives for chr6 (attempts: 265025).\n"}
+,{"stream_name":"stdout","time":1559.114120431,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr7.fa...\n"}
+,{"stream_name":"stdout","time":1560.364326485,"data":"Loaded sequence of length 159,345,973 bp.\n"}
+,{"stream_name":"stdout","time":1560.364367465,"data":"Sampling negatives for chromosome chr7 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1560.364372947,"data":"Target negative bin counts for chr7: {9: 441, 11: 418, 8: 407, 12: 400, 10: 383, 7: 271, 13: 265, 14: 133, 6: 66, 15: 48, 16: 4, 5: 3}\n"}
+,{"stream_name":"stdout","time":1563.055265101,"data":"Sampled 2839 / 2839 negatives for chr7 (attempts: 170727).\n"}
+,{"stream_name":"stdout","time":1563.055305467,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr8.fa...\n"}
+,{"stream_name":"stdout","time":1564.231836825,"data":"Loaded sequence of length 145,138,636 bp.\n"}
+,{"stream_name":"stdout","time":1564.231879039,"data":"Sampling negatives for chromosome chr8 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1564.231885809,"data":"Target negative bin counts for chr8: {8: 398, 9: 386, 10: 292, 11: 265, 7: 254, 12: 230, 13: 212, 14: 129, 6: 57, 15: 43, 16: 3, 5: 2}\n"}
+,{"stream_name":"stdout","time":1568.136336616,"data":"Sampled 2271 / 2271 negatives for chr8 (attempts: 252894).\n"}
+,{"stream_name":"stdout","time":1568.136371184,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr9.fa...\n"}
+,{"stream_name":"stdout","time":1569.191232961,"data":"Loaded sequence of length 138,394,717 bp.\n"}
+,{"stream_name":"stdout","time":1569.191276957,"data":"Sampling negatives for chromosome chr9 using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1569.191283477,"data":"Target negative bin counts for chr9: {11: 482, 10: 394, 9: 388, 12: 367, 8: 321, 13: 233, 7: 157, 14: 126, 15: 58, 6: 57, 16: 5, 5: 2}\n"}
+,{"stream_name":"stdout","time":1572.389557896,"data":"Sampled 2590 / 2590 negatives for chr9 (attempts: 224834).\n"}
+,{"stream_name":"stdout","time":1572.389598218,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrX.fa...\n"}
+,{"stream_name":"stdout","time":1573.613266792,"data":"Loaded sequence of length 156,040,895 bp.\n"}
+,{"stream_name":"stdout","time":1573.61331068,"data":"Sampling negatives for chromosome chrX using strategy 'gc_matched'...\n"}
+,{"stream_name":"stdout","time":1573.613317285,"data":"Target negative bin counts for chrX: {11: 295, 10: 289, 9: 263, 8: 222, 12: 206, 13: 135, 7: 102, 14: 69, 15: 18, 6: 17, 5: 1}\n"}
+,{"stream_name":"stdout","time":1575.55602014,"data":"Sampled 1617 / 1617 negatives for chrX (attempts: 123677).\n"}
+,{"stream_name":"stdout","time":1580.029383953,"data":"Saved combined positive \u0026 negative dataset to /kaggle/working/data/processed/gm12878_gc_matched.tsv (Total regions: 128,852).\n"}
+,{"stream_name":"stdout","time":1581.882548345,"data":"[gm12878/gc_matched] rows=128,852 pos=64,426 neg=64,426\n"}
+,{"stream_name":"stdout","time":1581.882585136,"data":"Loading positive regions with sequences from /kaggle/working/data/processed/gm12878_pos.tsv...\n"}
+,{"stream_name":"stdout","time":1583.333733569,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr1.fa...\n"}
+,{"stream_name":"stdout","time":1585.26770384,"data":"Loaded sequence of length 248,956,422 bp.\n"}
+,{"stream_name":"stdout","time":1585.267752822,"data":"Sampling negatives for chromosome chr1 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1585.267929048,"data":"Sampled 6398 / 6398 random unmatched negatives for chr1 (attempts: 7081).\n"}
+,{"stream_name":"stdout","time":1585.267942595,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr10.fa...\n"}
+,{"stream_name":"stdout","time":1586.378986038,"data":"Loaded sequence of length 133,797,422 bp.\n"}
+,{"stream_name":"stdout","time":1586.379030128,"data":"Sampling negatives for chromosome chr10 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1586.379036728,"data":"Sampled 2687 / 2687 random unmatched negatives for chr10 (attempts: 2760).\n"}
+,{"stream_name":"stdout","time":1586.379068097,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr11.fa...\n"}
+,{"stream_name":"stdout","time":1587.428931935,"data":"Loaded sequence of length 135,086,622 bp.\n"}
+,{"stream_name":"stdout","time":1587.428976852,"data":"Sampling negatives for chromosome chr11 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1587.428981947,"data":"Sampled 3320 / 3320 random unmatched negatives for chr11 (attempts: 3428).\n"}
+,{"stream_name":"stdout","time":1587.4289853,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr12.fa...\n"}
+,{"stream_name":"stdout","time":1588.498873988,"data":"Loaded sequence of length 133,275,309 bp.\n"}
+,{"stream_name":"stdout","time":1588.498909644,"data":"Sampling negatives for chromosome chr12 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1588.498915481,"data":"Sampled 3467 / 3467 random unmatched negatives for chr12 (attempts: 3555).\n"}
+,{"stream_name":"stdout","time":1588.498919732,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr13.fa...\n"}
+,{"stream_name":"stdout","time":1589.414185342,"data":"Loaded sequence of length 114,364,328 bp.\n"}
+,{"stream_name":"stdout","time":1589.414225934,"data":"Sampling negatives for chromosome chr13 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1589.414237586,"data":"Sampled 1107 / 1107 random unmatched negatives for chr13 (attempts: 1304).\n"}
+,{"stream_name":"stdout","time":1589.414240934,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr14.fa...\n"}
+,{"stream_name":"stdout","time":1590.220254313,"data":"Loaded sequence of length 107,043,718 bp.\n"}
+,{"stream_name":"stdout","time":1590.22029032,"data":"Sampling negatives for chromosome chr14 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1590.220295897,"data":"Sampled 2285 / 2285 random unmatched negatives for chr14 (attempts: 2746).\n"}
+,{"stream_name":"stdout","time":1590.220300197,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr15.fa...\n"}
+,{"stream_name":"stdout","time":1591.036332609,"data":"Loaded sequence of length 101,991,189 bp.\n"}
+,{"stream_name":"stdout","time":1591.036374443,"data":"Sampling negatives for chromosome chr15 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1591.036380388,"data":"Sampled 2262 / 2262 random unmatched negatives for chr15 (attempts: 2806).\n"}
+,{"stream_name":"stdout","time":1591.036384644,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr16.fa...\n"}
+,{"stream_name":"stdout","time":1591.795248983,"data":"Loaded sequence of length 90,338,345 bp.\n"}
+,{"stream_name":"stdout","time":1591.795306413,"data":"Sampling negatives for chromosome chr16 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1591.795313378,"data":"Sampled 2936 / 2936 random unmatched negatives for chr16 (attempts: 3388).\n"}
+,{"stream_name":"stdout","time":1591.79531841,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr17.fa...\n"}
+,{"stream_name":"stdout","time":1592.464296426,"data":"Loaded sequence of length 83,257,441 bp.\n"}
+,{"stream_name":"stdout","time":1592.464335449,"data":"Sampling negatives for chromosome chr17 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1592.464341306,"data":"Sampled 3929 / 3929 random unmatched negatives for chr17 (attempts: 4141).\n"}
+,{"stream_name":"stdout","time":1592.464346041,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr18.fa...\n"}
+,{"stream_name":"stdout","time":1593.121445433,"data":"Loaded sequence of length 80,373,285 bp.\n"}
+,{"stream_name":"stdout","time":1593.121498687,"data":"Sampling negatives for chromosome chr18 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1593.12150422,"data":"Sampled 1138 / 1138 random unmatched negatives for chr18 (attempts: 1153).\n"}
+,{"stream_name":"stdout","time":1593.121509521,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr19.fa...\n"}
+,{"stream_name":"stdout","time":1593.587249672,"data":"Loaded sequence of length 58,617,616 bp.\n"}
+,{"stream_name":"stdout","time":1593.587284759,"data":"Sampling negatives for chromosome chr19 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1593.587296452,"data":"Sampled 4157 / 4157 random unmatched negatives for chr19 (attempts: 4474).\n"}
+,{"stream_name":"stdout","time":1593.587300149,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr2.fa...\n"}
+,{"stream_name":"stdout","time":1595.555978124,"data":"Loaded sequence of length 242,193,529 bp.\n"}
+,{"stream_name":"stdout","time":1595.556026403,"data":"Sampling negatives for chromosome chr2 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1595.556031665,"data":"Sampled 4445 / 4445 random unmatched negatives for chr2 (attempts: 4567).\n"}
+,{"stream_name":"stdout","time":1595.556035844,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr20.fa...\n"}
+,{"stream_name":"stdout","time":1596.120564056,"data":"Loaded sequence of length 64,444,167 bp.\n"}
+,{"stream_name":"stdout","time":1596.120645732,"data":"Sampling negatives for chromosome chr20 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1596.120653799,"data":"Sampled 1768 / 1768 random unmatched negatives for chr20 (attempts: 1839).\n"}
+,{"stream_name":"stdout","time":1596.120659052,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr21.fa...\n"}
+,{"stream_name":"stdout","time":1596.49059367,"data":"Loaded sequence of length 46,709,983 bp.\n"}
+,{"stream_name":"stdout","time":1596.490632969,"data":"Sampling negatives for chromosome chr21 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1596.490638982,"data":"Sampled 668 / 668 random unmatched negatives for chr21 (attempts: 797).\n"}
+,{"stream_name":"stdout","time":1596.490643379,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr22.fa...\n"}
+,{"stream_name":"stdout","time":1596.881406964,"data":"Loaded sequence of length 50,818,468 bp.\n"}
+,{"stream_name":"stdout","time":1596.881479781,"data":"Sampling negatives for chromosome chr22 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1596.881486978,"data":"Sampled 1707 / 1707 random unmatched negatives for chr22 (attempts: 2325).\n"}
+,{"stream_name":"stdout","time":1596.881492152,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr3.fa...\n"}
+,{"stream_name":"stdout","time":1598.443272082,"data":"Loaded sequence of length 198,295,559 bp.\n"}
+,{"stream_name":"stdout","time":1598.443301207,"data":"Sampling negatives for chromosome chr3 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1598.44330674,"data":"Sampled 3568 / 3568 random unmatched negatives for chr3 (attempts: 3648).\n"}
+,{"stream_name":"stdout","time":1598.443311012,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr4.fa...\n"}
+,{"stream_name":"stdout","time":1599.925035509,"data":"Loaded sequence of length 190,214,555 bp.\n"}
+,{"stream_name":"stdout","time":1599.925095606,"data":"Sampling negatives for chromosome chr4 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1599.925109992,"data":"Sampled 2104 / 2104 random unmatched negatives for chr4 (attempts: 2135).\n"}
+,{"stream_name":"stdout","time":1599.925130729,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr5.fa...\n"}
+,{"stream_name":"stdout","time":1601.375749729,"data":"Loaded sequence of length 181,538,259 bp.\n"}
+,{"stream_name":"stdout","time":1601.375786261,"data":"Sampling negatives for chromosome chr5 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1601.375793036,"data":"Sampled 3134 / 3134 random unmatched negatives for chr5 (attempts: 3185).\n"}
+,{"stream_name":"stdout","time":1601.37579811,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr6.fa...\n"}
+,{"stream_name":"stdout","time":1602.73157465,"data":"Loaded sequence of length 170,805,979 bp.\n"}
+,{"stream_name":"stdout","time":1602.731613222,"data":"Sampling negatives for chromosome chr6 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1602.731618902,"data":"Sampled 4029 / 4029 random unmatched negatives for chr6 (attempts: 4142).\n"}
+,{"stream_name":"stdout","time":1602.731623905,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr7.fa...\n"}
+,{"stream_name":"stdout","time":1604.015327473,"data":"Loaded sequence of length 159,345,973 bp.\n"}
+,{"stream_name":"stdout","time":1604.015365568,"data":"Sampling negatives for chromosome chr7 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1604.015371262,"data":"Sampled 2839 / 2839 random unmatched negatives for chr7 (attempts: 2902).\n"}
+,{"stream_name":"stdout","time":1604.015375788,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr8.fa...\n"}
+,{"stream_name":"stdout","time":1605.158551746,"data":"Loaded sequence of length 145,138,636 bp.\n"}
+,{"stream_name":"stdout","time":1605.158590803,"data":"Sampling negatives for chromosome chr8 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1605.158596122,"data":"Sampled 2271 / 2271 random unmatched negatives for chr8 (attempts: 2317).\n"}
+,{"stream_name":"stdout","time":1605.1586014,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr9.fa...\n"}
+,{"stream_name":"stdout","time":1606.256159394,"data":"Loaded sequence of length 138,394,717 bp.\n"}
+,{"stream_name":"stdout","time":1606.256213833,"data":"Sampling negatives for chromosome chr9 using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1606.256219752,"data":"Sampled 2590 / 2590 random unmatched negatives for chr9 (attempts: 2956).\n"}
+,{"stream_name":"stdout","time":1606.256224887,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrX.fa...\n"}
+,{"stream_name":"stdout","time":1607.734395183,"data":"Loaded sequence of length 156,040,895 bp.\n"}
+,{"stream_name":"stdout","time":1607.734452431,"data":"Sampling negatives for chromosome chrX using strategy 'random_unmatched'...\n"}
+,{"stream_name":"stdout","time":1607.734459203,"data":"Sampled 1617 / 1617 random unmatched negatives for chrX (attempts: 1649).\n"}
+,{"stream_name":"stdout","time":1612.07854966,"data":"Saved combined positive \u0026 negative dataset to /kaggle/working/data/processed/gm12878_random_unmatched.tsv (Total regions: 128,852).\n"}
+,{"stream_name":"stdout","time":1613.85808739,"data":"[gm12878/random_unmatched] rows=128,852 pos=64,426 neg=64,426\n"}
+,{"stream_name":"stdout","time":1613.858130261,"data":"Loading positive regions with sequences from /kaggle/working/data/processed/gm12878_pos.tsv...\n"}
+,{"stream_name":"stdout","time":1615.324750104,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr1.fa...\n"}
+,{"stream_name":"stdout","time":1617.300027153,"data":"Loaded sequence of length 248,956,422 bp.\n"}
+,{"stream_name":"stdout","time":1617.300075418,"data":"Sampling negatives for chromosome chr1 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1617.67287322,"data":"Generated 6398 / 6398 flanking negatives for chr1.\n"}
+,{"stream_name":"stdout","time":1617.672959119,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr10.fa...\n"}
+,{"stream_name":"stdout","time":1618.686519924,"data":"Loaded sequence of length 133,797,422 bp.\n"}
+,{"stream_name":"stdout","time":1618.686562681,"data":"Sampling negatives for chromosome chr10 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1618.686568947,"data":"Generated 2687 / 2687 flanking negatives for chr10.\n"}
+,{"stream_name":"stdout","time":1618.686573315,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr11.fa...\n"}
+,{"stream_name":"stdout","time":1619.86253216,"data":"Loaded sequence of length 135,086,622 bp.\n"}
+,{"stream_name":"stdout","time":1619.862568995,"data":"Sampling negatives for chromosome chr11 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1619.862574654,"data":"Generated 3320 / 3320 flanking negatives for chr11.\n"}
+,{"stream_name":"stdout","time":1620.064520666,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr12.fa...\n"}
+,{"stream_name":"stdout","time":1621.124150673,"data":"Loaded sequence of length 133,275,309 bp.\n"}
+,{"stream_name":"stdout","time":1621.124217643,"data":"Sampling negatives for chromosome chr12 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1621.367537785,"data":"Generated 3467 / 3467 flanking negatives for chr12.\n"}
+,{"stream_name":"stdout","time":1621.367581788,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr13.fa...\n"}
+,{"stream_name":"stdout","time":1622.276198459,"data":"Loaded sequence of length 114,364,328 bp.\n"}
+,{"stream_name":"stdout","time":1622.276234728,"data":"Sampling negatives for chromosome chr13 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1622.276246259,"data":"Generated 1107 / 1107 flanking negatives for chr13.\n"}
+,{"stream_name":"stdout","time":1622.276249458,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr14.fa...\n"}
+,{"stream_name":"stdout","time":1623.158808847,"data":"Loaded sequence of length 107,043,718 bp.\n"}
+,{"stream_name":"stdout","time":1623.158851448,"data":"Sampling negatives for chromosome chr14 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1623.158857664,"data":"Generated 2285 / 2285 flanking negatives for chr14.\n"}
+,{"stream_name":"stdout","time":1623.15886244,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr15.fa...\n"}
+,{"stream_name":"stdout","time":1624.05973518,"data":"Loaded sequence of length 101,991,189 bp.\n"}
+,{"stream_name":"stdout","time":1624.05977478,"data":"Sampling negatives for chromosome chr15 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1624.059780051,"data":"Generated 2262 / 2262 flanking negatives for chr15.\n"}
+,{"stream_name":"stdout","time":1624.05978429,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr16.fa...\n"}
+,{"stream_name":"stdout","time":1624.873315977,"data":"Loaded sequence of length 90,338,345 bp.\n"}
+,{"stream_name":"stdout","time":1624.873352911,"data":"Sampling negatives for chromosome chr16 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1624.87336077,"data":"Generated 2936 / 2936 flanking negatives for chr16.\n"}
+,{"stream_name":"stdout","time":1624.873369329,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr17.fa...\n"}
+,{"stream_name":"stdout","time":1625.692329706,"data":"Loaded sequence of length 83,257,441 bp.\n"}
+,{"stream_name":"stdout","time":1625.692426832,"data":"Sampling negatives for chromosome chr17 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1625.922975654,"data":"Generated 3929 / 3929 flanking negatives for chr17.\n"}
+,{"stream_name":"stdout","time":1625.923015897,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr18.fa...\n"}
+,{"stream_name":"stdout","time":1626.523567269,"data":"Loaded sequence of length 80,373,285 bp.\n"}
+,{"stream_name":"stdout","time":1626.523605149,"data":"Sampling negatives for chromosome chr18 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1626.523610732,"data":"Generated 1138 / 1138 flanking negatives for chr18.\n"}
+,{"stream_name":"stdout","time":1626.523616077,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr19.fa...\n"}
+,{"stream_name":"stdout","time":1627.073638246,"data":"Loaded sequence of length 58,617,616 bp.\n"}
+,{"stream_name":"stdout","time":1627.073716489,"data":"Sampling negatives for chromosome chr19 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1627.310277884,"data":"Generated 4157 / 4157 flanking negatives for chr19.\n"}
+,{"stream_name":"stdout","time":1627.31031917,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr2.fa...\n"}
+,{"stream_name":"stdout","time":1629.222223256,"data":"Loaded sequence of length 242,193,529 bp.\n"}
+,{"stream_name":"stdout","time":1629.222292977,"data":"Sampling negatives for chromosome chr2 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1629.462395799,"data":"Generated 4445 / 4445 flanking negatives for chr2.\n"}
+,{"stream_name":"stdout","time":1629.462436815,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr20.fa...\n"}
+,{"stream_name":"stdout","time":1629.959919835,"data":"Loaded sequence of length 64,444,167 bp.\n"}
+,{"stream_name":"stdout","time":1629.959957508,"data":"Sampling negatives for chromosome chr20 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1629.959963029,"data":"Generated 1768 / 1768 flanking negatives for chr20.\n"}
+,{"stream_name":"stdout","time":1629.959967424,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr21.fa...\n"}
+,{"stream_name":"stdout","time":1630.418079961,"data":"Loaded sequence of length 46,709,983 bp.\n"}
+,{"stream_name":"stdout","time":1630.418128597,"data":"Sampling negatives for chromosome chr21 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1630.418134673,"data":"Generated 668 / 668 flanking negatives for chr21.\n"}
+,{"stream_name":"stdout","time":1630.418139436,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr22.fa...\n"}
+,{"stream_name":"stdout","time":1630.848949561,"data":"Loaded sequence of length 50,818,468 bp.\n"}
+,{"stream_name":"stdout","time":1630.849000492,"data":"Sampling negatives for chromosome chr22 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1630.849006447,"data":"Generated 1707 / 1707 flanking negatives for chr22.\n"}
+,{"stream_name":"stdout","time":1630.84901013,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr3.fa...\n"}
+,{"stream_name":"stdout","time":1632.516511049,"data":"Loaded sequence of length 198,295,559 bp.\n"}
+,{"stream_name":"stdout","time":1632.516547614,"data":"Sampling negatives for chromosome chr3 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1632.72332576,"data":"Generated 3568 / 3568 flanking negatives for chr3.\n"}
+,{"stream_name":"stdout","time":1632.723364091,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr4.fa...\n"}
+,{"stream_name":"stdout","time":1634.168999074,"data":"Loaded sequence of length 190,214,555 bp.\n"}
+,{"stream_name":"stdout","time":1634.169064419,"data":"Sampling negatives for chromosome chr4 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1634.169071126,"data":"Generated 2104 / 2104 flanking negatives for chr4.\n"}
+,{"stream_name":"stdout","time":1634.169075522,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr5.fa...\n"}
+,{"stream_name":"stdout","time":1635.709290272,"data":"Loaded sequence of length 181,538,259 bp.\n"}
+,{"stream_name":"stdout","time":1635.709336247,"data":"Sampling negatives for chromosome chr5 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1635.709343726,"data":"Generated 3134 / 3134 flanking negatives for chr5.\n"}
+,{"stream_name":"stdout","time":1635.709348759,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr6.fa...\n"}
+,{"stream_name":"stdout","time":1637.233965168,"data":"Loaded sequence of length 170,805,979 bp.\n"}
+,{"stream_name":"stdout","time":1637.234006229,"data":"Sampling negatives for chromosome chr6 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1637.44368636,"data":"Generated 4029 / 4029 flanking negatives for chr6.\n"}
+,{"stream_name":"stdout","time":1637.443728628,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr7.fa...\n"}
+,{"stream_name":"stdout","time":1638.684258574,"data":"Loaded sequence of length 159,345,973 bp.\n"}
+,{"stream_name":"stdout","time":1638.684303584,"data":"Sampling negatives for chromosome chr7 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1638.6843091,"data":"Generated 2839 / 2839 flanking negatives for chr7.\n"}
+,{"stream_name":"stdout","time":1638.684313255,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr8.fa...\n"}
+,{"stream_name":"stdout","time":1639.980575101,"data":"Loaded sequence of length 145,138,636 bp.\n"}
+,{"stream_name":"stdout","time":1639.980604829,"data":"Sampling negatives for chromosome chr8 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1639.980621527,"data":"Generated 2271 / 2271 flanking negatives for chr8.\n"}
+,{"stream_name":"stdout","time":1639.98062632,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chr9.fa...\n"}
+,{"stream_name":"stdout","time":1641.228563265,"data":"Loaded sequence of length 138,394,717 bp.\n"}
+,{"stream_name":"stdout","time":1641.228604439,"data":"Sampling negatives for chromosome chr9 using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1641.228608862,"data":"Generated 2590 / 2590 flanking negatives for chr9.\n"}
+,{"stream_name":"stdout","time":1641.228612669,"data":"Loading chromosome sequence from /kaggle/working/data/reference/chrX.fa...\n"}
+,{"stream_name":"stdout","time":1642.577774034,"data":"Loaded sequence of length 156,040,895 bp.\n"}
+,{"stream_name":"stdout","time":1642.577816552,"data":"Sampling negatives for chromosome chrX using strategy 'flanking'...\n"}
+,{"stream_name":"stdout","time":1642.577821426,"data":"Generated 1617 / 1617 flanking negatives for chrX.\n"}
+,{"stream_name":"stdout","time":1647.208241821,"data":"Saved combined positive \u0026 negative dataset to /kaggle/working/data/processed/gm12878_flanking.tsv (Total regions: 128,852).\n"}
+,{"stream_name":"stdout","time":1648.783710465,"data":"[gm12878/flanking] rows=128,852 pos=64,426 neg=64,426\n"}
+,{"stream_name":"stdout","time":1979.926464641,"data":"[tcell/gc_matched] flagged eval rows: 557 / 25,614 (p99 jaccard=0.529)\n"}
+,{"stream_name":"stdout","time":2277.18190197,"data":"[tcell/random_unmatched] flagged eval rows: 527 / 25,614 (p99 jaccard=0.516)\n"}
+,{"stream_name":"stdout","time":2578.74515665,"data":"[tcell/flanking] flagged eval rows: 102 / 25,614 (p99 jaccard=0.226)\n"}
+,{"stream_name":"stdout","time":3127.720883981,"data":"[k562/gc_matched] flagged eval rows: 666 / 33,406 (p99 jaccard=0.516)\n"}
+,{"stream_name":"stdout","time":3662.404360359,"data":"[k562/random_unmatched] flagged eval rows: 708 / 33,406 (p99 jaccard=0.520)\n"}
+,{"stream_name":"stdout","time":4210.913317535,"data":"[k562/flanking] flagged eval rows: 125 / 33,406 (p99 jaccard=0.228)\n"}
+,{"stream_name":"stdout","time":4883.690283057,"data":"[gm12878/gc_matched] flagged eval rows: 568 / 37,130 (p99 jaccard=0.428)\n"}
+,{"stream_name":"stdout","time":5539.338593899,"data":"[gm12878/random_unmatched] flagged eval rows: 755 / 37,130 (p99 jaccard=0.494)\n"}
+,{"stream_name":"stdout","time":6224.49107148,"data":"[gm12878/flanking] flagged eval rows: 123 / 37,130 (p99 jaccard=0.223)\n"}
+,{"stream_name":"stdout","time":6241.409947345,"data":"{\n"}
+,{"stream_name":"stdout","time":6241.40999846,"data":" \"tcell\": 26362,\n"}
+,{"stream_name":"stdout","time":6241.410006,"data":" \"k562\": 2489,\n"}
+,{"stream_name":"stdout","time":6241.410011243,"data":" \"gm12878\": 2730\n"}
+,{"stream_name":"stdout","time":6241.41001686,"data":"}\n"}
+,{"stream_name":"stdout","time":6478.223989394,"data":"wrote 14 files, 495.0 MB in 6467s\n"}
+,{"stream_name":"stderr","time":6484.904246661,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":6484.904301627,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":6485.229471805,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":6485.229520607,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":6486.758218058,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":6486.922376687,"data":"[NbConvertApp] Writing 110312 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":6489.991438115,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":6491.039694004,"data":"[NbConvertApp] Writing 424047 bytes to __results__.html\n"}
+]

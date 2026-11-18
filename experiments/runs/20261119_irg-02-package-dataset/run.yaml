@@ -1,0 +1,7 @@
+run_id: 20261119_irg-02-package-dataset
+kernel: purvanshj009/irg-02-package-dataset
+kernel_version: 1
+notebook: kaggle/kernels/02-package-dataset/02_package_dataset.ipynb
+inputs: [kernel_output:purvanshj009/irg-01-data-curation]
+checks: {input_hashes_verified: "14/14", tables_valid: 9, duplicates_dropped_per_table: "1-12 (all negatives)"}
+outputs: Kaggle kernel output irg_curated/ (16 files, 495 MB); published to Hugging Face PxALabs/encode-regulatory-elements (private until reviewed)

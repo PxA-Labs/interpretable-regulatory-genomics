@@ -16,20 +16,22 @@ Optimized to run on accessible Kaggle-level compute infrastructure (T4 GPU).
 
 ## Documentation
 
-All specifications are compiled into professional PDF documents inside [docs/](docs/):
+All specifications are written in Markdown inside [docs/](docs/) and render natively on GitHub:
 
-- [01-Project Charter](docs/01-project-charter.pdf) — Problem statement, vision, goals, non-goals, and constraints.
-- [02-Product Requirements Document](docs/02-product-requirements-document.pdf) — User personas, use cases, and acceptance criteria.
-- [03-Technical Design Document](docs/03-technical-design-document.pdf) — System architecture, data flow, and pipeline layers.
-- [04-Research Design Document](docs/04-research-design-document.pdf) — Scientific hypotheses, evaluation matrix, and experiments.
-- [05-Dataset Strategy](docs/05-dataset-strategy.pdf) — Data acquisition, labelling, leakage prevention, and QC checks.
-- [06-Modeling Roadmap](docs/06-modeling-roadmap.pdf) — Phase-wise modeling plan and baseline configurations.
-- [07-Compute Feasibility Memo](docs/07-compute-feasibility-memo.pdf) — Compute budget and resource constraints.
-- [08-Experiment Tracking & MLOps](docs/08-experiment-tracking-mlops.pdf) — Notebook hygiene, config structures, and reproducibility.
-- [09-Risk Register](docs/09-risk-register.pdf) — Scientific, modeling, and timeline risks with mitigations.
-- [10-Roadmap & Milestones](docs/10-roadmap-milestones.pdf) — 12-month delivery roadmap and check-off criteria.
-- [11-Glossary & Project Memory](docs/11-glossary-project-memory.pdf) — Definitions, locked decisions, and scope limitations.
-- [12-Contributor Onboarding Brief](docs/12-contributor-onboarding.pdf) — Setup checklist and coding guidelines.
+- [01-Project Charter](docs/01-project-charter.md) — Problem statement, vision, goals, non-goals, and constraints.
+- [02-Product Requirements Document](docs/02-product-requirements-document.md) — User personas, use cases, and acceptance criteria.
+- [03-Technical Design Document](docs/03-technical-design-document.md) — System architecture, data flow, and pipeline layers.
+- [04-Research Design Document](docs/04-research-design-document.md) — Scientific hypotheses, evaluation matrix, and experiments.
+- [05-Dataset Strategy](docs/05-dataset-strategy.md) — Data acquisition, labelling, leakage prevention, and QC checks.
+- [06-Modeling Roadmap](docs/06-modeling-roadmap.md) — Phase-wise modeling plan and baseline configurations.
+- [07-Compute Feasibility Memo](docs/07-compute-feasibility-memo.md) — Compute budget and resource constraints.
+- [08-Experiment Tracking & MLOps](docs/08-experiment-tracking-mlops.md) — Notebook hygiene, config structures, and reproducibility.
+- [09-Risk Register](docs/09-risk-register.md) — Scientific, modeling, and timeline risks with mitigations.
+- [10-Roadmap & Milestones](docs/10-roadmap-milestones.md) — 12-month delivery roadmap and check-off criteria.
+- [11-Glossary & Project Memory](docs/11-glossary-project-memory.md) — Definitions, locked decisions, and scope limitations.
+- [12-Contributor Onboarding Brief](docs/12-contributor-onboarding.md) — Setup checklist and coding guidelines.
+
+> **Note:** PDFs are generated as build artifacts for releases. See [Releases](../../releases) for downloadable PDFs.
 
 ---
 

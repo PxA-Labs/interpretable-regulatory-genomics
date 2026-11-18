@@ -1,4 +1,4 @@
-# Data Card: ENCODE K562 / GM12878 regulatory-element tables
+# Data Card: ENCODE regulatory-element tables (T cell, K562, GM12878)
 
 Status: **v1 (raw inputs, not yet leakage-audited).** See "Known issues" before using for any claim.
 
@@ -6,7 +6,7 @@ Status: **v1 (raw inputs, not yet leakage-audited).** See "Known issues" before 
 
 | Item | Source | Notes |
 |---|---|---|
-| Positive regions | ENCODE SCREEN Registry V4 candidate cis-Regulatory Elements (cCREs), GRCh38 | Accessions `ENCFF726XBE` (registry), `ENCFF464BRU` (K562), `ENCFF590IMH` (GM12878) |
+| Positive regions | ENCODE SCREEN V4 biosample cCRE annotations, GRCh38 | `ENCFF726XBE` = **naive CD8+ alpha-beta T cell** (CL:0000900); `ENCFF464BRU` = K562; `ENCFF590IMH` = GM12878 (identities from ENCODE file metadata, checked 2026-11-18) |
 | Reference genome | GRCh38 / hg38 | Not redistributed here. On Kaggle attach `aliabedimadiseh/grch38-human-genome-dna` |
 | Motif database | JASPAR 2026 CORE vertebrates non-redundant PFMs | CC BY 4.0 |
 
@@ -40,7 +40,11 @@ The reproducible copy lives on Kaggle: `purvanshj009/encode-regulatory-switches-
 | `gc` | float | GC fraction |
 | `label` | int | `1` active regulatory, `0` background (binary tables) |
 
-## Row counts (full K562 tables, measured 2026-11-18)
+## Row counts (full `phase_1_data` tables, measured 2026-11-18)
+
+> **Cell type warning:** these tables are named `k562_*` but their positives come from `ENCFF726XBE`, which ENCODE lists as
+> *naive CD8+ alpha-beta T cell*. 26,362 of its 26,364 PLS+dELS elements are the positives; only 2,279 overlap the true K562 file `ENCFF464BRU`.
+> Treat them as **T-cell** data until regenerated.
 
 | Table | Rows | Positives | Negatives | Negative strategy |
 |---|---|---|---|---|
@@ -51,6 +55,7 @@ The reproducible copy lives on Kaggle: `purvanshj009/encode-regulatory-switches-
 
 ## Known issues (tracked in the audit issue)
 
+0. **Mislabelled cell type (critical).** The full "K562" tables are naive CD8+ T-cell cCREs (see warning above). Results in discussions #1, #5, #16 and the Phase 1/3 notebooks are therefore not K562 results.
 1. **Count mismatch.** Discussion #16 reports 26,364 positives; the stored table has 26,362.
 2. **Possibly two different protocols (unconfirmed).** The notebooks fall back to a chr19-only test mode, and `phase_3_data` is chr19-only.
    Headline numbers in discussions #1 and #5 may come from that mode, while #16 states full mode with chr19-22 as test.

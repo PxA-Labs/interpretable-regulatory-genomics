@@ -1,0 +1,10 @@
+run_id: 20261119_irg-10-motif-fdr
+kernel: purvanshj009/irg-10-motif-fdr
+kernel_version: 2
+notebook: kaggle/kernels/10-motif-fdr/10_motif_fdr.ipynb
+inputs: [kernel_output:purvanshj009/irg-02-package-dataset, kernel_output:purvanshj009/irg-07-cnn-tuned, dataset:purvanshj009/irg-jaspar2024]
+seeds: [0, 1, 2, 3, 4]
+accelerator: GPU (PFM extraction); matching on CPU
+runtime_s: 4007
+results: docs/results/motif_fdr.md
+note: version 1 was a smoke run. motif_stability.csv and motif_jaccard_between_biosamples.csv in results/ were RECOMPUTED from motif_pairs_q05.csv with tools/analysis/motif_stability.py (kernel v2 divided by seeds-with-a-hit instead of all 5 seeds); the as-produced files are in results/as_produced/. The notebook source is fixed for any rerun.

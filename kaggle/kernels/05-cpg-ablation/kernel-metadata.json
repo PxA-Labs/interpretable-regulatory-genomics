@@ -1,0 +1,15 @@
+{
+  "id": "purvanshj009/irg-05-cpg-ablation",
+  "title": "IRG 05 CpG Ablation",
+  "code_file": "05_cpg_ablation.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": ["purvanshj009/irg-02-package-dataset"],
+  "model_sources": []
+}

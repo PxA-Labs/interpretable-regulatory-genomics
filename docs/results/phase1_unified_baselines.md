@@ -28,7 +28,7 @@ Uncertainty: seed SD of XGBoost AUROC <= 0.0011; bootstrap 95 % CI half-width ab
 
 The earlier gate (|random - gc_matched| < 0.05) **fails for all three biosamples** (0.07-0.09). Discussion #16 reported 0.0187.
 GC fraction alone scores 0.51 on GC-matched negatives (matching works) but 0.82-0.90 on random negatives, so random-negative AUROCs overstate sequence learning.
-Dinucleotide frequencies alone (16 features) reach 0.74-0.80 on GC-matched negatives, i.e. roughly 74-82 % of the above-chance (AUROC - 0.5) signal of k=4 XGBoost; this is probably CpG-driven and is not removed by GC matching.
+Dinucleotide frequencies alone (16 features) reach 0.74-0.80 on GC-matched negatives, i.e. roughly 74-82 % of the above-chance (AUROC - 0.5) signal of k=4 XGBoost; this is not removed by GC matching. A follow-up (notebook 05, `cpg_ablation.md`) tested the hypothesis that it is mostly CpG: removing CG-containing k-mers costs only 0.007-0.021 AUROC, but matching the test set on GC and CpG o/e removes 0.09-0.17, so the compositional signal is distributed over many k-mers rather than concentrated in CpG.
 
 ## 3. k-mer sweep (GC-matched, test AUROC)
 | biosample   |   lr k=3 |   lr k=4 |   lr k=5 |   lr k=6 |   xgb k=3 |   xgb k=4 |   xgb k=5 |   xgb k=6 |

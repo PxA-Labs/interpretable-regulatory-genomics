@@ -1,0 +1,16 @@
+{
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "device": "cuda",
+ "smoke": false,
+ "max_epochs": 15,
+ "patience": 3,
+ "batch_size": 256,
+ "torch": "2.11.0+cu130",
+ "runtime_s": 3802
+}

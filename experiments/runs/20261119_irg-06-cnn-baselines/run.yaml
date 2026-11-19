@@ -1,0 +1,10 @@
+run_id: 20261119_irg-06-cnn-baselines
+kernel: purvanshj009/irg-06-cnn-baselines
+kernel_version: 1
+notebook: kaggle/kernels/06-cnn-baselines/irg-06-cnn-baselines.ipynb
+inputs: [kernel_output:purvanshj009/irg-02-package-dataset]
+seeds: [0, 1, 2, 3, 4]
+accelerator: GPU (torch cuda)
+runtime_s: 3802
+results: docs/results/cnn_baselines.md
+note: all 30 runs used the full 15 epochs (early stopping never fired); CNNs may be undertrained.

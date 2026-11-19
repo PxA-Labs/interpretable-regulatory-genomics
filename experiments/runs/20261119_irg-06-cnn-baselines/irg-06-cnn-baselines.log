@@ -1,0 +1,58 @@
+[    8.0s] 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+[    8.0s] 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+[    8.0s] 0.00s - to python to disable frozen modules.
+[    8.0s] 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+[    8.6s] 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+[    8.6s] 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+[    8.6s] 0.00s - to python to disable frozen modules.
+[    8.6s] 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+[   19.3s] device cuda 2.11.0+cu130
+[   22.4s] [4s] tcell: train 59568 val 13190 test 12422 matched 6514 non-homologous 12165
+[   79.5s] [61s] tcell shallow_cnn seed0: test 0.879 matched 0.712 (15 ep, 57s)
+[  127.7s] [109s] tcell shallow_cnn seed1: test 0.877 matched 0.710 (15 ep, 48s)
+[  175.5s] [157s] tcell shallow_cnn seed2: test 0.879 matched 0.715 (15 ep, 48s)
+[  223.7s] [205s] tcell shallow_cnn seed3: test 0.880 matched 0.716 (15 ep, 48s)
+[  271.7s] [253s] tcell shallow_cnn seed4: test 0.876 matched 0.710 (15 ep, 48s)
+[  418.0s] [399s] tcell attn_cnn seed0: test 0.879 matched 0.721 (15 ep, 146s)
+[  564.2s] [545s] tcell attn_cnn seed1: test 0.886 matched 0.733 (15 ep, 146s)
+[  710.7s] [692s] tcell attn_cnn seed2: test 0.884 matched 0.741 (15 ep, 146s)
+[  856.9s] [838s] tcell attn_cnn seed3: test 0.886 matched 0.742 (15 ep, 146s)
+[ 1003.1s] [984s] tcell attn_cnn seed4: test 0.883 matched 0.726 (15 ep, 146s)
+[ 1007.1s] [988s] k562: train 81079 val 17538 test 15863 matched 9940 non-homologous 15550
+[ 1072.9s] [1054s] k562 shallow_cnn seed0: test 0.855 matched 0.741 (15 ep, 66s)
+[ 1137.7s] [1119s] k562 shallow_cnn seed1: test 0.857 matched 0.745 (15 ep, 65s)
+[ 1202.7s] [1184s] k562 shallow_cnn seed2: test 0.854 matched 0.741 (15 ep, 65s)
+[ 1267.6s] [1249s] k562 shallow_cnn seed3: test 0.857 matched 0.740 (15 ep, 65s)
+[ 1332.5s] [1314s] k562 shallow_cnn seed4: test 0.852 matched 0.736 (15 ep, 65s)
+[ 1530.9s] [1512s] k562 attn_cnn seed0: test 0.859 matched 0.761 (15 ep, 198s)
+[ 1729.0s] [1710s] k562 attn_cnn seed1: test 0.859 matched 0.753 (15 ep, 198s)
+[ 1927.3s] [1908s] k562 attn_cnn seed2: test 0.863 matched 0.764 (15 ep, 198s)
+[ 2126.0s] [2107s] k562 attn_cnn seed3: test 0.857 matched 0.751 (15 ep, 199s)
+[ 2324.4s] [2305s] k562 attn_cnn seed4: test 0.865 matched 0.760 (15 ep, 198s)
+[ 2328.2s] [2309s] gm12878: train 91717 val 20528 test 16600 matched 11274 non-homologous 16337
+[ 2403.2s] [2384s] gm12878 shallow_cnn seed0: test 0.837 matched 0.746 (15 ep, 75s)
+[ 2476.9s] [2458s] gm12878 shallow_cnn seed1: test 0.838 matched 0.747 (15 ep, 74s)
+[ 2550.8s] [2532s] gm12878 shallow_cnn seed2: test 0.834 matched 0.741 (15 ep, 74s)
+[ 2625.6s] [2607s] gm12878 shallow_cnn seed3: test 0.834 matched 0.739 (15 ep, 75s)
+[ 2699.3s] [2680s] gm12878 shallow_cnn seed4: test 0.834 matched 0.741 (15 ep, 74s)
+[ 2922.9s] [2904s] gm12878 attn_cnn seed0: test 0.848 matched 0.766 (15 ep, 224s)
+[ 3146.8s] [3128s] gm12878 attn_cnn seed1: test 0.848 matched 0.761 (15 ep, 224s)
+[ 3371.4s] [3353s] gm12878 attn_cnn seed2: test 0.849 matched 0.768 (15 ep, 225s)
+[ 3595.7s] [3577s] gm12878 attn_cnn seed3: test 0.850 matched 0.774 (15 ep, 224s)
+[ 3820.3s] [3802s] gm12878 attn_cnn seed4: test 0.846 matched 0.761 (15 ep, 225s)
+[ 3820.4s] biosample       model  n_params  auroc_test  sd_test  auroc_nonhomologous  auroc_matched  sd_matched  auprc_test  epochs
+[ 3820.4s]   gm12878    attn_cnn    189185       0.848    0.002                0.845          0.766       0.005       0.855    15.0
+[ 3820.4s]   gm12878 shallow_cnn      7937       0.835    0.002                0.833          0.743       0.003       0.836    15.0
+[ 3820.4s]      k562    attn_cnn    189185       0.861    0.003                0.857          0.758       0.005       0.867    15.0
+[ 3820.4s]      k562 shallow_cnn      7937       0.855    0.002                0.852          0.740       0.003       0.856    15.0
+[ 3820.4s]     tcell    attn_cnn    189185       0.883    0.003                0.881          0.733       0.009       0.892    15.0
+[ 3820.4s]     tcell shallow_cnn      7937       0.878    0.002                0.877          0.713       0.003       0.885    15.0
+[ 3820.4s] done in 3802s
+[ 3825.9s] /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+[ 3825.9s]   cells[i][c] = re.sub('\\\\\|', '|', cell)
+[ 3826.1s] /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+[ 3826.1s]   text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[ 3826.9s] [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+[ 3827.0s] [NbConvertApp] Writing 20272 bytes to __notebook__.ipynb
+[ 3829.5s] [NbConvertApp] Converting notebook __notebook__.ipynb to html
+[ 3830.1s] [NbConvertApp] Writing 336708 bytes to __results__.html

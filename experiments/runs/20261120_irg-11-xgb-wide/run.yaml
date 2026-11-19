@@ -1,0 +1,12 @@
+run_id: 20261120_irg-11-xgb-wide
+kernel: purvanshj009/irg-11-xgb-wide
+kernel_version: 2
+notebook: kaggle/kernels/11-xgb-wide/11_xgb_wide.ipynb
+inputs: [kernel_output:purvanshj009/irg-02-package-dataset, dataset:purvanshj009/irg-repeat-coverage]
+seeds: [0, 1, 2, 3, 4]
+search: stage A (3 best nb09 configs, cap 8000) + stage B (8 new configs, space seed 777, cap 4000); selected on validation AUC only
+accelerator: GPU (XGBoost 3.4.1, device=cuda)
+runtime_s: 5725
+results: docs/results/xgb_wide.md
+models: huggingface.co/PxALabs/irg-xgboost-wide (15 files, XGBoost native .ubj; not stored in git)
+note: version 1 was a smoke run and is not a result.

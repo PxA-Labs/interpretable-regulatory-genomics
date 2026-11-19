@@ -1,0 +1,123 @@
+[{"stream_name":"stderr","time":8.283992739,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.28403507,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.284040701,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.284044872,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.943944824999999,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.943984617,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.943989337,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.943995024,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":20.74154034,"data":"data: /kaggle/input/notebooks/purvanshj009/irg-02-package-dataset/irg_curated | device: cuda {'tcell': 85180, 'k562': 114480, 'gm12878': 128845}\n"}
+,{"stream_name":"stdout","time":51.037312498,"data":"[38s] features done\n"}
+,{"stream_name":"stdout","time":194.073545137,"data":"[181s] train=tcell done\n"}
+,{"stream_name":"stdout","time":378.548938608,"data":"[365s] train=k562 done\n"}
+,{"stream_name":"stdout","time":589.58600766,"data":"[577s] train=gm12878 done\n"}
+,{"stream_name":"stdout","time":589.926534459,"data":"group                  shared  specific\n"}
+,{"stream_name":"stdout","time":589.926571596,"data":"train   test    class                  \n"}
+,{"stream_name":"stdout","time":589.926578936,"data":"gm12878 k562    ALL     0.906     0.753\n"}
+,{"stream_name":"stdout","time":589.926584128,"data":"                PLS     0.941     0.845\n"}
+,{"stream_name":"stdout","time":589.926589252,"data":"                dELS    0.792     0.686\n"}
+,{"stream_name":"stdout","time":589.926594771,"data":"                pELS    0.905     0.796\n"}
+,{"stream_name":"stdout","time":589.926601254,"data":"        tcell   ALL     0.909     0.860\n"}
+,{"stream_name":"stdout","time":589.926606993,"data":"                PLS     0.941     0.928\n"}
+,{"stream_name":"stdout","time":589.926612036,"data":"                dELS    0.808     0.737\n"}
+,{"stream_name":"stdout","time":589.926616867,"data":"                pELS    0.910     0.877\n"}
+,{"stream_name":"stdout","time":589.926621678,"data":"k562    gm12878 ALL     0.909     0.701\n"}
+,{"stream_name":"stdout","time":589.926626618,"data":"                PLS     0.947     0.794\n"}
+,{"stream_name":"stdout","time":589.926631511,"data":"                dELS    0.786     0.650\n"}
+,{"stream_name":"stdout","time":589.926636235,"data":"                pELS    0.909     0.756\n"}
+,{"stream_name":"stdout","time":589.92664109,"data":"        tcell   ALL     0.926     0.850\n"}
+,{"stream_name":"stdout","time":589.926646537,"data":"                PLS     0.947     0.930\n"}
+,{"stream_name":"stdout","time":589.926652572,"data":"                dELS    0.820     0.691\n"}
+,{"stream_name":"stdout","time":589.926657283,"data":"                pELS    0.928     0.880\n"}
+,{"stream_name":"stdout","time":589.92666194,"data":"tcell   gm12878 ALL     0.905     0.798\n"}
+,{"stream_name":"stdout","time":589.926666792,"data":"                PLS     0.940     0.912\n"}
+,{"stream_name":"stdout","time":589.926672096,"data":"                dELS    0.787     0.688\n"}
+,{"stream_name":"stdout","time":589.926676607,"data":"                pELS    0.912     0.830\n"}
+,{"stream_name":"stdout","time":589.926693569,"data":"        k562    ALL     0.928     0.814\n"}
+,{"stream_name":"stdout","time":589.926698209,"data":"                PLS     0.947     0.914\n"}
+,{"stream_name":"stdout","time":589.926702014,"data":"                dELS    0.851     0.678\n"}
+,{"stream_name":"stdout","time":589.926705799,"data":"                pELS    0.928     0.845\n"}
+,{"stream_name":"stdout","time":589.926709433,"data":"{\n"}
+,{"stream_name":"stdout","time":589.926713181,"data":" \"tcell-\u003ek562\": {\n"}
+,{"stream_name":"stdout","time":589.926718015,"data":"  \"shared_class_mix\": {\n"}
+,{"stream_name":"stdout","time":589.926721963,"data":"   \"PLS\": 0.499,\n"}
+,{"stream_name":"stdout","time":589.926726035,"data":"   \"pELS\": 0.384,\n"}
+,{"stream_name":"stdout","time":589.926730152,"data":"   \"dELS\": 0.117\n"}
+,{"stream_name":"stdout","time":589.926733971,"data":"  },\n"}
+,{"stream_name":"stdout","time":589.926737742,"data":"  \"specific_class_mix\": {\n"}
+,{"stream_name":"stdout","time":589.926741735,"data":"   \"pELS\": 0.484,\n"}
+,{"stream_name":"stdout","time":589.926745515,"data":"   \"dELS\": 0.284,\n"}
+,{"stream_name":"stdout","time":589.926749275,"data":"   \"PLS\": 0.232\n"}
+,{"stream_name":"stdout","time":589.926752937,"data":"  }\n"}
+,{"stream_name":"stdout","time":589.92675664,"data":" },\n"}
+,{"stream_name":"stdout","time":589.926760418,"data":" \"tcell-\u003egm12878\": {\n"}
+,{"stream_name":"stdout","time":589.92676458,"data":"  \"shared_class_mix\": {\n"}
+,{"stream_name":"stdout","time":589.926768597,"data":"   \"PLS\": 0.458,\n"}
+,{"stream_name":"stdout","time":589.926772552,"data":"   \"pELS\": 0.38,\n"}
+,{"stream_name":"stdout","time":589.926776175,"data":"   \"dELS\": 0.162\n"}
+,{"stream_name":"stdout","time":589.926779943,"data":"  },\n"}
+,{"stream_name":"stdout","time":589.9267837,"data":"  \"specific_class_mix\": {\n"}
+,{"stream_name":"stdout","time":589.926787519,"data":"   \"pELS\": 0.453,\n"}
+,{"stream_name":"stdout","time":589.926791321,"data":"   \"dELS\": 0.344,\n"}
+,{"stream_name":"stdout","time":589.926795223,"data":"   \"PLS\": 0.203\n"}
+,{"stream_name":"stdout","time":589.926799183,"data":"  }\n"}
+,{"stream_name":"stdout","time":589.926803183,"data":" },\n"}
+,{"stream_name":"stdout","time":589.926806903,"data":" \"k562-\u003etcell\": {\n"}
+,{"stream_name":"stdout","time":589.926811029,"data":"  \"shared_class_mix\": {\n"}
+,{"stream_name":"stdout","time":589.926814855,"data":"   \"PLS\": 0.51,\n"}
+,{"stream_name":"stdout","time":589.92681886,"data":"   \"pELS\": 0.382,\n"}
+,{"stream_name":"stdout","time":589.926823349,"data":"   \"dELS\": 0.108\n"}
+,{"stream_name":"stdout","time":589.926827483,"data":"  },\n"}
+,{"stream_name":"stdout","time":589.926831244,"data":"  \"specific_class_mix\": {\n"}
+,{"stream_name":"stdout","time":589.926835075,"data":"   \"pELS\": 0.398,\n"}
+,{"stream_name":"stdout","time":589.92683868,"data":"   \"PLS\": 0.35,\n"}
+,{"stream_name":"stdout","time":589.926842285,"data":"   \"dELS\": 0.252\n"}
+,{"stream_name":"stdout","time":589.926846197,"data":"  }\n"}
+,{"stream_name":"stdout","time":589.926849932,"data":" },\n"}
+,{"stream_name":"stdout","time":589.926853596,"data":" \"k562-\u003egm12878\": {\n"}
+,{"stream_name":"stdout","time":589.92685755,"data":"  \"shared_class_mix\": {\n"}
+,{"stream_name":"stdout","time":589.92686137,"data":"   \"pELS\": 0.525,\n"}
+,{"stream_name":"stdout","time":589.926865363,"data":"   \"PLS\": 0.366,\n"}
+,{"stream_name":"stdout","time":589.926875481,"data":"   \"dELS\": 0.109\n"}
+,{"stream_name":"stdout","time":589.926879475,"data":"  },\n"}
+,{"stream_name":"stdout","time":589.926883955,"data":"  \"specific_class_mix\": {\n"}
+,{"stream_name":"stdout","time":589.926887964,"data":"   \"dELS\": 0.549,\n"}
+,{"stream_name":"stdout","time":589.926892302,"data":"   \"pELS\": 0.372,\n"}
+,{"stream_name":"stdout","time":589.926896069,"data":"   \"PLS\": 0.079\n"}
+,{"stream_name":"stdout","time":589.926899975,"data":"  }\n"}
+,{"stream_name":"stdout","time":589.926903699,"data":" },\n"}
+,{"stream_name":"stdout","time":589.926907245,"data":" \"gm12878-\u003etcell\": {\n"}
+,{"stream_name":"stdout","time":589.926939518,"data":"  \"shared_class_mix\": {\n"}
+,{"stream_name":"stdout","time":589.92694396,"data":"   \"PLS\": 0.461,\n"}
+,{"stream_name":"stdout","time":589.926947926,"data":"   \"pELS\": 0.389,\n"}
+,{"stream_name":"stdout","time":589.9269516,"data":"   \"dELS\": 0.15\n"}
+,{"stream_name":"stdout","time":589.926955321,"data":"  },\n"}
+,{"stream_name":"stdout","time":589.926959269,"data":"  \"specific_class_mix\": {\n"}
+,{"stream_name":"stdout","time":589.926963612,"data":"   \"pELS\": 0.397,\n"}
+,{"stream_name":"stdout","time":589.926967812,"data":"   \"PLS\": 0.354,\n"}
+,{"stream_name":"stdout","time":589.926972424,"data":"   \"dELS\": 0.249\n"}
+,{"stream_name":"stdout","time":589.926976272,"data":"  }\n"}
+,{"stream_name":"stdout","time":589.92698002,"data":" },\n"}
+,{"stream_name":"stdout","time":589.926983818,"data":" \"gm12878-\u003ek562\": {\n"}
+,{"stream_name":"stdout","time":589.92698793,"data":"  \"shared_class_mix\": {\n"}
+,{"stream_name":"stdout","time":589.926991769,"data":"   \"pELS\": 0.531,\n"}
+,{"stream_name":"stdout","time":589.926998298,"data":"   \"PLS\": 0.36,\n"}
+,{"stream_name":"stdout","time":589.927002114,"data":"   \"dELS\": 0.109\n"}
+,{"stream_name":"stdout","time":589.927006078,"data":"  },\n"}
+,{"stream_name":"stdout","time":589.927009752,"data":"  \"specific_class_mix\": {\n"}
+,{"stream_name":"stdout","time":589.927013658,"data":"   \"dELS\": 0.448,\n"}
+,{"stream_name":"stdout","time":589.927017617,"data":"   \"pELS\": 0.419,\n"}
+,{"stream_name":"stdout","time":589.927021662,"data":"   \"PLS\": 0.132\n"}
+,{"stream_name":"stdout","time":589.927026835,"data":"  }\n"}
+,{"stream_name":"stdout","time":589.927030514,"data":" }\n"}
+,{"stream_name":"stdout","time":589.927033941,"data":"}\n"}
+,{"stream_name":"stdout","time":589.927037798,"data":"done in 577s\n"}
+,{"stream_name":"stderr","time":593.574632263,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":593.574665522,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":593.762254756,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":593.76228373,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":594.668490878,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":594.754476712,"data":"[NbConvertApp] Writing 16014 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":597.673847838,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":598.285973591,"data":"[NbConvertApp] Writing 318867 bytes to __results__.html\n"}
+]

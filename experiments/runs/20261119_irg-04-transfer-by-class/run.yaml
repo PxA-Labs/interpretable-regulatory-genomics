@@ -1,0 +1,9 @@
+run_id: 20261119_irg-04-transfer-by-class
+kernel: purvanshj009/irg-04-transfer-by-class
+kernel_version: 1
+notebook: kaggle/kernels/04-transfer-by-class/04_transfer_by_class.ipynb
+inputs: [kernel_output:purvanshj009/irg-02-package-dataset]
+seeds: [0, 1, 2]
+accelerator: GPU (XGBoost device=cuda)
+runtime_s: 577
+results: docs/results/transfer_by_class.md

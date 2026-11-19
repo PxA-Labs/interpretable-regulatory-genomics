@@ -1,0 +1,7 @@
+model,pair,n1,n2,shared,jaccard
+shallow_cnn,tcell-k562,0,1,0,0.0
+shallow_cnn,tcell-gm12878,0,0,0,0.0
+shallow_cnn,k562-gm12878,1,0,0,0.0
+attn_cnn,tcell-k562,0,0,0,0.0
+attn_cnn,tcell-gm12878,0,0,0,0.0
+attn_cnn,k562-gm12878,0,0,0,0.0

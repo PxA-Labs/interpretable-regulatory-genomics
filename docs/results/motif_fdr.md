@@ -1,0 +1,28 @@
+# Do the CNN filters match known TF motifs, with FDR control? (notebook 10)
+
+Run `20261119_irg-10-motif-fdr` (Kaggle v2, 4,007 s). 30 notebook-07 CNNs (3 biosamples x {ShallowCNN, AttnCNN} x 5 seeds), 3,699 first-layer filters in total (about 123 per model after dropping filters with fewer than 30 activating windows). **This is not Tomtom.** It is a documented column-correlation matcher with an explicit shuffle null (below), run offline against JASPAR 2024 CORE vertebrates non-redundant (879 motifs).
+
+## Method
+1. Per filter, a position-frequency matrix from the windows where its activation exceeds 0.7 x its maximum over the **validation** sequences (test chromosomes are never used).
+2. Score against each motif: mean Pearson correlation over overlapping columns (overlap at least min(6, motif width)), best over both strands and all offsets.
+3. Null: each motif's columns permuted 200 times (composition kept, order destroyed); the shuffled-motif scores against the same filters are pooled per motif-width bin (21.6 million null scores per model). p = (1 + #null >= observed) / (1 + N); smallest attainable p about 1.7e-7.
+4. Benjamini-Hochberg over all filter x motif tests of a model (about 108,000 per model).
+
+Validation of the matcher itself (local, planted filters built from real JASPAR motifs, 118 random filters): 9 of 10 planted motifs recovered as the top hit at q < 0.05 (strand-flipped ones included; q 0.015-0.038); 0 of 118 random filters significant. The missed one was a heterodimer I had truncated to fit the filter.
+
+## What this shows
+- **Almost no filter resembles a known motif once multiple testing is controlled.** Only 16 of 3,699 filters (0.4%) have any match at q < 0.05, and one filter at q < 0.01. They sit in 6 of the 30 models; 24 models have none. By group: K562 ShallowCNN 12 filters (seeds 2, 3, 4), GM12878 AttnCNN 3 (seeds 0, 2), T-cell AttnCNN 1; none for GM12878 ShallowCNN, K562 AttnCNN, T-cell ShallowCNN.
+- **A loose criterion flags everything.** The best-scoring motif of every filter has raw p < 0.05 (100% of filters) and p < 0.01 (98.6%), simply because 879 motifs are searched. Discussion #11's "E-value < 0.5 across 64 filters" style of evidence cannot distinguish real motif content from chance, and its claim that the filters "definitively prove" real TF binding sites is **not supported**.
+- **Little recurrence across seeds.** The only motif family significant in 3 of the 5 seeds is ZEB1 (K562 ShallowCNN, seeds 2, 3, 4; 5 filters); ZBTB11 appears in 2 of 5. No motif is shared between biosamples (the stable sets are tiny, so the Jaccard values of 0 carry no information).
+- **The hits that exist are not implausible but are not validated.** K562 ShallowCNN: ZEB1, GATA2/GATA4, MAFK, MAFG::NFE2L1, ZBTB11 (GATA and NFE2/MAF-family factors are known erythroid regulators; this is my prior from general knowledge, not tested here). GM12878 AttnCNN, one filter in seed 0: ETS-family motifs (ELK1, ETV1, ETV5, ELK3, Elf5, FLI1). T-cell AttnCNN: one filter matching Crx, a photoreceptor factor, which is not plausible in T cells and is probably spurious. The two ZEB1-matching K562 filters I inspected have consensus GGGACTACAGGTGC and TGCAGGTGCA, i.e. a short CAGGTG E-box core that is not specific to ZEB1.
+- **Significant filters tend to matter more, weakly.** Among ShallowCNN filters (validation AUROC drop when one filter's pooled feature is set to zero, forward strand): the 12 significant filters have median drop 0.00085 against 0.00008 for the 1,908 others, and rank at the 81st percentile of importance on average within their model. This is descriptive (12 filters from 3 seeds, no test). Every individual filter matters little (largest drop 0.0068), so the model is highly redundant and no single filter carries the prediction.
+
+## What this does not show
+- **Absence of a hit is not absence of a motif.** Power is limited: learned filters are noisier than my planted ones, typical best-match correlation is about 0.89, and the null cannot resolve p below about 1.7e-7. Most filters may encode degenerate, partial or composition-based features (GC and CpG shortcuts were shown to matter in notebooks 05-08) rather than TF motifs.
+- **A significant hit means the filter resembles the motif, not that the model uses TF binding.** There is no orthogonal validation (ChIP-seq overlap, in-silico mutagenesis, motif enrichment in held-out positives). Near-perfect correlations (0.998-0.9999) come from overlaps of as few as 6 columns, so they are partial matches.
+- **Pooled null.** The null is pooled across filters and motifs within a width bin, so p-values are not filter-specific. BH assumes independence or positive dependence; the tests are dependent (redundant JASPAR motifs, shared filters). Pair counts (30) are inflated by redundant motifs; the unit to count is the filter (16).
+- **Untested sensitivity** to the 0.7 activation threshold, the 30-window minimum and the pseudocount. The AttnCNN filters are first-layer filters only; the attention layers are not interpreted.
+- **Procedure note.** The cross-seed stability and Jaccard files produced by the kernel divided by the number of seeds with a hit, not all 5 seeds. They were recomputed from `motif_pairs_q05.csv` with `tools/analysis/motif_stability.py`; the as-produced files are kept in `results/as_produced/`, and the notebook source is fixed.
+
+## Recommended wording for the project
+"Under Benjamini-Hochberg FDR control against a column-shuffle null, 0.4% of first-layer CNN filters resemble a JASPAR motif; the recurrent signal is a single E-box/ZEB1-like match in one biosample. The remaining filters are not explained by known motifs under this test."

@@ -303,16 +303,14 @@ def base_name(n):  # family-ish key: first TF of a heterodimer name, upper-case
 
 if len(PAIRS):
     PAIRS["tf"] = PAIRS.motif_name.map(base_name)
-    per_seed = PAIRS.groupby(["biosample", "model", "seed"]).tf.agg(lambda s: set(s)).reset_index()
     stab = []
-    for (b, a), g in per_seed.groupby(["biosample", "model"]):
-        from collections import Counter
-        cnt = Counter(tf for s in g.tf for tf in s)
-        for tf, n in cnt.items():
-            stab.append({"biosample": b, "model": a, "tf": tf, "n_seeds_significant": n, "n_seeds": len(g)})
+    for (b, a), g in PAIRS.groupby(["biosample", "model"]):
+        for tf, gg in g.groupby("tf"):
+            stab.append({"biosample": b, "model": a, "tf": tf, "n_seeds_significant": int(gg.seed.nunique()), "n_seeds": len(SEEDS),
+                         "n_filters": int(gg["filter"].nunique())})  # denominator is ALL seeds, not only seeds with a hit
     STAB = pd.DataFrame(stab).sort_values(["biosample", "model", "n_seeds_significant"], ascending=[True, True, False])
     STAB.to_csv(OUT / "motif_stability.csv", index=False)
-    stable = STAB[STAB.n_seeds_significant >= max(2, int(np.ceil(0.6 * STAB.n_seeds.max())))]
+    stable = STAB[STAB.n_seeds_significant >= int(np.ceil(0.6 * len(SEEDS)))]
     sets = {(b, a): set(g.tf) for (b, a), g in stable.groupby(["biosample", "model"])}
     jac = []
     for a in ARCHS:

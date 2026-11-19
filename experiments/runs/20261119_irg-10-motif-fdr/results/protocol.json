@@ -1,0 +1,27 @@
+{
+ "k_shuffles": 200,
+ "thr_frac": 0.7,
+ "min_windows": 30,
+ "pseudocount": 1.0,
+ "width_edges": [
+  0,
+  8,
+  10,
+  12,
+  15,
+  20,
+  1000
+ ],
+ "n_motifs": 879,
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "smoke": false,
+ "device": "cuda",
+ "torch": "2.11.0+cu130",
+ "runtime_s": 4007
+}

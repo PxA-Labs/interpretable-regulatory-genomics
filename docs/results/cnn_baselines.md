@@ -1,5 +1,7 @@
 # Do CNNs beat k-mer XGBoost? (notebook 06)
 
+> **Update (2026-11-19):** partly superseded by `cnn_tuned.md`. Every run here hit the 15-epoch cap; with a longer schedule and a learning-rate sweep, ShallowCNN gains 0.007-0.012 AUROC and edges k=6 XGBoost, so the "no clear CNN advantage" conclusion below is too strong for ShallowCNN.
+
 Run `20261119_irg-06-cnn-baselines` (Kaggle v1, GPU, 3,802 s). GC-matched v2.1 tables, canonical split (train chr1-14,X,Y; val chr15-18; test chr19-22), 5 seeds. Both CNNs use reverse-complement augmentation and strand-averaged prediction.
 
 Models: ShallowCNN (7,937 parameters) and AttnCNN (189,185 parameters), both trained from scratch.

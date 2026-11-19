@@ -7,6 +7,14 @@
 - Updated: 2026-06-16T17:44:07Z
 - Labels: none
 
+> **Editor's note (added 2026-11-19; the original text below is unchanged).** The motif claims in this discussion are **not supported** by a
+> stricter re-analysis (`docs/results/motif_fdr.md`, notebook 10). (1) The "E-value < 0.5" criterion without multiple-testing correction cannot
+> separate real motif content from chance: when 879 motifs are searched, the best-scoring motif of *every* filter has raw p < 0.05. Under
+> Benjamini-Hochberg FDR control against a column-shuffle null, only 0.4% of 3,699 first-layer filters (30 retrained CNNs) resemble a JASPAR motif.
+> (2) The filters analysed here came from a model trained on the project's legacy tables, which were later found to contain T-cell elements, not K562
+> (`docs/data/DATA_CARD.md`), so the "K562 biology" interpretation does not apply. (3) "Definitively prove" is too strong even for a significant match:
+> a filter resembling a motif is not evidence that the model uses that transcription factor's binding site. Treat the "discoveries" below as unvalidated hypotheses.
+
 ## Original post
 
 As part of our Phase 2 biological validation, we set out to answer the most critical question of this entire project: Is our interpretable machine learning model actually discovering true "hidden switches" in non-coding DNA, or is it merely memorizing mathematical noise?

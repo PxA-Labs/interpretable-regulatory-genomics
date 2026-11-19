@@ -1,0 +1,97 @@
+[     8.6s] 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+[     8.6s] 0.00s - to python to disable frozen modules.
+[     9.3s] 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+[     9.3s] 0.00s - to python to disable frozen modules.
+[    14.6s] device cuda xgboost 3.4.1
+[    23.4s] [10s] tcell: features (85180, 256); test class counts [6211, 2260, 2462, 1489]; matched sizes [2372, 3218, 2940]
+[    29.2s] [16s] tcell s0: acc 0.636 macroF1 0.472 iters 252
+[    36.5s] [23s] tcell s1: acc 0.635 macroF1 0.473 iters 280
+[    43.5s] [30s] tcell s2: acc 0.636 macroF1 0.474 iters 256
+[    56.8s] [43s] k562: features (114480, 256); test class counts [7931, 1985, 3784, 2163]; matched sizes [2488, 5340, 4314]
+[    65.0s] [51s] k562 s0: acc 0.629 macroF1 0.482 iters 344
+[    74.7s] [61s] k562 s1: acc 0.632 macroF1 0.488 iters 329
+[    83.6s] [70s] k562 s2: acc 0.629 macroF1 0.483 iters 282
+[    98.0s] [84s] gm12878: features (128845, 256); test class counts [8300, 1835, 3715, 2750]; matched sizes [2388, 5548, 5478]
+[   106.4s] [93s] gm12878 s0: acc 0.622 macroF1 0.499 iters 294
+[   116.5s] [103s] gm12878 s1: acc 0.621 macroF1 0.495 iters 307
+[   126.8s] [113s] gm12878 s2: acc 0.623 macroF1 0.499 iters 310
+[   128.7s]           accuracy        macro_f1
+[   128.7s]               mean    std     mean    std
+[   128.7s] biosample
+[   128.7s] gm12878      0.622  0.001    0.498  0.002
+[   128.7s] k562         0.630  0.002    0.484  0.004
+[   128.7s] tcell        0.636  0.001    0.473  0.001
+[   128.7s] biosample             model class  auroc_ovr_full  auroc_vs_bg_full  auroc_vs_bg_matched    f1  auroc_vs_bg_full_sd  auroc_vs_bg_matched_sd
+[   128.7s]   gm12878         gc_cpg_lr   PLS           0.837             0.877                0.527   NaN                0.001                   0.003
+[   128.7s]   gm12878         gc_cpg_lr  dELS           0.743             0.668                0.503   NaN                0.000                   0.001
+[   128.7s]   gm12878         gc_cpg_lr  pELS           0.706             0.763                0.521   NaN                0.000                   0.001
+[   128.7s]   gm12878 xgb_k4_multiclass   PLS           0.874             0.926                0.697 0.423                0.001                   0.003
+[   128.7s]   gm12878 xgb_k4_multiclass  dELS           0.795             0.765                0.672 0.340                0.000                   0.001
+[   128.7s]   gm12878 xgb_k4_multiclass  pELS           0.782             0.848                0.715 0.464                0.000                   0.001
+[   128.7s]      k562         gc_cpg_lr   PLS           0.831             0.882                0.519   NaN                0.001                   0.001
+[   128.7s]      k562         gc_cpg_lr  dELS           0.710             0.637                0.505   NaN                0.001                   0.001
+[   128.7s]      k562         gc_cpg_lr  pELS           0.718             0.788                0.520   NaN                0.001                   0.002
+[   128.7s]      k562 xgb_k4_multiclass   PLS           0.868             0.930                0.701 0.421                0.001                   0.001
+[   128.7s]      k562 xgb_k4_multiclass  dELS           0.765             0.745                0.667 0.234                0.001                   0.001
+[   128.7s]      k562 xgb_k4_multiclass  pELS           0.792             0.871                0.728 0.501                0.001                   0.002
+[   128.7s]     tcell         gc_cpg_lr   PLS           0.834             0.899                0.530   NaN                0.000                   0.001
+[   128.7s]     tcell         gc_cpg_lr  dELS           0.726             0.656                0.501   NaN                0.003                   0.003
+[   128.7s]     tcell         gc_cpg_lr  pELS           0.723             0.832                0.529   NaN                0.001                   0.003
+[   128.7s]     tcell xgb_k4_multiclass   PLS           0.864             0.938                0.717 0.549                0.000                   0.001
+[   128.7s]     tcell xgb_k4_multiclass  dELS           0.770             0.743                0.658 0.217                0.003                   0.003
+[   128.7s]     tcell xgb_k4_multiclass  pELS           0.773             0.876                0.685 0.327                0.001                   0.003
+[   128.7s] biosample  seed class  total_mean_abs_shap  cg_share_of_abs_shap  cg_share_expected_if_no_preference
+[   128.7s]     tcell     0   PLS                4.605                 0.377                               0.184
+[   128.7s]     tcell     0  pELS                3.490                 0.301                               0.184
+[   128.7s]     tcell     0  dELS                4.819                 0.282                               0.184
+[   128.7s]     tcell     1   PLS                4.691                 0.371                               0.184
+[   128.7s]     tcell     1  pELS                3.571                 0.299                               0.184
+[   128.7s]     tcell     1  dELS                4.962                 0.276                               0.184
+[   128.7s]     tcell     2   PLS                4.611                 0.371                               0.184
+[   128.7s]     tcell     2  pELS                3.555                 0.306                               0.184
+[   128.7s]     tcell     2  dELS                4.892                 0.271                               0.184
+[   128.7s]      k562     0   PLS                5.303                 0.396                               0.184
+[   128.7s]      k562     0  pELS                3.727                 0.303                               0.184
+[   128.7s]      k562     0  dELS                4.615                 0.292                               0.184
+[   128.7s]      k562     1   PLS                5.303                 0.402                               0.184
+[   128.7s]      k562     1  pELS                3.700                 0.305                               0.184
+[   128.7s]      k562     1  dELS                4.542                 0.287                               0.184
+[   128.7s]      k562     2   PLS                5.046                 0.416                               0.184
+[   128.7s]      k562     2  pELS                3.536                 0.317                               0.184
+[   128.7s]      k562     2  dELS                4.318                 0.290                               0.184
+[   128.7s]   gm12878     0   PLS                5.278                 0.397                               0.184
+[   128.7s]   gm12878     0  pELS                3.680                 0.337                               0.184
+[   128.7s]   gm12878     0  dELS                4.424                 0.293                               0.184
+[   128.7s]   gm12878     1   PLS                5.278                 0.398                               0.184
+[   128.7s]   gm12878     1  pELS                3.763                 0.328                               0.184
+[   128.7s]   gm12878     1  dELS                4.433                 0.289                               0.184
+[   128.7s]   gm12878     2   PLS                5.308                 0.402                               0.184
+[   128.7s]   gm12878     2  pELS                3.752                 0.336                               0.184
+[   128.7s]   gm12878     2  dELS                4.483                 0.284                               0.184
+[   128.7s] biosample class  n_seeds  mean_jaccard_top20_across_seeds
+[   128.7s]     tcell   PLS        3                            0.792
+[   128.7s]     tcell  pELS        3                            0.876
+[   128.7s]     tcell  dELS        3                            0.818
+[   128.7s]      k562   PLS        3                            0.847
+[   128.7s]      k562  pELS        3                            0.792
+[   128.7s]      k562  dELS        3                            0.847
+[   128.7s]   gm12878   PLS        3                            0.792
+[   128.7s]   gm12878  pELS        3                            0.695
+[   128.7s]   gm12878  dELS        3                            0.847
+[   128.7s] class          pair  jaccard_top20  shared
+[   128.7s]   PLS    tcell-k562          0.429      12
+[   128.7s]   PLS tcell-gm12878          0.429      12
+[   128.7s]   PLS  k562-gm12878          0.600      15
+[   128.7s]  pELS    tcell-k562          0.333      10
+[   128.7s]  pELS tcell-gm12878          0.290       9
+[   128.7s]  pELS  k562-gm12878          0.481      13
+[   128.7s]  dELS    tcell-k562          0.176       6
+[   128.7s]  dELS tcell-gm12878          0.429      12
+[   128.7s]  dELS  k562-gm12878          0.290       9
+[   128.7s] done in 115s
+[   131.6s]   cells[i][c] = re.sub('\\\\\|', '|', cell)
+[   131.8s]   text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[   132.6s] [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+[   132.6s] [NbConvertApp] Writing 27723 bytes to __notebook__.ipynb
+[   135.1s] [NbConvertApp] Converting notebook __notebook__.ipynb to html
+[   135.7s] [NbConvertApp] Writing 360820 bytes to __results__.html

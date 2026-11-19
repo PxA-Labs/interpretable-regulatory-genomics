@@ -169,6 +169,7 @@
   - [ ] Extract first-layer CNN filters from GM12878-trained model
   - [ ] Export to MEME format using `src/interpret/cnn_interpretability.py`
   - [ ] Run Tomtom against JASPAR to identify matching TF motifs
+    - Note (2026-11-19): Tomtom itself has not been run. An offline FDR-controlled matcher (not Tomtom) was run for the 30 notebook-07 CNNs against JASPAR 2024: `docs/results/motif_fdr.md`. It found almost no significant matches and no motif shared across biosamples, so the cell-type comparison below has nothing reliable to compare yet.
   - [ ] Compare K562-specific vs. GM12878-specific filter motifs
   - [ ] Cross-reference with known lineage TFs (K562: GATA1, KLF1, TAL1; GM12878: PAX5, EBF1, PU.1)
 

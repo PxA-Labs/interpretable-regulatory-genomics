@@ -11,3 +11,5 @@ Exported snapshot from PxA-Labs/interpretable-regulatory-genomics.
 | 12 | [Phase 4: Extensibility into Multi-Omics or Cell-Type-Specific Prediction](012-phase-4-extensibility-into-multi-omics-or-cell-type-specific.md) | Show and tell | archittmittal | 1 |
 | 16 | [Phase 1 Solidification & Baseline Verification Completion](016-phase-1-solidification-baseline-verification-completion.md) | Announcements | purvanshjoshi | 3 |
 | 18 | [Phase 2 Solidification: Multi-class Deep Learning & Cross-Cell-Type Generalization (K562 -> GM12878)](018-phase-2-solidification-multi-class-deep-learning-cross-cell-.md) | Announcements | purvanshjoshi | 0 |
+
+> Note (2026-11-19): the motif claims in #11 are not supported by `docs/results/motif_fdr.md` (see the editor's note at the top of that file). Several headline numbers in #1, #5 and #16 also disagree with the unified re-runs in `docs/results/`; check there before citing.

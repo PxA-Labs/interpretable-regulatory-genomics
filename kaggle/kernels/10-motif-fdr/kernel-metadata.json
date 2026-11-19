@@ -1,0 +1,25 @@
+{
+  "id": "purvanshj009/irg-10-motif-fdr",
+  "title": "IRG 10 Motif FDR",
+  "code_file": "10_motif_fdr.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": [
+    "gpu"
+  ],
+  "dataset_sources": [
+    "purvanshj009/irg-jaspar2024"
+  ],
+  "kernel_sources": [
+    "purvanshj009/irg-02-package-dataset",
+    "purvanshj009/irg-07-cnn-tuned"
+  ],
+  "competition_sources": [],
+  "model_sources": [],
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:fc720c15545eb096a510e1f085b17fc118387a007599424d953a4f327b71cacf",
+  "machine_shape": "NvidiaTeslaT4"
+}

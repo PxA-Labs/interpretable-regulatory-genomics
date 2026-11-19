@@ -1,0 +1,101 @@
+[    10.8s] 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+[    10.8s] 0.00s - to python to disable frozen modules.
+[    11.5s] 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+[    11.5s] 0.00s - to python to disable frozen modules.
+[    29.4s] device cuda repeat rows 328505
+[    32.0s] [4s] tcell: test 12422 {'full': 12422, 'gc_cpg_matched': 6514, 'gc_cpg_rep_matched': 6164, 'rep_low': 5147, 'rep_mid': 4688, 'rep_high': 2587}
+[    32.0s] [4s] tcell feat6_lr s0: full 0.824 gc_cpg 0.588 +rep 0.547
+[    41.2s] [13s] tcell xgb_k4 s0: full 0.870 gc_cpg 0.703 +rep 0.690
+[    43.3s] [16s] tcell xgb_k4 s1: full 0.869 gc_cpg 0.696 +rep 0.683
+[    45.4s] [18s] tcell xgb_k4 s2: full 0.870 gc_cpg 0.699 +rep 0.686
+[    79.6s] [52s] tcell xgb_k6 s0: full 0.882 gc_cpg 0.728 +rep 0.715
+[   104.7s] [77s] tcell xgb_k6 s1: full 0.879 gc_cpg 0.721 +rep 0.706
+[   133.2s] [105s] tcell xgb_k6 s2: full 0.883 gc_cpg 0.728 +rep 0.718
+[   142.2s] [114s] tcell shallow_cnn s0: full 0.888 gc_cpg 0.741 +rep 0.728
+[   143.0s] [115s] tcell shallow_cnn s1: full 0.884 gc_cpg 0.735 +rep 0.723
+[   143.9s] [116s] tcell shallow_cnn s2: full 0.885 gc_cpg 0.733 +rep 0.719
+[   144.7s] [117s] tcell shallow_cnn s3: full 0.887 gc_cpg 0.741 +rep 0.727
+[   145.6s] [118s] tcell shallow_cnn s4: full 0.885 gc_cpg 0.738 +rep 0.725
+[   148.3s] [121s] tcell attn_cnn s0: full 0.900 gc_cpg 0.767 +rep 0.757
+[   150.9s] [123s] tcell attn_cnn s1: full 0.895 gc_cpg 0.761 +rep 0.751
+[   153.5s] [126s] tcell attn_cnn s2: full 0.898 gc_cpg 0.764 +rep 0.758
+[   156.3s] [129s] tcell attn_cnn s3: full 0.871 gc_cpg 0.703 +rep 0.692
+[   159.0s] [131s] tcell attn_cnn s4: full 0.890 gc_cpg 0.747 +rep 0.737
+[   162.0s] [134s] k562: test 15863 {'full': 15863, 'gc_cpg_matched': 9940, 'gc_cpg_rep_matched': 9266, 'rep_low': 5833, 'rep_mid': 5679, 'rep_high': 4351}
+[   162.0s] [134s] k562 feat6_lr s0: full 0.770 gc_cpg 0.580 +rep 0.537
+[   172.5s] [145s] k562 xgb_k4 s0: full 0.849 gc_cpg 0.732 +rep 0.707
+[   175.3s] [148s] k562 xgb_k4 s1: full 0.850 gc_cpg 0.733 +rep 0.711
+[   178.3s] [151s] k562 xgb_k4 s2: full 0.849 gc_cpg 0.734 +rep 0.713
+[   229.1s] [201s] k562 xgb_k6 s0: full 0.862 gc_cpg 0.758 +rep 0.738
+[   264.5s] [237s] k562 xgb_k6 s1: full 0.862 gc_cpg 0.759 +rep 0.739
+[   302.5s] [275s] k562 xgb_k6 s2: full 0.864 gc_cpg 0.761 +rep 0.743
+[   303.5s] [276s] k562 shallow_cnn s0: full 0.867 gc_cpg 0.767 +rep 0.749
+[   304.6s] [277s] k562 shallow_cnn s1: full 0.870 gc_cpg 0.773 +rep 0.757
+[   305.7s] [278s] k562 shallow_cnn s2: full 0.867 gc_cpg 0.768 +rep 0.750
+[   306.8s] [279s] k562 shallow_cnn s3: full 0.869 gc_cpg 0.770 +rep 0.753
+[   307.8s] [280s] k562 shallow_cnn s4: full 0.864 gc_cpg 0.763 +rep 0.745
+[   311.2s] [283s] k562 attn_cnn s0: full 0.870 gc_cpg 0.775 +rep 0.759
+[   314.7s] [287s] k562 attn_cnn s1: full 0.855 gc_cpg 0.744 +rep 0.725
+[   318.1s] [290s] k562 attn_cnn s2: full 0.853 gc_cpg 0.738 +rep 0.717
+[   321.3s] [294s] k562 attn_cnn s3: full 0.855 gc_cpg 0.744 +rep 0.725
+[   324.6s] [297s] k562 attn_cnn s4: full 0.856 gc_cpg 0.742 +rep 0.724
+[   327.9s] [300s] gm12878: test 16600 {'full': 16600, 'gc_cpg_matched': 11274, 'gc_cpg_rep_matched': 10362, 'rep_low': 5544, 'rep_mid': 5834, 'rep_high': 5222}
+[   327.9s] [300s] gm12878 feat6_lr s0: full 0.743 gc_cpg 0.598 +rep 0.533
+[   339.9s] [312s] gm12878 xgb_k4 s0: full 0.822 gc_cpg 0.715 +rep 0.693
+[   343.1s] [315s] gm12878 xgb_k4 s1: full 0.823 gc_cpg 0.719 +rep 0.695
+[   346.5s] [319s] gm12878 xgb_k4 s2: full 0.823 gc_cpg 0.720 +rep 0.697
+[   403.6s] [376s] gm12878 xgb_k6 s0: full 0.835 gc_cpg 0.744 +rep 0.718
+[   443.4s] [416s] gm12878 xgb_k6 s1: full 0.834 gc_cpg 0.743 +rep 0.716
+[   485.5s] [458s] gm12878 xgb_k6 s2: full 0.834 gc_cpg 0.742 +rep 0.719
+[   486.6s] [459s] gm12878 shallow_cnn s0: full 0.846 gc_cpg 0.763 +rep 0.745
+[   487.7s] [460s] gm12878 shallow_cnn s1: full 0.847 gc_cpg 0.766 +rep 0.748
+[   488.8s] [461s] gm12878 shallow_cnn s2: full 0.845 gc_cpg 0.761 +rep 0.743
+[   489.9s] [462s] gm12878 shallow_cnn s3: full 0.847 gc_cpg 0.765 +rep 0.746
+[   491.0s] [463s] gm12878 shallow_cnn s4: full 0.848 gc_cpg 0.767 +rep 0.749
+[   494.5s] [467s] gm12878 attn_cnn s0: full 0.856 gc_cpg 0.778 +rep 0.758
+[   498.0s] [470s] gm12878 attn_cnn s1: full 0.843 gc_cpg 0.756 +rep 0.737
+[   501.5s] [474s] gm12878 attn_cnn s2: full 0.847 gc_cpg 0.765 +rep 0.744
+[   504.9s] [477s] gm12878 attn_cnn s3: full 0.848 gc_cpg 0.771 +rep 0.749
+[   508.3s] [481s] gm12878 attn_cnn s4: full 0.843 gc_cpg 0.759 +rep 0.739
+[   508.4s] biosample       model  auroc_full  auroc_gc_cpg_matched  auroc_gc_cpg_rep_matched  auroc_rep_low  auroc_rep_mid  auroc_rep_high
+[   508.4s]   gm12878    attn_cnn       0.848                 0.766                     0.745          0.860          0.853           0.809
+[   508.4s]   gm12878    feat6_lr       0.743                 0.598                     0.533          0.778          0.757           0.659
+[   508.4s]   gm12878 shallow_cnn       0.847                 0.764                     0.746          0.859          0.850           0.808
+[   508.4s]   gm12878      xgb_k4       0.823                 0.718                     0.695          0.844          0.829           0.764
+[   508.4s]   gm12878      xgb_k6       0.834                 0.743                     0.718          0.848          0.844           0.782
+[   508.4s]      k562    attn_cnn       0.858                 0.749                     0.730          0.868          0.859           0.825
+[   508.4s]      k562    feat6_lr       0.770                 0.580                     0.537          0.788          0.778           0.701
+[   508.4s]      k562 shallow_cnn       0.868                 0.768                     0.751          0.874          0.868           0.840
+[   508.4s]      k562      xgb_k4       0.850                 0.733                     0.711          0.856          0.850           0.818
+[   508.4s]      k562      xgb_k6       0.863                 0.759                     0.740          0.865          0.864           0.842
+[   508.4s]     tcell    attn_cnn       0.891                 0.749                     0.739          0.898          0.888           0.850
+[   508.4s]     tcell    feat6_lr       0.824                 0.588                     0.547          0.837          0.827           0.744
+[   508.4s]     tcell shallow_cnn       0.886                 0.737                     0.724          0.899          0.882           0.829
+[   508.4s]     tcell      xgb_k4       0.870                 0.699                     0.686          0.881          0.867           0.812
+[   508.4s]     tcell      xgb_k6       0.881                 0.726                     0.713          0.891          0.880           0.826
+[   508.4s] biosample                set     n  pos_frac
+[   508.4s]     tcell               full 12422  0.500000
+[   508.4s]     tcell     gc_cpg_matched  6514  0.500000
+[   508.4s]     tcell gc_cpg_rep_matched  6164  0.500000
+[   508.4s]     tcell            rep_low  5147  0.508840
+[   508.4s]     tcell            rep_mid  4688  0.592363
+[   508.4s]     tcell           rep_high  2587  0.315037
+[   508.4s]      k562               full 15863  0.500032
+[   508.4s]      k562     gc_cpg_matched  9940  0.500000
+[   508.4s]      k562 gc_cpg_rep_matched  9266  0.500000
+[   508.4s]      k562            rep_low  5833  0.518601
+[   508.4s]      k562            rep_mid  5679  0.577038
+[   508.4s]      k562           rep_high  4351  0.374627
+[   508.4s]   gm12878               full 16600  0.500000
+[   508.4s]   gm12878     gc_cpg_matched 11274  0.500000
+[   508.4s]   gm12878 gc_cpg_rep_matched 10362  0.500000
+[   508.4s]   gm12878            rep_low  5544  0.529942
+[   508.4s]   gm12878            rep_mid  5834  0.582448
+[   508.4s]   gm12878           rep_high  5222  0.376101
+[   508.4s] done in 481s
+[   514.7s]   cells[i][c] = re.sub('\\\\\|', '|', cell)
+[   514.9s]   text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[   515.8s] [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+[   515.9s] [NbConvertApp] Writing 25658 bytes to __notebook__.ipynb
+[   518.4s] [NbConvertApp] Converting notebook __notebook__.ipynb to html
+[   519.0s] [NbConvertApp] Writing 350894 bytes to __results__.html

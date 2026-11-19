@@ -1,0 +1,19 @@
+{
+ "xgb_seeds": [
+  0,
+  1,
+  2
+ ],
+ "cnn_seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "smoke": false,
+ "device": "cuda",
+ "cnn_weights_found": 30,
+ "torch": "2.11.0+cu130",
+ "runtime_s": 481
+}

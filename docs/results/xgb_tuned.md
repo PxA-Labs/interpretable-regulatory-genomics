@@ -1,5 +1,7 @@
 # Is the CNN advantage real once XGBoost is tuned too? (notebook 09)
 
+> **Update (notebook 11):** the truncation caveats below were followed up in [`xgb_wide.md`](xgb_wide.md). Lifting the tree cap and widening the search raised XGBoost test AUROC by a further 0.001-0.003 (full) and 0.003-0.006 (matched); the conclusions here hold, and the remaining CNN edge on GM12878 shrinks to +0.001 (full) and +0.007 (matched) for ShallowCNN.
+
 Run `20261119_irg-09-xgb-tuned` (Kaggle v2, GPU, 6,248 s). k=6 k-mer frequencies (4,096 features), GC-matched v2.1 tables, canonical split, same four test sets as notebooks 07-08. A random search of 24 XGBoost configurations (config 0 is the previous default) was run on the **validation** set only (seed 0, early stopping on validation AUC, up to 1,500 trees); then 5 seeds at the selected configuration and 5 seeds at the default. Test chromosomes were never used for selection.
 
 ## Test AUROC, mean over 5 seeds (SD in brackets, full and matched sets)

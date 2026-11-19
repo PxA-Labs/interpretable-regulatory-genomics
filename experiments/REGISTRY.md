@@ -21,7 +21,7 @@ them, so the log plus the pinned `kernel_version` in `run.yaml` is the execution
 | `20261119_irg-08-repeat-control` | 08 | Is the signal repeat content? | Repeat matching lowers AUROC only 0.010-0.025; model ordering unchanged | `docs/results/repeat_control.md` | run record, `irg-repeat-coverage` (Kaggle) |
 | `20261119_irg-09-xgb-tuned` | 09 | Is the CNN advantage real vs a tuned XGBoost? | Tuning +0.005-0.008; CNN advantage mostly gone, only GM12878 stays ahead | `docs/results/xgb_tuned.md` | `PxALabs/irg-xgboost-baselines` (15 models) |
 | `20261119_irg-10-motif-fdr` | 10 | Do CNN filters match JASPAR motifs under FDR control? | 0.4% of 3,699 filters (own matcher, not Tomtom); Discussion #11 claim not supported | `docs/results/motif_fdr.md` | run record, `irg-jaspar2024` (Kaggle) |
-| `20261119_irg-11-xgb-wide` | 11 | Was the tuned XGBoost still under-tuned (tree cap binding)? | Pending (running) | - | - |
+| `20261120_irg-11-xgb-wide` | 11 | Was the tuned XGBoost still under-tuned (tree cap binding)? | Slightly: +0.001-0.003 full AUROC, +0.003-0.006 matched; XGBoost now level with or ahead of ShallowCNN except GM12878 matched sets | `docs/results/xgb_wide.md` | `PxALabs/irg-xgboost-wide` (15 models) |
 | `20261119_irg-12-multiclass-shap` | 12 | What separates PLS / pELS / dELS? | Composition explains most of the promoter advantage; after GC+CpG matching pELS ~ PLS > dELS; drivers form a CpG gradient | `docs/results/multiclass_shap.md` | run record |
 
 Not yet done: tuned CNN architecture search, language-model embeddings or fine-tuning (held back by decision), orthogonal validation of any motif.

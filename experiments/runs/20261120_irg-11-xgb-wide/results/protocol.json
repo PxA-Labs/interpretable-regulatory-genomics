@@ -1,0 +1,175 @@
+{
+ "stage_a": {
+  "configs": {
+   "tcell": [
+    21,
+    1,
+    23
+   ],
+   "k562": [
+    23,
+    1,
+    20
+   ],
+   "gm12878": [
+    1,
+    21,
+    23
+   ]
+  },
+  "cap": 8000
+ },
+ "stage_b": {
+  "space": {
+   "max_depth": [
+    6,
+    8,
+    10
+   ],
+   "learning_rate": [
+    0.05,
+    0.08
+   ],
+   "subsample": [
+    0.6,
+    0.8,
+    1.0
+   ],
+   "colsample_bytree": [
+    0.1,
+    0.2,
+    0.3
+   ],
+   "min_child_weight": [
+    1,
+    5,
+    10
+   ],
+   "reg_lambda": [
+    20.0,
+    50.0,
+    100.0
+   ]
+  },
+  "configs": [
+   {
+    "max_depth": 10,
+    "learning_rate": 0.08,
+    "subsample": 0.8,
+    "colsample_bytree": 0.2,
+    "min_child_weight": 1,
+    "reg_lambda": 50.0
+   },
+   {
+    "max_depth": 8,
+    "learning_rate": 0.08,
+    "subsample": 0.6,
+    "colsample_bytree": 0.1,
+    "min_child_weight": 1,
+    "reg_lambda": 50.0
+   },
+   {
+    "max_depth": 8,
+    "learning_rate": 0.08,
+    "subsample": 0.8,
+    "colsample_bytree": 0.2,
+    "min_child_weight": 5,
+    "reg_lambda": 100.0
+   },
+   {
+    "max_depth": 6,
+    "learning_rate": 0.05,
+    "subsample": 1.0,
+    "colsample_bytree": 0.1,
+    "min_child_weight": 5,
+    "reg_lambda": 20.0
+   },
+   {
+    "max_depth": 8,
+    "learning_rate": 0.08,
+    "subsample": 0.8,
+    "colsample_bytree": 0.3,
+    "min_child_weight": 5,
+    "reg_lambda": 100.0
+   },
+   {
+    "max_depth": 8,
+    "learning_rate": 0.05,
+    "subsample": 0.6,
+    "colsample_bytree": 0.1,
+    "min_child_weight": 5,
+    "reg_lambda": 100.0
+   },
+   {
+    "max_depth": 8,
+    "learning_rate": 0.05,
+    "subsample": 0.8,
+    "colsample_bytree": 0.1,
+    "min_child_weight": 1,
+    "reg_lambda": 20.0
+   },
+   {
+    "max_depth": 10,
+    "learning_rate": 0.08,
+    "subsample": 0.8,
+    "colsample_bytree": 0.1,
+    "min_child_weight": 1,
+    "reg_lambda": 20.0
+   }
+  ],
+  "cap": 4000,
+  "space_seed": 777
+ },
+ "final_cap": 8000,
+ "early_stopping_rounds": 100,
+ "selected": {
+  "tcell": {
+   "stage": "B",
+   "config": "B5",
+   "params": {
+    "max_depth": 8,
+    "learning_rate": 0.05,
+    "subsample": 0.6,
+    "colsample_bytree": 0.1,
+    "min_child_weight": 5,
+    "reg_lambda": 100.0
+   }
+  },
+  "k562": {
+   "stage": "B",
+   "config": "B5",
+   "params": {
+    "max_depth": 8,
+    "learning_rate": 0.05,
+    "subsample": 0.6,
+    "colsample_bytree": 0.1,
+    "min_child_weight": 5,
+    "reg_lambda": 100.0
+   }
+  },
+  "gm12878": {
+   "stage": "A",
+   "config": "nb09-1",
+   "params": {
+    "max_depth": 8,
+    "learning_rate": 0.05,
+    "subsample": 1.0,
+    "colsample_bytree": 0.3,
+    "min_child_weight": 1,
+    "reg_lambda": 20.0
+   }
+  }
+ },
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "smoke": false,
+ "device": "cuda",
+ "xgboost": "3.4.1",
+ "model_bytes_total": 323065016,
+ "runtime_s": 5725
+}

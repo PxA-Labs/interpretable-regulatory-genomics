@@ -44,10 +44,9 @@ def tidy(ax, grid_axis="y"):
 def fig_ladder(out):
     """AUROC as controls are added: full -> GC+CpG matched -> +repeat matched, per biosample."""
     rc = csv("20261119_irg-08-repeat-control", "repeat_control.csv")
-    xt = csv("20261119_irg-09-xgb-tuned", "xgb_tuned.csv")
-    xt = xt[xt.model == "xgb_k6_tuned"]
+    xt = csv("20261120_irg-11-xgb-wide", "xgb_wide.csv")
     cols = ["auroc_full", "auroc_gc_cpg_matched", "auroc_gc_cpg_rep_matched"]
-    series = [("XGBoost k=6 (tuned)", xt, BLUE, "o", None), ("ShallowCNN", rc[rc.model == "shallow_cnn"], ORANGE, "s", None),
+    series = [("XGBoost k=6 (tuned, wide search)", xt, BLUE, "o", None), ("ShallowCNN", rc[rc.model == "shallow_cnn"], ORANGE, "s", None),
               ("AttnCNN", rc[rc.model == "attn_cnn"], AQUA, "^", None), ("GC + CpG + repeat features only", rc[rc.model == "feat6_lr"], GRAY, "D", "--")]
     fig, axs = plt.subplots(1, 3, figsize=(11.5, 4.1), sharey=True)
     for ax, b in zip(axs, BIO):
@@ -77,22 +76,26 @@ def fmt(v):
 
 
 def fig_tuning(out):
-    """ShallowCNN minus XGBoost AUROC, before and after tuning XGBoost (untuned = notebook-08 XGBoost k=6, 3 seeds; tuned = notebook 09)."""
+    """ShallowCNN minus XGBoost AUROC, before and after tuning XGBoost (untuned = notebook-08 XGBoost k=6, 3 seeds; tuned = notebook 09, wide = notebook 11)."""
     rc = csv("20261119_irg-08-repeat-control", "repeat_control.csv")
     xt = csv("20261119_irg-09-xgb-tuned", "xgb_tuned.csv")
     xt = xt[xt.model == "xgb_k6_tuned"]
+    xw = csv("20261120_irg-11-xgb-wide", "xgb_wide.csv")
     fig, axs = plt.subplots(1, 2, figsize=(10.5, 3.6), sharey=True)
     for ax, (col, title) in zip(axs, [("auroc_full", "full test set"), ("auroc_gc_cpg_matched", "GC + CpG matched test subset")]):
         for i, b in enumerate(BIO):
             cnn = rc[(rc.model == "shallow_cnn") & (rc.biosample == b)].iloc[0][col]
             untuned = rc[(rc.model == "xgb_k6") & (rc.biosample == b)].iloc[0][col]
             tuned = xt[xt.biosample == b].iloc[0][col]
-            d0, d1 = cnn - untuned, cnn - tuned
-            ax.plot([d0, d1], [i, i], color=GRID, linewidth=3, zorder=1, solid_capstyle="round")
+            wide = xw[xw.biosample == b].iloc[0][col]
+            d0, d1, d2 = cnn - untuned, cnn - tuned, cnn - wide
+            ax.plot([d0, d2], [i, i], color=GRID, linewidth=3, zorder=1, solid_capstyle="round")
             ax.plot(d0, i, "o", color=GRAY, markersize=9, markeredgecolor=SURF, markeredgewidth=1.5, zorder=3, label="vs untuned XGBoost" if i == 0 else None)
-            ax.plot(d1, i, "o", color=BLUE, markersize=9, markeredgecolor=SURF, markeredgewidth=1.5, zorder=3, label="vs tuned XGBoost" if i == 0 else None)
+            ax.plot(d1, i, "o", color=BLUE, markersize=9, markeredgecolor=SURF, markeredgewidth=1.5, zorder=3, label="vs tuned XGBoost (nb09)" if i == 0 else None)
+            ax.plot(d2, i, "o", color=AQUA, markersize=9, markeredgecolor=SURF, markeredgewidth=1.5, zorder=3, label="vs tuned XGBoost, wide search" if i == 0 else None)
             ax.text(d0, i + 0.22, fmt(d0), ha="center", fontsize=8.5, color=INK2)
             ax.text(d1, i - 0.34, fmt(d1), ha="center", fontsize=8.5, color=BLUE)
+            ax.text(d2, i + 0.22, fmt(d2), ha="center", fontsize=8.5, color=INK2)
         ax.axvline(0, color=INK2, linewidth=1.2, zorder=2)
         ax.set_yticks(range(3), [BIO_LABEL[b] for b in BIO])
         ax.set_ylim(-0.7, 2.6)
@@ -102,8 +105,8 @@ def fig_tuning(out):
         ax.set_xlabel("ShallowCNN minus XGBoost, test AUROC  (right of 0 = CNN ahead)")
         tidy(ax, "x")
     h, l = axs[0].get_legend_handles_labels()
-    fig.legend(h, l, loc="lower center", ncol=2, frameon=False, bbox_to_anchor=(0.5, -0.01))
-    fig.suptitle("The CNN's advantage largely disappears once XGBoost is tuned too", x=0.01, ha="left", fontweight="bold", fontsize=12)
+    fig.legend(h, l, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.01))
+    fig.suptitle("The CNN's advantage largely disappears once XGBoost is tuned too (and further with a wider search)", x=0.01, ha="left", fontweight="bold", fontsize=12)
     fig.tight_layout(rect=(0, 0.07, 1, 0.93))
     fig.savefig(out / "fig2_tuning_effect.png", dpi=200)
     plt.close(fig)

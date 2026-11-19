@@ -1,0 +1,81 @@
+[{"stream_name":"stderr","time":5.831612833,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":5.831658108,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":6.620190453,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.6202492,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.620256232,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.620260452,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.164296244,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.164323293,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.164328369,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.164332,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":12.366342237,"data":"device cuda xgboost 3.4.1\n"}
+,{"stream_name":"stdout","time":12.384623152,"data":"stage B configurations: [{'max_depth': 10, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.2, 'min_child_weight': 1, 'reg_lambda': 50.0}, {'max_depth': 8, 'learning_rate': 0.08, 'subsample': 0.6, 'colsample_bytree': 0.1, 'min_child_weight': 1, 'reg_lambda': 50.0}, {'max_depth': 8, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.2, 'min_child_weight': 5, 'reg_lambda': 100.0}, {'max_depth': 6, 'learning_rate': 0.05, 'subsample': 1.0, 'colsample_bytree': 0.1, 'min_child_weight': 5, 'reg_lambda': 20.0}, {'max_depth': 8, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.3, 'min_child_weight': 5, 'reg_lambda': 100.0}, {'max_depth': 8, 'learning_rate': 0.05, 'subsample': 0.6, 'colsample_bytree': 0.1, 'min_child_weight': 5, 'reg_lambda': 100.0}, {'max_depth': 8, 'learning_rate': 0.05, 'subsample': 0.8, 'colsample_bytree': 0.1, 'min_child_weight': 1, 'reg_lambda': 20.0}, {'max_depth': 10, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.1, 'min_child_weight': 1, 'reg_lambda': 20.0}]\n"}
+,{"stream_name":"stdout","time":23.85555442,"data":"[13s] tcell: features (85180, 4096), train 59568 val 13190 test 12422\n"}
+,{"stream_name":"stdout","time":80.048343592,"data":"[69s] tcell A/nb09-21: val 0.8984 iters 1902/8000 (56s) {'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.6, 'colsample_bytree': 0.3, 'min_child_weight': 10, 'reg_lambda': 1.0}\n"}
+,{"stream_name":"stdout","time":201.837688461,"data":"[191s] tcell A/nb09-1: val 0.8982 iters 2682/8000 (122s) {'max_depth': 8, 'learning_rate': 0.05, 'subsample': 1.0, 'colsample_bytree': 0.3, 'min_child_weight': 1, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":272.864698012,"data":"[262s] tcell A/nb09-23: val 0.8979 iters 2373/8000 (71s) {'max_depth': 6, 'learning_rate': 0.05, 'subsample': 1.0, 'colsample_bytree': 0.3, 'min_child_weight': 5, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":419.604724888,"data":"[409s] tcell B/B0: val 0.8984 iters 2503/4000 (147s) {'max_depth': 10, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.2, 'min_child_weight': 1, 'reg_lambda': 50.0}\n"}
+,{"stream_name":"stdout","time":465.660719443,"data":"[455s] tcell B/B1: val 0.8965 iters 888/4000 (46s) {'max_depth': 8, 'learning_rate': 0.08, 'subsample': 0.6, 'colsample_bytree': 0.1, 'min_child_weight': 1, 'reg_lambda': 50.0}\n"}
+,{"stream_name":"stdout","time":529.039433553,"data":"[518s] tcell B/B2: val 0.8979 iters 1345/4000 (63s) {'max_depth': 8, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.2, 'min_child_weight': 5, 'reg_lambda': 100.0}\n"}
+,{"stream_name":"stdout","time":601.541827584,"data":"[591s] tcell B/B3: val 0.8984 iters 2511/4000 (72s) {'max_depth': 6, 'learning_rate': 0.05, 'subsample': 1.0, 'colsample_bytree': 0.1, 'min_child_weight': 5, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":693.618708575,"data":"[683s] tcell B/B4: val 0.8989 iters 2023/4000 (92s) {'max_depth': 8, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.3, 'min_child_weight': 5, 'reg_lambda': 100.0}\n"}
+,{"stream_name":"stdout","time":813.195783596,"data":"[802s] tcell B/B5: val 0.8994 iters 2945/4000 (120s) {'max_depth': 8, 'learning_rate': 0.05, 'subsample': 0.6, 'colsample_bytree': 0.1, 'min_child_weight': 5, 'reg_lambda': 100.0}\n"}
+,{"stream_name":"stdout","time":896.507379467,"data":"[886s] tcell B/B6: val 0.8989 iters 1941/4000 (83s) {'max_depth': 8, 'learning_rate': 0.05, 'subsample': 0.8, 'colsample_bytree': 0.1, 'min_child_weight': 1, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":998.544089172,"data":"[988s] tcell B/B7: val 0.8971 iters 1818/4000 (102s) {'max_depth': 10, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.1, 'min_child_weight': 1, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":998.544149428,"data":"[988s] tcell: selected B/B5 (val 0.8994; best stage-A 0.8984; best stage-B 0.8994)\n"}
+,{"stream_name":"stdout","time":1119.383141306,"data":"[1109s] tcell final s0: full 0.8923 matched 0.7510 +rep 0.7390 iters 2945\n"}
+,{"stream_name":"stdout","time":1184.650164305,"data":"[1174s] tcell final s1: full 0.8904 matched 0.7432 +rep 0.7313 iters 1416\n"}
+,{"stream_name":"stdout","time":1261.725017154,"data":"[1251s] tcell final s2: full 0.8911 matched 0.7463 +rep 0.7355 iters 1739\n"}
+,{"stream_name":"stdout","time":1336.16117747,"data":"[1325s] tcell final s3: full 0.8917 matched 0.7456 +rep 0.7344 iters 1657\n"}
+,{"stream_name":"stdout","time":1412.200564979,"data":"[1401s] tcell final s4: full 0.8900 matched 0.7428 +rep 0.7322 iters 1704\n"}
+,{"stream_name":"stdout","time":1428.74359774,"data":"[1418s] k562: features (114480, 4096), train 81079 val 17538 test 15863\n"}
+,{"stream_name":"stdout","time":1527.188674395,"data":"[1516s] k562 A/nb09-23: val 0.8795 iters 2628/8000 (98s) {'max_depth': 6, 'learning_rate': 0.05, 'subsample': 1.0, 'colsample_bytree': 0.3, 'min_child_weight': 5, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":1620.220808783,"data":"[1610s] k562 A/nb09-1: val 0.8778 iters 1597/8000 (93s) {'max_depth': 8, 'learning_rate': 0.05, 'subsample': 1.0, 'colsample_bytree': 0.3, 'min_child_weight': 1, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":1739.003961026,"data":"[1728s] k562 A/nb09-20: val 0.8788 iters 2306/8000 (119s) {'max_depth': 8, 'learning_rate': 0.05, 'subsample': 1.0, 'colsample_bytree': 0.5, 'min_child_weight': 5, 'reg_lambda': 5.0}\n"}
+,{"stream_name":"stdout","time":1868.97785906,"data":"[1858s] k562 B/B0: val 0.8778 iters 1602/4000 (130s) {'max_depth': 10, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.2, 'min_child_weight': 1, 'reg_lambda': 50.0}\n"}
+,{"stream_name":"stdout","time":1943.519547291,"data":"[1933s] k562 B/B1: val 0.8763 iters 1205/4000 (75s) {'max_depth': 8, 'learning_rate': 0.08, 'subsample': 0.6, 'colsample_bytree': 0.1, 'min_child_weight': 1, 'reg_lambda': 50.0}\n"}
+,{"stream_name":"stdout","time":2003.392922347,"data":"[1993s] k562 B/B2: val 0.8767 iters 892/4000 (60s) {'max_depth': 8, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.2, 'min_child_weight': 5, 'reg_lambda': 100.0}\n"}
+,{"stream_name":"stdout","time":2114.256202378,"data":"[2104s] k562 B/B3: val 0.8784 iters 3116/4000 (111s) {'max_depth': 6, 'learning_rate': 0.05, 'subsample': 1.0, 'colsample_bytree': 0.1, 'min_child_weight': 5, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":2186.750265187,"data":"[2176s] k562 B/B4: val 0.8789 iters 1110/4000 (72s) {'max_depth': 8, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.3, 'min_child_weight': 5, 'reg_lambda': 100.0}\n"}
+,{"stream_name":"stdout","time":2295.317585836,"data":"[2285s] k562 B/B5: val 0.8802 iters 1958/4000 (109s) {'max_depth': 8, 'learning_rate': 0.05, 'subsample': 0.6, 'colsample_bytree': 0.1, 'min_child_weight': 5, 'reg_lambda': 100.0}\n"}
+,{"stream_name":"stdout","time":2404.974413236,"data":"[2394s] k562 B/B6: val 0.8791 iters 2055/4000 (110s) {'max_depth': 8, 'learning_rate': 0.05, 'subsample': 0.8, 'colsample_bytree': 0.1, 'min_child_weight': 1, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":2594.301808871,"data":"[2584s] k562 B/B7: val 0.8788 iters 2802/4000 (189s) {'max_depth': 10, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.1, 'min_child_weight': 1, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":2594.301850428,"data":"[2584s] k562: selected B/B5 (val 0.8802; best stage-A 0.8795; best stage-B 0.8802)\n"}
+,{"stream_name":"stdout","time":2704.229133673,"data":"[2694s] k562 final s0: full 0.8719 matched 0.7744 +rep 0.7553 iters 1958\n"}
+,{"stream_name":"stdout","time":2809.549024403,"data":"[2799s] k562 final s1: full 0.8714 matched 0.7730 +rep 0.7545 iters 1840\n"}
+,{"stream_name":"stdout","time":2917.447055537,"data":"[2907s] k562 final s2: full 0.8702 matched 0.7723 +rep 0.7537 iters 1906\n"}
+,{"stream_name":"stdout","time":3002.30620906,"data":"[2992s] k562 final s3: full 0.8700 matched 0.7693 +rep 0.7500 iters 1412\n"}
+,{"stream_name":"stdout","time":3103.728805373,"data":"[3093s] k562 final s4: full 0.8714 matched 0.7730 +rep 0.7543 iters 1782\n"}
+,{"stream_name":"stdout","time":3121.675727509,"data":"[3111s] gm12878: features (128845, 4096), train 91717 val 20528 test 16600\n"}
+,{"stream_name":"stdout","time":3359.205332533,"data":"[3348s] gm12878 A/nb09-1: val 0.8524 iters 3965/8000 (238s) {'max_depth': 8, 'learning_rate': 0.05, 'subsample': 1.0, 'colsample_bytree': 0.3, 'min_child_weight': 1, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":3445.859717849,"data":"[3435s] gm12878 A/nb09-21: val 0.8488 iters 1841/8000 (87s) {'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.6, 'colsample_bytree': 0.3, 'min_child_weight': 10, 'reg_lambda': 1.0}\n"}
+,{"stream_name":"stdout","time":3567.903214294,"data":"[3557s] gm12878 A/nb09-23: val 0.8501 iters 2849/8000 (122s) {'max_depth': 6, 'learning_rate': 0.05, 'subsample': 1.0, 'colsample_bytree': 0.3, 'min_child_weight': 5, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":3818.260236592,"data":"[3808s] gm12878 B/B0: val 0.8505 iters 2988/4000 (250s) {'max_depth': 10, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.2, 'min_child_weight': 1, 'reg_lambda': 50.0}\n"}
+,{"stream_name":"stdout","time":3947.470834708,"data":"[3937s] gm12878 B/B1: val 0.8477 iters 2067/4000 (129s) {'max_depth': 8, 'learning_rate': 0.08, 'subsample': 0.6, 'colsample_bytree': 0.1, 'min_child_weight': 1, 'reg_lambda': 50.0}\n"}
+,{"stream_name":"stdout","time":4044.774239784,"data":"[4034s] gm12878 B/B2: val 0.8499 iters 1440/4000 (97s) {'max_depth': 8, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.2, 'min_child_weight': 5, 'reg_lambda': 100.0}\n"}
+,{"stream_name":"stdout","time":4164.968269139,"data":"[4154s] gm12878 B/B3: val 0.8488 iters 2870/4000 (120s) {'max_depth': 6, 'learning_rate': 0.05, 'subsample': 1.0, 'colsample_bytree': 0.1, 'min_child_weight': 5, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":4240.460038348,"data":"[4230s] gm12878 B/B4: val 0.8486 iters 984/4000 (75s) {'max_depth': 8, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.3, 'min_child_weight': 5, 'reg_lambda': 100.0}\n"}
+,{"stream_name":"stdout","time":4379.260500542,"data":"[4369s] gm12878 B/B5: val 0.8509 iters 2258/4000 (139s) {'max_depth': 8, 'learning_rate': 0.05, 'subsample': 0.6, 'colsample_bytree': 0.1, 'min_child_weight': 5, 'reg_lambda': 100.0}\n"}
+,{"stream_name":"stdout","time":4536.772881292,"data":"[4526s] gm12878 B/B6: val 0.8505 iters 2762/4000 (158s) {'max_depth': 8, 'learning_rate': 0.05, 'subsample': 0.8, 'colsample_bytree': 0.1, 'min_child_weight': 1, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":4787.453576049,"data":"[4777s] gm12878 B/B7: val 0.8507 iters 3323/4000 (251s) {'max_depth': 10, 'learning_rate': 0.08, 'subsample': 0.8, 'colsample_bytree': 0.1, 'min_child_weight': 1, 'reg_lambda': 20.0}\n"}
+,{"stream_name":"stdout","time":4787.45367177,"data":"[4777s] gm12878: selected A/nb09-1 (val 0.8524; best stage-A 0.8524; best stage-B 0.8509)\n"}
+,{"stream_name":"stdout","time":5026.644468965,"data":"[5016s] gm12878 final s0: full 0.8453 matched 0.7572 +rep 0.7344 iters 3965\n"}
+,{"stream_name":"stdout","time":5226.267423041,"data":"[5216s] gm12878 final s1: full 0.8452 matched 0.7577 +rep 0.7341 iters 3314\n"}
+,{"stream_name":"stdout","time":5422.934181811,"data":"[5412s] gm12878 final s2: full 0.8459 matched 0.7576 +rep 0.7353 iters 3212\n"}
+,{"stream_name":"stdout","time":5597.52290414,"data":"[5587s] gm12878 final s3: full 0.8462 matched 0.7583 +rep 0.7360 iters 2814\n"}
+,{"stream_name":"stdout","time":5735.863027391,"data":"[5725s] gm12878 final s4: full 0.8452 matched 0.7567 +rep 0.7321 iters 2173\n"}
+,{"stream_name":"stdout","time":5735.912720554,"data":"biosample       model  auroc_val  best_iteration  auroc_full  auroc_nonhomologous  auroc_gc_cpg_matched  auroc_gc_cpg_rep_matched\n"}
+,{"stream_name":"stdout","time":5735.912768382,"data":"  gm12878 xgb_k6_wide     0.8515          3095.6      0.8456               0.8421                0.7575                    0.7344\n"}
+,{"stream_name":"stdout","time":5735.912778242,"data":"     k562 xgb_k6_wide     0.8794          1779.6      0.8710               0.8677                0.7724                    0.7536\n"}
+,{"stream_name":"stdout","time":5735.912785613,"data":"    tcell xgb_k6_wide     0.8982          1892.2      0.8911               0.8891                0.7458                    0.7345\n"}
+,{"stream_name":"stdout","time":5735.912792901,"data":"model files 15 total MB 323.1\n"}
+,{"stream_name":"stdout","time":5735.912799372,"data":"done in 5725s\n"}
+,{"stream_name":"stderr","time":5738.73848749,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":5738.738516944,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":5738.879828338,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":5738.87984846,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":5739.609196236,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":5739.686568505,"data":"[NbConvertApp] Writing 27882 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":5742.202809647,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":5742.733527404,"data":"[NbConvertApp] Writing 356531 bytes to __results__.html\n"}
+]

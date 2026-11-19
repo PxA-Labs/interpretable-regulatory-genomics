@@ -1,0 +1,88 @@
+{
+ "n_configs": 24,
+ "space": {
+  "max_depth": [
+   4,
+   6,
+   8
+  ],
+  "learning_rate": [
+   0.05,
+   0.1
+  ],
+  "subsample": [
+   0.6,
+   0.8,
+   1.0
+  ],
+  "colsample_bytree": [
+   0.3,
+   0.5,
+   0.8
+  ],
+  "min_child_weight": [
+   1,
+   5,
+   10
+  ],
+  "reg_lambda": [
+   1.0,
+   5.0,
+   20.0
+  ]
+ },
+ "default": {
+  "max_depth": 6,
+  "learning_rate": 0.1,
+  "subsample": 0.8,
+  "colsample_bytree": 0.8,
+  "min_child_weight": 1,
+  "reg_lambda": 1.0
+ },
+ "space_seed": 12345,
+ "selected_config": {
+  "tcell": 21,
+  "k562": 23,
+  "gm12878": 1
+ },
+ "selected_params": {
+  "tcell": {
+   "max_depth": 6,
+   "learning_rate": 0.05,
+   "subsample": 0.6,
+   "colsample_bytree": 0.3,
+   "min_child_weight": 10,
+   "reg_lambda": 1.0
+  },
+  "k562": {
+   "max_depth": 6,
+   "learning_rate": 0.05,
+   "subsample": 1.0,
+   "colsample_bytree": 0.3,
+   "min_child_weight": 5,
+   "reg_lambda": 20.0
+  },
+  "gm12878": {
+   "max_depth": 8,
+   "learning_rate": 0.05,
+   "subsample": 1.0,
+   "colsample_bytree": 0.3,
+   "min_child_weight": 1,
+   "reg_lambda": 20.0
+  }
+ },
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "max_trees": 1500,
+ "early_stopping_rounds": 50,
+ "smoke": false,
+ "device": "cuda",
+ "xgboost": "3.4.1",
+ "model_bytes_total": 129149038,
+ "runtime_s": 6248
+}

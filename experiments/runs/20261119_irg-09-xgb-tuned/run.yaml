@@ -1,0 +1,12 @@
+run_id: 20261119_irg-09-xgb-tuned
+kernel: purvanshj009/irg-09-xgb-tuned
+kernel_version: 2
+notebook: kaggle/kernels/09-xgb-tuned/09_xgb_tuned.ipynb
+inputs: [kernel_output:purvanshj009/irg-02-package-dataset, dataset:purvanshj009/irg-repeat-coverage]
+seeds: [0, 1, 2, 3, 4]
+search: random search, 24 configurations (config 0 = previous default), seed 0, selected on validation AUC
+accelerator: GPU (XGBoost device=cuda)
+runtime_s: 6248
+results: docs/results/xgb_tuned.md
+models: huggingface.co/PxALabs/irg-xgboost-baselines (15 files, XGBoost native .ubj; not stored in git)
+note: version 1 was a smoke run and is not a result.

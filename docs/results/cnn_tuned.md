@@ -1,5 +1,7 @@
 # Was the notebook-06 CNN result an undertraining artefact? (notebook 07)
 
+> **Update (2026-11-19, notebook 09):** the small CNN advantage over XGBoost below was measured against an *untuned* XGBoost. Against a tuned XGBoost (`xgb_tuned.md`) ShallowCNN is level on T cell and K562 and ahead only on GM12878 (+0.004 full, +0.012 matched); AttnCNN is level or worse. Read the conclusions below with that in mind.
+
 Run `20261119_irg-07-cnn-tuned` (Kaggle v2, GPU, 11,663 s). Same GC-matched v2.1 tables, canonical split (train chr1-14,X,Y; val chr15-18; test chr19-22), same models, strand averaging and evaluation sets as notebook 06. Changes: up to 60 epochs, patience 8, ReduceLROnPlateau, and a learning-rate sweep over {3e-4, 1e-3, 3e-3} (seed 0, selected on **validation** AUROC only), then 5 seeds at the selected rate. Test chromosomes were never used for any selection.
 
 ## Test AUROC, mean ± SD over 5 seeds

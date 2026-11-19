@@ -1,0 +1,12 @@
+run_id: 20261119_irg-07-cnn-tuned
+kernel: purvanshj009/irg-07-cnn-tuned
+kernel_version: 2
+notebook: kaggle/kernels/07-cnn-tuned/irg-07-cnn-tuned.ipynb
+inputs: [kernel_output:purvanshj009/irg-02-package-dataset]
+seeds: [0, 1, 2, 3, 4]
+lr_grid: [0.0003, 0.001, 0.003]
+accelerator: GPU (torch cuda, T4)
+runtime_s: 11663
+results: docs/results/cnn_tuned.md
+weights: huggingface.co/PxALabs/irg-cnn-baselines (30 files, safetensors; not stored in git)
+note: version 1 was a smoke run (1 epoch, subsample) and is not a result. LR chosen on validation AUROC only.

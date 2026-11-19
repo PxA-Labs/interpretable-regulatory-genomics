@@ -1,0 +1,23 @@
+{
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "device": "cuda",
+ "smoke": false,
+ "max_epochs": 60,
+ "patience": 8,
+ "lr_grid": [
+  0.0003,
+  0.001,
+  0.003
+ ],
+ "sweep_seed": 0,
+ "scheduler": "ReduceLROnPlateau(max,0.5,2)",
+ "batch_size": 256,
+ "torch": "2.11.0+cu130",
+ "runtime_s": 11663
+}

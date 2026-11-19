@@ -1,0 +1,10 @@
+run_id: 20261119_irg-08-repeat-control
+kernel: purvanshj009/irg-08-repeat-control
+kernel_version: 2
+notebook: kaggle/kernels/08-repeat-control/08_repeat_control.ipynb
+inputs: [kernel_output:purvanshj009/irg-02-package-dataset, kernel_output:purvanshj009/irg-07-cnn-tuned, dataset:purvanshj009/irg-repeat-coverage]
+seeds: {xgboost: [0, 1, 2], cnn: [0, 1, 2, 3, 4]}
+accelerator: GPU (XGBoost device=cuda; CNN inference)
+runtime_s: 481
+results: docs/results/repeat_control.md
+note: version 1 was a smoke run (loaded 1-epoch smoke weights) and is not a result. Repeat coverage from UCSC hg38 rmsk via tools/data/repeat_annotation.py.

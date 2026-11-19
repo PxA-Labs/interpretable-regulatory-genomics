@@ -1,0 +1,71 @@
+[     6.2s] /usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+[     7.1s] 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+[     7.1s] 0.00s - to python to disable frozen modules.
+[     7.7s] 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+[     7.7s] 0.00s - to python to disable frozen modules.
+[    17.0s] device cuda 2.11.0+cu130
+[    20.1s] [3s] tcell: train 59568 val 13190 test 12422 matched 6514 non-homologous 12165
+[   216.3s] [200s] sweep tcell shallow_cnn lr=0.0003: val 0.8609 (60 ep)
+[   385.4s] [369s] sweep tcell shallow_cnn lr=0.001: val 0.8905 (53 ep)
+[   561.8s] [545s] sweep tcell shallow_cnn lr=0.003: val 0.8899 (55 ep)
+[   732.1s] [715s] tcell shallow_cnn lr=0.001 seed0: test 0.888 matched 0.741 (53 ep, 170s)
+[   924.6s] [908s] tcell shallow_cnn lr=0.001 seed1: test 0.884 matched 0.735 (60 ep, 192s)
+[  1049.9s] [1033s] tcell shallow_cnn lr=0.001 seed2: test 0.885 matched 0.733 (39 ep, 125s)
+[  1182.1s] [1165s] tcell shallow_cnn lr=0.001 seed3: test 0.887 matched 0.741 (41 ep, 132s)
+[  1362.8s] [1346s] tcell shallow_cnn lr=0.001 seed4: test 0.885 matched 0.738 (56 ep, 181s)
+[  1630.7s] [1614s] sweep tcell attn_cnn lr=0.0003: val 0.8824 (27 ep)
+[  1878.0s] [1861s] sweep tcell attn_cnn lr=0.001: val 0.8856 (25 ep)
+[  2093.2s] [2077s] sweep tcell attn_cnn lr=0.003: val 0.9043 (22 ep)
+[  2309.7s] [2293s] tcell attn_cnn lr=0.003 seed0: test 0.900 matched 0.767 (22 ep, 216s)
+[  2517.5s] [2501s] tcell attn_cnn lr=0.003 seed1: test 0.895 matched 0.761 (21 ep, 208s)
+[  2714.9s] [2698s] tcell attn_cnn lr=0.003 seed2: test 0.898 matched 0.764 (20 ep, 197s)
+[  2911.4s] [2895s] tcell attn_cnn lr=0.003 seed3: test 0.871 matched 0.703 (20 ep, 196s)
+[  3158.0s] [3141s] tcell attn_cnn lr=0.003 seed4: test 0.890 matched 0.747 (25 ep, 247s)
+[  3161.6s] [3145s] k562: train 81079 val 17538 test 15863 matched 9940 non-homologous 15550
+[  3422.4s] [3406s] sweep k562 shallow_cnn lr=0.0003: val 0.8653 (60 ep)
+[  3622.7s] [3606s] sweep k562 shallow_cnn lr=0.001: val 0.8691 (46 ep)
+[  3770.7s] [3754s] sweep k562 shallow_cnn lr=0.003: val 0.8732 (34 ep)
+[  3919.2s] [3903s] k562 shallow_cnn lr=0.003 seed0: test 0.867 matched 0.767 (34 ep, 148s)
+[  4141.4s] [4125s] k562 shallow_cnn lr=0.003 seed1: test 0.870 matched 0.773 (51 ep, 222s)
+[  4298.4s] [4282s] k562 shallow_cnn lr=0.003 seed2: test 0.867 matched 0.768 (36 ep, 157s)
+[  4507.4s] [4491s] k562 shallow_cnn lr=0.003 seed3: test 0.869 matched 0.770 (48 ep, 209s)
+[  4620.9s] [4604s] k562 shallow_cnn lr=0.003 seed4: test 0.864 matched 0.763 (26 ep, 113s)
+[  4957.0s] [4940s] sweep k562 attn_cnn lr=0.0003: val 0.8589 (25 ep)
+[  5292.0s] [5275s] sweep k562 attn_cnn lr=0.001: val 0.8659 (25 ep)
+[  5612.2s] [5596s] sweep k562 attn_cnn lr=0.003: val 0.8787 (24 ep)
+[  5934.3s] [5918s] k562 attn_cnn lr=0.003 seed0: test 0.870 matched 0.775 (24 ep, 322s)
+[  6189.7s] [6173s] k562 attn_cnn lr=0.003 seed1: test 0.855 matched 0.744 (19 ep, 255s)
+[  6484.1s] [6467s] k562 attn_cnn lr=0.003 seed2: test 0.853 matched 0.738 (22 ep, 294s)
+[  6778.8s] [6762s] k562 attn_cnn lr=0.003 seed3: test 0.855 matched 0.744 (22 ep, 295s)
+[  7060.4s] [7044s] k562 attn_cnn lr=0.003 seed4: test 0.856 matched 0.742 (21 ep, 282s)
+[  7064.3s] [7048s] gm12878: train 91717 val 20528 test 16600 matched 11274 non-homologous 16337
+[  7361.2s] [7345s] sweep gm12878 shallow_cnn lr=0.0003: val 0.8377 (60 ep)
+[  7628.6s] [7612s] sweep gm12878 shallow_cnn lr=0.001: val 0.8446 (54 ep)
+[  7826.7s] [7810s] sweep gm12878 shallow_cnn lr=0.003: val 0.8467 (40 ep)
+[  8025.6s] [8009s] gm12878 shallow_cnn lr=0.003 seed0: test 0.846 matched 0.763 (40 ep, 199s)
+[  8219.5s] [8203s] gm12878 shallow_cnn lr=0.003 seed1: test 0.847 matched 0.766 (39 ep, 194s)
+[  8418.4s] [8402s] gm12878 shallow_cnn lr=0.003 seed2: test 0.845 matched 0.761 (40 ep, 199s)
+[  8637.9s] [8621s] gm12878 shallow_cnn lr=0.003 seed3: test 0.847 matched 0.765 (44 ep, 219s)
+[  8906.3s] [8890s] gm12878 shallow_cnn lr=0.003 seed4: test 0.848 matched 0.767 (54 ep, 268s)
+[  9334.9s] [9318s] sweep gm12878 attn_cnn lr=0.0003: val 0.8384 (28 ep)
+[  9686.3s] [9670s] sweep gm12878 attn_cnn lr=0.001: val 0.8494 (23 ep)
+[ 10019.8s] [10003s] sweep gm12878 attn_cnn lr=0.003: val 0.8593 (22 ep)
+[ 10354.9s] [10338s] gm12878 attn_cnn lr=0.003 seed0: test 0.856 matched 0.778 (22 ep, 335s)
+[ 10690.3s] [10674s] gm12878 attn_cnn lr=0.003 seed1: test 0.843 matched 0.756 (22 ep, 335s)
+[ 10980.6s] [10964s] gm12878 attn_cnn lr=0.003 seed2: test 0.847 matched 0.765 (19 ep, 290s)
+[ 11300.6s] [11284s] gm12878 attn_cnn lr=0.003 seed3: test 0.848 matched 0.771 (21 ep, 320s)
+[ 11679.8s] [11663s] gm12878 attn_cnn lr=0.003 seed4: test 0.843 matched 0.759 (25 ep, 379s)
+[ 11679.8s] biosample       model  n_params  auroc_test  sd_test  auroc_nonhomologous  auroc_matched  sd_matched  auprc_test  epochs    lr  frac_hit_cap
+[ 11679.8s]   gm12878    attn_cnn    189185       0.848    0.005                0.844          0.766       0.009       0.853    21.8 0.003           0.0
+[ 11679.8s]   gm12878 shallow_cnn      7937       0.847    0.001                0.844          0.764       0.002       0.849    43.4 0.003           0.0
+[ 11679.8s]      k562    attn_cnn    189185       0.858    0.007                0.855          0.749       0.015       0.864    21.6 0.003           0.0
+[ 11679.8s]      k562 shallow_cnn      7937       0.868    0.002                0.865          0.768       0.004       0.869    39.0 0.003           0.0
+[ 11679.8s]     tcell    attn_cnn    189185       0.891    0.012                0.889          0.749       0.026       0.897    21.6 0.003           0.0
+[ 11679.8s]     tcell shallow_cnn      7937       0.886    0.002                0.884          0.737       0.004       0.893    49.8 0.001           0.2
+[ 11679.8s] done in 11663s
+[ 11685.5s]   cells[i][c] = re.sub('\\\\\|', '|', cell)
+[ 11685.6s]   text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[ 11686.3s] [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+[ 11686.4s] [NbConvertApp] Writing 23410 bytes to __notebook__.ipynb
+[ 11688.9s] [NbConvertApp] Converting notebook __notebook__.ipynb to html
+[ 11689.5s] [NbConvertApp] Writing 347366 bytes to __results__.html

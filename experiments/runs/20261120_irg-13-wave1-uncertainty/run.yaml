@@ -1,0 +1,13 @@
+run_id: 20261120_irg-13-wave1-uncertainty
+kernel: purvanshj009/irg-13-wave1-uncertainty
+kernel_version: 2
+notebook: kaggle/kernels/13-wave1-uncertainty/13_wave1_uncertainty.ipynb
+inputs: [kernel_output:purvanshj009/irg-02-package-dataset, kernel_output:purvanshj009/irg-07-cnn-tuned, kernel_output:purvanshj009/irg-09-xgb-tuned, kernel_output:purvanshj009/irg-11-xgb-wide, dataset:purvanshj009/irg-repeat-coverage]
+analysis_code: tools/analysis/wave1_uncertainty.py (embedded verbatim in the notebook by kaggle/kernels/13-wave1-uncertainty/build_kernel.py)
+seeds: [0, 1, 2, 3, 4]
+bootstrap_replicates: 1000
+accelerator: GPU (CNN scoring)
+runtime_s: 629
+results: docs/results/wave1_uncertainty.md
+per_window_predictions: results/preds_<biosample>.parquet (test rows, one column per model and seed; 6.9 MB; in the HF and Kaggle run-records datasets, not committed to git)
+note: version 1 was a smoke run (subsampled, 20 replicates) and is not a result. No models were trained.

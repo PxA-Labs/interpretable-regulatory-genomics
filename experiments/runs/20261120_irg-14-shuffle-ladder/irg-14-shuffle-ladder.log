@@ -1,0 +1,50 @@
+[{"stream_name":"stderr","time":7.181518878,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.181561083,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":8.157212799,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.157258303,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.157265258,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.157269655,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.76274805,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.762779005,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.762784019,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.762787731,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":21.55938479,"data":"device cuda smoke False\n"}
+,{"stream_name":"stdout","time":21.594174246,"data":"shuffle tests passed; 5-let shuffle keeps 0.249 of positions\n"}
+,{"stream_name":"stdout","time":39.910307197,"data":"loaded 15 xgb and 30 cnn models\n"}
+,{"stream_name":"stdout","time":70.751315874,"data":"[51s] tcell original: identical pos 1.00, 6-mer spectrum overlap 1.00, full AUROC xgb_wide 0.894, shallow_cnn 0.891, attn_cnn 0.903\n"}
+,{"stream_name":"stdout","time":140.851543226,"data":"[121s] tcell kmer6: identical pos 0.29, 6-mer spectrum overlap 1.00, full AUROC xgb_wide 0.894, shallow_cnn 0.870, attn_cnn 0.876\n"}
+,{"stream_name":"stdout","time":189.041950639,"data":"[169s] tcell kmer5: identical pos 0.29, 6-mer spectrum overlap 0.68, full AUROC xgb_wide 0.881, shallow_cnn 0.842, attn_cnn 0.848\n"}
+,{"stream_name":"stdout","time":226.267521297,"data":"[207s] tcell kmer4: identical pos 0.28, 6-mer spectrum overlap 0.42, full AUROC xgb_wide 0.847, shallow_cnn 0.815, attn_cnn 0.828\n"}
+,{"stream_name":"stdout","time":260.783020626,"data":"[241s] tcell kmer3: identical pos 0.28, 6-mer spectrum overlap 0.33, full AUROC xgb_wide 0.818, shallow_cnn 0.804, attn_cnn 0.818\n"}
+,{"stream_name":"stdout","time":294.256634433,"data":"[274s] tcell kmer2: identical pos 0.28, 6-mer spectrum overlap 0.29, full AUROC xgb_wide 0.801, shallow_cnn 0.794, attn_cnn 0.806\n"}
+,{"stream_name":"stdout","time":322.12905312,"data":"[302s] tcell kmer1: identical pos 0.28, 6-mer spectrum overlap 0.23, full AUROC xgb_wide 0.506, shallow_cnn 0.493, attn_cnn 0.494\n"}
+,{"stream_name":"stdout","time":349.26522434,"data":"[330s] tcell block250: identical pos 0.46, 6-mer spectrum overlap 0.99, full AUROC xgb_wide 0.893, shallow_cnn 0.890, attn_cnn 0.901\n"}
+,{"stream_name":"stdout","time":376.749880902,"data":"[357s] tcell block100: identical pos 0.35, 6-mer spectrum overlap 0.97, full AUROC xgb_wide 0.891, shallow_cnn 0.888, attn_cnn 0.898\n"}
+,{"stream_name":"stdout","time":415.013571903,"data":"[395s] k562 original: identical pos 1.00, 6-mer spectrum overlap 1.00, full AUROC xgb_wide 0.874, shallow_cnn 0.874, attn_cnn 0.871\n"}
+,{"stream_name":"stdout","time":507.11349907,"data":"[487s] k562 kmer6: identical pos 0.29, 6-mer spectrum overlap 1.00, full AUROC xgb_wide 0.874, shallow_cnn 0.851, attn_cnn 0.839\n"}
+,{"stream_name":"stdout","time":572.643084694,"data":"[553s] k562 kmer5: identical pos 0.29, 6-mer spectrum overlap 0.68, full AUROC xgb_wide 0.857, shallow_cnn 0.823, attn_cnn 0.811\n"}
+,{"stream_name":"stdout","time":622.690379511,"data":"[603s] k562 kmer4: identical pos 0.28, 6-mer spectrum overlap 0.42, full AUROC xgb_wide 0.827, shallow_cnn 0.799, attn_cnn 0.797\n"}
+,{"stream_name":"stdout","time":668.806083846,"data":"[649s] k562 kmer3: identical pos 0.28, 6-mer spectrum overlap 0.32, full AUROC xgb_wide 0.792, shallow_cnn 0.775, attn_cnn 0.785\n"}
+,{"stream_name":"stdout","time":711.510479243,"data":"[692s] k562 kmer2: identical pos 0.28, 6-mer spectrum overlap 0.28, full AUROC xgb_wide 0.766, shallow_cnn 0.761, attn_cnn 0.772\n"}
+,{"stream_name":"stdout","time":747.754469305,"data":"[728s] k562 kmer1: identical pos 0.28, 6-mer spectrum overlap 0.22, full AUROC xgb_wide 0.502, shallow_cnn 0.499, attn_cnn 0.499\n"}
+,{"stream_name":"stdout","time":782.798063916,"data":"[763s] k562 block250: identical pos 0.46, 6-mer spectrum overlap 0.99, full AUROC xgb_wide 0.873, shallow_cnn 0.873, attn_cnn 0.870\n"}
+,{"stream_name":"stdout","time":818.335126049,"data":"[799s] k562 block100: identical pos 0.34, 6-mer spectrum overlap 0.97, full AUROC xgb_wide 0.872, shallow_cnn 0.871, attn_cnn 0.868\n"}
+,{"stream_name":"stdout","time":860.803549864,"data":"[841s] gm12878 original: identical pos 1.00, 6-mer spectrum overlap 1.00, full AUROC xgb_wide 0.848, shallow_cnn 0.855, attn_cnn 0.861\n"}
+,{"stream_name":"stdout","time":963.978162775,"data":"[944s] gm12878 kmer6: identical pos 0.28, 6-mer spectrum overlap 1.00, full AUROC xgb_wide 0.848, shallow_cnn 0.818, attn_cnn 0.820\n"}
+,{"stream_name":"stdout","time":1034.225124909,"data":"[1014s] gm12878 kmer5: identical pos 0.28, 6-mer spectrum overlap 0.67, full AUROC xgb_wide 0.832, shallow_cnn 0.783, attn_cnn 0.789\n"}
+,{"stream_name":"stdout","time":1088.753271591,"data":"[1069s] gm12878 kmer4: identical pos 0.28, 6-mer spectrum overlap 0.41, full AUROC xgb_wide 0.792, shallow_cnn 0.755, attn_cnn 0.767\n"}
+,{"stream_name":"stdout","time":1138.586340433,"data":"[1119s] gm12878 kmer3: identical pos 0.28, 6-mer spectrum overlap 0.32, full AUROC xgb_wide 0.759, shallow_cnn 0.734, attn_cnn 0.754\n"}
+,{"stream_name":"stdout","time":1185.582524538,"data":"[1166s] gm12878 kmer2: identical pos 0.28, 6-mer spectrum overlap 0.28, full AUROC xgb_wide 0.733, shallow_cnn 0.721, attn_cnn 0.735\n"}
+,{"stream_name":"stdout","time":1225.353817351,"data":"[1206s] gm12878 kmer1: identical pos 0.27, 6-mer spectrum overlap 0.22, full AUROC xgb_wide 0.503, shallow_cnn 0.502, attn_cnn 0.502\n"}
+,{"stream_name":"stdout","time":1264.437124524,"data":"[1245s] gm12878 block250: identical pos 0.44, 6-mer spectrum overlap 0.99, full AUROC xgb_wide 0.847, shallow_cnn 0.853, attn_cnn 0.859\n"}
+,{"stream_name":"stdout","time":1303.981014271,"data":"[1284s] gm12878 block100: identical pos 0.34, 6-mer spectrum overlap 0.97, full AUROC xgb_wide 0.846, shallow_cnn 0.851, attn_cnn 0.857\n"}
+,{"stream_name":"stdout","time":1304.031895557,"data":"done 1284 s\n"}
+,{"stream_name":"stderr","time":1310.100345675,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1310.100377885,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1310.276804354,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1310.276855461,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1311.097956233,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1311.195413321,"data":"[NbConvertApp] Writing 26755 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1313.643108866,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1314.213746777,"data":"[NbConvertApp] Writing 369039 bytes to __results__.html\n"}
+]

@@ -1,0 +1,13 @@
+run_id: 20261120_irg-14-shuffle-ladder
+kernel: purvanshj009/irg-14-shuffle-ladder
+kernel_version: 2
+notebook: kaggle/kernels/14-shuffle-ladder/14_shuffle_ladder.ipynb
+inputs: [kernel_output:purvanshj009/irg-02-package-dataset, kernel_output:purvanshj009/irg-07-cnn-tuned, kernel_output:purvanshj009/irg-11-xgb-wide, dataset:purvanshj009/irg-repeat-coverage]
+seeds: [0, 1, 2, 3, 4]
+levels: original, k-let k=6,5,4,3,2,1 (exact k-mer counts), 250 bp and 100 bp block shuffles; shuffle seed 1234
+bootstrap_replicates: 500
+accelerator: GPU (CNN scoring)
+runtime_s: 1284
+results: docs/results/shuffle_ladder.md
+per_window_predictions: results/ladder_preds_<biosample>.parquet (ensemble scores per level and family; in the HF and Kaggle run-records datasets, not committed to git)
+note: version 1 was a smoke run (subsampled, 20 replicates) and is not a result. No models were trained. The precommitted reading in the notebook header is reported literally in the results document, together with why it was not a valid test.

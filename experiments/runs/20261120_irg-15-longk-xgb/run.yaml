@@ -1,0 +1,16 @@
+run_id: 20261120_irg-15-longk-xgb
+kernel: purvanshj009/irg-15-longk-xgb
+kernel_version: 2
+notebook: kaggle/kernels/15-longk-xgb/15_longk_xgb.ipynb
+inputs: [kernel_output:purvanshj009/irg-02-package-dataset, kernel_output:purvanshj009/irg-07-cnn-tuned, kernel_output:purvanshj009/irg-11-xgb-wide, dataset:purvanshj009/irg-repeat-coverage]
+seeds: [0, 1, 2]
+features: [k8 (65,536 sparse), spaced (3 gapped 6-of-9/8 masks, 12,288 sparse), k6_ctrl (4,096 sparse; seed 0 only)]
+search: 2 configs per feature set (notebook-11 selected config C0, colsample halved C1), validation AUROC; cap 6000, patience 100, max_bin 64
+shuffle_levels: original, k-let 8/6/4, 250 bp blocks; shuffle seed 1234
+bootstrap_replicates: 500
+accelerator: GPU
+runtime_s: 8186
+results: docs/results/longk_xgb.md
+models: huggingface PxALabs/irg-xgboost-longk (private; 21 .ubj pushed from inside Kaggle by kernel irg-15b-push-longk-to-hf; not downloaded locally)
+per_window_predictions: results/longk_preds_<biosample>.parquet (Kaggle kernel output only; not downloaded locally)
+note: version 1 was a smoke run (subsampled, 30 trees) and is not a result. Hypotheses and the H1/H0 rule are in the notebook header, written before the run.

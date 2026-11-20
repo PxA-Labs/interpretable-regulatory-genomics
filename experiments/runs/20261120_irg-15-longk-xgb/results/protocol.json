@@ -1,0 +1,53 @@
+{
+ "selected_feature_set": {
+  "tcell": "spaced",
+  "k562": "spaced",
+  "gm12878": "k8"
+ },
+ "configs": {
+  "tcell": {
+   "C0": {
+    "max_depth": 8,
+    "learning_rate": 0.05,
+    "subsample": 0.6,
+    "colsample_bytree": 0.1,
+    "min_child_weight": 5,
+    "reg_lambda": 100.0
+   },
+   "C1_colsample": 0.05
+  },
+  "k562": {
+   "C0": {
+    "max_depth": 8,
+    "learning_rate": 0.05,
+    "subsample": 0.6,
+    "colsample_bytree": 0.1,
+    "min_child_weight": 5,
+    "reg_lambda": 100.0
+   },
+   "C1_colsample": 0.05
+  },
+  "gm12878": {
+   "C0": {
+    "max_depth": 8,
+    "learning_rate": 0.05,
+    "subsample": 1.0,
+    "colsample_bytree": 0.3,
+    "min_child_weight": 1,
+    "reg_lambda": 20.0
+   },
+   "C1_colsample": 0.15
+  }
+ },
+ "cap": 6000,
+ "early_stopping": 100,
+ "max_bin": 64,
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "smoke": false,
+ "xgboost": "3.4.1",
+ "runtime_s": 8186
+}

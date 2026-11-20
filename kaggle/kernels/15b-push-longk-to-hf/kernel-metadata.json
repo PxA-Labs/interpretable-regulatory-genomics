@@ -1,0 +1,19 @@
+{
+  "id": "purvanshj009/irg-15b-push-longk-to-hf",
+  "title": "IRG 15b Push Longk To HF",
+  "code_file": "push_to_hf.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [],
+  "kernel_sources": [
+    "purvanshj009/irg-15-longk-xgb"
+  ],
+  "competition_sources": [],
+  "model_sources": [],
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:fc720c15545eb096a510e1f085b17fc118387a007599424d953a4f327b71cacf"
+}

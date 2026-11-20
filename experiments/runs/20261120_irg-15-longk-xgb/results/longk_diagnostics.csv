@@ -1,0 +1,10 @@
+biosample,check,max_abs_diff,auroc_ctrl,auroc_nb11
+tcell,k8 xgb unchanged at 8-let,0.0,,
+tcell,k6 xgb unchanged at 6-let,0.0,,
+tcell,sparse k6 control vs nb11 dense (seed 0) full-test AUROC,,0.8875742060825029,0.89232460853585
+k562,k8 xgb unchanged at 8-let,0.0,,
+k562,k6 xgb unchanged at 6-let,0.0,,
+k562,sparse k6 control vs nb11 dense (seed 0) full-test AUROC,,0.868106032152123,0.8718804867219303
+gm12878,k8 xgb unchanged at 8-let,0.0,,
+gm12878,k6 xgb unchanged at 6-let,0.0,,
+gm12878,sparse k6 control vs nb11 dense (seed 0) full-test AUROC,,0.8437622659311946,0.8453425751197561

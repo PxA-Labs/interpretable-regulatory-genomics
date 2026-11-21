@@ -24,7 +24,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Documentation
 
 - docs: replace PDFs with Markdown as source of truth ([#82](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/82)) by @purvanshjoshi on 2026-11-18
-## [1.0.0] - 2026-07-16
+
+- Notebook 15: longer and spaced k-mer XGBoost vs the GM12878 CNN edge ([#108](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/108)) by @purvanshjoshi on 2026-11-21
 
 ### Added
 - Phase 2 visualizations and CNN filter motifs ([#3](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/3))

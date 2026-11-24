@@ -43,7 +43,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Professional CI/CD workflows (Dependabot, mypy, coverage, pre-commit, matrix tests, Docker, notebooks, license check) ([#25](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/25))
 - Contributing tip to README ([#40](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/40))
 
-### Changed
+
+- Notebook 16: publish repeat-coverage and JASPAR datasets to HF from Kaggle ([#110](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/110)) by @purvanshjoshi on 2026-11-24
 - Bump `actions/upload-artifact` from 4 to 7 ([#31](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/31))
 - Bump `docker/build-push-action` from 5 to 7 ([#30](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/30))
 - Bump `docker/metadata-action` from 5 to 6 ([#29](https://github.com/PxA-Labs/interpretable-regulatory-genomics/pull/29))
